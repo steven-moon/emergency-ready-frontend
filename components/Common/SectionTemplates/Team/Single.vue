@@ -1,5 +1,5 @@
 <template>
-  <div class="section team-5 section-image" :style="{ backgroundImage: `url(${data.backgroundUrl})` }">
+  <div v-if="data" class="section team-5 section-image" :style="{ backgroundImage: `url(${data.backgroundUrl})` }">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto text-center">
@@ -29,6 +29,7 @@
       </div>
     </div>
   </div>
+  <div v-else></div>
 </template>
 <script>
 

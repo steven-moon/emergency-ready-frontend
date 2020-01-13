@@ -24,24 +24,16 @@
     </template>
     <template slot="navbar-menu">
       <drop-down
-        tag="li"
-        title="Company"
-        icon="now-ui-icons design_app"
-        class="nav-item"
+              tag="li"
+              title="Pages"
+              icon="now-ui-icons design_app"
+              class="nav-item"
       >
-        <a href="/about" class="dropdown-item"><i class="now-ui-icons travel_info"></i> Home</a>
-          <a href="/about" class="dropdown-item"><i class="now-ui-icons travel_info"></i> About Us</a>
-        <a href="/blog" class="dropdown-item"><i class="now-ui-icons objects_planet"></i> Blog</a>
+        <a href="/" class="dropdown-item"><i class="now-ui-icons travel_info"/> Home</a>
+        <a href="/featured-apps" class="dropdown-item"><i class="now-ui-icons  cc-icons cc-icon-cockade"/> Featured Apps</a>
+        <a href="/blog" class="dropdown-item"><i class="now-ui-icons emoticons_satisfied"/> Blog</a>
+        <a href="/contactus" class="dropdown-item"><i class="now-ui-icons design_bullet-list-67"/> Our Contact Us</a>
       </drop-down>
-
-      <li class="nav-item">
-        <a
-          class="nav-link btn btn-default btn-primary"
-          href="/contactus"
-        >
-          <p>Contact Us</p>
-        </a>
-      </li>
     </template>
   </navbar>
 </template>

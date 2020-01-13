@@ -3,37 +3,22 @@
     <div class="container">
       <div class="content">
         <div class="row">
-          <div class="col-md-4">
-            <h5>About Us</h5>
+          <div class="col-md-6">
+            <h5></h5>
             <ul class="links-vertical">
+              <li>
+                <a href="/" class="text-muted">
+                  Home
+                </a>
+              </li>
               <li>
                 <a href="/blog" class="text-muted">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="/about" class="text-muted">
-                  About Us
-                </a>
-              </li>
-              <li>
                 <a href="/contactus" class="text-muted">
                   Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="/testimonials" class="text-muted">
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a href="/careers" class="text-muted">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="/billing-models" class="text-muted">
-                  Billing Models
                 </a>
               </li>
               <li>
@@ -43,48 +28,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-md-4">
-            <h5>Services</h5>
-            <ul class="links-vertical">
-              <li>
-                <a href="/customdevelopment" class="text-muted">
-                  Custom Development
-                </a>
-              </li>
-              <li>
-                <a href="/design-to-html-frontend-coding" class="text-muted">
-                  Design To HTML
-                </a>
-              </li>
-              <li>
-                <a href="/design-to-reactive-frontend-coding" class="text-muted">
-                  Design To Reactive App
-                </a>
-              </li>
-              <li>
-                <a href="/legacy-upgrades" class="text-muted">
-                  Legacy Upgrades
-                </a>
-              </li>
-              <li>
-                <a href="/mobile-app-developers" class="text-muted">
-                  Mobile App Developers
-                </a>
-              </li>
-              <li>
-                <a href="/web-developers" class="text-muted">
-                  Web Developers
-                </a>
-              </li>
-              <li>
-                <a href="/prototyping" class="text-muted">
-                  ProtoTyping
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h5>Follow Us</h5>
+          <div class="col-md-6">
             <ul class="social-buttons">
               <li>
                 <a
@@ -119,17 +63,6 @@
                 </a>
               </li>
             </ul>
-            <h5>
-              <small>Numbers Don't Lie</small>
-            </h5>
-            <h5>
-              {{yearsInBusiness}}
-              <small class="text-muted">Years in Business</small>
-            </h5>
-            <h5>
-              400+
-              <small class="text-muted">Number of Projects Completed</small>
-            </h5>
           </div>
         </div>
       </div>

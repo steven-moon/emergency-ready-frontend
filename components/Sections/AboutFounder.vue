@@ -1,6 +1,7 @@
 <template>
-
-  <project-wrapper whichProject="5" :data="aboutUs"/>
+  <div class="wrapper landing-page">
+    <team-wrapper whichTeam="single" :data="founderData"/>
+  </div>
 </template>
 
 
@@ -13,21 +14,24 @@
   /**
    * @ The internal dependecies.
    */
-  import ProjectWrapper from '@/components/Common/SectionTemplates/Project/ProjectWrapper'
+  import TeamWrapper from '@/components/Common/SectionTemplates/Team/TeamWrapper'
 
 
   export default {
-    name: 'AboutUsSummary',
+    name: 'AboutFounder',
     components: {
-      ProjectWrapper
+      TeamWrapper
     },
     data() {
-      return {}
+      return {
+      }
     },
     computed: {
       ...mapGetters('pageDataStore', {
-        aboutUs: 'aboutUs',
+        founderData: 'founderData',
       }),
+    },
+    methods: {
     },
     mounted() {
     }

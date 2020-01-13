@@ -136,7 +136,7 @@
 
 <script>
 
-  import CleverAPI from "~/api/CleverAPI"
+  import EmergencyReadyAPI from "~/api/EmergencyReadyAPI"
   import VueRecaptcha from 'vue-recaptcha';
 
   export default {
@@ -171,7 +171,7 @@
         }
 
         this.isLoading = true;
-        CleverAPI.sendSubscribeForm(formData)
+        EmergencyReadyAPI.sendSubscribeForm(formData)
           .then(response => {
             if (response.status >= 200 && response.status < 300) {
                 this.subscribeResponseMessage = "You have been successful subscribed to our newsletter."

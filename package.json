@@ -16,8 +16,6 @@
     "@nuxtjs/google-analytics": "^2.2.1",
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
-    "@nuxtjs/redirect-module": "^0.3.1",
-    "@nuxtjs/sitemap": "^2.0.1",
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
     "bootstrap": "^4.3.1",

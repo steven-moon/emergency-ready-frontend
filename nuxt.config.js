@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 
-
+import { WP_API_GET_POSTS_ENDPOINT } from './constants/index.js';
 
 module.exports = {
   mode: 'universal',
@@ -23,16 +23,6 @@ module.exports = {
       }
     }
   },
-  redirect: [
-    { from: '^/iPhone3Dglobe.php', to: '/' },
-    { from: '^/ourapps.php', to: '/featured-apps' },
-    { from: '^/index.php', to: '/' },
-    { from: '^/index', to: '/' },
-    { from: '^/(.*)\.php$', to: '/$1' },
-    { from: '^/(.*)\.html$', to: '/$1' },
-    { from: '^/wordpress/.+\\/([^.]+)\\/$', to: '/blog/$1' },
-    { from: '^/wordpress/', to: '/blog/' },
-  ],
   head: {
     title: 'Clever Coding',
     meta: [
@@ -103,8 +93,6 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
-    '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap',
     ['@nuxtjs/google-analytics', {
       id: process.env.GOOGLE_ID
     }],
@@ -145,66 +133,5 @@ module.exports = {
     baseApiUrl: process.env.baseApiUrl || 'https://api.summacoding.com/api',
     WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.clevercoding.com/wp-json/emergency-ready/v1/get-post',
     WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.clevercoding.com/wp-json/emergency-ready/v1/get-posts',
-  },
-  sitemap: {
-    hostname: 'https://clevercoding.com',
-    exclude: [
-      '/samples',
-      '/samples/**'
-    ],
-    routes: [
-      "/States/Mobile-Dev-Alabama",
-      "/States/Mobile-Dev-Alaska",
-      "/States/Mobile-Dev-Arizona",
-      "/States/Mobile-Dev-Arkansas",
-      "/States/Mobile-Dev-California",
-      "/States/Mobile-Dev-Canada",
-      "/States/Mobile-Dev-Colorado",
-      "/States/Mobile-Dev-Connecticut",
-      "/States/Mobile-Dev-Deleware",
-      "/States/Mobile-Dev-Florida",
-      "/States/Mobile-Dev-Georgia",
-      "/States/Mobile-Dev-Hawaii",
-      "/States/Mobile-Dev-Idaho",
-      "/States/Mobile-Dev-Illinois",
-      "/States/Mobile-Dev-Indiana",
-      "/States/Mobile-Dev-Iowa",
-      "/States/Mobile-Dev-Kansas",
-      "/States/Mobile-Dev-Kentucky",
-      "/States/Mobile-Dev-Louisiana",
-      "/States/Mobile-Dev-Maine",
-      "/States/Mobile-Dev-Maryland",
-      "/States/Mobile-Dev-Massachusetts",
-      "/States/Mobile-Dev-Michigan",
-      "/States/Mobile-Dev-Minnesota",
-      "/States/Mobile-Dev-Mississippi",
-      "/States/Mobile-Dev-Missouri",
-      "/States/Mobile-Dev-Montana",
-      "/States/Mobile-Dev-Nebraska",
-      "/States/Mobile-Dev-Nevada",
-      "/States/Mobile-Dev-New-Hampshire",
-      "/States/Mobile-Dev-New-Jersey",
-      "/States/Mobile-Dev-New-Mexico",
-      "/States/Mobile-Dev-New-York",
-      "/States/Mobile-Dev-North-Carolina",
-      "/States/Mobile-Dev-North-Dakota",
-      "/States/Mobile-Dev-Ohio",
-      "/States/Mobile-Dev-Oklahoma",
-      "/States/Mobile-Dev-Oregon",
-      "/States/Mobile-Dev-Pennsylvania",
-      "/States/Mobile-Dev-Rhode-Island",
-      "/States/Mobile-Dev-South-Carolina",
-      "/States/Mobile-Dev-South-Dakota",
-      "/States/Mobile-Dev-Tennessee",
-      "/States/Mobile-Dev-Texas",
-      "/States/Mobile-Dev-Utah",
-      "/States/Mobile-Dev-Vermont",
-      "/States/Mobile-Dev-Virginia",
-      "/States/Mobile-Dev-Washington-DC",
-      "/States/Mobile-Dev-Washington",
-      "/States/Mobile-Dev-West-Virginia",
-      "/States/Mobile-Dev-Wisconsin",
-      "/States/Mobile-Dev-Wyoming",
-    ]
   },
 }

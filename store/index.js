@@ -2,15 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 
-Vue.use(Vuex);
-
-import cityStore from './modules/cityStore';
-import testimonialStore from './modules/testimonialStore';
-import teamStore from './modules/teamStore';
-import projectPageDataStore from './modules/projectPageDataStore';
 import pageDataStore from './modules/pageDataStore';
-import sectionDataStore from './modules/sectionDataStore';
 import featuredAppDataStore from './modules/featuredAppDataStore';
+
+Vue.use(Vuex);
 
 
 const namespaced = true;
@@ -19,13 +14,8 @@ const createStore = () => {
    return new Vuex.Store({
       namespaced,
       modules: {
-        cityStore: cityStore,
-        teamStore: teamStore,
-        testimonialStore: testimonialStore,
-        projectPageDataStore: projectPageDataStore,
-        pageDataStore: pageDataStore,
-        sectionDataStore: sectionDataStore,
-        featuredAppDataStore: featuredAppDataStore
+         pageDataStore: pageDataStore,
+         featuredAppDataStore: featuredAppDataStore
       },
       state: {
          userId: null,

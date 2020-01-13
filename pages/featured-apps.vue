@@ -1,50 +1,53 @@
 <template>
   <div class="wrapper landing-page">
-    <about-us-summary/>
-    <about-founder/>
+    <project-wrapper whichProject="2" :data="featuredAppsPage"/>
     <contact-us :withMap="true"/>
     <subscribe :showImage="true"/>
   </div>
 </template>
+
+
 <script>
   /**
    * @ The external dependecies.
    */
-
+  import {mapGetters} from 'vuex';
 
   /**
    * @ The internal dependecies.
    */
-  import AboutUsSummary from '@/components/Sections/AboutUsSummary'
+  import ProjectWrapper from '@/components/Common/SectionTemplates/Project/ProjectWrapper'
   import ContactUs from '@/components/Sections/ContactUs'
   import Subscribe from '@/components/Sections/Subscribe'
-  import AboutFounder from '@/components/Sections/AboutFounder'
+
 
   export default {
-    name: 'Home',
+    name: 'featured-apps',
     components: {
-      AboutUsSummary,
-      AboutFounder,
+      ProjectWrapper,
       ContactUs,
-      Subscribe,
+      Subscribe
     },
     head () {
       return {
         title: this.title,
         meta: [
           // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: 'Welcome to Clever Coding. Our mobile app and web development company is based in Lehi, Utah but we service the country. Learn more about our company today!' }
+          { hid: 'description', name: 'description', content: 'We\'ve had one of the first Apple apps on the market, and we didn\'t stop there. Explore some of our latest featured apps that Clever Coding designed.' }
         ]
       }
     },
     data() {
       return {
-        title: "Clever Coding - Welcome To Clever Coding"
+        title: "Featured Apps"
       }
     },
+    computed: {
+      ...mapGetters('pageDataStore', {
+        featuredAppsPage: 'featuredAppsPage'
+      }),
+    },
     mounted() {
-      // initParallax()
     }
   }
 </script>
-<style></style>
