@@ -1,0 +1,953 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$cc-icon-window-responsive: unicode(ea02);
+$cc-icon-window-dev: unicode(ea03);
+$cc-icon-name-card: unicode(ea04);
+$cc-icon-bill: unicode(ea05);
+$cc-icon-sidebar: unicode(ea06);
+$cc-icon-mirror-tablet-phone: unicode(ea07);
+$cc-icon-mirror-tablet-phone-2: unicode(ea08);
+$cc-icon-window-code: unicode(ea09);
+$cc-icon-window-dev-2: unicode(ea0a);
+$cc-icon-data-table: unicode(ea0b);
+$cc-icon-board-2: unicode(ea0c);
+$cc-icon-data-table-2: unicode(ea0d);
+$cc-icon-js-console: unicode(ea0e);
+$cc-icon-roadmap: unicode(ea0f);
+$cc-icon-note: unicode(ea10);
+$cc-icon-board-2-2: unicode(ea11);
+$cc-icon-three-dimensional-object: unicode(ea12);
+$cc-icon-priority-highest: unicode(ea13);
+$cc-icon-priority-high: unicode(ea14);
+$cc-icon-priority-normal: unicode(ea15);
+$cc-icon-priority-low: unicode(ea16);
+$cc-icon-priority-lowest: unicode(ea17);
+$cc-icon-decision-process: unicode(ea18);
+$cc-icon-floors: unicode(ea19);
+$cc-icon-app-store: unicode(ea1a);
+$cc-icon-apps: unicode(ea1b);
+$cc-icon-img-stack: unicode(ea1c);
+$cc-icon-hot-key: unicode(ea1d);
+$cc-icon-json: unicode(ea1e);
+$cc-icon-tool-hand: unicode(ea1f);
+$cc-icon-components: unicode(ea20);
+$cc-icon-grid-system: unicode(ea21);
+$cc-icon-mask-rect: unicode(ea22);
+$cc-icon-mask-oval: unicode(ea23);
+$cc-icon-tool-blur: unicode(ea24);
+$cc-icon-transparent: unicode(ea25);
+$cc-icon-size-large: unicode(ea26);
+$cc-icon-design-system: unicode(ea27);
+$cc-icon-position: unicode(ea28);
+$cc-icon-border-radius: unicode(ea29);
+$cc-icon-border: unicode(ea2a);
+$cc-icon-cards: unicode(ea2b);
+$cc-icon-prototype: unicode(ea2c);
+$cc-icon-gradient: unicode(ea2d);
+$cc-icon-timeline: unicode(ea2e);
+$cc-icon-sidebar-2: unicode(ea2f);
+$cc-icon-mirror-tablet-phone-3: unicode(ea30);
+$cc-icon-zoom-99: unicode(ea31);
+$cc-icon-window-responsive-2: unicode(ea32);
+$cc-icon-window-paragraph: unicode(ea33);
+$cc-icon-window-dev-3: unicode(ea34);
+$cc-icon-window-code-2: unicode(ea35);
+$cc-icon-webpage: unicode(ea36);
+$cc-icon-wireframe: unicode(ea37);
+$cc-icon-wand-11: unicode(ea38);
+$cc-icon-graphics-tablet: unicode(ea39);
+$cc-icon-tablet-mobile: unicode(ea3a);
+$cc-icon-sketch: unicode(ea3b);
+$cc-icon-psd: unicode(ea3c);
+$cc-icon-png: unicode(ea3d);
+$cc-icon-php: unicode(ea3e);
+$cc-icon-mobile-phone: unicode(ea3f);
+$cc-icon-pdf: unicode(ea40);
+$cc-icon-paper-dev: unicode(ea41);
+$cc-icon-patch-34: unicode(ea42);
+$cc-icon-patch-19: unicode(ea43);
+$cc-icon-note-code: unicode(ea44);
+$cc-icon-newsletter-dev: unicode(ea45);
+$cc-icon-mouse: unicode(ea46);
+$cc-icon-mouse-2: unicode(ea47);
+$cc-icon-mobile-dev: unicode(ea48);
+$cc-icon-mobile-design: unicode(ea49);
+$cc-icon-mirror: unicode(ea4a);
+$cc-icon-microsoft: unicode(ea4b);
+$cc-icon-stack: unicode(ea4c);
+$cc-icon-js: unicode(ea4d);
+$cc-icon-jpg: unicode(ea4e);
+$cc-icon-image: unicode(ea4f);
+$cc-icon-html5: unicode(ea50);
+$cc-icon-html: unicode(ea51);
+$cc-icon-form: unicode(ea52);
+$cc-icon-filter-organization: unicode(ea53);
+$cc-icon-eps: unicode(ea54);
+$cc-icon-drag: unicode(ea55);
+$cc-icon-design-dev: unicode(ea56);
+$cc-icon-css3: unicode(ea57);
+$cc-icon-css: unicode(ea58);
+$cc-icon-copy: unicode(ea59);
+$cc-icon-collection: unicode(ea5a);
+$cc-icon-code: unicode(ea5b);
+$cc-icon-code-editor: unicode(ea5c);
+$cc-icon-canvas: unicode(ea5d);
+$cc-icon-bullet-list-70: unicode(ea5e);
+$cc-icon-bullet-list-69: unicode(ea5f);
+$cc-icon-bug: unicode(ea60);
+$cc-icon-book-bookmark: unicode(ea61);
+$cc-icon-book-bookmark-2: unicode(ea62);
+$cc-icon-apple: unicode(ea63);
+$cc-icon-android: unicode(ea64);
+$cc-icon-album: unicode(ea65);
+$cc-icon-app-services: unicode(ea66);
+$cc-icon-name-card-2: unicode(ea67);
+$cc-icon-business-contact-85: unicode(ea68);
+$cc-icon-privacy-policy: unicode(ea69);
+$cc-icon-wallet-90: unicode(ea6a);
+$cc-icon-strategy: unicode(ea6b);
+$cc-icon-pig: unicode(ea6c);
+$cc-icon-payment: unicode(ea6d);
+$cc-icon-notes: unicode(ea6e);
+$cc-icon-net: unicode(ea6f);
+$cc-icon-laptop-91: unicode(ea70);
+$cc-icon-laptop-72: unicode(ea71);
+$cc-icon-laptop-71: unicode(ea72);
+$cc-icon-globe: unicode(ea73);
+$cc-icon-business-contact-87: unicode(ea74);
+$cc-icon-business-contact-86: unicode(ea75);
+$cc-icon-temple: unicode(ea76);
+$cc-icon-board-28: unicode(ea77);
+$cc-icon-cockade: unicode(ea78);
+$cc-icon-badge: unicode(ea79);
+$cc-icon-virus: unicode(ea7a);
+$cc-icon-satellite: unicode(ea7b);
+$cc-icon-virtual-assistant-2: unicode(ea7c);
+$cc-icon-cpu: unicode(ea7d);
+$cc-icon-content-360deg: unicode(ea7e);
+$cc-icon-phone-camera-back: unicode(ea7f);
+$cc-icon-send-to-phone: unicode(ea80);
+$cc-icon-virtual-assistant: unicode(ea81);
+$cc-icon-mobile-chat: unicode(ea82);
+$cc-icon-ai: unicode(ea83);
+$cc-icon-tv-stand: unicode(ea84);
+$cc-icon-tv: unicode(ea85);
+$cc-icon-tablet: unicode(ea86);
+$cc-icon-tablet-2: unicode(ea87);
+$cc-icon-sync-devices: unicode(ea88);
+$cc-icon-signal: unicode(ea89);
+$cc-icon-screen-rotation: unicode(ea8a);
+$cc-icon-lock-orientation: unicode(ea8b);
+$cc-icon-remote-control: unicode(ea8c);
+$cc-icon-video-player: unicode(ea8d);
+$cc-icon-mobile-phone-2: unicode(ea8e);
+$cc-icon-phone-toolbar: unicode(ea8f);
+$cc-icon-smartphone: unicode(ea90);
+$cc-icon-pc-mouse: unicode(ea91);
+$cc-icon-mouse-2-2: unicode(ea92);
+$cc-icon-mouse-3: unicode(ea93);
+$cc-icon-music-player: unicode(ea94);
+$cc-icon-navigation: unicode(ea95);
+$cc-icon-p-add: unicode(ea96);
+$cc-icon-p-check: unicode(ea97);
+$cc-icon-p-edit: unicode(ea98);
+$cc-icon-p-heart: unicode(ea99);
+$cc-icon-p-location: unicode(ea9a);
+$cc-icon-p-remove: unicode(ea9b);
+$cc-icon-p-search: unicode(ea9c);
+$cc-icon-p-settings: unicode(ea9d);
+$cc-icon-p-share: unicode(ea9e);
+$cc-icon-p-sync: unicode(ea9f);
+$cc-icon-p-system-update: unicode(eaa0);
+$cc-icon-p-time: unicode(eaa1);
+$cc-icon-h-dashboard: unicode(eaa2);
+$cc-icon-pc-monitor: unicode(eaa3);
+$cc-icon-pc: unicode(eaa4);
+$cc-icon-device-connection: unicode(eaa5);
+$cc-icon-disk-reader: unicode(eaa6);
+$cc-icon-l-add: unicode(eaa7);
+$cc-icon-l-check: unicode(eaa8);
+$cc-icon-l-location: unicode(eaa9);
+$cc-icon-l-remove: unicode(eaaa);
+$cc-icon-l-search: unicode(eaab);
+$cc-icon-l-security: unicode(eaac);
+$cc-icon-l-settings: unicode(eaad);
+$cc-icon-l-sync: unicode(eaae);
+$cc-icon-l-system-update: unicode(eaaf);
+$cc-icon-laptop-1: unicode(eab0);
+$cc-icon-laptop-2: unicode(eab1);
+$cc-icon-laptop: unicode(eab2);
+$cc-icon-lock-portrait: unicode(eab3);
+$cc-icon-lock-landscape: unicode(eab4);
+$cc-icon-phone-button: unicode(eab5);
+$cc-icon-phone-camera-front: unicode(eab6);
+$cc-icon-landscape-orientation: unicode(eab7);
+$cc-icon-android-2: unicode(eab8);
+$cc-icon-apple-2: unicode(eab9);
+$cc-icon-cctv: unicode(eaba);
+$cc-icon-migration: unicode(eabb);
+$cc-icon-computer-monitor: unicode(eabc);
+$cc-icon-vintage-computer: unicode(eabd);
+$cc-icon-computer: unicode(eabe);
+
+.cc-icon-window-responsive::before {
+  content: $cc-icon-window-responsive;
+}
+
+.cc-icon-window-dev::before {
+  content: $cc-icon-window-dev;
+}
+
+.cc-icon-name-card::before {
+  content: $cc-icon-name-card;
+}
+
+.cc-icon-bill::before {
+  content: $cc-icon-bill;
+}
+
+.cc-icon-sidebar::before {
+  content: $cc-icon-sidebar;
+}
+
+.cc-icon-mirror-tablet-phone::before {
+  content: $cc-icon-mirror-tablet-phone;
+}
+
+.cc-icon-mirror-tablet-phone-2::before {
+  content: $cc-icon-mirror-tablet-phone-2;
+}
+
+.cc-icon-window-code::before {
+  content: $cc-icon-window-code;
+}
+
+.cc-icon-window-dev-2::before {
+  content: $cc-icon-window-dev-2;
+}
+
+.cc-icon-data-table::before {
+  content: $cc-icon-data-table;
+}
+
+.cc-icon-board-2::before {
+  content: $cc-icon-board-2;
+}
+
+.cc-icon-data-table-2::before {
+  content: $cc-icon-data-table-2;
+}
+
+.cc-icon-js-console::before {
+  content: $cc-icon-js-console;
+}
+
+.cc-icon-roadmap::before {
+  content: $cc-icon-roadmap;
+}
+
+.cc-icon-note::before {
+  content: $cc-icon-note;
+}
+
+.cc-icon-board-2-2::before {
+  content: $cc-icon-board-2-2;
+}
+
+.cc-icon-three-dimensional-object::before {
+  content: $cc-icon-three-dimensional-object;
+}
+
+.cc-icon-priority-highest::before {
+  content: $cc-icon-priority-highest;
+}
+
+.cc-icon-priority-high::before {
+  content: $cc-icon-priority-high;
+}
+
+.cc-icon-priority-normal::before {
+  content: $cc-icon-priority-normal;
+}
+
+.cc-icon-priority-low::before {
+  content: $cc-icon-priority-low;
+}
+
+.cc-icon-priority-lowest::before {
+  content: $cc-icon-priority-lowest;
+}
+
+.cc-icon-decision-process::before {
+  content: $cc-icon-decision-process;
+}
+
+.cc-icon-floors::before {
+  content: $cc-icon-floors;
+}
+
+.cc-icon-app-store::before {
+  content: $cc-icon-app-store;
+}
+
+.cc-icon-apps::before {
+  content: $cc-icon-apps;
+}
+
+.cc-icon-img-stack::before {
+  content: $cc-icon-img-stack;
+}
+
+.cc-icon-hot-key::before {
+  content: $cc-icon-hot-key;
+}
+
+.cc-icon-json::before {
+  content: $cc-icon-json;
+}
+
+.cc-icon-tool-hand::before {
+  content: $cc-icon-tool-hand;
+}
+
+.cc-icon-components::before {
+  content: $cc-icon-components;
+}
+
+.cc-icon-grid-system::before {
+  content: $cc-icon-grid-system;
+}
+
+.cc-icon-mask-rect::before {
+  content: $cc-icon-mask-rect;
+}
+
+.cc-icon-mask-oval::before {
+  content: $cc-icon-mask-oval;
+}
+
+.cc-icon-tool-blur::before {
+  content: $cc-icon-tool-blur;
+}
+
+.cc-icon-transparent::before {
+  content: $cc-icon-transparent;
+}
+
+.cc-icon-size-large::before {
+  content: $cc-icon-size-large;
+}
+
+.cc-icon-design-system::before {
+  content: $cc-icon-design-system;
+}
+
+.cc-icon-position::before {
+  content: $cc-icon-position;
+}
+
+.cc-icon-border-radius::before {
+  content: $cc-icon-border-radius;
+}
+
+.cc-icon-border::before {
+  content: $cc-icon-border;
+}
+
+.cc-icon-cards::before {
+  content: $cc-icon-cards;
+}
+
+.cc-icon-prototype::before {
+  content: $cc-icon-prototype;
+}
+
+.cc-icon-gradient::before {
+  content: $cc-icon-gradient;
+}
+
+.cc-icon-timeline::before {
+  content: $cc-icon-timeline;
+}
+
+.cc-icon-sidebar-2::before {
+  content: $cc-icon-sidebar-2;
+}
+
+.cc-icon-mirror-tablet-phone-3::before {
+  content: $cc-icon-mirror-tablet-phone-3;
+}
+
+.cc-icon-zoom-99::before {
+  content: $cc-icon-zoom-99;
+}
+
+.cc-icon-window-responsive-2::before {
+  content: $cc-icon-window-responsive-2;
+}
+
+.cc-icon-window-paragraph::before {
+  content: $cc-icon-window-paragraph;
+}
+
+.cc-icon-window-dev-3::before {
+  content: $cc-icon-window-dev-3;
+}
+
+.cc-icon-window-code-2::before {
+  content: $cc-icon-window-code-2;
+}
+
+.cc-icon-webpage::before {
+  content: $cc-icon-webpage;
+}
+
+.cc-icon-wireframe::before {
+  content: $cc-icon-wireframe;
+}
+
+.cc-icon-wand-11::before {
+  content: $cc-icon-wand-11;
+}
+
+.cc-icon-graphics-tablet::before {
+  content: $cc-icon-graphics-tablet;
+}
+
+.cc-icon-tablet-mobile::before {
+  content: $cc-icon-tablet-mobile;
+}
+
+.cc-icon-sketch::before {
+  content: $cc-icon-sketch;
+}
+
+.cc-icon-psd::before {
+  content: $cc-icon-psd;
+}
+
+.cc-icon-png::before {
+  content: $cc-icon-png;
+}
+
+.cc-icon-php::before {
+  content: $cc-icon-php;
+}
+
+.cc-icon-mobile-phone::before {
+  content: $cc-icon-mobile-phone;
+}
+
+.cc-icon-pdf::before {
+  content: $cc-icon-pdf;
+}
+
+.cc-icon-paper-dev::before {
+  content: $cc-icon-paper-dev;
+}
+
+.cc-icon-patch-34::before {
+  content: $cc-icon-patch-34;
+}
+
+.cc-icon-patch-19::before {
+  content: $cc-icon-patch-19;
+}
+
+.cc-icon-note-code::before {
+  content: $cc-icon-note-code;
+}
+
+.cc-icon-newsletter-dev::before {
+  content: $cc-icon-newsletter-dev;
+}
+
+.cc-icon-mouse::before {
+  content: $cc-icon-mouse;
+}
+
+.cc-icon-mouse-2::before {
+  content: $cc-icon-mouse-2;
+}
+
+.cc-icon-mobile-dev::before {
+  content: $cc-icon-mobile-dev;
+}
+
+.cc-icon-mobile-design::before {
+  content: $cc-icon-mobile-design;
+}
+
+.cc-icon-mirror::before {
+  content: $cc-icon-mirror;
+}
+
+.cc-icon-microsoft::before {
+  content: $cc-icon-microsoft;
+}
+
+.cc-icon-stack::before {
+  content: $cc-icon-stack;
+}
+
+.cc-icon-js::before {
+  content: $cc-icon-js;
+}
+
+.cc-icon-jpg::before {
+  content: $cc-icon-jpg;
+}
+
+.cc-icon-image::before {
+  content: $cc-icon-image;
+}
+
+.cc-icon-html5::before {
+  content: $cc-icon-html5;
+}
+
+.cc-icon-html::before {
+  content: $cc-icon-html;
+}
+
+.cc-icon-form::before {
+  content: $cc-icon-form;
+}
+
+.cc-icon-filter-organization::before {
+  content: $cc-icon-filter-organization;
+}
+
+.cc-icon-eps::before {
+  content: $cc-icon-eps;
+}
+
+.cc-icon-drag::before {
+  content: $cc-icon-drag;
+}
+
+.cc-icon-design-dev::before {
+  content: $cc-icon-design-dev;
+}
+
+.cc-icon-css3::before {
+  content: $cc-icon-css3;
+}
+
+.cc-icon-css::before {
+  content: $cc-icon-css;
+}
+
+.cc-icon-copy::before {
+  content: $cc-icon-copy;
+}
+
+.cc-icon-collection::before {
+  content: $cc-icon-collection;
+}
+
+.cc-icon-code::before {
+  content: $cc-icon-code;
+}
+
+.cc-icon-code-editor::before {
+  content: $cc-icon-code-editor;
+}
+
+.cc-icon-canvas::before {
+  content: $cc-icon-canvas;
+}
+
+.cc-icon-bullet-list-70::before {
+  content: $cc-icon-bullet-list-70;
+}
+
+.cc-icon-bullet-list-69::before {
+  content: $cc-icon-bullet-list-69;
+}
+
+.cc-icon-bug::before {
+  content: $cc-icon-bug;
+}
+
+.cc-icon-book-bookmark::before {
+  content: $cc-icon-book-bookmark;
+}
+
+.cc-icon-book-bookmark-2::before {
+  content: $cc-icon-book-bookmark-2;
+}
+
+.cc-icon-apple::before {
+  content: $cc-icon-apple;
+}
+
+.cc-icon-android::before {
+  content: $cc-icon-android;
+}
+
+.cc-icon-album::before {
+  content: $cc-icon-album;
+}
+
+.cc-icon-app-services::before {
+  content: $cc-icon-app-services;
+}
+
+.cc-icon-name-card-2::before {
+  content: $cc-icon-name-card-2;
+}
+
+.cc-icon-business-contact-85::before {
+  content: $cc-icon-business-contact-85;
+}
+
+.cc-icon-privacy-policy::before {
+  content: $cc-icon-privacy-policy;
+}
+
+.cc-icon-wallet-90::before {
+  content: $cc-icon-wallet-90;
+}
+
+.cc-icon-strategy::before {
+  content: $cc-icon-strategy;
+}
+
+.cc-icon-pig::before {
+  content: $cc-icon-pig;
+}
+
+.cc-icon-payment::before {
+  content: $cc-icon-payment;
+}
+
+.cc-icon-notes::before {
+  content: $cc-icon-notes;
+}
+
+.cc-icon-net::before {
+  content: $cc-icon-net;
+}
+
+.cc-icon-laptop-91::before {
+  content: $cc-icon-laptop-91;
+}
+
+.cc-icon-laptop-72::before {
+  content: $cc-icon-laptop-72;
+}
+
+.cc-icon-laptop-71::before {
+  content: $cc-icon-laptop-71;
+}
+
+.cc-icon-globe::before {
+  content: $cc-icon-globe;
+}
+
+.cc-icon-business-contact-87::before {
+  content: $cc-icon-business-contact-87;
+}
+
+.cc-icon-business-contact-86::before {
+  content: $cc-icon-business-contact-86;
+}
+
+.cc-icon-temple::before {
+  content: $cc-icon-temple;
+}
+
+.cc-icon-board-28::before {
+  content: $cc-icon-board-28;
+}
+
+.cc-icon-cockade::before {
+  content: $cc-icon-cockade;
+}
+
+.cc-icon-badge::before {
+  content: $cc-icon-badge;
+}
+
+.cc-icon-virus::before {
+  content: $cc-icon-virus;
+}
+
+.cc-icon-satellite::before {
+  content: $cc-icon-satellite;
+}
+
+.cc-icon-virtual-assistant-2::before {
+  content: $cc-icon-virtual-assistant-2;
+}
+
+.cc-icon-cpu::before {
+  content: $cc-icon-cpu;
+}
+
+.cc-icon-content-360deg::before {
+  content: $cc-icon-content-360deg;
+}
+
+.cc-icon-phone-camera-back::before {
+  content: $cc-icon-phone-camera-back;
+}
+
+.cc-icon-send-to-phone::before {
+  content: $cc-icon-send-to-phone;
+}
+
+.cc-icon-virtual-assistant::before {
+  content: $cc-icon-virtual-assistant;
+}
+
+.cc-icon-mobile-chat::before {
+  content: $cc-icon-mobile-chat;
+}
+
+.cc-icon-ai::before {
+  content: $cc-icon-ai;
+}
+
+.cc-icon-tv-stand::before {
+  content: $cc-icon-tv-stand;
+}
+
+.cc-icon-tv::before {
+  content: $cc-icon-tv;
+}
+
+.cc-icon-tablet::before {
+  content: $cc-icon-tablet;
+}
+
+.cc-icon-tablet-2::before {
+  content: $cc-icon-tablet-2;
+}
+
+.cc-icon-sync-devices::before {
+  content: $cc-icon-sync-devices;
+}
+
+.cc-icon-signal::before {
+  content: $cc-icon-signal;
+}
+
+.cc-icon-screen-rotation::before {
+  content: $cc-icon-screen-rotation;
+}
+
+.cc-icon-lock-orientation::before {
+  content: $cc-icon-lock-orientation;
+}
+
+.cc-icon-remote-control::before {
+  content: $cc-icon-remote-control;
+}
+
+.cc-icon-video-player::before {
+  content: $cc-icon-video-player;
+}
+
+.cc-icon-mobile-phone-2::before {
+  content: $cc-icon-mobile-phone-2;
+}
+
+.cc-icon-phone-toolbar::before {
+  content: $cc-icon-phone-toolbar;
+}
+
+.cc-icon-smartphone::before {
+  content: $cc-icon-smartphone;
+}
+
+.cc-icon-pc-mouse::before {
+  content: $cc-icon-pc-mouse;
+}
+
+.cc-icon-mouse-2-2::before {
+  content: $cc-icon-mouse-2-2;
+}
+
+.cc-icon-mouse-3::before {
+  content: $cc-icon-mouse-3;
+}
+
+.cc-icon-music-player::before {
+  content: $cc-icon-music-player;
+}
+
+.cc-icon-navigation::before {
+  content: $cc-icon-navigation;
+}
+
+.cc-icon-p-add::before {
+  content: $cc-icon-p-add;
+}
+
+.cc-icon-p-check::before {
+  content: $cc-icon-p-check;
+}
+
+.cc-icon-p-edit::before {
+  content: $cc-icon-p-edit;
+}
+
+.cc-icon-p-heart::before {
+  content: $cc-icon-p-heart;
+}
+
+.cc-icon-p-location::before {
+  content: $cc-icon-p-location;
+}
+
+.cc-icon-p-remove::before {
+  content: $cc-icon-p-remove;
+}
+
+.cc-icon-p-search::before {
+  content: $cc-icon-p-search;
+}
+
+.cc-icon-p-settings::before {
+  content: $cc-icon-p-settings;
+}
+
+.cc-icon-p-share::before {
+  content: $cc-icon-p-share;
+}
+
+.cc-icon-p-sync::before {
+  content: $cc-icon-p-sync;
+}
+
+.cc-icon-p-system-update::before {
+  content: $cc-icon-p-system-update;
+}
+
+.cc-icon-p-time::before {
+  content: $cc-icon-p-time;
+}
+
+.cc-icon-h-dashboard::before {
+  content: $cc-icon-h-dashboard;
+}
+
+.cc-icon-pc-monitor::before {
+  content: $cc-icon-pc-monitor;
+}
+
+.cc-icon-pc::before {
+  content: $cc-icon-pc;
+}
+
+.cc-icon-device-connection::before {
+  content: $cc-icon-device-connection;
+}
+
+.cc-icon-disk-reader::before {
+  content: $cc-icon-disk-reader;
+}
+
+.cc-icon-l-add::before {
+  content: $cc-icon-l-add;
+}
+
+.cc-icon-l-check::before {
+  content: $cc-icon-l-check;
+}
+
+.cc-icon-l-location::before {
+  content: $cc-icon-l-location;
+}
+
+.cc-icon-l-remove::before {
+  content: $cc-icon-l-remove;
+}
+
+.cc-icon-l-search::before {
+  content: $cc-icon-l-search;
+}
+
+.cc-icon-l-security::before {
+  content: $cc-icon-l-security;
+}
+
+.cc-icon-l-settings::before {
+  content: $cc-icon-l-settings;
+}
+
+.cc-icon-l-sync::before {
+  content: $cc-icon-l-sync;
+}
+
+.cc-icon-l-system-update::before {
+  content: $cc-icon-l-system-update;
+}
+
+.cc-icon-laptop-1::before {
+  content: $cc-icon-laptop-1;
+}
+
+.cc-icon-laptop-2::before {
+  content: $cc-icon-laptop-2;
+}
+
+.cc-icon-laptop::before {
+  content: $cc-icon-laptop;
+}
+
+.cc-icon-lock-portrait::before {
+  content: $cc-icon-lock-portrait;
+}
+
+.cc-icon-lock-landscape::before {
+  content: $cc-icon-lock-landscape;
+}
+
+.cc-icon-phone-button::before {
+  content: $cc-icon-phone-button;
+}
+
+.cc-icon-phone-camera-front::before {
+  content: $cc-icon-phone-camera-front;
+}
+
+.cc-icon-landscape-orientation::before {
+  content: $cc-icon-landscape-orientation;
+}
+
+.cc-icon-android-2::before {
+  content: $cc-icon-android-2;
+}
+
+.cc-icon-apple-2::before {
+  content: $cc-icon-apple-2;
+}
+
+.cc-icon-cctv::before {
+  content: $cc-icon-cctv;
+}
+
+.cc-icon-migration::before {
+  content: $cc-icon-migration;
+}
+
+.cc-icon-computer-monitor::before {
+  content: $cc-icon-computer-monitor;
+}
+
+.cc-icon-vintage-computer::before {
+  content: $cc-icon-vintage-computer;
+}
+
+.cc-icon-computer::before {
+  content: $cc-icon-computer;
+}
+
