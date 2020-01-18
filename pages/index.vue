@@ -39,7 +39,7 @@
     },
     data() {
       return {
-        title: "Clever Coding - Welcome To Clever Coding"
+        title: "Emergency Ready App"
       }
     },
     mounted() {

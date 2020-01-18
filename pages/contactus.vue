@@ -29,13 +29,13 @@
         title: this.title,
         meta: [
           // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: 'Do you have an idea for the next big app? Don\'t let that idea fly by and contact Clever Coding today. Our app delevlopment company is ready for anything.' }
+          { hid: 'description', name: 'description', content: 'Emergency Ready' }
         ]
       }
     },
     data() {
       return {
-        title: "App Designer - Contact Our Lehi Office | Clever Coding"
+        title: "Contact Emergency Ready"
       }
     },
     mounted() {

@@ -33,7 +33,7 @@
         title: this.title,
         meta: [
           // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: 'We\'ve had one of the first Apple apps on the market, and we didn\'t stop there. Explore some of our latest featured apps that Clever Coding designed.' }
+          { hid: 'description', name: 'description', content: 'Emergency Ready' }
         ]
       }
     },

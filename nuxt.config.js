@@ -1,7 +1,9 @@
-require('dotenv').config();
+const webpack = require("webpack");
+const nodeExternals = require('webpack-node-externals')
 const axios = require('axios');
 
-import { WP_API_GET_POSTS_ENDPOINT } from './constants/index.js';
+require('dotenv').config();
+
 
 module.exports = {
   mode: 'universal',
@@ -9,22 +11,8 @@ module.exports = {
     port: 3322,
     host: process.env.HOST || '0.0.0.0'
   },
-  /*
-   ** Headers of the page
-   */
-  router: {
-    base: '/',
-    linkExactActiveClass: 'active',
-    scrollBehavior: (to) => {
-      if (to.hash) {
-        return { selector: to.hash }
-      } else {
-        return { x: 0, y: 0 }
-      }
-    }
-  },
   head: {
-    title: 'Clever Coding',
+    title: 'Emergency Ready App',
     meta: [
       { charset: 'utf-8' },
       {
@@ -91,7 +79,6 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     ['@nuxtjs/google-analytics', {
       id: process.env.GOOGLE_ID
@@ -128,10 +115,10 @@ module.exports = {
     extend(config, ctx) {}
   },
   env: {
-    WORDPRESS: process.env.WORDPRESS || 'https://wordpress.clevercoding.com/',
+    WORDPRESS: process.env.WORDPRESS || 'https://wordpress.emergencyreadyapp.com/',
     HOST: process.env.HOST || '0.0.0.0',
     baseApiUrl: process.env.baseApiUrl || 'https://api.summacoding.com/api',
-    WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.clevercoding.com/wp-json/emergency-ready/v1/get-post',
-    WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.clevercoding.com/wp-json/emergency-ready/v1/get-posts',
+    WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-coding/v1/get-post',
+    WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-codingy/v1/get-posts',
   },
 }

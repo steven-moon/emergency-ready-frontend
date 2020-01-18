@@ -153,7 +153,7 @@
   /**
    * Internal Dependencies
    */
-  import { WP_API_GET_POSTS_ENDPOINT } from '@/constants';
+  //import { WP_API_GET_POSTS_ENDPOINT } from '@/constants';
   import mapColorClass from '@/utils/mapColorClass';
 
 
@@ -170,7 +170,7 @@
       }
     },
     async asyncData({ params, error }) {
-      const response = await fetch(WP_API_GET_POSTS_ENDPOINT);
+      const response = await fetch(process.env.WP_API_GET_POSTS_ENDPOINT);
 
       const data = await response.json();
 

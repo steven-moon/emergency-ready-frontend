@@ -24,13 +24,13 @@ export default {
       title: this.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'description', name: 'description', content: 'Clever Coding was one of the first iOS developers on the market, and we haven\'t stopped since. Learn about our roots and how we became the company we are. ' }
+        { hid: 'description', name: 'description', content: 'Emergency Ready' }
       ]
     }
   },
   data() {
     return {
-      title: "Application Development Lehi - Learn About Our Mobile App Development Company! | Clever Coding"
+      title: "Emergency Ready - About Us"
     }
   },
   mounted() {

@@ -1,7 +1,7 @@
 {
   "name": "emergency-ready",
   "version": "1.0.0",
-  "description": "Clever Coding Website",
+  "description": "Emergency Ready Website",
   "author": "Steven Moon",
   "private": true,
   "scripts": {
@@ -38,7 +38,8 @@
     "vue-spinners": "^1.0.2",
     "vue2-google-maps": "^0.9.6",
     "vue2-transitions": "^0.2.3",
-    "vuex-persistedstate": "^2.5.4"
+    "vuex-persistedstate": "^2.5.4",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "babel-plugin-component": "^1.1.1",

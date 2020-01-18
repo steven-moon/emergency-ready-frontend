@@ -1,6 +1,6 @@
 # emergency-ready
 
-> clever coding website
+> emergency ready website
 
 ## Build Setup ad
 
