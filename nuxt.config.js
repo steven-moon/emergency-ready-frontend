@@ -8,7 +8,7 @@ require('dotenv').config();
 module.exports = {
   mode: 'universal',
   server: {
-    port: 3322,
+    port: 3727,
     host: process.env.HOST || '0.0.0.0'
   },
   head: {
