@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'Emergency Ready',
+    name: 'EmergencyReady',
     script: 'yarn start',
   }]
 };
