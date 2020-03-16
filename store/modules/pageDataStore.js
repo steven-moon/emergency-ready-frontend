@@ -8,7 +8,8 @@ export default {
     images: [],
     aboutUs: {
       title: 'The Emergency Ready App allows users to access emergency information on the go.',
-      description: '',
+      subtitle: 'Hear is a little be about the emergeny app',
+      description: 'This is the description',
       backgroundUrl: 'img/project/project9.jpg',
       cards: [
         {

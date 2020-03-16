@@ -9,7 +9,7 @@
       expand="lg"
     >
       <div slot="brand" class="navbar-wrapper">
-        <nuxt-link class="navbar-brand" to="/argon/">
+        <nuxt-link class="navbar-brand" to="/">
           <img src="img/brand/white.png" alt="Logo white">
         </nuxt-link>
       </div>
@@ -18,7 +18,7 @@
        <div class="navbar-collapse-header">
          <div class="row">
            <div class="col-6 collapse-brand">
-             <nuxt-link to="/argon/">
+             <nuxt-link to="/">
                <img src="img/brand/green.png" alt="Logo green">
              </nuxt-link>
            </div>
@@ -33,33 +33,63 @@
 
        <ul class="navbar-nav mr-auto">
          <li class="nav-item">
-           <nuxt-link to="/argon/dashboard" class="nav-link">
-             <span class="nav-link-inner--text">Dashboard</span>
+           <nuxt-link to="/dashboards" class="nav-link">
+             <span class="nav-link-inner--text">Dashboards</span>
            </nuxt-link>
          </li>
          <li class="nav-item">
-           <nuxt-link to="/argon/pricing" class="nav-link">
+           <nuxt-link to="/twitter-feed" class="nav-link">
+             <span class="nav-link-inner--text">Twitter Feed</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/notifications" class="nav-link">
+             <span class="nav-link-inner--text">Notifications</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/pricing" class="nav-link">
              <span class="nav-link-inner--text">Pricing</span>
            </nuxt-link>
          </li>
          <li class="nav-item">
-           <nuxt-link to="/argon/login" class="nav-link">
+           <nuxt-link to="/featured-apps" class="nav-link">
+             <span class="nav-link-inner--text">Featured Apps</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/login" class="nav-link">
              <span class="nav-link-inner--text">Login</span>
            </nuxt-link>
          </li>
          <li class="nav-item">
-           <nuxt-link to="/argon/register" class="nav-link">
-             <span class="nav-link-inner--text">Register</span>
+           <nuxt-link to="/settings/profile" class="nav-link">
+             <span class="nav-link-inner--text">Profile</span>
            </nuxt-link>
          </li>
          <li class="nav-item">
-           <nuxt-link to="/argon/lock" class="nav-link">
-             <span class="nav-link-inner--text">Lock</span>
+           <nuxt-link to="/admin/notifications/manage" class="nav-link">
+             <span class="nav-link-inner--text">Manage Notifications</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/admin/notifications/send" class="nav-link">
+             <span class="nav-link-inner--text">Send Notifications</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/contact-us" class="nav-link">
+             <span class="nav-link-inner--text">Contact Us</span>
+           </nuxt-link>
+         </li>
+         <li class="nav-item">
+           <nuxt-link to="/blog" class="nav-link">
+             <span class="nav-link-inner--text">Blog</span>
            </nuxt-link>
          </li>
          <li class="nav-item">
            <nuxt-link to="/" class="nav-link">
-             <span class="nav-link-inner--text">Combined App</span>
+             <span class="nav-link-inner--text"></span>
            </nuxt-link>
          </li>
        </ul>
