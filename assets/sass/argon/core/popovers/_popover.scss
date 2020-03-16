@@ -1,0 +1,23 @@
+.argon-container {
+  //
+  // Popover
+  //
+
+
+  .popover {
+    border: 0;
+  }
+
+  .popover-header {
+    font-weight: $argon-font-weight-bold;
+  }
+
+
+  // Alternative colors
+
+  @each $color, $value in $argon-themecolors {
+    .popover-#{$color} {
+      @include popover-variant($value);
+    }
+  }
+}

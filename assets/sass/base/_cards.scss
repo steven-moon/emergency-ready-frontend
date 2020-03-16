@@ -1,0 +1,46 @@
+.base-container {
+  .card {
+    border: 0;
+    border-radius: $base-border-radius-small;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+
+    .card-header {
+      background-color: $base-transparent-bg;
+      border-bottom: 0;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .card-footer {
+      padding: 0;
+      margin-top: 15px;
+      background-color: $base-transparent-bg;
+      border: 0;
+    }
+
+    &[data-background-color="orange"] {
+      background-color: $base-primary-color;
+    }
+
+    &[data-background-color="red"] {
+      background-color: $base-danger-color;
+    }
+
+    &[data-background-color="yellow"] {
+      background-color: $base-warning-color;
+    }
+
+    &[data-background-color="blue"] {
+      background-color: $base-info-color;
+    }
+
+    &[data-background-color="green"] {
+      background-color: darken($base-success-color, 5%);
+    }
+  }
+}

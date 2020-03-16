@@ -1,0 +1,59 @@
+.argon-container {
+    //
+    // Icon action
+    //
+
+
+    .icon-actions {
+        > a {
+            display: inline-block;
+            margin-right: .75rem;
+            color: $argon-gray-600;
+            font-size: .875rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            span {
+                margin-left: .1875rem;
+                font-weight: $argon-font-weight-bold;
+                color: $argon-text-muted;
+            }
+
+            &:hover {
+                span {
+                    color: darken($argon-text-muted, 10%);
+                }
+            }
+        }
+
+        > a,
+        > a:hover,
+        > a.active {
+            color: $argon-gray-800;
+        }
+
+        > .favorite:hover,
+        > .favorite.active {
+            color: $argon-favorite-color;
+        }
+
+        > .love:hover,
+        > .love.active {
+            color: $argon-love-color;
+        }
+
+        > .like:hover,
+        > .like.active {
+            color: $argon-like-color;
+        }
+    }
+
+    .icon-actions-lg {
+        a {
+            font-size: 1.25rem;
+            margin-right: .875rem;
+        }
+    }
+}

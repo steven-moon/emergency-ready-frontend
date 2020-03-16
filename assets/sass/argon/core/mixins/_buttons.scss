@@ -1,0 +1,105 @@
+@mixin button-variant($background, $argon-border, $argon-hover-background: darken($background, 0%), $argon-hover-border: darken($argon-border, 0%), $active-background: darken($background, 10%), $active-border: darken($argon-border, 0%)) {
+    color: color-yiq($background);
+    @include gradient-bg($background);
+    border-color: $argon-border;
+    @include box-shadow($argon-btn-box-shadow);
+
+    @include hover {
+        color: color-yiq($argon-hover-background);
+        @include gradient-bg($argon-hover-background);
+        border-color: $argon-hover-border;
+    }
+
+    &:focus,
+    &.focus {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        @if $argon-enable-shadows {
+            box-shadow: $argon-btn-box-shadow, 0 0 0 $argon-btn-focus-width rgba($argon-border, .5);
+        }
+        @else {
+            box-shadow: 0 0 0 $argon-btn-focus-width rgba($argon-border, .5);
+        }
+    } // Disabled comes first so active can properly restyle
+    &.disabled,
+    &:disabled {
+        color: color-yiq($background);
+        background-color: $background;
+        border-color: $argon-border;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show>&.dropdown-toggle {
+        color: color-yiq($active-background);
+        background-color: $active-background;
+        @if $argon-enable-gradients {
+            background-image: none; // Remove the gradient for the pressed/active state
+        }
+        border-color: $active-border;
+
+        &:focus {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            @if $argon-enable-shadows {
+                box-shadow: $argon-btn-active-box-shadow, 0 0 0 $argon-btn-focus-width rgba($argon-border, .5);
+            }
+            @else {
+                box-shadow: 0 0 0 $argon-btn-focus-width rgba($argon-border, .5);
+            }
+        }
+    }
+}
+
+@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+    color: $color;
+    background-color: transparent;
+    background-image: none;
+    border-color: $color;
+
+    &:hover {
+        color: $color-hover;
+        background-color: $active-background;
+        border-color: $active-border;
+    }
+
+    &:focus,
+    &.focus {
+        box-shadow: 0 0 0 $argon-btn-focus-width rgba($color, .5);
+    }
+
+    &.disabled,
+    &:disabled {
+        color: $color;
+        background-color: transparent;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    .show>&.dropdown-toggle {
+        color: color-yiq($active-background);
+        background-color: $active-background;
+        border-color: $active-border;
+
+        &:focus {
+            // Avoid using mixin so we can pass custom focus shadow properly
+            @if $argon-enable-shadows and $argon-btn-active-box-shadow !=none {
+                box-shadow: $argon-btn-active-box-shadow, 0 0 0 $argon-btn-focus-width rgba($color, .5);
+            }
+            @else {
+                box-shadow: 0 0 0 $argon-btn-focus-width rgba($color, .5);
+            }
+        }
+    }
+}
+
+// Button sizes
+@mixin button-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
+    padding: $argon-padding-y $argon-padding-x;
+    font-size: $argon-font-size;
+    line-height: $argon-line-height; // Manually declare to provide an override to the browser default
+    @if $argon-enable-rounded {
+        border-radius: $argon-border-radius;
+    }
+    @else {
+        border-radius: 0;
+    }
+}

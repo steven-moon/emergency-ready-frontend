@@ -1,0 +1,29 @@
+.argon-container {
+	//
+	// Type
+	//
+
+
+	// Paragraphs
+
+	p {
+		font-size: $argon-paragraph-font-size;
+		font-weight: $argon-paragraph-font-weight;
+		line-height: $argon-paragraph-line-height;
+	}
+
+	.lead {
+		font-size: $argon-lead-font-size;
+		font-weight: $argon-lead-font-weight;
+		line-height: $argon-paragraph-line-height;
+		margin-top: 1.5rem;
+
+		+ .btn-wrapper {
+			margin-top: 3rem;
+		}
+	}
+
+	.description {
+		font-size: $argon-font-size-sm;
+	}
+}

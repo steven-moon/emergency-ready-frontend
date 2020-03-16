@@ -1,0 +1,42 @@
+@import "../variables";
+.ui-kit-container {
+  .el-tag {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .input-new-tag {
+    margin-left: 10px;
+    width: 80px !important;
+    height: 24px;
+    display: inline;
+
+  }
+}
+
+@mixin tag($type, $color) {
+  .el-tag,
+  .el-tag.el-tag--#{$type} {
+    @extend .n-badge, .badge-#{$type};
+    color: $kit-white-color;
+
+    .el-tag__close {
+      color: $kit-white-color;
+      opacity: 1;
+    }
+
+    .el-tag__close:hover {
+      background-color: transparent;
+      color: $kit-white-color;
+      font-size: $kit-font-size-base;
+      border-radius: 0;
+    }
+  }
+}
+
+@include tag('info', $kit-info-color)
+@include tag('primary', $kit-primary-color)
+@include tag('success', $kit-success-color)
+@include tag('warning', $kit-warning-color)
+@include tag('danger', $kit-danger-color)
+@include tag('default', $kit-default-color)

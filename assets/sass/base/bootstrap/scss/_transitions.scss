@@ -1,0 +1,24 @@
+.base-container {
+  // stylelint-disable selector-no-qualifying-type
+
+  .fade {
+    @include base-boot-transition($base-transition-fade);
+
+    &:not(.show) {
+      opacity: 0;
+    }
+  }
+
+  .collapse {
+    &:not(.show) {
+      display: none;
+    }
+  }
+
+  .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    @include base-boot-transition($base-transition-collapse);
+  }
+}

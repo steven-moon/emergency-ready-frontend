@@ -1,0 +1,1133 @@
+//
+// Variables
+//
+
+//
+// Base variables
+//
+
+// Global settings
+
+$argon-enable-caret:              true !default;
+$argon-enable-rounded:            true !default;
+$argon-enable-gradients:          false !default;
+$argon-enable-transitions:        true !default;
+$argon-enable-grid-classes:       true !default;
+$argon-enable-print-styles:       true !default;
+
+
+// Shadows
+
+$argon-enable-shadows:            true !default;
+
+
+
+// Color system
+
+$argon-white:    #fff !default;
+$argon-gray-100: #f6f9fc !default;
+$argon-gray-200: #e9ecef !default;
+$argon-gray-300: #dee2e6 !default;
+$argon-gray-400: #ced4da !default;
+$argon-gray-500: #adb5bd !default;
+$argon-gray-600: #8898aa !default;   // Line footer color
+$argon-gray-700: #525f7f !default;   // Line p color
+$argon-gray-800: #32325d !default;   // Line heading color
+$argon-gray-900: #212529 !default;
+$argon-black:    #000 !default;
+
+$argon-grays: () !default;
+$argon-grays: map-merge((
+  "100": $argon-gray-100,
+  "200": $argon-gray-200,
+  "300": $argon-gray-300,
+  "400": $argon-gray-400,
+  "500": $argon-gray-500,
+  "600": $argon-gray-600,
+  "700": $argon-gray-700,
+  "800": $argon-gray-800,
+  "900": $argon-gray-900
+), $argon-grays);
+
+$argon-blue:    #5e72e4 !default;
+$argon-indigo:  #5603ad !default;
+$argon-purple:  #8965e0 !default;
+$argon-pink:    #f3a4b5 !default;
+$argon-red:     #f5365c !default;
+$argon-orange:  #fb6340 !default;
+$argon-yellow:  #ffd600 !default;
+$argon-green:   #2dce89 !default;
+$argon-teal:    #11cdef !default;
+$argon-cyan:    #2bffc6 !default;
+
+$argon-colors: () !default;
+$argon-colors: map-merge((
+  "blue":       $argon-blue,
+  "indigo":     $argon-indigo,
+  "purple":     $argon-purple,
+  "pink":       $argon-pink,
+  "red":        $argon-red,
+  "orange":     $argon-orange,
+  "yellow":     $argon-yellow,
+  "green":      $argon-green,
+  "teal":       $argon-teal,
+  "cyan":       $argon-cyan,
+  "white":      $argon-white,
+  "gray":       $argon-gray-600,
+  "light":      $argon-gray-400,
+  "lighter":    $argon-gray-200,
+  "gray-dark":  $argon-gray-800
+), $argon-colors);
+
+$argon-default:       #172b4d !default;
+$argon-primary:       #5e72e4 !default;
+$argon-secondary:     #f7fafc !default;
+$argon-success:       $argon-green !default;
+$argon-info:          $argon-teal !default;
+$argon-warning:       $argon-orange !default;
+$argon-danger:        $argon-red !default;
+$argon-light:         $argon-gray-500 !default;
+$argon-dark:          $argon-gray-900 !default;
+$argon-darker:        darken($argon-gray-900, 15%) !default;
+
+$argon-facebook:      #3b5999 !default;
+$argon-twitter:       #1da1f2 !default;
+$argon-google-plus:   #dd4b39 !default;
+$argon-instagram:     #e4405f !default;
+$argon-pinterest:     #bd081c !default;
+$argon-youtube:       #cd201f !default;
+$argon-slack:         #3aaf85 !default;
+$argon-dribble:      #ea4c89 !default;
+$argon-github:        #222222 !default;
+$argon-vimeo:         #04A0F0 !default;
+
+$argon-themecolors: () !default;
+$argon-themecolors: map-merge((
+  "default":      $argon-default,
+  "primary":      $argon-primary,
+  "secondary":    $argon-secondary,
+  "success":      $argon-success,
+  "info":         $argon-info,
+  "warning":      $argon-warning,
+  "danger":       $argon-danger,
+  "white":        $argon-white,
+  "neutral":      $argon-white,
+  "dark":         $argon-dark,
+  "darker":       $argon-darker
+), $argon-themecolors);
+
+$argon-brand-colors: () !default;
+$argon-brand-colors: map-merge((
+  "facebook":     $argon-facebook,
+  "twitter":      $argon-twitter,
+  "google-plus":  $argon-google-plus,
+  "instagram":    $argon-instagram,
+  "pinterest":    $argon-pinterest,
+  "youtube":      $argon-youtube,
+  "slack":        $argon-slack,
+  "dribbble":     $argon-dribble,
+  "github":       $argon-github,
+  "vimeo":        $argon-vimeo
+), $argon-brand-colors);
+
+$argon-shape-colors: () !default;
+$argon-shape-colors: map-merge((
+  "default":      #32325d,
+  "primary":      #5533ff,
+  "secondary":    #24b47e,
+  "neutral":      #e9ecef,
+  "blue-gray":    #b2cbe1,
+
+), $argon-shape-colors);
+
+$argon-shapes-primary-colors: () !default;
+$argon-shapes-primary-colors: map-merge((
+  "step-1-gradient-bg":         #281483,
+  "step-2-gradient-bg":         #8f6ed5,
+  "step-3-gradient-bg":         #d782d9,
+  "span-1-bg":                  #53f,
+  "span-2-bg":                  #4553ff,
+  "span-3-bg":                  #4f40ff,
+  "span-4-bg":                  #25ddf5,
+  "span-5-bg":                  #1fa2ff
+), $argon-shapes-primary-colors);
+
+$argon-shapes-default-colors: () !default;
+$argon-shapes-default-colors: map-merge((
+  "step-1-gradient-bg":         #7795f8,
+  "step-2-gradient-bg":         #6772e5,
+  "step-3-gradient-bg":         #555abf,
+  "span-1-bg":                  #7795f8,
+  "span-2-bg":                  #7b9aff,
+  "span-3-bg":                  #6f8ff8,
+  "span-4-bg":                  #76eea7,
+  "span-5-bg":                  #6adaff
+), $argon-shapes-default-colors);
+
+$argon-shapes-light-colors: () !default;
+$argon-shapes-light-colors: map-merge((
+  "step-1-gradient-bg":         #b2cbe1,
+  "step-2-gradient-bg":         #f6f9fc,
+  "step-3-gradient-bg":         #f6f9fc,
+  "span-1-bg":                  #b4cce1,
+  "span-2-bg":                  #c5dbef,
+  "span-3-bg":                  #b9d5ed,
+  "span-4-bg":                  #74e4a2,
+  "span-5-bg":                  #008169
+), $argon-shapes-light-colors);
+
+$argon-shapes-dark-colors: () !default;
+$argon-shapes-dark-colors: map-merge((
+  "step-1-gradient-bg":         #32325d,
+  "step-2-gradient-bg":         #32325d,
+  "step-3-gradient-bg":         #32325d,
+  "span-1-bg":                  #2e2e57,
+  "span-2-bg":                  #2b2b58,
+  "span-3-bg":                  #25254d,
+  "span-4-bg":                  #d782d9,
+  "span-5-bg":                  #008169
+), $argon-shapes-dark-colors);
+
+
+// Translucent color variations
+$argon-translucent-color-opacity: .6 !default;
+
+// Set a specific jump point for requesting color jumps
+$argon-themecolor-interval:      8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$argon-yiq-contrasted-threshold:  200 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$argon-yiq-text-dark:             $argon-gray-900 !default;
+$argon-yiq-text-light:            $argon-white !default;
+
+// Action colors
+
+$argon-star-rating-color: $argon-gray-400 !default;
+$argon-star-rating-color-active: $argon-yellow !default;
+
+$argon-favorite-color: $argon-yellow !default;
+$argon-like-color: $argon-blue !default;
+$argon-love-color: $argon-red !default;
+
+
+// Body
+
+$argon-body-bg:       #f8f9fe !default;
+$argon-body-color:    $argon-gray-700 !default;
+
+
+// Sections
+
+$argon-section-colors: () !default;
+$argon-section-colors: map-merge((
+  "primary":      $argon-body-bg,
+  "secondary":    $argon-secondary,
+  "light":        $argon-gray-400,
+  "dark":         $argon-dark,
+  "darker":       $argon-darker
+), $argon-section-colors);
+
+// Links
+
+$argon-link-color:                $argon-primary !default;
+$argon-link-decoration:           none !default;
+$argon-link-hover-color:          darken($argon-link-color, 15%) !default;
+$argon-link-hover-decoration:     none !default;
+
+
+
+// Grid breakpoints
+
+$argon-grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@include _assert-ascending($argon-grid-breakpoints, "$argon-grid-breakpoints");
+@include _assert-starts-at-zero($argon-grid-breakpoints);
+
+
+
+// Spacing
+
+$argon-spacer: 1rem !default;
+$argon-spacers: () !default;
+$argon-spacers: map-merge((
+  -9: -($argon-spacer * 10),
+  -8: -($argon-spacer * 8),
+  -7: -($argon-spacer * 6),
+  -6: -($argon-spacer * 4.5),
+  -5: -($argon-spacer * 3),
+  -4: -($argon-spacer * 1.5),
+  -3: -$argon-spacer,
+  -2: -($argon-spacer * .5),
+  -1: -($argon-spacer * .25),
+  0: 0,
+  1: ($argon-spacer * .25),
+  2: ($argon-spacer * .5),
+  3: $argon-spacer,
+  4: ($argon-spacer * 1.5),
+  5: ($argon-spacer * 3),
+  6: ($argon-spacer * 4.5),
+  7: ($argon-spacer * 6),
+  8: ($argon-spacer * 8),
+  9: ($argon-spacer * 10)
+), $argon-spacers);
+
+
+
+// This variable affects the `.h-*` and `.w-*` classes.
+
+$argon-sizes: () !default;
+$argon-sizes: map-merge((
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+), $argon-sizes);
+
+
+//
+// Components
+//
+
+$argon-shape-height-xl:              1.5 !default;
+$argon-shape-height-lg:              1.5 !default;
+$argon-shape-height-sm:              1.5 !default;
+
+
+// Border
+
+$argon-border-width:                1px !default;
+$argon-border-color:                $argon-gray-200 !default;
+
+$argon-border-radius:               .375rem !default;
+$argon-border-radius-xl:            .5rem !default;
+$argon-border-radius-lg:            .4375rem !default;
+$argon-border-radius-sm:            .25rem !default;
+
+$argon-box-shadow-sm:               0 0 .5rem rgba($argon-gray-600, .075) !default;
+$argon-box-shadow:                  0 0 2rem 0 rgba($argon-gray-600, .15) !default;
+$argon-box-shadow-lg:               0 0 3rem rgba($argon-gray-600, .175) !default;
+
+
+
+// Component - main styles for most of the components
+
+$argon-component-active-color:        $argon-white !default;
+$argon-component-active-bg:           theme-color("primary") !default;
+$argon-component-active-border-color: theme-color("primary") !default;
+
+$argon-component-hover-color:        $argon-gray-300 !default;
+$argon-component-hover-bg:           $argon-gray-300 !default;
+$argon-component-hover-border-color: $argon-gray-300 !default;
+
+
+
+// Caret
+
+$argon-caret-width:                 .3em !default;
+
+
+
+// Transitions
+
+$argon-transition-base-time:          .15s;
+$argon-transition-base:               all $argon-transition-base-time ease !default;
+$argon-transition-fade:               opacity $argon-transition-base-time linear !default;
+$argon-transition-collapse:           height $argon-transition-base-time * 2 ease !default;
+$argon-transition-cubic-bezier:       all $argon-transition-base-time cubic-bezier(.68, -0.55, .265, 1.55) !default;
+$argon-transition-bg:                 background-color $argon-transition-base-time * 2 linear !default;
+$argon-transition-ease-in-out:        all $argon-transition-base-time ease-in-out !default;
+
+
+
+// Fonts
+
+// Font icons
+
+$argon-icon-font-family:           NucleoIcons, sans-serif !default;
+
+// Fonts
+
+$argon-font-family-sans-serif: Open Sans, sans-serif !default;
+$argon-font-family-base: $argon-font-family-sans-serif !default;
+
+$argon-font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$argon-font-size-xl:                ($argon-font-size-base * 1.5);
+$argon-font-size-lg:                ($argon-font-size-base * 1.25);
+$argon-font-size-sm:                ($argon-font-size-base * .875);
+$argon-font-size-xs:                ($argon-font-size-base * .75);
+
+$argon-font-weight-light:           300 !default;
+$argon-font-weight-normal:          400 !default;
+$argon-font-weight-bold:            600 !default;
+$argon-font-weight-extra-bold:      700 !default;
+
+$argon-font-weight-base:            $argon-font-weight-normal !default;
+$argon-line-height-base:            1.5 !default;
+$argon-shape-height-base:           1.5 !default;
+
+$argon-h1-font-size:                $argon-font-size-base * 1.625 !default;
+$argon-h2-font-size:                $argon-font-size-base * 1.25 !default;
+$argon-h3-font-size:                $argon-font-size-base * 1.0625 !default;
+$argon-h4-font-size:                $argon-font-size-base * .9375 !default;
+$argon-h5-font-size:                $argon-font-size-base * .8125 !default;
+$argon-h6-font-size:                $argon-font-size-base * .625 !default;
+
+$argon-headings-margin-bottom:      ($argon-spacer / 2);
+$argon-headings-font-family:        inherit !default;
+$argon-headings-font-weight:        $argon-font-weight-bold !default;
+$argon-headings-line-height:        1.5 !default;
+$argon-headings-color:              $argon-gray-800 !default;
+
+$argon-heading-letter-spacing:      .025em !default;
+$argon-heading-font-size:           .95rem !default;
+$argon-heading-text-transform:      uppercase !default;
+$argon-heading-font-weight:         $argon-headings-font-weight !default;
+
+$argon-heading-title-letter-spacing:      .025em !default;
+$argon-heading-title-font-size:           1.375rem !default;
+$argon-heading-title-font-weight:         $argon-font-weight-bold !default;
+$argon-heading-title-text-transform:      uppercase !default;
+
+$argon-heading-section-letter-spacing:      .025em !default;
+$argon-heading-section-font-size:           1.375rem !default;
+$argon-heading-section-font-weight:         $argon-font-weight-bold !default;
+$argon-heading-section-text-transform:      uppercase !default;
+
+$argon-display1-size:               3.3rem !default;
+$argon-display2-size:               2.75rem !default;
+$argon-display3-size:               2.1875rem !default;
+$argon-display4-size:               1.6275rem !default;
+
+$argon-display1-weight:             $argon-font-weight-bold !default;
+$argon-display2-weight:             $argon-font-weight-bold !default;
+$argon-display3-weight:             $argon-font-weight-bold !default;
+$argon-display4-weight:             $argon-font-weight-bold !default;
+$argon-display-line-height:         $argon-headings-line-height !default;
+
+$argon-paragraph-font-size:         1rem !default;
+$argon-paragraph-font-weight:       300 !default;
+$argon-paragraph-line-height:       1.7 !default;
+
+$argon-lead-font-size:              ($argon-paragraph-font-size * 1.25) !default;
+$argon-lead-font-weight:            300 !default;
+
+$argon-small-font-size:             80% !default;
+
+$argon-text-muted:                  $argon-gray-600 !default;
+
+$argon-blockquote-small-color:      $argon-gray-600 !default;
+$argon-blockquote-font-size:        ($argon-font-size-base * 1.25) !default;
+
+$argon-hr-border-color:             rgba($argon-black, .1);
+$argon-hr-border-width:             $argon-border-width !default;
+
+$argon-mark-padding:                .2em !default;
+
+$argon-dt-font-weight:              $argon-font-weight-bold !default;
+
+$argon-list-inline-padding:         .5rem !default;
+
+$argon-mark-bg:                     #fcf8e3 !default;
+
+$argon-hr-margin-y:                 $argon-spacer * 2 !default;
+
+
+
+// Icons
+
+$argon-icon-size: 3rem !default;
+$argon-icon-size-xl: 5rem !default;
+$argon-icon-size-lg: 4rem !default;
+$argon-icon-size-sm: 2rem !default;
+$argon-icon-size-xs: 1.25rem !default;
+
+
+
+// Tables
+
+$argon-table-cell-padding:          1rem !default;
+$argon-table-cell-padding-sm:       .5rem !default;
+
+$argon-table-bg:                    transparent !default;
+$argon-table-accent-bg:             rgba($argon-gray-100, .3) !default;
+$argon-table-hover-bg:              $argon-gray-100 !default;
+$argon-table-active-bg:             $argon-table-hover-bg !default;
+
+$argon-table-border-width:          $argon-border-width !default;
+$argon-table-border-color:          $argon-gray-200 !default;
+
+$argon-table-head-spacer-y:         .75rem !default;
+$argon-table-head-spacer-x:         1rem !default;
+$argon-table-head-font-size:        .65rem !default;
+$argon-table-head-font-weight:      $argon-font-weight-bold !default;
+$argon-table-head-text-transform:   uppercase !default;
+$argon-table-head-letter-spacing:   1px !default;
+$argon-table-head-bg:               $argon-gray-100 !default;
+$argon-table-head-color:            $argon-gray-600 !default;
+$argon-table-action-color:          $argon-gray-500 !default;
+
+$argon-table-body-font-size:        .8125rem !default;
+
+$argon-table-dark-bg:               theme-color("default") !default;
+$argon-table-dark-accent-bg:        rgba($argon-white, .05) !default;
+$argon-table-dark-hover-bg:         rgba($argon-white, .075) !default;
+$argon-table-dark-border-color:     lighten(theme-color("default"), 7%) !default;
+$argon-table-dark-color:            $argon-body-bg !default;
+
+$argon-table-dark-head-bg:          lighten(theme-color("default"), 4%) !default;
+$argon-table-dark-head-color:       lighten(theme-color("default"), 35%) !default;
+$argon-table-dark-action-color:     lighten(theme-color("default"), 35%) !default;
+
+
+
+// Buttons + Forms
+
+$argon-input-btn-padding-y:         .625rem !default;
+$argon-input-btn-padding-x:         .75rem !default;
+$argon-input-btn-line-height:       $argon-shape-height-base !default;
+
+$argon-input-btn-focus-width:       0 !default;
+$argon-input-btn-focus-color:       rgba($argon-component-active-bg, 1) !default;
+$argon-input-btn-focus-box-shadow:  none !default;
+
+$argon-input-btn-padding-y-sm:      .25rem !default;
+$argon-input-btn-padding-x-sm:      .5rem !default;
+$argon-input-btn-line-height-sm:    $argon-shape-height-sm !default;
+
+$argon-input-btn-padding-y-lg:      .875rem !default;
+$argon-input-btn-padding-x-lg:      1rem !default;
+$argon-input-btn-line-height-lg:    $argon-shape-height-lg !default;
+
+$argon-input-btn-border-width:      1px !default;
+
+$argon-input-btn-font-size-sm:      .75rem !default;
+$argon-input-btn-font-size:         .875rem !default;
+$argon-input-btn-font-size-lg:         .875rem !default;
+
+
+
+// Forms
+
+$argon-input-padding-y:                       $argon-input-btn-padding-y !default;
+$argon-input-padding-x:                       $argon-input-btn-padding-x !default;
+$argon-input-line-height:                     $argon-input-btn-line-height !default;
+
+$argon-input-padding-y-sm:                    $argon-input-btn-padding-y-sm !default;
+$argon-input-padding-x-sm:                    $argon-input-btn-padding-x-sm !default;
+$argon-input-line-height-sm:                  $argon-input-btn-line-height-sm !default;
+
+$argon-input-padding-y-lg:                    $argon-input-btn-padding-y-lg !default;
+$argon-input-padding-x-lg:                    $argon-input-btn-padding-x-lg !default;
+$argon-input-line-height-lg:                  $argon-input-btn-line-height-lg !default;
+
+$argon-input-border-radius:                   $argon-border-radius-sm !default;
+$argon-input-border-radius-xl:                $argon-border-radius-xl !default;
+$argon-input-border-radius-lg:                $argon-border-radius-lg !default;
+$argon-input-border-radius-sm:                $argon-border-radius-sm !default;
+
+$argon-input-bg:                              $argon-white !default;
+$argon-input-disabled-bg:                     $argon-gray-200 !default;
+
+$argon-input-muted-bg:                        #F7FAFE !default;
+$argon-input-focus-muted-bg:                  lighten($argon-input-muted-bg, 1%) !default;
+
+$argon-input-color:                           $argon-gray-600 !default;
+$argon-input-border-color:                    $argon-gray-300 !default;
+$argon-input-border-width:                    $argon-input-btn-border-width !default;
+$argon-input-box-shadow:                      0 3px 2px rgba($argon-gray-200, .05) !default;
+
+$argon-input-focus-bg:                        $argon-white !default;
+$argon-input-focus-border-color:              $argon-primary !default;
+$argon-input-focus-color:                     $argon-input-color !default;
+$argon-input-focus-width:                     0 !default;
+$argon-input-focus-box-shadow:                0 3px 9px rgba(50, 50, 9, 0), 3px 4px 8px rgba($argon-primary, .1) !default;
+
+$argon-input-placeholder-color:               $argon-gray-500 !default;
+$argon-input-focus-placeholder-color:         $argon-gray-500 !default;
+
+$argon-input-height-border:                   $argon-input-border-width * 2 !default;
+
+$argon-input-transition:                      $argon-transition-cubic-bezier !default;
+
+$argon-input-alternative-box-shadow:          0 1px 3px rgba(50,50,93,.15), 0 1px 0 rgba(0,0,0,.02) !default;
+$argon-input-focus-alternative-box-shadow:    0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08) !default;
+
+// Form group
+
+$argon-form-group-margin-bottom:              1.5rem !default;
+
+
+// Form validation
+
+$argon-form-feedback-valid-bg:         lighten($argon-success, 15%) !default;
+$argon-form-feedback-valid-color:      theme-color("success") !default;
+$argon-form-feedback-invalid-bg:       lighten($argon-warning, 15%) !default;
+$argon-form-feedback-invalid-color:    theme-color("warning") !default;
+
+
+
+// Input groups
+
+$argon-input-group-addon-color:                   $argon-input-placeholder-color !default;
+$argon-input-group-addon-bg:                      $argon-input-bg !default;
+$argon-input-group-addon-border-color:            $argon-input-border-color !default;
+
+$argon-input-group-addon-focus-color:             $argon-input-focus-color !default;
+$argon-input-group-addon-focus-bg:                $argon-input-focus-bg !default;
+$argon-input-group-addon-focus-border-color:      $argon-input-focus-border-color !default;
+
+
+
+// Custom forms
+
+$argon-custom-control-gutter:                         1.75rem !default;
+$argon-custom-control-spacer-x:                       1rem !default;
+$argon-custom-control-indicator-size:                 1rem !default;
+
+$argon-custom-control-indicator-bg:                   $argon-input-bg !default;
+$argon-custom-control-indicator-border-width:         1px !default;
+$argon-custom-control-indicator-border-color:         $argon-input-border-color !default;
+$argon-custom-control-indicator-box-shadow:           $argon-input-box-shadow !default;
+
+$argon-custom-control-indicator-focus-box-shadow:     $argon-custom-control-indicator-box-shadow !default;
+
+$argon-custom-control-indicator-hover-color:          $argon-component-hover-color !default;
+$argon-custom-control-indicator-hover-bg:             $argon-component-hover-bg !default;
+$argon-custom-control-indicator-hover-border-color:   $argon-component-hover-border-color !default;
+
+$argon-custom-control-indicator-active-color:         $argon-component-active-color !default;
+$argon-custom-control-indicator-active-bg:            $argon-component-active-bg !default;
+$argon-custom-control-indicator-active-border-color:  $argon-component-active-border-color !default;
+$argon-custom-control-indicator-active-box-shadow:    $argon-custom-control-indicator-box-shadow !default;
+
+$argon-custom-control-indicator-checked-color:        $argon-component-active-color !default;
+$argon-custom-control-indicator-checked-bg:           $argon-component-active-bg !default;
+$argon-custom-control-indicator-checked-border-color: $argon-component-active-border-color !default;
+$argon-custom-control-indicator-checked-box-shadow:   $argon-custom-control-indicator-box-shadow !default;
+$argon-custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+
+$argon-custom-control-indicator-disabled-bg:          $argon-gray-200 !default;
+$argon-custom-control-label-disabled-color:           $argon-gray-600 !default;
+
+$argon-custom-checkbox-indicator-border-radius:       $argon-border-radius-sm !default;
+//$argon-custom-checkbox-indicator-icon-checked:      str-replace(url("data:image/svg+xml !default;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// Custom toggle
+
+$argon-custom-toggle-width:                           52px !default;
+$argon-custom-toggle-slider-bg:                       $argon-gray-200 !default;
+$argon-custom-toggle-checked-bg:                      theme-color("primary") !default;
+$argon-custom-toggle-border-color:                    $argon-gray-400;
+
+
+
+// Buttons
+
+$argon-btn-padding-y:               $argon-input-btn-padding-y !default;
+$argon-btn-padding-x:               $argon-input-btn-padding-x + 0.5 !default;
+$argon-btn-line-height:             $argon-input-btn-line-height !default;
+
+$argon-btn-padding-y-sm:            $argon-input-btn-padding-y-sm !default;
+$argon-btn-padding-x-sm:            $argon-input-btn-padding-x-sm !default;
+$argon-btn-line-height-sm:          $argon-input-btn-line-height-sm !default;
+
+$argon-btn-padding-y-lg:            $argon-input-btn-padding-y-lg !default;
+$argon-btn-padding-x-lg:            $argon-input-btn-padding-x-lg !default;
+$argon-btn-line-height-lg:          $argon-input-btn-line-height-lg !default;
+
+$argon-btn-border-width:            $argon-input-btn-border-width !default;
+
+$argon-btn-font-weight:             600 !default;
+$argon-btn-letter-spacing:          .025em !default;
+$argon-btn-text-transform:          none !default;
+$argon-btn-box-shadow:              0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08) !default;
+$argon-btn-hover-box-shadow:        0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08) !default;
+$argon-btn-focus-box-shadow:        $argon-btn-hover-box-shadow !default;
+$argon-btn-focus-width:             $argon-input-btn-focus-width !default;
+$argon-btn-active-box-shadow:       none !default;
+$argon-btn-hover-translate-y:       -1px !default;
+
+
+// Allows for customizing button radius independently from global border radius
+
+$argon-btn-border-radius:           $argon-input-border-radius !default;
+$argon-btn-border-radius-xl:        $argon-input-border-radius-xl !default;
+$argon-btn-border-radius-lg:        $argon-input-border-radius-lg !default;
+$argon-btn-border-radius-sm:        $argon-input-border-radius !default;
+
+
+
+// Dropdown
+
+$argon-dropdown-bg:                    $argon-white !default;
+$argon-dropdown-border-width:          0 !default;
+$argon-dropdown-border-color:          rgba($argon-black, .15) !default;
+$argon-dropdown-border-radius:         $argon-border-radius-lg !default;
+$argon-dropdown-box-shadow:            0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1) !default;
+
+$argon-dropdown-link-color:            $argon-gray-900 !default;
+$argon-dropdown-link-bg:               $argon-white !default;
+
+$argon-dropdown-link-hover-color:      darken($argon-gray-900, 5%) !default;
+$argon-dropdown-link-hover-bg:         $argon-gray-100 !default;
+
+$argon-dropdown-link-active-color:     $argon-dropdown-link-hover-color !default;
+$argon-dropdown-link-active-bg:        transparent !default;
+
+$argon-dropdown-item-padding-y:        .5rem !default;
+$argon-dropdown-item-padding-x:        1rem !default;
+
+
+
+// Map
+
+$argon-map-height: 500px !default;
+
+
+
+// Navs
+
+$argon-nav-link-padding-y:                .25rem !default;
+$argon-nav-link-padding-x:                .75rem !default;
+$argon-nav-link-color:                    $argon-gray-700 !default;
+$argon-nav-link-hover-color:              theme-color("primary") !default;
+$argon-nav-link-disabled-color:           $argon-gray-600 !default;
+
+$argon-nav-pills-padding-y:               .75rem !default;
+$argon-nav-pills-padding-x:               1rem !default;
+
+$argon-nav-pills-space-x:                 1rem !default;
+
+$argon-nav-pills-bg:                      $argon-white !default;
+$argon-nav-pills-border-width:            1px !default;
+$argon-nav-pills-border-color:            theme-color("primary") !default;
+$argon-nav-pills-border-radius:           $argon-border-radius !default;
+
+$argon-nav-pills-link-color:              theme-color("primary") !default;
+$argon-nav-pills-link-hover-color:        darken(theme-color("primary"), 5%) !default;
+$argon-nav-pills-link-active-color:       color-yiq(theme-color("primary")) !default;
+$argon-nav-pills-link-active-bg:          theme-color("primary") !default;
+$argon-nav-pills-box-shadow:              $argon-btn-box-shadow !default;
+
+
+
+// Navbar
+
+$argon-navbar-padding-y:                         1rem !default;
+$argon-navbar-padding-x:                         1rem !default;
+
+$argon-navbar-nav-link-padding-x:                1rem !default;
+$argon-navbar-nav-link-padding-y:                1rem !default;
+
+$argon-navbar-nav-link-font-size:                .875rem !default;
+$argon-navbar-nav-link-font-weight:              500 !default;
+$argon-navbar-nav-link-text-transform:           normal !default;
+$argon-navbar-nav-link-letter-spacing:           0 !default;
+$argon-navbar-nav-link-border-radius:            $argon-border-radius !default;
+
+$argon-navbar-dark-bg:                           transparent !default;
+$argon-navbar-dark-hover-bg:                     rgba(255, 255, 255, .1) !default;
+$argon-navbar-dark-active-bg:                    rgba(255, 255, 255, .1) !default;
+$argon-navbar-dark-border-color:                 rgba(255, 255, 255, .1) !default;
+$argon-navbar-dark-color:                        rgba($argon-white, .95) !default;
+$argon-navbar-dark-hover-color:                  rgba($argon-white, .65) !default;
+$argon-navbar-dark-active-color:                 rgba($argon-white, .65) !default;
+$argon-navbar-dark-disabled-color:               rgba($argon-white, .25) !default;
+$argon-navbar-dark-toggler-border-color:         transparent !default;
+
+$argon-navbar-light-bg:                          $argon-gray-100 !default;
+$argon-navbar-light-hover-bg:                    darken($argon-gray-100, 5%) !default;
+$argon-navbar-light-active-bg:                   darken($argon-gray-100, 5%) !default;
+$argon-navbar-light-border-color:                rgba($argon-black, .05) !default;
+$argon-navbar-light-color:                       rgba($argon-black, .6) !default;
+$argon-navbar-light-hover-color:                 rgba($argon-black, .7) !default;
+$argon-navbar-light-active-color:                rgba($argon-black, .9) !default;
+$argon-navbar-light-disabled-color:              rgba($argon-black, .3) !default;
+$argon-navbar-light-toggler-border-color:        transparent !default;
+
+
+// Vertical navbar
+
+$argon-navbar-vertical-box-shadow:                0 0 2rem 0 rgba(136, 152, 170, .15) !default;
+$argon-navbar-vertical-border-color:              rgba($argon-black, .05) !default;
+$argon-navbar-vertical-width:                     62px !default;
+$argon-navbar-vertical-open-width:                250px !default;
+$argon-navbar-vertical-padding-x:                 1.5rem !default;
+$argon-navbar-vertical-nav-link-padding-x:        1.5rem !default;
+$argon-navbar-vertical-nav-link-padding-y:        .675rem !default;
+
+$argon-navbar-icon-min-width:                     2rem !default;
+
+$argon-navbar-breadcrumb-padding-y:               $argon-nav-link-padding-y !default;
+$argon-navbar-breadcrumb-padding-x:               0 !default;
+
+$argon-navbar-light-bg:                           $argon-white !default;
+$argon-navbar-light-border-color:                 $argon-border-color !default;
+
+
+// Navbar search
+
+$argon-navbar-search-width:                       250px !default;
+$argon-navbar-search-focus-width:                 380px !default;
+$argon-navbar-search-bg:                          transparent !default;
+$argon-navbar-search-transition:                  $argon-transition-cubic-bezier;
+
+$argon-navbar-search-border-radius:               2rem !default;
+$argon-navbar-search-border-width:                0 !default;
+
+$argon-navbar-search-dark-bg:                     rgba($argon-default, .8) !default;
+$argon-navbar-search-dark-focus-bg:               rgba($argon-default, .9) !default;
+$argon-navbar-search-dark-border-color:           rgba(255, 255, 255, .6) !default;
+$argon-navbar-search-dark-color:                  rgba(255, 255, 255, .6) !default;
+$argon-navbar-search-dark-focus-border-color:     rgba(255, 255, 255, .9) !default;
+$argon-navbar-search-dark-focus-color:            rgba(255, 255, 255, .9) !default;
+
+$argon-navbar-search-light-bg:                    rgba(255, 255, 255, .9) !default;
+$argon-navbar-search-light-focus-bg:              rgba(255, 255, 255, 1) !default;
+$argon-navbar-search-light-border-color:          rgba(0, 0, 0, .6) !default;
+$argon-navbar-search-light-color:                 rgba(0, 0, 0, .6) !default;
+$argon-navbar-search-light-focus-border-color:    rgba(0, 0, 0, .9) !default;
+$argon-navbar-search-light-focus-color:           rgba(0, 0, 0, .9) !default;
+
+
+
+// Content
+
+$argon-main-content-padding-y: 40px !default;
+$argon-main-content-padding-x: 15px !default;
+
+
+
+// Alerts
+
+$argon-alert-padding-y: 1rem !default;
+$argon-alert-padding-x: 1.5rem !default;
+$argon-alert-border-radius: $argon-border-radius !default;
+
+$argon-alert-bg-level: -2 !default;
+$argon-alert-border-level: -2 !default;
+$argon-alert-color-level: 0 !default;
+
+
+
+// List group
+
+$argon-list-group-bg:                     $argon-white !default;
+$argon-list-group-border-color:           $argon-border-color !default; //rgba($argon-black, .125);
+$argon-list-group-border-width:           $argon-border-width !default;
+$argon-list-group-border-radius:          $argon-border-radius !default;
+
+$argon-list-group-item-padding-y:         1rem !default;
+$argon-list-group-item-padding-x:         1rem !default;
+
+$argon-list-group-hover-bg:               $argon-gray-100 !default;
+$argon-list-group-active-color:           $argon-component-active-color !default;
+$argon-list-group-active-bg:              $argon-component-active-bg !default;
+$argon-list-group-active-border-color:    $argon-list-group-active-bg !default;
+
+$argon-list-group-disabled-color:         $argon-gray-600 !default;
+$argon-list-group-disabled-bg:            $argon-list-group-bg !default;
+
+$argon-list-group-action-color:           $argon-gray-700 !default;
+$argon-list-group-action-hover-color:     $argon-list-group-action-color !default;
+
+$argon-list-group-action-active-color:    $argon-list-group-action-color !default;
+$argon-list-group-action-active-bg:       $argon-gray-200 !default;
+
+
+
+// Close
+
+$argon-close-font-size:                   $argon-font-size-base * 1.5 !default;
+$argon-close-font-weight:                 $argon-font-weight-bold !default;
+$argon-close-bg:                          transparent !default;
+$argon-close-hover-bg:                    transparent !default;
+$argon-close-color:                       rgba(0, 0, 0, .6) !default !default;
+$argon-close-hover-color:                 rgba(0, 0, 0, .9) !default;
+$argon-close-text-shadow:                 none !default;
+
+
+
+// Popovers
+
+$argon-popover-font-size:                 $argon-font-size-sm !default;
+$argon-popover-bg:                        $argon-white !default;
+$argon-popover-max-width:                 276px !default;
+$argon-popover-border-width:              1px !default;
+$argon-popover-border-color:              rgba($argon-black, .05) !default;
+$argon-popover-border-radius:             $argon-border-radius-lg !default;
+$argon-popover-box-shadow:                0px .5rem 2rem 0px rgba($argon-black, .2) !default;
+
+$argon-popover-header-bg:                 $argon-popover-bg !default;
+$argon-popover-header-color:              $argon-headings-color !default;
+$argon-popover-header-padding-y:          .5rem !default;
+$argon-popover-header-padding-x:          .95rem !default;
+
+$argon-popover-body-color:                $argon-body-color !default;
+$argon-popover-body-padding-y:            $argon-popover-header-padding-y !default;
+$argon-popover-body-padding-x:            $argon-popover-header-padding-x !default;
+
+$argon-popover-arrow-width:               1rem !default;
+$argon-popover-arrow-height:              .5rem !default;
+$argon-popover-arrow-color:               $argon-popover-bg !default;
+
+$argon-popover-arrow-outer-color:         transparent !default;
+
+
+
+// Badges
+
+$argon-badge-font-size:                   66% !default;
+$argon-badge-font-weight:                 $argon-font-weight-bold !default;
+$argon-badge-padding-y:                   .35rem !default;
+$argon-badge-padding-x:                   .375rem !default;
+$argon-badge-border-radius:               $argon-border-radius !default;
+$argon-badge-text-transfom:               uppercase;
+
+$argon-badge-pill-padding-x:              .875em !default;
+$argon-badge-pill-border-radius:          10rem !default;
+
+$argon-badge-circle-size:                 2rem !default;
+
+
+
+// Pagination
+
+$argon-pagination-color:                  $argon-gray-600 !default;
+$argon-pagination-bg:                     $argon-white  !default;
+$argon-pagination-border-width:           $argon-border-width !default;
+$argon-pagination-border-color:           $argon-gray-300 !default;
+
+$argon-pagination-hover-color:            $argon-gray-600 !default;
+$argon-pagination-hover-bg:               $argon-gray-300 !default;
+$argon-pagination-hover-border-color:     $argon-gray-300 !default;
+
+$argon-pagination-active-color:           $argon-component-active-color !default;
+$argon-pagination-active-bg:              $argon-component-active-bg !default;
+$argon-pagination-active-border-color:    $argon-pagination-active-bg !default;
+$argon-pagination-active-box-shadow:      $argon-btn-hover-box-shadow !default;
+
+$argon-pagination-disabled-color:         $argon-gray-600 !default;
+$argon-pagination-disabled-bg:            $argon-white !default;
+$argon-pagination-disabled-border-color:  $argon-gray-300 !default;
+
+
+
+// Cards
+
+$argon-card-spacer-y:                     1.25rem !default;
+$argon-card-spacer-x:                     1.5rem !default;
+$argon-card-border-width:                 $argon-border-width !default;
+$argon-card-border-radius:                $argon-border-radius !default;
+$argon-card-border-color:                 rgba($argon-black, .05) !default;
+$argon-card-inner-border-radius:          calc(#{$argon-card-border-radius} - #{$argon-card-border-width}) !default;
+$argon-card-cap-bg:                       $argon-white !default;
+$argon-card-bg:                           $argon-white !default;
+$argon-card-box-shadow:                   $argon-box-shadow !default;
+
+$argon-card-img-overlay-padding:          1.25rem !default;
+
+$argon-card-columns-count:                3 !default;
+$argon-card-columns-gap:                  1.25rem !default;
+$argon-card-columns-margin:               $argon-card-spacer-y !default;
+
+
+
+// Tooltips
+
+$argon-tooltip-font-size:                 $argon-font-size-sm !default;
+
+
+
+// Modals
+
+$argon-modal-inner-padding:               1.5rem !default;
+
+$argon-modal-lg:                          800px !default;
+$argon-modal-md:                          500px !default;
+$argon-modal-sm:                          380px !default;
+
+$argon-modal-title-font-size:             $argon-h3-font-size !default;
+$argon-modal-title-line-height:           1.1 !default;
+
+$argon-modal-content-bg:                  $argon-white !default;
+$argon-modal-content-border-color:        rgba($argon-black, .2) !default;
+$argon-modal-content-border-width:        0 !default;
+$argon-modal-content-border-radius:       $argon-border-radius-lg !default;
+$argon-modal-content-box-shadow-xs:       0 15px 35px rgba(50,50,93,.2), 0 5px 15px rgba(0,0,0,.17) !default;
+$argon-modal-content-box-shadow-sm-up:    0 15px 35px rgba(50,50,93,.2), 0 5px 15px rgba(0,0,0,.17) !default;
+
+$argon-modal-backdrop-bg:                 $argon-black !default;
+$argon-modal-backdrop-opacity:            .16 !default;
+$argon-modal-header-border-color:         $argon-gray-200 !default;
+$argon-modal-footer-border-color:         $argon-modal-header-border-color !default;
+$argon-modal-header-border-width:         $argon-modal-content-border-width !default;
+$argon-modal-footer-border-width:         $argon-modal-header-border-width !default;
+$argon-modal-header-padding:              1.25rem !default;
+
+
+
+// Footer
+
+$argon-footer-padding-y:              30px;
+$argon-footer-padding-x:              0;
+
+$argon-footer-link-font-size:         .85rem !default;
+$argon-footer-bg:                     $argon-body-bg !default;
+$argon-footer-color:                  $argon-gray-600 !default;
+$argon-footer-link-color:             $argon-gray-600 !default;
+$argon-footer-link-hover-color:       $argon-gray-700 !default;
+$argon-footer-heading-color:          $argon-gray-600 !default;
+$argon-footer-heading-font-size:      $argon-font-size-sm !default;
+
+
+
+//
+// Plugins
+//
+
+
+// Datepicker
+
+$argon-datepicker-border-radius: $argon-card-border-radius !default;
+$argon-datepicker-dropdown-padding: 20px 22px !default;
+
+$argon-datepicker-cell-transition: $argon-transition-base !default;
+$argon-datepicker-cell-hover-background: lighten($argon-gray-400, 55%);
+$argon-datepicker-cell-border-radius: 50% !default;
+$argon-datepicker-cell-width: 36px !default;
+$argon-datepicker-cell-height: 36px !default;
+
+$argon-datepicker-disabled-cell-color: $argon-gray-300 !default;
+$argon-datepicker-disabled-old-new-color: $argon-gray-500 !default;
+
+$argon-datepicker-header-cell-border-radius: $argon-border-radius !default;
+
+$argon-datepicker-active-color: $argon-white !default;
+$argon-datepicker-active-background: theme-color("primary") !default;
+$argon-datepicker-active-box-shadow:      none !default;
+
+$argon-datepicker-range-background: theme-color("primary") !default;
+$argon-datepicker-range-cell-focused-background: darken($argon-datepicker-range-background, 5%);
+$argon-datepicker-range-color: $argon-white !default;
+$argon-datepicker-range-highlighted-bg: $argon-gray-200 !default;
+
+$argon-datepicker-dropdown-border: lighten($argon-gray-400, 40%);
+$argon-datepicker-dropdown-bg: $argon-white !default;
+$argon-datepicker-highlighted-bg: $argon-datepicker-active-background !default;
+
+
+
+// NoUISlider
+
+$argon-noui-target-bg:                  #eceeef !default;
+$argon-noui-target-thickness:           5px !default;
+$argon-noui-target-border-radius:       5px !default;
+$argon-noui-target-border-color:        0 !default;
+$argon-noui-target-box-shadow:          inset 0 1px 2px rgba(90,97,105,.1) !default;
+
+$argon-noui-slider-connect-bg:          $argon-primary !default;
+$argon-noui-slider-connect-disabled-bg: #b2b2b2 !default;
+
+$argon-noui-handle-width:               15px !default;
+$argon-noui-handle-bg:                  theme-color("primary") !default;
+$argon-noui-handle-border:              0 !default;
+$argon-noui-handle-border-radius:       100% !default;
+
+$argon-noui-origin-border-radius:       2px !default;
+
+
+
+
+//
+// PRO components and plugins
+// Need more for your project? Check out the PRO version
+// URL:
+//
+
+
+
+
+// Breadcrumb
+
+$argon-breadcrumb-padding-y:              .5rem !default;
+$argon-breadcrumb-padding-x:              1rem !default;
+$argon-breadcrumb-item-padding:           .5rem !default;
+$argon-breadcrumb-margin-bottom:          1rem !default;
+$argon-breadcrumb-bg:                     $argon-gray-100 !default;
+$argon-breadcrumb-divider-color:          $argon-gray-600 !default;
+$argon-breadcrumb-active-color:           $argon-gray-600 !default;
+$argon-breadcrumb-divider:                quote("-") !default;
+$argon-breadcrumb-border-radius:          $argon-border-radius !default;
+
+$argon-breadcrumb-dark-bg:                $argon-default !default;
+$argon-breadcrumb-dark-color:             $argon-gray-100 !default;
+$argon-breadcrumb-dark-hover-color:       $argon-white !default;
+$argon-breadcrumb-dark-active-color:      $argon-gray-300 !default;
+$argon-breadcrumb-dark-divider-color:     $argon-gray-500 !default;
+
+
+
+// Timeline
+
+$argon-timeline-axis-width: 2px !default;
+$argon-timeline-axis-color: $argon-border-color !default;
+
+$argon-timeline-step-bg: $argon-white !default;
+$argon-timeline-step-border-width: 2px !default;
+$argon-timeline-step-border-color: $argon-timeline-axis-color !default;
+
+
+
+//
+// Plugins
+//
+
+
+// Chart
+
+$argon-chart-height: 350px !default;
+$argon-chart-height-sm: 230px !default;
+
+$argon-chart-legend-margin-top: 2.5rem !default;
+$argon-chart-legend-font-size: $argon-font-size-sm !default;
+$argon-chart-legend-color: $argon-text-muted !default;
+$argon-chart-legend-height: $argon-chart-legend-margin-top + $argon-chart-legend-font-size * $argon-line-height-base !default;
+
+
+
+// Sweet alert
+
+$argon-swal2-width:               30em;
+$argon-swal2-padding:             1.5rem;
+$argon-swal2-title-font-size:     1.5rem;
+$argon-swal2-content-font-size:   .875rem;
+
+
+
+// Tags
+
+$argon-tags-input-border-width:           0;
+$argon-tags-input-border-color:           transparent;
+$argon-tags-input-color:                  $argon-gray-600;
+
+$tag-bg:                            theme-color("default");
+$tag-color:                         color-yiq(theme-color("default"));
+$tag-close-color:                   color-yiq(theme-color("default"));
+$tag-box-shadow:                    0 1px 2px rgba(68,68,68,0.25);
+
+
+
+
+// Import Bootstrap variable defaults
+
+@import "bootstrap/scss/variables";
+

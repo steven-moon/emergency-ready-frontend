@@ -1,0 +1,20 @@
+// stylelint-disable declaration-no-important
+
+@each $black-breakpoint in map-keys($black-grid-breakpoints) {
+  @include black-media-breakpoint-up($black-breakpoint) {
+    $black-infix: black-breakpoint-infix($black-breakpoint, $black-grid-breakpoints);
+    .black-container {
+      .float#{$black-infix}-left {
+        float: left !important;
+      }
+
+      .float#{$black-infix}-right {
+        float: right !important;
+      }
+
+      .float#{$black-infix}-none {
+        float: none !important;
+      }
+    }
+  }
+}

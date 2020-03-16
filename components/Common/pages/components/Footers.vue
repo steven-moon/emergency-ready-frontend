@@ -63,7 +63,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="https://www.creative-tim.com" class="nav-link">
+                                <a href="/" class="nav-link">
                                     Creative Tim
                                 </a>
                             </li>
@@ -90,7 +90,7 @@
                         , Designed by
                         <a href="https:///www.invisionapp.com" target="_blank" class="copyright-link">Invision</a>. Coded
                         by
-                        <a href="https://www.creative-tim.com" target="_blank" class="copyright-link">Creative Tim</a>.
+                        <a href="/"  class="copyright-link">Creative Tim</a>.
                     </div>
                 </div>
             </footer>

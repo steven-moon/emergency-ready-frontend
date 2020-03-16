@@ -1,0 +1,111 @@
+.argon-container {
+    //
+    // Forms
+    //
+
+
+    // Labels
+
+    .form-control-label {
+        color: $argon-gray-700;
+        font-size: $argon-font-size-sm;
+        font-weight: $argon-font-weight-bold;
+    }
+
+
+    // Text inputs
+
+    .form-control {
+        font-size: $argon-input-btn-font-size;
+        @include transition($argon-transition-ease-in-out);
+        height: calc(#{$argon-input-line-height * 1em} + #{$argon-input-padding-y * 2} + #{$argon-input-height-border * 2.5});
+
+        &:focus {
+            &::placeholder {
+                color: $argon-input-focus-placeholder-color;
+            }
+        }
+
+
+    }
+
+    .form-control-lg {
+        height: calc(#{$argon-input-line-height * 1.5em} + #{$argon-input-padding-y * 2} + #{$argon-input-height-border * 2.5});
+
+    }
+
+    .form-control-sm {
+        height: calc(#{$argon-input-line-height * .3em} + #{$argon-input-padding-y * 2} + #{$argon-input-height-border * 2.5});
+
+    }
+
+    // Form control flush
+    // Removes borders and paddings from inputs and text areas
+
+    .form-control-flush {
+        padding: 0;
+        border-width: 0;
+        background-color: transparent;
+        box-shadow: none;
+
+        &:focus {
+            background-color: transparent;
+            box-shadow: none;
+            border-width: 0;
+        }
+    }
+
+    // Textarea
+
+    textarea[resize="none"] {
+        resize: none !important;
+    }
+
+    textarea[resize="both"] {
+        resize: both !important;
+    }
+
+    textarea[resize="vertical"] {
+        resize: vertical !important;
+    }
+
+    textarea[resize="horizontal"] {
+        resize: horizontal !important;
+    }
+
+
+    // Form input variations
+
+    // Muted input
+
+    .form-control-muted {
+        background-color: $argon-input-muted-bg;
+        border-color: $argon-input-muted-bg;
+        box-shadow: none;
+
+        &:focus {
+            background-color: $argon-input-focus-muted-bg;
+        }
+    }
+
+
+    // Alternative input
+
+    .form-control-alternative {
+        box-shadow: $argon-input-alternative-box-shadow;
+        border: 0;
+        transition: box-shadow .15s ease;
+
+        &:focus {
+            box-shadow: $argon-input-focus-alternative-box-shadow;
+        }
+    }
+
+    // Size variations: Fixes to the bootstrap defaults
+
+    .form-control-lg,
+    .input-group-lg .form-control,
+    .input-group-text {
+        font-size: $argon-font-size-base !important;
+    }
+}

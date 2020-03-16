@@ -1,0 +1,41 @@
+.argon-container {
+    //
+    // Custom radio
+    //
+
+    .custom-radio {
+        .custom-control-input ~ .custom-control-label {
+            cursor: pointer;
+            font-size: $argon-font-size-sm;
+            height: $argon-custom-control-indicator-size;
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-checked-border-color;
+                    }
+
+                    &::after {
+                        background-image: $argon-custom-radio-indicator-icon-checked;
+                    }
+                }
+            }
+
+            &:disabled {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-disabled-bg;
+                    }
+                }
+
+                &:checked {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-checked-disabled-bg;
+                    }
+                }
+            }
+        }
+    }
+}

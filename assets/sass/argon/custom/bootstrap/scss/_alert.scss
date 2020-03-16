@@ -1,0 +1,53 @@
+.argon-container {
+  //
+  // Base styles
+  //
+
+  .alert {
+    position: relative;
+    padding: $argon-alert-padding-y $argon-alert-padding-x;
+    margin-bottom: $argon-alert-margin-bottom;
+    border: $argon-alert-border-width solid transparent;
+    @include border-radius($argon-alert-border-radius);
+  }
+
+  // Headings for larger alerts
+  .alert-heading {
+    // Specified to prevent conflicts of changing $argon-headings-color
+    color: inherit;
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: $argon-alert-link-font-weight;
+  }
+
+
+  // Dismissible alerts
+  //
+  // Expand the right padding and account for the close button's positioning.
+
+  .alert-dismissible {
+    padding-right: $argon-close-font-size + $argon-alert-padding-x * 2;
+
+    // Adjust close link position
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: $argon-alert-padding-y $argon-alert-padding-x;
+      color: inherit;
+    }
+  }
+
+
+  // Alternate styles
+  //
+  // Generate contextual modifier classes for colorizing the alert.
+
+  @each $color, $value in $argon-themecolors {
+    .alert-#{$color} {
+      @include alert-variant(theme-color-level($color, $argon-alert-bg-level), theme-color-level($color, $argon-alert-border-level), theme-color-level($color, $argon-alert-color-level));
+    }
+  }
+}

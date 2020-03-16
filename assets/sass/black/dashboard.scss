@@ -1,0 +1,143 @@
+/*!
+
+ =========================================================
+ * Nuxt Black Dashboard PRO - v1.0.0
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/nuxt-black-dashboard-pro
+ * Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+ * Coded by Creative Tim
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
+
+// Core
+
+@import "custom/functions";
+@import "vendor/bootstrap/scss/functions";
+
+@import "custom/variables";
+@import "vendor/bootstrap/scss/variables";
+
+@import "custom/mixins";
+@import "vendor/bootstrap/scss/mixins";
+
+// Bootstrap components
+
+@import "vendor/bootstrap/scss/root";
+@import "vendor/bootstrap/scss/reboot";
+@import "vendor/bootstrap/scss/type";
+@import "vendor/bootstrap/scss/images";
+@import "vendor/bootstrap/scss/code";
+@import "vendor/bootstrap/scss/grid";
+@import "vendor/bootstrap/scss/tables";
+@import "vendor/bootstrap/scss/forms";
+@import "vendor/bootstrap/scss/buttons";
+@import "vendor/bootstrap/scss/transitions";
+@import "vendor/bootstrap/scss/dropdown";
+@import "vendor/bootstrap/scss/button-group";
+@import "vendor/bootstrap/scss/input-group";
+@import "vendor/bootstrap/scss/custom-forms";
+@import "vendor/bootstrap/scss/nav";
+@import "vendor/bootstrap/scss/navbar";
+@import "vendor/bootstrap/scss/card";
+@import "vendor/bootstrap/scss/breadcrumb";
+@import "vendor/bootstrap/scss/pagination";
+@import "vendor/bootstrap/scss/badge";
+@import "vendor/bootstrap/scss/jumbotron";
+@import "vendor/bootstrap/scss/alert";
+@import "vendor/bootstrap/scss/progress";
+@import "vendor/bootstrap/scss/media";
+@import "vendor/bootstrap/scss/list-group";
+@import "vendor/bootstrap/scss/close";
+@import "vendor/bootstrap/scss/modal";
+@import "vendor/bootstrap/scss/tooltip";
+@import "vendor/bootstrap/scss/popover";
+@import "vendor/bootstrap/scss/carousel";
+@import "vendor/bootstrap/scss/utilities";
+@import "vendor/bootstrap/scss/print";
+
+// Custom components
+
+@import "custom/reboot.scss";
+@import "custom/global.scss";
+@import "custom/utilities.scss";
+@import "custom/alerts.scss";
+@import "custom/avatars.scss";
+@import "custom/badge.scss";
+@import "custom/buttons.scss";
+@import "custom/close.scss";
+@import "custom/custom-forms.scss";
+@import "custom/dropdown.scss";
+@import "custom/footer.scss";
+@import "custom/forms.scss";
+@import "custom/grid.scss";
+@import "custom/icons.scss";
+@import "custom/images.scss";
+@import "custom/input-group.scss";
+@import "custom/info-areas.scss";
+@import "custom/modal.scss";
+@import "custom/nav.scss";
+@import "custom/navbar.scss";
+@import "custom/pagination.scss";
+@import "custom/tabs.scss";
+@import "custom/pills.scss";
+@import "custom/popover.scss";
+@import "custom/progress.scss";
+@import "custom/type.scss";
+@import "custom/tables";
+@import "custom/checkboxes-radio";
+@import "custom/fixed-plugin";
+@import "custom/sidebar-and-main-panel.scss";
+@import "custom/misc.scss";
+@import "custom/rtl.scss";
+@import "custom/timeline.scss";
+
+// Vendor / Plugins
+
+@import "custom/vendor/plugin-nouislider.scss";
+@import "custom/vendor/plugin-fullcalendar.scss";
+@import "custom/vendor/plugin-sweetalert2.scss";
+@import "custom/vendor/plugin-bootstrap-switch.scss";
+@import "custom/vendor/plugin-jasny-fileupload.scss";
+@import "custom/vendor/plugin-perfect-scrollbar.scss";
+@import "custom/vendor/plugin-card-wizard.scss";
+
+// Vendor Element UI plugins
+@import "custom/vendor/element-ui/plugin-tags";
+@import "custom/vendor/element-ui/plugin-slider";
+@import "custom/vendor/element-ui/plugin-select";
+@import "custom/vendor/element-ui/plugin-inputs";
+@import "custom/vendor/element-ui/plugin-tables";
+@import "custom/vendor/element-ui/plugin-datepicker";
+
+// example pages and sections
+
+@import "custom/example-pages.scss";
+
+// light mode
+
+@import "custom/white-content.scss";
+
+// Cards
+
+@import 'custom/card';
+@import "custom/cards/card-chart";
+@import "custom/cards/card-map";
+@import "custom/cards/card-user";
+@import "custom/cards/card-task";
+@import "custom/cards/card-animation-on-hover";
+@import "custom/cards/card-collapse";
+@import "custom/cards/card-contributions";
+@import "custom/cards/card-lock";
+@import "custom/cards/card-pricing";
+@import "custom/cards/card-profile";
+@import "custom/cards/card-plain";
+@import "custom/cards/card-register";
+@import "custom/cards/card-stats";
+@import "custom/cards/card-subcategories";
+@import "custom/cards/card-testimonials";
+@import "custom/cards/card-wizard";

@@ -84,6 +84,6 @@
   }
 </script>
 <style lang="scss">
-  @import "~@/assets/sass/emergency-ready/variables";
-  @import "~@/assets/sass/emergency-ready/plugins/plugin-nouislider";
+  @import "~@/assets/sass/base/variables";
+  @import "~@/assets/sass/base/plugins/plugin-nouislider";
 </style>

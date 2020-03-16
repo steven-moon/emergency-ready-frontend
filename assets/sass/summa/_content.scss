@@ -1,0 +1,36 @@
+/* ------------------------------------------------------------ *\
+	Content
+\* ------------------------------------------------------------ */
+
+.summa-container {
+	.content {
+		flex-grow: 1;
+		display: flex;
+		padding: 10px;
+		overflow: hidden;
+
+		> div {
+			width: 100%;
+		}
+
+		@media #{$summa-mobile} {
+			width: 100%;
+			z-index: 2;
+			position: relative;
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Content Wrap
+    \* ------------------------------------------------------------ */
+
+	.content-wrap {
+		&.hide-nav-on-mobile {
+			@media #{$summa-mobile} {
+				.nav-wrapper {
+					display: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.argon-container {
+    //
+    // Custom control
+    // additional styles for custom checkboxes, radios and other
+    //
+
+    .custom-control-label {
+        // Background-color and (when enabled) gradient
+        &::before {
+            border: $argon-custom-control-indicator-border-width solid $argon-custom-control-indicator-border-color;
+            @include transition($argon-input-transition);
+            top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
+            left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size - 1rem);
+
+        }
+
+        &::after {
+            top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
+            left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size - 1rem);
+
+        }
+
+        span {
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .custom-control-label {
+        margin-bottom: 0;
+    }
+
+
+    // Alternative style
+
+    .custom-control-alternative {
+        .custom-control-label {
+            // Background-color and (when enabled) gradient
+            &::before {
+                border: 0;
+                box-shadow: $argon-input-alternative-box-shadow;
+            }
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        box-shadow: $argon-input-focus-alternative-box-shadow;
+                    }
+                }
+            }
+
+            &:active ~ .custom-control-label::before,
+            &:focus ~ .custom-control-label::before {
+                box-shadow: $argon-input-alternative-box-shadow;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.argon-container {
+    //
+    // Dot badge
+    //
+
+
+    // General styles
+
+    .badge-dot {
+        padding-left: 0;
+        padding-right: 0;
+        background: transparent;
+        font-weight: $argon-font-weight-normal;
+        font-size: $argon-font-size-sm;
+        text-transform: none;
+
+        strong {
+            color: $argon-gray-800;
+        }
+
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            width: .375rem;
+            height: .375rem;
+            border-radius: 50%;
+            margin-right: .375rem;
+        }
+
+        &.badge-md {
+            i {
+                width: .5rem;
+                height: .5rem;
+            }
+        }
+
+        &.badge-lg {
+            i {
+                width: .625rem;
+                height: .625rem;
+            }
+        }
+    }
+}

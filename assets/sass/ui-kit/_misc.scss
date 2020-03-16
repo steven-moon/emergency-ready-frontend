@@ -1,0 +1,99 @@
+@import "variables";
+
+.ui-kit-container {
+
+    color: $kit-black-color;
+    font-size: $kit-font-size-base;
+    font-family: $kit-sans-serif-family;
+    overflow-x: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    -webkit-text-size-adjust: 100%; // 4
+    -ms-text-size-adjust: 100%; // 4
+    -ms-overflow-style: scrollbar; // 5
+    -webkit-tap-highlight-color: rgba($base-black, 0); // 6
+
+    margin: 0; // 1
+    font-weight: $base-font-weight-base;
+    line-height: $base-line-height-base;
+    text-align: left; // 3
+    background-color: $body-bg; // 2
+
+
+    .main {
+        position: relative;
+        background: $kit-white-color;
+    }
+
+    /* Animations */
+    .nav-pills .nav-link,
+    .nav-item .nav-link,
+    .navbar,
+    .nav-tabs .nav-link,
+    .tag,
+    .tag [data-role="remove"] {
+        @include transition($kit-general-transition-time, $kit-transition-ease);
+    }
+
+    //transition for dropdown caret
+    .card a,
+    .bootstrap-switch-label:before {
+        @include transition($kit-fast-transition-time, $kit-transition-ease);
+    }
+
+    .dropdown-toggle:after,
+    [data-toggle="collapse"][data-parent="#accordion"] i {
+        @include transition-on-prop(transform, $kit-fast-transition-time, $kit-transition-ease);
+    }
+
+    .dropdown-toggle[aria-expanded="true"]:after,
+    [data-toggle="collapse"][data-parent="#accordion"][aria-expanded="true"] i {
+        @include rotate-180();
+    }
+
+    .button-bar {
+        display: block;
+        position: relative;
+        width: 22px;
+        height: 1px;
+        border-radius: 1px;
+        background: $kit-white-bg;
+
+        & + .button-bar {
+            margin-top: 7px;
+        }
+
+        &:nth-child(2) {
+            width: 17px;
+        }
+    }
+
+    .separator-line {
+        height: 2px;
+        width: 44px;
+        background-color: $kit-default-color;
+        margin: 20px auto;
+
+        &.separator-primary {
+            background-color: $kit-primary-color;
+        }
+    }
+
+    .section-space {
+        height: 62px;
+        display: block;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .pull-right {
+        float: right;
+    }
+
+    .title-up {
+        text-transform: uppercase;
+    }
+}

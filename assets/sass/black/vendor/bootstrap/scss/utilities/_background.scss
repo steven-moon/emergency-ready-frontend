@@ -1,0 +1,21 @@
+.black-container {
+  // stylelint-disable declaration-no-important
+
+  @each $color, $value in $black-theme-colors {
+    @include bg-variant(".bg-#{$color}", $value, true);
+  }
+
+  @if $black-enable-gradients {
+    @each $color, $value in $black-theme-colors {
+      @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+    }
+  }
+
+  .bg-white {
+    background-color: $black-white !important;
+  }
+
+  .bg-transparent {
+    background-color: transparent !important;
+  }
+}

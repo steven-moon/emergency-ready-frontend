@@ -1,0 +1,46 @@
+@import "../variables";
+
+@mixin tag($type, $color){
+  .base-container {
+    .el-tag,
+    .el-tag.el-tag--#{$type} {
+      @extend .n-badge, .badge-#{$type};
+      color: $base-white-color;
+
+      .el-tag__close {
+        color: $base-white-color;
+        opacity: 1;
+      }
+
+      .el-tag__close:hover {
+        background-color: transparent;
+        color: $base-white-color;
+        font-size: $base-font-size-base;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.base-container {
+  .el-tag {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .input-new-tag {
+    margin-left: 10px;
+    width: 80px !important;
+    height: 24px;
+    display: inline;
+
+  }
+}
+
+  @include tag('info', $base-info-color)
+  @include tag('primary', $base-primary-color)
+  @include tag('success', $base-success-color)
+  @include tag('warning', $base-warning-color)
+  @include tag('danger', $base-danger-color)
+  @include tag('default', $default-color)
+

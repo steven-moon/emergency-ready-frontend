@@ -1,0 +1,138 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        List Cards
+    \* ------------------------------------------------------------ */
+
+	.list-cards-wrap {
+		width: 100%;
+		font-size: 0;
+		white-space: nowrap;
+		overflow: scroll;
+
+
+		.list__actions {
+			display: inline-block;
+			vertical-align: top;
+			width: 195px;
+
+			a {
+				display: block;
+				padding: 10px 15px;
+				background: #f8f8f8;
+				font-size: 13px;
+				text-align: center;
+				text-decoration: none;
+				font-weight: 400;
+			}
+		}
+	}
+
+	.list-cards {
+		display: inline-flex;
+		flex-flow: column;
+		vertical-align: top;
+		white-space: normal;
+		margin-right: 5px;
+		height: 100%;
+		width: 320px;
+		min-width: 320px;
+		border: 1px solid #e2e2e2;
+		border-radius: 2px 2px 0 0;
+		background: #fbfcfd;
+		font-size: 16px;
+
+		&--danger {
+			.list__head:before {
+				background: #FF8298;
+			}
+
+			.list__count {
+				color: #FF8298;
+			}
+		}
+
+		&--done {
+			margin-left: 5px;
+
+			.card {
+				background: #F7F7F7;
+			}
+		}
+
+		.list__head {
+			position: relative;
+			padding: 13px 40px;
+			border-bottom: 1px solid #e2e2e2;
+			border-radius: 2px 2px 0 0;
+			background: #fff;
+			box-shadow: 0 2px 19px rgba(227, 227, 227, 0.32);
+			text-align: center;
+
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 5px;
+			}
+		}
+
+		.list__head__actions-left,
+		.list__head__actions-right {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 0;
+		}
+
+		.list__head__actions-left {
+			left: 12px;
+		}
+
+		.list__head__actions-right {
+			right: 12px;
+		}
+
+		.list__title {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.list__count {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 5px;
+			font-size: 14px;
+
+			&.warning {
+				color: #ff8298;
+			}
+		}
+
+		.list__body {
+			height: 100%;
+			padding: 12px;
+			overflow-y: auto;
+
+			.list__body__inner {
+				height: 100%;
+			}
+		}
+
+		.list__section + .list__section {
+			margin-top: 10px;
+		}
+
+		.list__section__head {
+			margin-bottom: 10px;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.list-cards {
+			width: 302px;
+			min-width: 302px;
+		}
+	}
+}

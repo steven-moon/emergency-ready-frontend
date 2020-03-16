@@ -1,7 +1,15 @@
 import createPersistedState from 'vuex-persistedstate'
 
-export default ({store}) => {
-  createPersistedState({
+// export default ({store}) => {
+//   window.onNuxtReady(() => {
+//     createPersistedState({
+//         key: 'vuex',
+//     })(store)
+//   })
+// }
 
-  })(store)
+export default ({store}) => {
+   createPersistedState({
+
+   })(store)
 }

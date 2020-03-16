@@ -163,6 +163,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "~@/assets/sass/emergency-ready/variables";
-  @import "~@/assets/sass/emergency-ready/tabs";
+  @import "~@/assets/sass/base/variables";
+  @import "~@/assets/sass/base/tabs";
 </style>

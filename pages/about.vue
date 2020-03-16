@@ -5,7 +5,7 @@
     <subscribe :showImage="true"></subscribe>
   </div>
 </template>
-Emergency Ready
+Base App
 <script>
 
 import AboutUsSummary from '@/components/Sections/AboutUsSummary'
@@ -24,13 +24,13 @@ export default {
       title: this.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'description', name: 'description', content: 'Emergency Ready' }
+        { hid: 'description', name: 'description', content: 'Base App' }
       ]
     }
   },
   data() {
     return {
-      title: "Emergency Ready - About Us"
+      title: "Base App - About Us"
     }
   },
   mounted() {

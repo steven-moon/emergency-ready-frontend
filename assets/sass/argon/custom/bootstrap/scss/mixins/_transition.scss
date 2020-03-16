@@ -1,0 +1,16 @@
+// stylelint-disable property-blacklist
+@mixin transition($argon-transition...) {
+  @if $argon-enable-transitions {
+    @if length($argon-transition) == 0 {
+      transition: $argon-transition-base;
+    } @else {
+      transition: $argon-transition;
+    }
+  }
+
+  @if $argon-enable-prefers-reduced-motion-media-query {
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+}

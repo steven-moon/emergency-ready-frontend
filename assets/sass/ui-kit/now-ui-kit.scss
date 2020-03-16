@@ -1,0 +1,97 @@
+/*!
+
+ =========================================================
+ * Nuxt Now UI Kit Pro - v1.0.0
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/nuxt-now-ui-kit-pro
+ * Copyright 2018 Creative Tim (http://www.creative-tim.com)
+
+ * Designed by www.invisionapp.com Coded by www.creative-tim.com
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+@import "bootstrap/scss/bootstrap";
+
+@import 'variables';
+@import 'mixins';
+
+// Plugins CSS
+@import 'plugins/plugin-bootstrap-switch';
+@import 'plugins/plugin-nouislider';
+@import 'plugins/plugin-bootstrap-select';
+@import 'plugins/plugin-tagsinput';
+@import 'plugins/plugin-fileupload';
+@import 'plugins/plugin-datetimepicker';
+
+// Core CSS
+@import 'nucleo-outline';
+
+@import 'alerts';
+@import 'checkboxes-radio';
+@import 'badges';
+@import 'pagination';
+@import 'typography';
+@import 'misc';
+
+@import 'buttons';
+@import 'social-buttons';
+@import 'inputs';
+@import 'progress';
+@import 'pills';
+@import 'pills-extend';
+
+// components
+@import 'tabs';
+@import 'navbar';
+@import 'navbar-extend';
+@import 'dropdown';
+@import 'dropdown-extend';
+@import 'images';
+@import 'popups';
+@import 'tables';
+@import 'info-areas';
+@import 'media';
+@import 'modals';
+@import 'modals-extend';
+@import 'carousel';
+@import 'footers';
+
+// cards
+@import 'cards';
+@import 'cards/card-extend';
+@import 'cards/card-background';
+@import 'cards/card-blog';
+@import 'cards/card-contact';
+@import 'cards/card-fashion';
+@import 'cards/card-form-horizontal';
+@import 'cards/card-no-shadow';
+@import 'cards/card-plain';
+@import 'cards/card-pricing';
+@import 'cards/card-profile';
+@import 'cards/card-product';
+@import 'cards/card-raised';
+@import 'cards/card-signup';
+@import 'cards/card-testimonials';
+
+// element-ui
+@import 'element-ui-plugins/carousel';
+@import 'element-ui-plugins/date_picker';
+@import 'element-ui-plugins/input';
+@import 'element-ui-plugins/select';
+@import 'element-ui-plugins/tables';
+@import 'element-ui-plugins/tags';
+@import 'element-ui-plugins/tooltip';
+
+// example pages and sections
+@import 'example-pages';
+@import 'sections';
+@import 'sections-extend';
+
+@import 'responsive';
+
+@import 'demo';

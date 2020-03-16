@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper landing-page">
-    <featured-app/>
+    <featured/>
     <contact-us :withMap="true"/>
     <subscribe :showImage="true"/>
   </div>
@@ -14,14 +14,14 @@
 /**
  * @ The internal dependecies.
  */
-import FeaturedApp from '@/components/Sections/FeaturedApp'
+import Featured from '@/components/Sections/Featured'
 import ContactUs from '@/components/Sections/ContactUs'
 import Subscribe from '@/components/Sections/Subscribe'
 
 export default {
-  name: 'featured-app-container',
+  name: 'featured-container',
   components: {
-    FeaturedApp,
+    Featured,
     ContactUs,
     Subscribe
   },

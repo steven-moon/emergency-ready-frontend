@@ -1,0 +1,41 @@
+@mixin popover-variant($black-background) {
+  background-color: $black-background;
+
+  .popover-header {
+    background-color: $black-background;
+    color: color-yiq($black-background);
+    opacity: .6;
+  }
+
+  .popover-body {
+    color: color-yiq($black-background);
+  }
+
+  .popover-header{
+    border-color: rgba(color-yiq($black-background), .2);
+  }
+
+  &.bs-popover-top {
+    .arrow::after {
+      border-top-color: $black-background;
+    }
+  }
+
+  &.bs-popover-right {
+    .arrow::after {
+      border-right-color: $black-background;
+    }
+  }
+
+  &.bs-popover-bottom {
+    .arrow::after {
+      border-bottom-color: $black-background;
+    }
+  }
+
+  &.bs-popover-left {
+    .arrow::after {
+      border-left-color: $black-background;
+    }
+  }
+}

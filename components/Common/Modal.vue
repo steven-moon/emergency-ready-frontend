@@ -95,7 +95,7 @@
     }
 </style>
 <style lang="scss">
-    @import "~@/assets/sass/emergency-ready/variables";
-    @import "~@/assets/sass/emergency-ready/mixins";
-    @import "~@/assets/sass/emergency-ready/modals";
+    @import "~@/assets/sass/base/variables";
+    @import "~@/assets/sass/base/mixins";
+    @import "~@/assets/sass/base/modals";
 </style>

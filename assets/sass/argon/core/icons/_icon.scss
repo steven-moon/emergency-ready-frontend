@@ -1,0 +1,82 @@
+.argon-container {
+	//
+	// Icon
+	//
+
+	.icon {
+		width: $argon-icon-size;
+		height: $argon-icon-size;
+
+		i, svg {
+			font-size: $argon-icon-size - .75;
+		}
+
+		+ .icon-text {
+			padding-left: 1rem;
+			width: calc(100% - #{$argon-icon-size} - 1);
+		}
+	}
+
+
+	// Extra large icons
+
+	.icon-xl {
+		width: $argon-icon-size-xl;
+		height: $argon-icon-size-xl;
+
+		i, svg {
+			font-size: $argon-icon-size-xl - .75;
+		}
+
+		+ .icon-text {
+			width: calc(100% - #{$argon-icon-size-xl} - 1);
+		}
+	}
+
+
+	// Large icons
+
+	.icon-lg {
+		width: $argon-icon-size-lg;
+		height: $argon-icon-size-lg;
+
+		i, svg {
+			font-size: $argon-icon-size-lg - .75;
+		}
+
+		+ .icon-text {
+			width: calc(100% - #{$argon-icon-size-lg} - 1);
+		}
+	}
+
+
+	// Small icon
+
+	.icon-sm {
+		width: $argon-icon-size-sm;
+		height: $argon-icon-size-sm;
+
+		i, svg {
+			font-size: $argon-icon-size-sm - .75;
+		}
+
+		+ .icon-text {
+			width: calc(100% - #{$argon-icon-size-sm} - 1);
+		}
+	}
+
+	// Extra Small icon
+
+	.icon-xs {
+		width: $argon-icon-size-xs;
+		height: $argon-icon-size-xs;
+
+		i, svg {
+			font-size: $argon-icon-size-xs - .75;
+		}
+
+		+ .icon-text {
+			width: calc(100% - #{$argon-icon-size-xs} - 1);
+		}
+	}
+}

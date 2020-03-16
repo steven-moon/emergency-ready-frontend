@@ -1,0 +1,188 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Tabs
+    \* ------------------------------------------------------------ */
+
+	.sub-nav {
+		position: relative;
+
+		.sub-nav-wrapper {
+			background: #fff;
+			padding: 10px 40px;
+
+			.nav-item {
+				display: flex;
+				align-items: center;
+				list-style-type: none;
+				border-bottom: none;
+			}
+
+			.nav-item a {
+				position: relative;
+				display: block;
+				font-size: 16px;
+				font-weight: 400;
+				letter-spacing: 0.01em;
+				line-height: 22px;
+				color: #637280;
+				padding: 0;
+				text-decoration: none;
+				border: none;
+			}
+
+			.nav-item a:after {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: '';
+				height: 2px;
+				width: 100%;
+				background: #1d6283;
+				visibility: hidden;
+				opacity: 0;
+			}
+
+			.nav-item .active a {
+				color: #1d6283;
+				font-weight: 600;
+			}
+
+			.nav-item .active a:after {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			.nav-item li {
+				float: none;
+				margin-bottom: 0;
+			}
+
+			.nav-item li + li {
+				margin-left: 48px;
+			}
+		}
+
+		.nav-content {
+			padding-top: 20px;
+		}
+
+		.nav-item > li.active > a,
+		.nav-item > li.active > a:hover,
+		.nav-item > li.active > a:focus {
+			border: none !important;
+		}
+
+		.v-nav-actions {
+			position: absolute;
+			top: 6px;
+			right: 10px;
+		}
+
+		&--alt {
+			.sub-nav-wrapper {
+				padding-left: 10px;
+			}
+
+			.tab-content {
+				padding-top: 0;
+				margin-top: 8px;
+				max-height: 172px;
+				max-height: 250px;
+				overflow-y: auto;
+			}
+		}
+
+		&.hide-nav-on-mobile {
+			@media #{$summa-mobile} {
+				.sub-nav-navigation {
+					display: none;
+				}
+				.nav-content {
+					padding-top: 0;
+				}
+			}
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Tabs Container
+    \* ------------------------------------------------------------ */
+
+	.nav-container {
+		position: relative;
+
+		.btn-add-desktop {
+			position: absolute;
+			right: 10px;
+			top: 5px;
+			width: 20px;
+			height: 20px;
+
+			svg {
+				width: 15px;
+				height: 15px;
+			}
+		}
+
+		.active-toggle {
+			position: absolute;
+			right: 10px;
+			top: 7px;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			z-index: 2;
+
+			span + span {
+				margin-left: 10px;
+			}
+
+			span {
+				font-size: 16px;
+				font-weight: 600;
+				color: #2b333e;
+			}
+
+			.btn--add-small {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 25px;
+				height: 25px;
+				padding: 5px;
+				cursor: default;
+				font-size: 0;
+				line-height: 0;
+
+				&:hover {
+					background: #fff;
+				}
+
+				svg {
+					width: 14px;
+					height: 12px;
+				}
+			}
+		}
+
+		@media #{$summa-mobile} {
+			.label {
+				top: auto;
+				bottom: 0;
+
+				span {
+					font-size: 12px;
+				}
+
+				span + span {
+					margin-left: 3px;
+				}
+
+				.btn--add-small {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+}

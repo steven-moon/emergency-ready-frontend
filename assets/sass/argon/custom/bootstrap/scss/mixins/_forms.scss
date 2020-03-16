@@ -1,0 +1,192 @@
+// Form control focus state
+//
+// Generate a customized focus state and for any input with the specified color,
+// which defaults to the `$argon-input-focus-border-color` variable.
+//
+// We highly encourage you to not customize the default value, but instead use
+// this to tweak colors on an as-needed basis. This aesthetic change is based on
+// WebKit's default styles, but applicable to a wider range of browsers. Its
+// usability and accessibility should be taken into account with any change.
+//
+// Example usage: change the default blue border and shadow to white for better
+// contrast against a dark gray background.
+@mixin form-control-focus() {
+  &:focus {
+    color: $argon-input-focus-color;
+    background-color: $argon-input-focus-bg;
+    border-color: $argon-input-focus-border-color;
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $argon-enable-shadows {
+      box-shadow: $argon-input-box-shadow, $argon-input-focus-box-shadow;
+    } @else {
+      box-shadow: $argon-input-focus-box-shadow;
+    }
+  }
+}
+
+
+@mixin form-validation-state($argon-state, $color, $argon-icon) {
+  .#{$argon-state}-feedback {
+    display: none;
+    width: 100%;
+    margin-top: $argon-form-feedback-margin-top;
+    @include font-size($argon-form-feedback-font-size);
+    color: $color;
+  }
+
+  .#{$argon-state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%; // Contain to parent when possible
+    padding: $argon-form-feedback-tooltip-padding-y $argon-form-feedback-tooltip-padding-x;
+    margin-top: .1rem;
+    @include font-size($argon-form-feedback-tooltip-font-size);
+    line-height: $argon-form-feedback-tooltip-line-height;
+    color: color-yiq($color);
+    background-color: rgba($color, $argon-form-feedback-tooltip-opacity);
+    @include border-radius($argon-form-feedback-tooltip-border-radius);
+  }
+
+  .form-control {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      border-color: $color;
+
+      @if $argon-enable-validation-icons {
+        padding-right: $argon-input-height-inner;
+        background-image: $argon-icon;
+        background-repeat: no-repeat;
+        background-position: center right $argon-input-height-inner-quarter;
+        background-size: $argon-input-height-inner-half $argon-input-height-inner-half;
+      }
+
+      &:focus {
+        border-color: $color;
+        box-shadow: 0 0 0 $argon-input-focus-width rgba($color, .25);
+      }
+
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  textarea.form-control {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      @if $argon-enable-validation-icons {
+        padding-right: $argon-input-height-inner;
+        background-position: top $argon-input-height-inner-quarter right $argon-input-height-inner-quarter;
+      }
+    }
+  }
+
+  .custom-select {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      border-color: $color;
+
+      @if $argon-enable-validation-icons {
+        padding-right: $argon-custom-select-feedback-icon-padding-right;
+        background: $argon-custom-select-background, $argon-icon $argon-custom-select-bg no-repeat $argon-custom-select-feedback-icon-position / $argon-custom-select-feedback-icon-size;
+      }
+
+      &:focus {
+        border-color: $color;
+        box-shadow: 0 0 0 $argon-input-focus-width rgba($color, .25);
+      }
+
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+
+  .form-control-file {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .form-check-input {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      ~ .form-check-label {
+        color: $color;
+      }
+
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-control-input {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      ~ .custom-control-label {
+        color: $color;
+
+        &::before {
+          border-color: $color;
+        }
+      }
+
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+
+      &:checked {
+        ~ .custom-control-label::before {
+          border-color: lighten($color, 10%);
+          @include gradient-bg(lighten($color, 10%));
+        }
+      }
+
+      &:focus {
+        ~ .custom-control-label::before {
+          box-shadow: 0 0 0 $argon-input-focus-width rgba($color, .25);
+        }
+
+        &:not(:checked) ~ .custom-control-label::before {
+          border-color: $color;
+        }
+      }
+    }
+  }
+
+  // custom file
+  .custom-file-input {
+    .was-validated &:#{$argon-state},
+    &.is-#{$argon-state} {
+      ~ .custom-file-label {
+        border-color: $color;
+      }
+
+      ~ .#{$argon-state}-feedback,
+      ~ .#{$argon-state}-tooltip {
+        display: block;
+      }
+
+      &:focus {
+        ~ .custom-file-label {
+          border-color: $color;
+          box-shadow: 0 0 0 $argon-input-focus-width rgba($color, .25);
+        }
+      }
+    }
+  }
+}

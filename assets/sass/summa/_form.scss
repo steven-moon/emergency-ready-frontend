@@ -1,0 +1,324 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Form
+    \* ------------------------------------------------------------ */
+
+
+	.form {
+		padding: 12px;
+		background: #fff;
+		border-radius: 2px;
+
+		.form__actions {
+			margin-top: 30px;
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Form Login
+    \* ------------------------------------------------------------ */
+
+	.form-login {
+		.form__head {
+			margin-bottom: 48px;
+		}
+
+		.form__head h3 {
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.38;
+			color: #333;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		.password-link {
+			width: 100%;
+		}
+
+		.form__actions {
+			margin-top: 20px;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.form-login {
+			.form__head {
+				text-align: center;
+				margin-bottom: 28px;
+			}
+
+			.form__head h3 {
+				font-size: 24px;
+			}
+
+			.field {
+				height: 45px;
+			}
+
+			.password-link {
+				width: auto;
+				order: 2;
+				padding: 10px 0;
+			}
+
+			.form__btn {
+				width: 100%;
+				order: 3;
+				margin-top: 20px;
+				height: 36px;
+				line-height: 34px;
+			}
+		}
+
+		.form--time {
+			.form__actions ul {
+				list-style-type: none;
+				display: flex;
+				margin: 0 -5px;
+			}
+
+			.form__actions li {
+				padding: 0 5px;
+				width: 50%;
+			}
+
+			.form__actions button {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
+
+	/* ------------------------------------------------------------ *\
+        Form Task
+    \* ------------------------------------------------------------ */
+
+	.form-task {
+		.form__head {
+			position: relative;
+			padding: 15px 24px 0;
+			text-align: center;
+		}
+
+		.form__head__actions {
+			display: block;
+			position: absolute;
+			top: 24px;
+			right: 20px;
+			cursor: pointer;
+		}
+
+		.form__body {
+			padding: 18px 24px;
+		}
+
+		.form__foot {
+			padding: 16px 36px 20px 24px;
+			background: #F7F7F7;
+		}
+
+		.form__section {
+			margin-bottom: 35px;
+
+			&.form__section--no-gutters {
+				margin-bottom: 10px;
+			}
+
+			&.form__section--expanded {
+				.form__section__toggle {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		.form__section__head {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+
+		.form__section__title {
+			font-size: 16px;
+			text-transform: uppercase;
+		}
+
+		.form__section__toggle {
+			display: inline-block;
+			padding: 10px;
+			vertical-align: middle;
+			position: relative;
+			font-size: 0;
+		}
+
+		.form__section__icon {
+			width: 20px;
+			font-size: 0;
+		}
+
+		.field-wrapper {
+			margin-bottom: 24px;
+		}
+
+		.form__title {
+			text-transform: uppercase;
+		}
+
+		.form__check {
+			position: absolute;
+			top: 12px;
+			left: 24px;
+
+			label {
+				padding: 0;
+
+				&:before,
+				&:after {
+					display: none;
+				}
+
+				svg {
+					path {
+						fill: #9D9D9D;
+					}
+				}
+			}
+
+			input:checked + label {
+				svg path {
+					fill: #1D6283;
+				}
+			}
+		}
+
+		&.form-task--column {
+			.checkbox {
+				margin-top: 22px;
+			}
+		}
+
+		.form__foot {
+			.field-wrapper {
+				margin-bottom: 0;
+			}
+
+			.row .form__actions {
+				margin-top: 26px;
+				text-align: right;
+			}
+		}
+
+		/* Section Projects */
+		.section-projects {
+			height: auto;
+
+			.section__content {
+				overflow: visible;
+
+				.table-base .table-row {
+					padding-left: 0;
+					padding-right: 0;
+					margin-left: -10px;
+					padding-right: -10px;
+
+					.time-entry {
+						padding-top: 10px;
+						padding-bottom: 10px;
+					}
+				}
+			}
+
+			@media #{$summa-tablet-portrait} {
+				.table-base .cell--size1,
+				.table-base .cell--size2 {
+					width: 50%;
+				}
+
+				.data-list > div + div {
+					border-top: 1px solid #e7e7e7;
+				}
+			}
+			@media #{$summa-mobile} {
+				.pagination-holder {
+					padding-left: 0;
+				}
+
+				.table-base .cell--size1,
+				.table-base .cell--size2 {
+					width: 33.33%;
+				}
+				.section__content {
+					.data-list .cell--size7 {
+						max-width: 90%;
+					}
+
+					.table__body > .table-row {
+						display: none;
+					}
+
+					.table-base .table-row {
+						margin-left: 0;
+
+						.time-entry {
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.form-task {
+			margin: -10px;
+			background: #fff;
+
+			.form__head {
+				padding-top: 20px;
+			}
+
+			.form__body {
+				padding: 15px 20px;
+			}
+
+			.form__check {
+				top: 16px;
+				left: 20px;
+			}
+
+			.field-wrapper {
+				margin-bottom: 10px;
+			}
+
+			.row {
+				margin: 0 -3px;
+
+				& > div {
+					padding: 0 3px;
+				}
+			}
+
+
+			.form__section {
+				&.form__section--no-gutters {
+					margin-bottom: 35px;
+				}
+
+				.form__section__body {
+					.col-3 .field-wrapper .field {
+						padding-right: 7px;
+					}
+
+					.col-sm-4 + .col-sm-4 {
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+
+		.content > .form-task {
+			width: 100vw;
+		}
+	}
+}

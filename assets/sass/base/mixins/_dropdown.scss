@@ -1,0 +1,24 @@
+@mixin dropdown-colors($base-brand-color, $base_dropdown-header-color, $base_dropdown-color, $background-color ) {
+    background-color: $base-brand-color;
+
+    &:before{
+        color: $base-brand-color;
+    }
+
+    .dropdown-header:not([href]):not([tabindex]){
+        color: $base_dropdown-header-color;
+    }
+
+    .dropdown-item{
+        color: $base_dropdown-color;
+
+        &:hover,
+        &:focus{
+            background-color: $background-color;
+        }
+    }
+
+    .dropdown-divider{
+        background-color: $background-color;
+    }
+}

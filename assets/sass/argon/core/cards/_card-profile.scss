@@ -1,0 +1,52 @@
+.argon-container {
+    //
+    // Profile card
+    //
+
+    .card-profile-image {
+        position: relative;
+
+        img {
+            max-width: 140px;
+            border-radius: $argon-border-radius;
+            border: 3px solid $argon-card-bg;
+            transform: translate(-50%, -50%) scale(1);
+            position: absolute;
+            left: 50%;
+            transition: $argon-transition-base;
+
+            &:hover {
+                transform: translate(-50%, -50%) scale(1.03);
+            }
+        }
+    }
+
+    .card-profile-stats {
+        padding: 1rem 0;
+
+        > div {
+            text-align: center;
+            margin-right: 1rem;
+            padding: .875rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .heading {
+                font-size: 1.1rem;
+                font-weight: bold;
+                display: block;
+            }
+
+            .description {
+                font-size: .875rem;
+                color: $argon-gray-500;
+            }
+        }
+    }
+
+    .card-profile-actions {
+        padding: .875rem;
+    }
+}

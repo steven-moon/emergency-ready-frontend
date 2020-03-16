@@ -1,0 +1,27 @@
+.argon-container {
+	//
+	// Position
+	// modifier classes to be applied on an abosolute positioned element
+	// use it next to .position-absolute class
+	//
+
+	@each $argon-size, $value in $argon-spacers {
+		.top-#{$argon-size} {
+			top: $value;
+		}
+		.right-#{$argon-size} {
+			right: $value;
+		}
+		.bottom-#{$argon-size} {
+			bottom: $value;
+		}
+		.left-#{$argon-size} {
+			left: $value;
+		}
+	}
+
+	.center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}

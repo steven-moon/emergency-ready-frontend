@@ -1,0 +1,52 @@
+
+
+.black-container {
+  // Inline code
+  code {
+    @include font-size($black-code-font-size);
+    color: $black-code-color;
+    word-wrap: break-word;
+
+    // Streamline the style when inside anchors to avoid broken underline and more
+    a > & {
+      color: inherit;
+    }
+  }
+
+  // User input typically entered via keyboard
+  kbd {
+    padding: $black-kbd-padding-y $black-kbd-padding-x;
+    @include font-size($black-kbd-font-size);
+    color: $black-kbd-color;
+    background-color: $black-kbd-bg;
+    @include border-radius($black-border-radius-sm);
+    @include box-shadow($black-kbd-box-shadow);
+
+    kbd {
+      padding: 0;
+      @include font-size(100%);
+      font-weight: $black-nested-kbd-font-weight;
+      @include box-shadow(none);
+    }
+  }
+
+  // Blocks of code
+  pre {
+    display: block;
+    @include font-size($black-code-font-size);
+    color: $black-pre-color;
+
+    // Account for some code outputs that place code tags in pre tags
+    code {
+      @include font-size(inherit);
+      color: inherit;
+      word-break: normal;
+    }
+  }
+
+  // Enable scrollable blocks of code
+  .pre-scrollable {
+    max-height: $black-pre-scrollable-max-height;
+    overflow-y: scroll;
+  }
+}

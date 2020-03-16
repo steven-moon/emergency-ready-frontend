@@ -1,0 +1,27 @@
+.argon-container {
+    //
+    // Table actions
+    //
+
+    .table-action {
+        font-size: $argon-font-size-sm;
+        color: $argon-table-action-color;
+        margin: 0 .25rem;
+
+        &:hover {
+            color: darken($argon-table-action-color, 10%);
+        }
+    }
+
+    .table-action-delete {
+        &:hover {
+            color: theme-color("danger");
+        }
+    }
+
+    .table-dark {
+        .table-action {
+            color: $argon-table-dark-action-color;
+        }
+    }
+}

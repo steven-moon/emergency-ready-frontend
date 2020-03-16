@@ -1,0 +1,22 @@
+// Pagination
+
+@mixin pagination-size($black-padding-y, $black-padding-x, $black-font-size, $black-line-height, $black-border-radius) {
+  .page-link {
+    padding: $black-padding-y $black-padding-x;
+    @include font-size($black-font-size);
+    line-height: $black-line-height;
+  }
+
+  .page-item {
+    &:first-child {
+      .page-link {
+        @include border-left-radius($black-border-radius);
+      }
+    }
+    &:last-child {
+      .page-link {
+        @include border-right-radius($black-border-radius);
+      }
+    }
+  }
+}

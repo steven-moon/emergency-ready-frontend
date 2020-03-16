@@ -1,0 +1,100 @@
+/* ------------------------------------------------------------ *\
+	Card
+\* ------------------------------------------------------------ */
+
+.summa-container {
+	.card {
+		min-height: 50px;
+		padding: 12px;
+		border-radius: 4px;
+		background: #fff;
+		box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		cursor: pointer;
+
+		& + .card {
+			margin-top: 10px;
+		}
+
+		.card__body {
+			position: relative;
+			padding-right: 33px;
+		}
+
+		.card__foot {
+			padding-right: 8px;
+		}
+
+		.card__foot__bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 11px;
+		}
+
+		.card__title {
+			font-weight: normal;
+		}
+
+		.card__meta {
+			margin-top: 9px;
+			font-size: 12px;
+
+			ul {
+				display: flex;
+				justify-content: space-between;
+				list-style: none outside none;
+				padding: 0;
+				margin: 0;
+			}
+
+			i {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 0;
+				margin-right: 5px;
+			}
+
+			span {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+
+		.card__tags {
+			font-size: 0;
+		}
+
+		.card__tag {
+			display: inline-block;
+			vertical-align: middle;
+			height: 21px;
+			padding: 0 8px;
+			border: 1px solid #89cbdf;
+			border-radius: 11px;
+			background: #e1f1f6;
+			font-size: 11px;
+			line-height: 19px;
+			color: #004a70;
+
+			&--warning {
+				border-color: #efd603;
+				background: #feecb5;
+				color: #313131;
+			}
+		}
+
+		.card__user {
+			.avatar {
+				width: 24px;
+				height: 24px;
+				border: 0;
+			}
+		}
+
+		.card__actions {
+			position: absolute;
+			top: -5px;
+			right: 0;
+		}
+	}
+}

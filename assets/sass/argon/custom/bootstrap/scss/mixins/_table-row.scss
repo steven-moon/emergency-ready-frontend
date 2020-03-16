@@ -1,0 +1,39 @@
+// Tables
+
+@mixin table-row-variant($argon-state, $background, $argon-border: null) {
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .table-#{$argon-state} {
+    &,
+    > th,
+    > td {
+      background-color: $background;
+    }
+
+    @if $argon-border != null {
+      th,
+      td,
+      thead th,
+      tbody + tbody {
+        border-color: $argon-border;
+      }
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover {
+    $argon-hover-background: darken($background, 5%);
+
+    .table-#{$argon-state} {
+      @include hover {
+        background-color: $argon-hover-background;
+
+        > td,
+        > th {
+          background-color: $argon-hover-background;
+        }
+      }
+    }
+  }
+}

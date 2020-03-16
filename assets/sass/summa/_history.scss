@@ -1,0 +1,141 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        History
+    \* ------------------------------------------------------------ */
+
+	.history {
+		& + .history {
+			margin-top: 15px;
+		}
+
+		.history__head {
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+
+		.history__body {
+			padding: 15px 10px;
+			background: #FFFFFF;
+			border-radius: 4px;
+			box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		}
+
+		.history__entry {
+			margin-left: 20px;
+		}
+
+		.history__author {
+			margin-right: 10px;
+			//quotes: ;
+		}
+
+		.history__type {
+			margin-right: 10px;
+		}
+
+		.history__date {
+			margin-right: 10px;
+		}
+
+		.history__actions {
+			padding-top: 15px;
+			font-size: 0;
+			align-items: center;
+		}
+
+		.quill-editor {
+			min-height: 150px;
+			max-height: 250px;
+			background: #ffffff;
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        History Add
+    \* ------------------------------------------------------------ */
+
+	.history-add {
+		.history__body {
+			display: flex;
+			margin-bottom: 18px;
+		}
+
+		.history__author {
+			margin-right: 10px;
+		}
+
+		.history__field {
+			flex: 1;
+			height: 320px;
+
+			.quill-editor {
+				min-height: 150px;
+				max-height: 250px;
+				background: #ffffff;
+			}
+		}
+
+		.history__actions {
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.history-add {
+			.history__actions {
+				text-align: center;
+				align-items: center;
+			}
+
+			.history__field {
+				height: 450px;
+			}
+
+			.quill-editor {
+				height: auto;
+			}
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Comment Add
+    \* ------------------------------------------------------------ */
+
+	.history__edit {
+		.history__body {
+			display: flex;
+			margin-bottom: 18px;
+		}
+
+		.history__author {
+			margin-right: 10px;
+		}
+
+		.history__field {
+			flex: 1;
+			height: 320px;
+
+			.quill-editor {
+				min-height: 150px;
+				max-height: 250px;
+				background: #ffffff;
+			}
+		}
+
+		.history__actions {
+			text-align: center;
+			align-items: center;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.history__edit {
+			.history__actions {
+				text-align: center;
+				align-items: center;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+//
+// Custom functions
+//
+
+
+// Retrieve color Sass maps
+
+@function section-color($key: "primary") {
+	@return map-get($argon-section-colors, $key);
+}
+
+
+// Lines colors
+
+@function shapes-primary-color($key: "step-1-gradient-bg") {
+	@return map-get($argon-shapes-primary-colors, $key);
+}
+
+@function shapes-default-color($key: "step-1-gradient-bg") {
+	@return map-get($argon-shapes-default-colors, $key);
+}
+
+@function lines-light-color($key: "step-1-gradient-bg") {
+	@return map-get($argon-shapes-light-colors, $key);
+}
+
+@function shapes-dark-color($key: "step-1-gradient-bg") {
+	@return map-get($argon-shapes-dark-colors, $key);
+}

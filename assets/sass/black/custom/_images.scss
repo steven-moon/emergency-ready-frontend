@@ -1,0 +1,10 @@
+.black-container {
+    img {
+        max-width: 100%;
+        border-radius: $black-border-radius-sm;
+    }
+
+    .img-raised {
+        box-shadow: $black-box-shadow-raised;
+    }
+}

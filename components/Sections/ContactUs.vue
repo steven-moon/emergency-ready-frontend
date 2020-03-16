@@ -269,7 +269,7 @@
   import Vue from 'vue'
   import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
   import VueRecaptcha from 'vue-recaptcha'
-  import EmergencyReadyAPI from '~/api/EmergencyReadyAPI'
+  import CommonAPI from '~/api/CommonAPI'
 
   Vue.use(VueGoogleMaps, {
     load: {
@@ -485,7 +485,7 @@
         }
 
         this.isLoading = true
-        EmergencyReadyAPI.sendContactUsForm(formData)
+        CommonAPI.sendContactUsForm(formData)
           .then(response => {
             if (response.status >= 200 && response.status < 300) {
               this.contactResponseMessage = 'Thank you for contacting us.  Someone will reach out to you in the next couple of business days..'

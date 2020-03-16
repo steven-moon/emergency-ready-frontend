@@ -1,0 +1,67 @@
+.argon-container {
+	//
+	// Heading
+	//
+
+
+	// General styles
+
+	h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+		color: inherit;
+	}
+
+	.heading {
+		letter-spacing: $argon-heading-letter-spacing;
+		font-size: $argon-heading-font-size;
+		text-transform: $argon-heading-text-transform;
+		font-weight: $argon-heading-font-weight;
+	}
+
+
+	// Heading variations
+
+	.heading-small {
+		padding-top: .25rem;
+		padding-bottom: .25rem;
+		font-size: .75rem;
+		text-transform: uppercase;
+		letter-spacing: .04em;
+	}
+
+	.heading-title {
+		letter-spacing: $argon-heading-title-letter-spacing;
+		font-size: $argon-heading-title-font-size;
+		font-weight: $argon-heading-title-font-weight;
+		text-transform: $argon-heading-title-text-transform;
+	}
+
+	.heading-section {
+		letter-spacing: $argon-heading-section-letter-spacing;
+		font-size: $argon-heading-section-font-size;
+		font-weight: $argon-heading-section-font-weight;
+		text-transform: $argon-heading-section-text-transform;
+
+		img {
+			display: block;
+			width: 72px;
+			height: 72px;
+			margin-bottom: 1.5rem;
+		}
+
+		&.text-center {
+			img {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+	// Surtitles
+
+	.surtitle {
+		text-transform: uppercase;
+		color: $argon-gray-600;
+		letter-spacing: 2px;
+		margin-bottom: 0;
+	}
+}

@@ -130,6 +130,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "~@/assets/sass/emergency-ready/variables";
-  @import "~@/assets/sass/emergency-ready/pagination";
+  @import "~@/assets/sass/base/variables";
+  @import "~@/assets/sass/base/pagination";
 </style>

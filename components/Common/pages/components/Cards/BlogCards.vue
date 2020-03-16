@@ -165,7 +165,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 px-0">
-                    <div class="card card-fashion card-background" style="background-image: url('img/bg26.jpg')">
+                    <div class="card card-fashion card-background" style="background-image: url('img/backgrounds/bg26.jpg')">
                         <div class="card-body">
                             <div class="card-title text-left">
                                 <h2>

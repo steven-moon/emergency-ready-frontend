@@ -45,7 +45,7 @@
   }
 </script>
 <style lang="scss">
-    @import "~@/assets/sass/emergency-ready/variables";
-    @import "~@/assets/sass/emergency-ready/mixins";
-    @import '~@/assets/sass/emergency-ready/info-areas';
+    @import "~@/assets/sass/base/variables";
+    @import "~@/assets/sass/base/mixins";
+    @import '~@/assets/sass/base/info-areas';
 </style>

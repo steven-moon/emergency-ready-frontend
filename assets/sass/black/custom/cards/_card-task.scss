@@ -1,0 +1,34 @@
+.black-container {
+  .card-tasks {
+    height: 473px;
+
+    .table-full-width {
+      max-height: 410px;
+      position: relative;
+    }
+
+    .card-header {
+      .title {
+        margin-right: 20px;
+        font-weight: $black-font-weight-normal;
+      }
+
+      .dropdown {
+        float: right;
+        color: darken($black-white, 20%);
+      }
+
+    }
+
+    .card-body {
+      i {
+        color: $black-dark-gray;
+        font-size: 1.4em;
+
+        &:hover {
+          color: $black-white;
+        }
+      }
+    }
+  }
+}

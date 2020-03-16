@@ -1,83 +1,89 @@
 
+//Combined
+@import 'summa/style';
+@import 'black/dashboard';
+@import 'argon/argon';
+@import 'ui-kit/now-ui-kit';
 
-@import 'emergency-ready/variables';
-@import 'emergency-ready/mixins';
+@import "base/bootstrap/scss/bootstrap";
+@import 'base/variables';
+@import 'base/mixins';
 
 // Plugins CSS
-@import 'emergency-ready/plugins/plugin-bootstrap-switch';
-@import 'emergency-ready/plugins/plugin-nouislider';
-@import 'emergency-ready/plugins/plugin-bootstrap-select';
-@import 'emergency-ready/plugins/plugin-tagsinput';
-@import 'emergency-ready/plugins/plugin-fileupload';
-@import 'emergency-ready/plugins/plugin-datetimepicker';
+@import 'base/plugins/plugin-bootstrap-switch';
+@import 'base/plugins/plugin-nouislider';
+@import 'base/plugins/plugin-bootstrap-select';
+@import 'base/plugins/plugin-tagsinput';
+@import 'base/plugins/plugin-fileupload';
+@import 'base/plugins/plugin-datetimepicker';
+
 
 // Core CSS
-@import 'emergency-ready/nucleo-outline';
-@import 'cc-nucleo/scss/nucleo';
-@import 'emergency-ready/device';
+@import 'base/nucleo-outline';
+@import 'base/device';
 
-@import 'emergency-ready/alerts';
-@import 'emergency-ready/checkboxes-radio';
-@import 'emergency-ready/badges';
-@import 'emergency-ready/pagination';
-@import 'emergency-ready/typography';
-@import 'emergency-ready/misc';
+@import 'base/alerts';
+@import 'base/checkboxes-radio';
+@import 'base/badges';
+@import 'base/pagination';
+@import 'base/typography';
+@import 'base/misc';
 
-@import 'emergency-ready/buttons';
-@import 'emergency-ready/social-buttons';
-@import 'emergency-ready/inputs';
-@import 'emergency-ready/progress';
-@import 'emergency-ready/pills';
-@import 'emergency-ready/pills-extend';
+@import 'base/buttons';
+@import 'base/social-buttons';
+@import 'base/inputs';
+@import 'base/progress';
+@import 'base/pills';
+@import 'base/pills-extend';
 
 // components
-@import 'emergency-ready/tabs';
-@import 'emergency-ready/navbar';
-@import 'emergency-ready/navbar-extend';
-@import 'emergency-ready/dropdown';
-@import 'emergency-ready/dropdown-extend';
-@import 'emergency-ready/images';
-@import 'emergency-ready/popups';
-@import 'emergency-ready/tables';
-@import 'emergency-ready/info-areas';
-@import 'emergency-ready/media';
-@import 'emergency-ready/modals';
-@import 'emergency-ready/modals-extend';
-@import 'emergency-ready/carousel';
-@import 'emergency-ready/footers';
+@import 'base/tabs';
+@import 'base/navbar';
+@import 'base/navbar-extend';
+@import 'base/dropdown';
+@import 'base/dropdown-extend';
+@import 'base/images';
+@import 'base/popups';
+@import 'base/tables';
+@import 'base/info-areas';
+@import 'base/media';
+@import 'base/modals';
+@import 'base/modals-extend';
+@import 'base/carousel';
+@import 'base/footers';
 
 // cards
-@import 'emergency-ready/cards';
-@import 'emergency-ready/cards/card-extend';
-@import 'emergency-ready/cards/card-background';
-@import 'emergency-ready/cards/card-blog';
-@import 'emergency-ready/cards/card-contact';
-@import 'emergency-ready/cards/card-fashion';
-@import 'emergency-ready/cards/card-form-horizontal';
-@import 'emergency-ready/cards/card-no-shadow';
-@import 'emergency-ready/cards/card-plain';
-@import 'emergency-ready/cards/card-pricing';
-@import 'emergency-ready/cards/card-profile';
-@import 'emergency-ready/cards/card-product';
-@import 'emergency-ready/cards/card-raised';
-@import 'emergency-ready/cards/card-signup';
-@import 'emergency-ready/cards/card-testimonials';
+@import 'base/cards';
+@import 'base/cards/card-extend';
+@import 'base/cards/card-background';
+@import 'base/cards/card-blog';
+@import 'base/cards/card-contact';
+@import 'base/cards/card-fashion';
+@import 'base/cards/card-form-horizontal';
+@import 'base/cards/card-no-shadow';
+@import 'base/cards/card-plain';
+@import 'base/cards/card-pricing';
+@import 'base/cards/card-profile';
+@import 'base/cards/card-product';
+@import 'base/cards/card-raised';
+@import 'base/cards/card-signup';
+@import 'base/cards/card-testimonials';
 
 // element-ui
-@import 'emergency-ready/element-ui-plugins/carousel';
-@import 'emergency-ready/element-ui-plugins/date_picker';
-@import 'emergency-ready/element-ui-plugins/input';
-@import 'emergency-ready/element-ui-plugins/select';
-@import 'emergency-ready/element-ui-plugins/tables';
-@import 'emergency-ready/element-ui-plugins/tags';
-@import 'emergency-ready/element-ui-plugins/tooltip';
+@import 'base/element-ui-plugins/carousel';
+@import 'base/element-ui-plugins/date_picker';
+@import 'base/element-ui-plugins/input';
+@import 'base/element-ui-plugins/select';
+@import 'base/element-ui-plugins/tables';
+@import 'base/element-ui-plugins/tags';
+@import 'base/element-ui-plugins/tooltip';
 
 // example pages and sections
-@import 'emergency-ready/example-pages';
-@import 'emergency-ready/sections';
-@import 'emergency-ready/sections-extend';
+@import 'base/example-pages';
+@import 'base/sections';
+@import 'base/sections-extend';
 
-@import 'emergency-ready/responsive';
+@import 'base/responsive';
 
 
-@import 'emergency-ready/featured-app';
+@import 'base/featured';

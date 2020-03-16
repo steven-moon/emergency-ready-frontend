@@ -1,0 +1,51 @@
+.argon-container {
+    //
+    // Alert
+    //
+
+    .alert {
+
+        font-size: $argon-font-size-sm;
+    }
+
+    // Alert heading
+
+    .alert-heading {
+        font-weight: $argon-font-weight-bold;
+        font-size: $argon-h4-font-size;
+        margin-top: .15rem;
+    }
+
+
+    // Alert icon
+
+    .alert-icon {
+        font-size: 1.25rem;
+        margin-right: 1.25rem;
+        display: inline-block;
+        vertical-align: middle;
+
+        i.ni {
+            position: relative;
+            top: 2px;
+        }
+    }
+
+
+    // Alert text next to an alert icon
+
+    .alert-text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+
+    // Alert links
+
+    [class*="alert-"] {
+        .alert-link {
+            color: $argon-white;
+            border-bottom: 1px dotted rgba($argon-white, .5);
+        }
+    }
+}

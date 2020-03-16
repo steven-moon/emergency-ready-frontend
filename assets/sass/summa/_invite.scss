@@ -1,0 +1,41 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Invite
+    \* ------------------------------------------------------------ */
+
+	.invite {
+		.invite__inner {
+			display: flex;
+			align-items: center;
+		}
+
+		.invite__body {
+			flex: 1;
+		}
+
+		.invite__actions {
+			margin-left: 10px;
+		}
+
+		.form__btn {
+			height: 40px;
+		}
+
+		.field-wrapper {
+			margin: 0;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.invite {
+			.invite__inner {
+				display: block;
+			}
+
+			.invite__actions {
+				margin: 5px 0 0;
+				text-align: center;
+			}
+		}
+	}
+}

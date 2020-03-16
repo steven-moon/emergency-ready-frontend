@@ -1,0 +1,10 @@
+[class*="shadow"] {
+	@if $black-enable-transitions {
+        transition: $black-transition-base;
+    }
+}
+
+.shadow-sm--hover:hover { box-shadow: $black-box-shadow-sm !important; }
+.shadow--hover:hover { box-shadow: $black-box-shadow !important; }
+.shadow-lg--hover:hover { box-shadow: $black-box-shadow-lg !important; }
+.shadow-none--hover:hover { box-shadow: none !important; }

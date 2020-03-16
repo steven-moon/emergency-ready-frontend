@@ -1,0 +1,72 @@
+.argon-container {
+  .form-group .el-select {
+    width: 100%;
+  }
+
+  .el-select {
+
+    .el-input .el-input__inner {
+      font-size: $argon-input-btn-font-size;
+      width: 100%;
+      height: $argon-input-height;
+      @include transition($argon-transition-ease-in-out);
+
+      &:focus {
+        border-color: darken(theme-color("primary"), 10%) !important;
+        border: $argon-input-border-width solid darken(theme-color("primary"), 12%);
+      }
+
+      &::placeholder {
+        color: $argon-input-placeholder-color;
+        opacity: 1;
+      }
+
+      &:disabled {
+        background-color: $argon-input-disabled-bg;
+        opacity: 1;
+      }
+    }
+
+    .el-input.is-focus {
+      .el-input__inner {
+        border-color: darken(theme-color("primary"), 10%) !important;
+        border: $argon-input-border-width solid darken(theme-color("primary"), 12%);
+      }
+    }
+
+  }
+
+  .el-select-dropdown.el-popper,
+  .el-select-dropdown.el-popper.is-multiple {
+
+    .el-select-dropdown__item.selected {
+      color: theme-color('primary');
+    }
+  }
+
+  .el-select .el-select__tags {
+    padding-left: 10px;
+  }
+
+  .el-select .el-select__tags .el-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .625rem .625rem .5rem;
+    height: 25px;
+    margin: .125rem;
+    border-radius: $argon-input-border-radius;
+    background: $tag-bg;
+    color: $tag-color;
+    line-height: 1.5;
+    cursor: pointer;
+    @include box-shadow($tag-box-shadow);
+    @include transition($argon-transition-base);
+
+    .el-tag__close.el-icon-close {
+      background-color: transparent;
+      color: white;
+      font-size: 12px;
+    }
+  }
+}

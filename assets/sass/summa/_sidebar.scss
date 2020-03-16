@@ -1,0 +1,51 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Sidebar
+    \* ------------------------------------------------------------ */
+
+	.sidebar {
+		position: relative;
+		width: 220px;
+		flex-shrink: 0;
+		background: #ffffff;
+		box-shadow: 0 2px 4px 0 rgba(35, 36, 37, 0.3);
+		z-index: 3;
+		white-space: nowrap;
+		overflow: hidden;
+		transition: .3s width;
+
+		.navigation a {
+			transition: .3s padding-left;
+		}
+
+		.sidebar__actions {
+			//position: absolute;
+			//bottom: 0;
+			left: 0;
+			width: 100%;
+			text-align: center;
+
+			a {
+				display: inline-block;
+				padding: 10px;
+				font-size: 16px;
+				font-weight: 600;
+				text-decoration: none;
+				color: #1d6283;
+			}
+		}
+	}
+
+	.sidebar__inner {
+		padding-bottom: 30px;
+	}
+
+	/*  Sidebar -- Collapsed  */
+	.sidebar--collapsed {
+		width: 60px;
+
+		.navigation a {
+			padding-left: 15px;
+		}
+	}
+}

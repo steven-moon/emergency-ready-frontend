@@ -1,0 +1,20 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Shell
+    \* ------------------------------------------------------------ */
+
+	.shell {
+		max-width: $summa-shell-max-width + $summa-shell-gutter * 2;
+		padding-right: $summa-shell-gutter;
+		padding-left: $summa-shell-gutter;
+		margin: auto;
+
+		&--fluid {
+			max-width: none;
+		}
+
+		&--small {
+			max-width: 689px + $summa-shell-gutter * 2;
+		}
+	}
+}

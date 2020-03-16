@@ -47,7 +47,7 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "~@/assets/sass/emergency-ready/variables";
-  @import "~@/assets/sass/emergency-ready/plugins/plugin-bootstrap-switch";
+  @import "~@/assets/sass/base/variables";
+  @import "~@/assets/sass/base/plugins/plugin-bootstrap-switch";
 </style>
 

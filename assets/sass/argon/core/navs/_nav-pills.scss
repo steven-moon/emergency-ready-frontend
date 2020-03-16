@@ -1,0 +1,68 @@
+.argon-container {
+    //
+    // Nav pills
+    //
+
+
+    // General styles
+
+    .nav-pills {
+        .nav-item:not(:last-child) {
+            padding-right: $argon-nav-pills-space-x;
+        }
+
+        .nav-link {
+            padding: $argon-nav-pills-padding-y $argon-nav-pills-padding-x;
+            color: $argon-nav-pills-link-color;
+            font-weight: 500;
+            font-size: $argon-font-size-sm;
+            box-shadow: $argon-nav-pills-box-shadow;
+            background-color: $argon-nav-pills-bg;
+            transition: $argon-transition-base;
+
+            &:hover {
+                color: $argon-nav-pills-link-hover-color;
+            }
+        }
+
+        .nav-link.active,
+        .show > .nav-link {
+            color: $argon-nav-pills-link-active-color;
+            background-color: $argon-nav-pills-link-active-bg;
+        }
+
+        @include media-breakpoint-down(xs) {
+            .nav-item {
+                margin-bottom: $argon-spacer;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .nav-pills:not(.nav-pills-circle) {
+            .nav-item {
+                padding-right: 0;
+            }
+        }
+    }
+
+
+    // Rounded circle nav pills
+
+    .nav-pills-circle {
+        .nav-link {
+            text-align: center;
+            height: 60px;
+            width: 60px;
+            padding: 0;
+            line-height: 60px;
+            border-radius: 50%;
+        }
+
+        .nav-link-icon {
+            i, svg {
+                font-size: 1rem;
+            }
+        }
+    }
+}

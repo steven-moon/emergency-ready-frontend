@@ -1,0 +1,65 @@
+.ui-kit-container {
+    /*           badges             */
+    .n-badge {
+        border-radius: 8px;
+        padding: 4px 8px;
+        text-transform: uppercase;
+        font-size: $kit-font-size-mini;
+        line-height: 12px;
+        background-color: $kit-transparent-bg;
+        border: $kit-border;
+        margin-bottom: 5px;
+        color: $kit-white-color;
+        border-radius: $kit-border-radius-extreme;
+
+        //From bootstrap .badge class
+        display: inline-block;
+        font-weight: 700;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+
+    }
+
+    .badge-icon {
+        padding: 0.4em 0.55em;
+
+        i {
+            font-size: 0.8em;
+        }
+    }
+
+    .badge-default {
+        @include badge-color($kit-default-color);
+    }
+
+    .badge-primary {
+        @include badge-color($kit-primary-color);
+    }
+
+    .badge-info {
+        @include badge-color($kit-info-color);
+    }
+
+    .badge-success {
+        @include badge-color($kit-success-color);
+    }
+
+    .badge-warning {
+        @include badge-color($kit-warning-color);
+    }
+
+    .badge-danger {
+        @include badge-color($kit-danger-color);
+    }
+
+    .badge-neutral {
+        @include badge-color($kit-white-color);
+        color: inherit !important;
+    }
+}

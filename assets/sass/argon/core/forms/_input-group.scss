@@ -1,0 +1,138 @@
+.argon-container {
+	//
+	// Input group
+	//
+
+	.custom-control {
+		padding-left: $argon-custom-control-gutter + $argon-custom-control-indicator-size - 1rem;
+
+	}
+
+	.input-group {
+		box-shadow: $argon-input-box-shadow;
+		border-radius: $argon-input-border-radius;
+		@include transition($argon-transition-ease-in-out);
+
+		.form-control {
+			box-shadow: none;
+
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+
+	.input-group-text {
+		@include transition($argon-input-transition);
+
+		i {
+			font-size: $argon-font-size-sm;
+		}
+
+		.custom-control {
+			line-height: 1;
+		}
+	}
+
+
+	.input-group-prepend {
+
+		// Should add the value of border right in variables.scss
+		.input-group-text {
+			border-right: 0;
+		}
+	}
+
+	.input-group-append {
+
+		// Should add the value of border right in variables.scss
+		.input-group-text {
+			border-left: 0;
+		}
+	}
+
+
+	// Merged input group
+
+	.input-group-merge {
+		.form-control {
+			&:not(:first-child) {
+				border-left: 0;
+				padding-left: 0;
+			}
+
+			&:not(:last-child) {
+				border-right: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	// Alternative input groups related to .form-control-alternative
+
+	.input-group-alternative {
+		box-shadow: $argon-input-alternative-box-shadow;
+		border: 0;
+		transition: box-shadow .15s ease;
+
+		.form-control,
+		.input-group-text {
+			border: 0;
+			box-shadow: none;
+		}
+	}
+
+	.focused {
+		.input-group-alternative {
+			box-shadow: $argon-input-focus-alternative-box-shadow !important;
+		}
+	}
+
+
+	// Remove borders and paddings
+
+	.input-group-flush {
+		box-shadow: none;
+
+		> .form-control {
+			padding: 0;
+			border-width: 0;
+			background-color: transparent;
+
+		}
+
+		> .input-group-prepend,
+		> .input-group-append {
+
+			> .input-group-text {
+				padding: 0;
+				padding-right: 1rem;
+				border-width: 0;
+				background-color: transparent;
+			}
+		}
+	}
+
+
+	// .focus class is applied dinamycally from theme.js
+
+	.focused {
+		.input-group {
+			box-shadow: $argon-input-focus-box-shadow;
+		}
+
+		.input-group-text {
+			color: $argon-input-group-addon-focus-color;
+			background-color: $argon-input-group-addon-focus-bg;
+			border-color: $argon-input-group-addon-focus-border-color;
+		}
+
+		.form-control {
+			border-color: $argon-input-group-addon-focus-border-color;
+		}
+
+		.input-group-flush {
+			box-shadow: none;
+		}
+	}
+}

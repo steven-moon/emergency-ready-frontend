@@ -1,0 +1,10 @@
+@mixin icon-shape-variant($color) {
+    color: saturate(darken($color, 10%), 10);
+    background-color: transparentize(lighten($color, 10%), .5);
+}
+
+@mixin icon-font($content, $argon-font-size) {
+    content: $content;
+    font-family: $argon-icon-font-family;
+    font-size: $argon-font-size;
+}

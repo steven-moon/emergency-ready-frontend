@@ -56,6 +56,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import "~assets/sass/emergency-ready/variables";
-  @import "~assets/sass/emergency-ready/checkboxes-radio";
+  @import "~assets/sass/base/variables";
+  @import "~assets/sass/base/checkboxes-radio";
 </style>

@@ -1,0 +1,33 @@
+
+/* ------------------------------------------------------------ *\
+	Variables
+\* ------------------------------------------------------------ */
+
+//$summa-font-family-sans-serif: Helvetica, sans-serif;
+$summa-font-family-sans-serif: 'Open Sans', Arial, Helvetica, sans-serif;
+$summa-font-serif: Times, 'Times New Roman', serif;
+$summa-font-proxima: 'proxima-nova', sans-serif;
+
+$summa-font-size-base2: 14px;
+$summa-line-height-base: 1.38;
+
+$summa-shell-max-width: 1200px;
+$summa-shell-gutter: 15px;
+
+$summa-responsive-xxs: 374px;
+$summa-responsive-xs: 767px;
+$summa-responsive-sm: 1023px;
+$summa-responsive-md: 1200px;
+
+$summa-mobile-small: '(max-width: #{$summa-responsive-xxs}) ';
+$summa-mobile: '(max-width: #{$summa-responsive-xs}) ';
+$summa-tablet-portrait: '(max-width: #{$summa-responsive-sm}) ';
+$summa-small-desktop: '(max-width: #{$summa-responsive-md}) ';
+$summa-retina: '(min-resolution: 2dppx) ';
+
+// Usage
+// @media #{$summa-small-desktop}
+
+$summa-dark-blue: #023342;
+$summa-white: #fff;
+$summa-black: #000;

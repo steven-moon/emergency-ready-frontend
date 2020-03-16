@@ -1,0 +1,8 @@
+// Opacity
+
+@mixin opacity($kit-opacity) {
+  opacity: $kit-opacity;
+  // IE8 filter
+  $kit-opacity-ie: ($kit-opacity * 100);
+  filter: #{alpha(opacity=$kit-opacity-ie)};
+}

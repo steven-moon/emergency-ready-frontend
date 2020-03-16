@@ -1,0 +1,156 @@
+.ui-kit-container {
+    .pagination {
+
+        .page-item .page-link {
+            border: 0;
+            border-radius: 30px !important;
+            transition: all .3s;
+            padding: 0px 11px;
+            margin: 0 3px;
+            min-width: 30px;
+            text-align: center;
+            box-shadow: none;
+            height: 30px;
+            line-height: 30px;
+            color: $kit-black-color;
+            cursor: pointer;
+            font-size: $kit-font-size-base;
+            text-transform: uppercase;
+            background: transparent;
+
+            &:hover,
+            &:focus {
+                color: $kit-black-color;
+                background-color: $kit-opacity-gray-3;
+                border: none;
+            }
+        }
+
+        .arrow-margin-left,
+        .arrow-margin-right {
+            position: absolute;
+        }
+
+        .arrow-margin-right {
+            right: 0;
+        }
+
+        .arrow-margin-left {
+            left: 0;
+        }
+
+        .page-item.active > .page-link {
+            color: $kit-light-gray;
+            box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+
+            &,
+            &:focus,
+            &:hover {
+                background-color: $kit-default-color;
+                border-color: $kit-default-color;
+                color: $kit-white-color;
+            }
+        }
+
+        .page-item.disabled > .page-link {
+            opacity: .5;
+            background-color: rgba(255, 255, 255, .2);
+            color: $kit-white-color;
+        }
+
+        // Colors
+        &.pagination-default {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-default-color;
+                    border-color: $kit-default-color;
+                }
+            }
+        }
+
+        &.pagination-info {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-brand-info;
+                    border-color: $kit-brand-info;
+                }
+            }
+        }
+
+        &.pagination-success {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-brand-success;
+                    border-color: $kit-brand-success;
+                }
+            }
+        }
+
+        &.pagination-primary {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-brand-primary;
+                    border-color: $kit-brand-primary;
+                }
+            }
+        }
+
+        &.pagination-warning {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-brand-warning;
+                    border-color: $kit-brand-warning;
+                }
+            }
+        }
+
+        &.pagination-danger {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-brand-danger;
+                    border-color: $kit-brand-danger;
+                }
+            }
+        }
+
+        &.pagination-neutral {
+            .page-item > .page-link {
+                color: $kit-white-color;
+
+                &:focus,
+                &:hover {
+                    background-color: $kit-opacity-2;
+                    color: $kit-white-color;
+                }
+            }
+
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $kit-white-bg;
+                    border-color: $kit-white-bg;
+                    color: $kit-brand-primary;
+                }
+            }
+        }
+
+    }
+
+    .pagination-container {
+        display: flex;
+        align-items: center;
+    }
+}

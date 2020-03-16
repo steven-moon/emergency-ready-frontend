@@ -1,0 +1,14 @@
+.base-container {
+  img {
+    max-width: 100%;
+    border-radius: 1px;
+  }
+
+  .img-raised {
+    box-shadow: $base-box-shadow-raised;
+  }
+
+  .img-icon {
+    width: 100px;
+  }
+}

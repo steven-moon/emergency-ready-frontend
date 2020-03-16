@@ -1,0 +1,76 @@
+.black-container {
+  .pagination {
+    display: flex;
+    @include list-unstyled();
+    @include border-radius();
+  }
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: $black-pagination-padding-y $black-pagination-padding-x;
+    margin-left: -$black-pagination-border-width;
+    line-height: $black-pagination-line-height;
+    color: $black-pagination-color;
+    background-color: $black-pagination-bg;
+    border: $black-pagination-border-width solid $black-pagination-border-color;
+
+    &:hover {
+      z-index: 2;
+      color: $black-pagination-hover-color;
+      text-decoration: none;
+      background-color: $black-pagination-hover-bg;
+      border-color: $black-pagination-hover-border-color;
+    }
+
+    &:focus {
+      z-index: 3;
+      outline: $black-pagination-focus-outline;
+      box-shadow: $black-pagination-focus-box-shadow;
+    }
+  }
+
+  .page-item {
+    &:first-child {
+      .page-link {
+        margin-left: 0;
+        @include border-left-radius($black-border-radius);
+      }
+    }
+
+    &:last-child {
+      .page-link {
+        @include border-right-radius($black-border-radius);
+      }
+    }
+
+    &.active .page-link {
+      z-index: 3;
+      color: $black-pagination-active-color;
+      background-color: $black-pagination-active-bg;
+      border-color: $black-pagination-active-border-color;
+    }
+
+    &.disabled .page-link {
+      color: $black-pagination-disabled-color;
+      pointer-events: none;
+      // Opinionated: remove the "hand" cursor set previously for .page-link
+      cursor: auto;
+      background-color: $black-pagination-disabled-bg;
+      border-color: $black-pagination-disabled-border-color;
+    }
+  }
+
+
+  //
+  // Sizing
+  //
+
+  .pagination-lg {
+    @include pagination-size($black-pagination-padding-y-lg, $black-pagination-padding-x-lg, $black-font-size-lg, $black-line-height-lg, $black-border-radius-lg);
+  }
+
+  .pagination-sm {
+    @include pagination-size($black-pagination-padding-y-sm, $black-pagination-padding-x-sm, $black-font-size-sm, $black-line-height-sm, $black-border-radius-sm);
+  }
+}

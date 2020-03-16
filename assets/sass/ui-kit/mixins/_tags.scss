@@ -1,0 +1,29 @@
+@mixin tag-color ($color){
+         background-color: $color;
+         color: $kit-white-color;
+         border:none;
+         .tagsinput-remove-link{
+             color: $kit-white-color;
+         }
+     .tagsinput-add{
+         color: $color;
+     }
+}
+
+@mixin create-colored-tags(){
+    &.badge-primary .n-badge{
+        @include tag-color($kit-brand-primary);
+    }
+    &.badge-info .n-badge{
+        @include tag-color($kit-brand-info);
+    }
+    &.badge-success .n-badge{
+        @include tag-color($kit-brand-success);
+    }
+    &.badge-warning .n-badge{
+        @include tag-color($kit-brand-warning);
+    }
+    &.badge-danger .n-badge{
+        @include tag-color($kit-brand-danger);
+    }
+}

@@ -1,0 +1,180 @@
+.base-container {
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: $base-sans-serif-family;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: $base-font-weight-normal;
+    }
+
+    small {
+        font-size: 60%;
+    }
+
+    a {
+        color: $base-primary-color;
+
+        &:hover,
+        &:focus {
+            color: $base-primary-color;
+        }
+    }
+
+    h1, .h1 {
+        font-size: $base-font-size-h1;
+        line-height: 1.15;
+        margin-bottom: $base-margin-base-vertical * 2;
+
+        small {
+            font-weight: $base-font-weight-bold;
+            text-transform: uppercase;
+            opacity: .8;
+        }
+    }
+
+    h2, .h2 {
+        font-size: $base-font-size-h2;
+        margin-bottom: $base-margin-base-vertical * 2;
+    }
+
+    h3, .h3 {
+        font-size: $base-font-size-h3;
+        margin-bottom: $base-margin-base-vertical * 2;
+        line-height: 1.4em;
+    }
+
+    h4, .h4 {
+        font-size: $base-font-size-h4;
+        line-height: 1.45em;
+        margin-top: $base-margin-base-vertical * 2;
+        margin-bottom: $base-margin-base-vertical;
+
+        & + .category,
+        &.title + .category {
+            margin-top: -5px;
+        }
+    }
+
+    h5, .h5 {
+        font-size: $base-font-size-h5;
+        line-height: 1.4em;
+        margin-bottom: 15px;
+
+        &.category {
+            font-weight: 400;
+        }
+    }
+
+    h6, .h6 {
+        font-size: $base-font-size-h6;
+        font-weight: $base-font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    p {
+        line-height: 1.61em;
+        font-weight: 300;
+        font-size: 1.2em;
+    }
+
+    .title {
+        font-weight: $base-font-weight-bold;
+        padding-top: 30px;
+
+
+        &.title-up {
+            text-transform: uppercase;
+
+            a {
+                color: $base-black-color;
+                text-decoration: none;
+            }
+        }
+
+        & + .category {
+            margin-top: -25px;
+        }
+    }
+
+    .description,
+    .card-description,
+    .footer-big p {
+        color: $base-dark-gray;
+        font-weight: $base-font-weight-light;
+    }
+
+    .category {
+        text-transform: capitalize;
+        font-weight: $base-font-weight-bold;
+        color: $base-dark-gray;
+    }
+
+    .text-primary {
+        color: $base-brand-primary !important;
+    }
+
+    .text-info {
+        color: $base-brand-info !important;
+    }
+
+    .text-success {
+        color: $base-brand-success !important;
+    }
+
+    .text-warning {
+        color: $base-brand-warning !important;
+    }
+
+    .text-danger {
+        color: $base-brand-danger !important;
+    }
+
+    .text-black {
+        color: $base-light-black;
+    }
+
+    .blockquote {
+        border-left: none;
+        border: 1px solid $default-color;
+        padding: 20px;
+        font-size: $base-font-size-blockquote;
+        line-height: 1.8;
+
+        small {
+            color: $default-color;
+            font-size: $base-font-size-small;
+            text-transform: uppercase;
+        }
+
+        &.blockquote-primary {
+            border-color: $base-primary-color;
+            color: $base-primary-color;
+
+            small {
+                color: $base-primary-color;
+            }
+        }
+
+        &.blockquote-danger {
+            border-color: $base-danger-color;
+            color: $base-danger-color;
+
+            small {
+                color: $base-danger-color;
+            }
+        }
+
+        &.blockquote-white {
+            border-color: $base-opacity-8;
+            color: $base-white-color;
+
+            small {
+                color: $base-opacity-8;
+            }
+        }
+    }
+}

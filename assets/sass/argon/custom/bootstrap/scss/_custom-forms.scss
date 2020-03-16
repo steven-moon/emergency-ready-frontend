@@ -1,0 +1,519 @@
+.argon-container {
+  // Embedded icons from Open Iconic.
+  // Released under MIT and copyright 2014 Waybury.
+  // https://useiconic.com/open
+
+
+  // Checkboxes and radios
+  //
+  // Base class takes care of all the key behavioral aspects.
+
+  .custom-control {
+    position: relative;
+    display: block;
+    min-height: $argon-font-size-base * $argon-line-height-base;
+    padding-left: $argon-custom-control-gutter + $argon-custom-control-indicator-size;
+  }
+
+  .custom-control-inline {
+    display: inline-flex;
+    margin-right: $argon-custom-control-spacer-x;
+  }
+
+  .custom-control-input {
+    position: absolute;
+    z-index: -1; // Put the input behind the label so it doesn't overlay text
+    opacity: 0;
+
+    &:checked ~ .custom-control-label::before {
+      color: $argon-custom-control-indicator-checked-color;
+      border-color: $argon-custom-control-indicator-checked-border-color;
+      @include gradient-bg($argon-custom-control-indicator-checked-bg);
+      @include box-shadow($argon-custom-control-indicator-checked-box-shadow);
+    }
+
+    &:focus ~ .custom-control-label::before {
+      // the mixin is not used here to make sure there is feedback
+      @if $argon-enable-shadows {
+        box-shadow: $argon-input-box-shadow, $argon-input-focus-box-shadow;
+      } @else {
+        box-shadow: $argon-custom-control-indicator-focus-box-shadow;
+      }
+    }
+
+    &:focus:not(:checked) ~ .custom-control-label::before {
+      border-color: $argon-custom-control-indicator-focus-border-color;
+    }
+
+    &:not(:disabled):active ~ .custom-control-label::before {
+      color: $argon-custom-control-indicator-active-color;
+      background-color: $argon-custom-control-indicator-active-bg;
+      border-color: $argon-custom-control-indicator-active-border-color;
+      @include box-shadow($argon-custom-control-indicator-active-box-shadow);
+    }
+
+    &:disabled {
+      ~ .custom-control-label {
+        color: $argon-custom-control-label-disabled-color;
+
+        &::before {
+          background-color: $argon-custom-control-indicator-disabled-bg;
+        }
+      }
+    }
+  }
+
+  // Custom control indicators
+  //
+  // Build the custom controls out of pseudo-elements.
+
+  .custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+
+    // Background-color and (when enabled) gradient
+    &::before {
+      position: absolute;
+      top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
+      left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size);
+      display: block;
+      width: $argon-custom-control-indicator-size;
+      height: $argon-custom-control-indicator-size;
+      pointer-events: none;
+      content: "";
+      background-color: $argon-custom-control-indicator-bg;
+      border: $argon-custom-control-indicator-border-color solid $argon-custom-control-indicator-border-width;
+      @include box-shadow($argon-custom-control-indicator-box-shadow);
+    }
+
+    // Foreground (icon)
+    &::after {
+      position: absolute;
+      top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
+      left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size);
+      display: block;
+      width: $argon-custom-control-indicator-size;
+      height: $argon-custom-control-indicator-size;
+      content: "";
+      background: no-repeat 50% / #{$argon-custom-control-indicator-bg-size};
+    }
+  }
+
+
+  // Checkboxes
+  //
+  // Tweak just a few things for checkboxes.
+
+  .custom-checkbox {
+    .custom-control-label::before {
+      @include border-radius($argon-custom-checkbox-indicator-border-radius);
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      &::after {
+        background-image: $argon-custom-checkbox-indicator-icon-checked;
+      }
+    }
+
+    .custom-control-input:indeterminate ~ .custom-control-label {
+      &::before {
+        border-color: $argon-custom-checkbox-indicator-indeterminate-border-color;
+        @include gradient-bg($argon-custom-checkbox-indicator-indeterminate-bg);
+        @include box-shadow($argon-custom-checkbox-indicator-indeterminate-box-shadow);
+      }
+
+      &::after {
+        background-image: $argon-custom-checkbox-indicator-icon-indeterminate;
+      }
+    }
+
+    .custom-control-input:disabled {
+      &:checked ~ .custom-control-label::before {
+        background-color: $argon-custom-control-indicator-checked-disabled-bg;
+      }
+
+      &:indeterminate ~ .custom-control-label::before {
+        background-color: $argon-custom-control-indicator-checked-disabled-bg;
+      }
+    }
+  }
+
+  // Radios
+  //
+  // Tweak just a few things for radios.
+
+  .custom-radio {
+    .custom-control-label::before {
+      // stylelint-disable-next-line property-blacklist
+      border-radius: $argon-custom-radio-indicator-border-radius;
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      &::after {
+        background-image: $argon-custom-radio-indicator-icon-checked;
+      }
+    }
+
+    .custom-control-input:disabled {
+      &:checked ~ .custom-control-label::before {
+        background-color: $argon-custom-control-indicator-checked-disabled-bg;
+      }
+    }
+  }
+
+
+  // switches
+  //
+  // Tweak a few things for switches
+
+  .custom-switch {
+    padding-left: $argon-custom-switch-width + $argon-custom-control-gutter;
+
+    .custom-control-label {
+      &::before {
+        left: -($argon-custom-switch-width + $argon-custom-control-gutter);
+        width: $argon-custom-switch-width;
+        pointer-events: all;
+        // stylelint-disable-next-line property-blacklist
+        border-radius: $argon-custom-switch-indicator-border-radius;
+      }
+
+      &::after {
+        top: calc(#{(($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2)} + #{$argon-custom-control-indicator-border-width * 2});
+        left: calc(#{-($argon-custom-switch-width + $argon-custom-control-gutter)} + #{$argon-custom-control-indicator-border-width * 2});
+        width: $argon-custom-switch-indicator-size;
+        height: $argon-custom-switch-indicator-size;
+        background-color: $argon-custom-control-indicator-border-color;
+        // stylelint-disable-next-line property-blacklist
+        border-radius: $argon-custom-switch-indicator-border-radius;
+        @include transition(transform .15s ease-in-out, $argon-custom-forms-transition);
+      }
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      &::after {
+        background-color: $argon-custom-control-indicator-bg;
+        transform: translateX($argon-custom-switch-width - $argon-custom-control-indicator-size);
+      }
+    }
+
+    .custom-control-input:disabled {
+      &:checked ~ .custom-control-label::before {
+        background-color: $argon-custom-control-indicator-checked-disabled-bg;
+      }
+    }
+  }
+
+
+  // Select
+  //
+  // Replaces the browser default select with a custom one, mostly pulled from
+  // https://primer.github.io/.
+  //
+
+  .custom-select {
+    display: inline-block;
+    width: 100%;
+    height: $argon-custom-select-height;
+    padding: $argon-custom-select-padding-y ($argon-custom-select-padding-x + $argon-custom-select-indicator-padding) $argon-custom-select-padding-y $argon-custom-select-padding-x;
+    font-family: $argon-custom-select-font-family;
+    @include font-size($argon-custom-select-font-size);
+    font-weight: $argon-custom-select-font-weight;
+    line-height: $argon-custom-select-line-height;
+    color: $argon-custom-select-color;
+    vertical-align: middle;
+    background: $argon-custom-select-background;
+    background-color: $argon-custom-select-bg;
+    border: $argon-custom-select-border-width solid $argon-custom-select-border-color;
+    @include border-radius($argon-custom-select-border-radius, 0);
+    @include box-shadow($argon-custom-select-box-shadow);
+    appearance: none;
+
+    &:focus {
+      border-color: $argon-custom-select-focus-border-color;
+      outline: 0;
+      @if $argon-enable-shadows {
+        box-shadow: $argon-custom-select-box-shadow, $argon-custom-select-focus-box-shadow;
+      } @else {
+        box-shadow: $argon-custom-select-focus-box-shadow;
+      }
+
+      &::-ms-value {
+        // For visual consistency with other platforms/browsers,
+        // suppress the default white text on blue background highlight given to
+        // the selected option text when the (still closed) <select> receives focus
+        // in IE and (under certain conditions) Edge.
+        // See https://github.com/twbs/bootstrap/issues/19398.
+        color: $argon-input-color;
+        background-color: $argon-input-bg;
+      }
+    }
+
+    &[multiple],
+    &[size]:not([size="1"]) {
+      height: auto;
+      padding-right: $argon-custom-select-padding-x;
+      background-image: none;
+    }
+
+    &:disabled {
+      color: $argon-custom-select-disabled-color;
+      background-color: $argon-custom-select-disabled-bg;
+    }
+
+    // Hides the default caret in IE11
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  .custom-select-sm {
+    height: $argon-custom-select-height-sm;
+    padding-top: $argon-custom-select-padding-y-sm;
+    padding-bottom: $argon-custom-select-padding-y-sm;
+    padding-left: $argon-custom-select-padding-x-sm;
+    @include font-size($argon-custom-select-font-size-sm);
+  }
+
+  .custom-select-lg {
+    height: $argon-custom-select-height-lg;
+    padding-top: $argon-custom-select-padding-y-lg;
+    padding-bottom: $argon-custom-select-padding-y-lg;
+    padding-left: $argon-custom-select-padding-x-lg;
+    @include font-size($argon-custom-select-font-size-lg);
+  }
+
+
+  // File
+  //
+  // Custom file input.
+
+  .custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: $argon-custom-file-height;
+    margin-bottom: 0;
+  }
+
+  .custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: $argon-custom-file-height;
+    margin: 0;
+    opacity: 0;
+
+    &:focus ~ .custom-file-label {
+      border-color: $argon-custom-file-focus-border-color;
+      box-shadow: $argon-custom-file-focus-box-shadow;
+    }
+
+    &:disabled ~ .custom-file-label {
+      background-color: $argon-custom-file-disabled-bg;
+    }
+
+    @each $argon-lang, $value in $argon-custom-file-text {
+      &:lang(#{$argon-lang}) ~ .custom-file-label::after {
+        content: $value;
+      }
+    }
+
+    ~ .custom-file-label[data-browse]::after {
+      content: attr(data-browse);
+    }
+  }
+
+  .custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: $argon-custom-file-height;
+    padding: $argon-custom-file-padding-y $argon-custom-file-padding-x;
+    font-family: $argon-custom-file-font-family;
+    font-weight: $argon-custom-file-font-weight;
+    line-height: $argon-custom-file-line-height;
+    color: $argon-custom-file-color;
+    background-color: $argon-custom-file-bg;
+    border: $argon-custom-file-border-width solid $argon-custom-file-border-color;
+    @include border-radius($argon-custom-file-border-radius);
+    @include box-shadow($argon-custom-file-box-shadow);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      display: block;
+      height: $argon-custom-file-height-inner;
+      padding: $argon-custom-file-padding-y $argon-custom-file-padding-x;
+      line-height: $argon-custom-file-line-height;
+      color: $argon-custom-file-button-color;
+      content: "Browse";
+      @include gradient-bg($argon-custom-file-button-bg);
+      border-left: inherit;
+      @include border-radius(0 $argon-custom-file-border-radius $argon-custom-file-border-radius 0);
+    }
+  }
+
+  // Range
+  //
+  // Style range inputs the same across browsers. Vendor-specific rules for pseudo
+  // elements cannot be mixed. As such, there are no shared styles for focus or
+  // active states on prefixed selectors.
+
+  .custom-range {
+    width: 100%;
+    height: calc(#{$argon-custom-range-thumb-height} + #{$argon-custom-range-thumb-focus-box-shadow-width * 2});
+    padding: 0; // Need to reset padding
+    background-color: transparent;
+    appearance: none;
+
+    &:focus {
+      outline: none;
+
+      // Pseudo-elements must be split across multiple rulesets to have an effect.
+      // No box-shadow() mixin for focus accessibility.
+      &::-webkit-slider-thumb {
+        box-shadow: $argon-custom-range-thumb-focus-box-shadow;
+      }
+
+      &::-moz-range-thumb {
+        box-shadow: $argon-custom-range-thumb-focus-box-shadow;
+      }
+
+      &::-ms-thumb {
+        box-shadow: $argon-custom-range-thumb-focus-box-shadow;
+      }
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
+    &::-webkit-slider-thumb {
+      width: $argon-custom-range-thumb-width;
+      height: $argon-custom-range-thumb-height;
+      margin-top: ($argon-custom-range-track-height - $argon-custom-range-thumb-height) / 2; // Webkit specific
+      @include gradient-bg($argon-custom-range-thumb-bg);
+      border: $argon-custom-range-thumb-border;
+      @include border-radius($argon-custom-range-thumb-border-radius);
+      @include box-shadow($argon-custom-range-thumb-box-shadow);
+      @include transition($argon-custom-forms-transition);
+      appearance: none;
+
+      &:active {
+        @include gradient-bg($argon-custom-range-thumb-active-bg);
+      }
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: $argon-custom-range-track-width;
+      height: $argon-custom-range-track-height;
+      color: transparent; // Why?
+      cursor: $argon-custom-range-track-cursor;
+      background-color: $argon-custom-range-track-bg;
+      border-color: transparent;
+      @include border-radius($argon-custom-range-track-border-radius);
+      @include box-shadow($argon-custom-range-track-box-shadow);
+    }
+
+    &::-moz-range-thumb {
+      width: $argon-custom-range-thumb-width;
+      height: $argon-custom-range-thumb-height;
+      @include gradient-bg($argon-custom-range-thumb-bg);
+      border: $argon-custom-range-thumb-border;
+      @include border-radius($argon-custom-range-thumb-border-radius);
+      @include box-shadow($argon-custom-range-thumb-box-shadow);
+      @include transition($argon-custom-forms-transition);
+      appearance: none;
+
+      &:active {
+        @include gradient-bg($argon-custom-range-thumb-active-bg);
+      }
+    }
+
+    &::-moz-range-track {
+      width: $argon-custom-range-track-width;
+      height: $argon-custom-range-track-height;
+      color: transparent;
+      cursor: $argon-custom-range-track-cursor;
+      background-color: $argon-custom-range-track-bg;
+      border-color: transparent; // Firefox specific?
+      @include border-radius($argon-custom-range-track-border-radius);
+      @include box-shadow($argon-custom-range-track-box-shadow);
+    }
+
+    &::-ms-thumb {
+      width: $argon-custom-range-thumb-width;
+      height: $argon-custom-range-thumb-height;
+      margin-top: 0; // Edge specific
+      margin-right: $argon-custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
+      margin-left: $argon-custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
+      @include gradient-bg($argon-custom-range-thumb-bg);
+      border: $argon-custom-range-thumb-border;
+      @include border-radius($argon-custom-range-thumb-border-radius);
+      @include box-shadow($argon-custom-range-thumb-box-shadow);
+      @include transition($argon-custom-forms-transition);
+      appearance: none;
+
+      &:active {
+        @include gradient-bg($argon-custom-range-thumb-active-bg);
+      }
+    }
+
+    &::-ms-track {
+      width: $argon-custom-range-track-width;
+      height: $argon-custom-range-track-height;
+      color: transparent;
+      cursor: $argon-custom-range-track-cursor;
+      background-color: transparent;
+      border-color: transparent;
+      border-width: $argon-custom-range-thumb-height / 2;
+      @include box-shadow($argon-custom-range-track-box-shadow);
+    }
+
+    &::-ms-fill-lower {
+      background-color: $argon-custom-range-track-bg;
+      @include border-radius($argon-custom-range-track-border-radius);
+    }
+
+    &::-ms-fill-upper {
+      margin-right: 15px; // arbitrary?
+      background-color: $argon-custom-range-track-bg;
+      @include border-radius($argon-custom-range-track-border-radius);
+    }
+
+    &:disabled {
+      &::-webkit-slider-thumb {
+        background-color: $argon-custom-range-thumb-disabled-bg;
+      }
+
+      &::-webkit-slider-runnable-track {
+        cursor: default;
+      }
+
+      &::-moz-range-thumb {
+        background-color: $argon-custom-range-thumb-disabled-bg;
+      }
+
+      &::-moz-range-track {
+        cursor: default;
+      }
+
+      &::-ms-thumb {
+        background-color: $argon-custom-range-thumb-disabled-bg;
+      }
+    }
+  }
+
+  .custom-control-label::before,
+  .custom-file-label,
+  .custom-select {
+    @include transition($argon-custom-forms-transition);
+  }
+}

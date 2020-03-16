@@ -1,0 +1,399 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Button
+    \* ------------------------------------------------------------ */
+
+	.btn {
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+		cursor: pointer;
+		text-decoration: none;
+		appearance: none;
+		height: 36px;
+		line-height: 34px;
+		min-width: 78px;
+		padding: 0 5px;
+		border: 1px solid #1d6383;
+		border-radius: 3px;
+		color: #1d6383;
+		background: #fff;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		transition: background-color 0.4s, color 0.4s;
+
+		&:hover {
+			background: #1d6383;
+			color: #fff;
+		}
+
+		&--alt {
+			background: #1d6383;
+			color: #fff;
+		}
+
+		&--alt:hover {
+			background: none;
+			color: #1d6383;
+		}
+
+		&--red {
+			border: 1px solid #e62700;
+			color: #e62700;
+			background: none;
+		}
+
+		&--red:hover {
+			background: #e62700;
+			color: #fff;
+		}
+
+		&--block {
+			display: block;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		&--wide {
+			min-width: 180px;
+		}
+
+		&--max-wide {
+			width: 100%;
+		}
+
+		&--with-icon {
+			display: inline-flex;
+			align-items: center;
+			padding: 0;
+
+			i {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-width: 36px;
+				text-align: center;
+			}
+
+			span {
+				min-width: 70px;
+				padding: 0 20px 0 10px;
+				text-align: center;
+			}
+
+			&.btn--wide {
+				min-width: 180px;
+
+				span {
+					min-width: 144px;
+				}
+			}
+
+
+			&.btn--large {
+				min-width: 170px;
+				height: 40px;
+				line-height: 38px;
+
+				span {
+					min-width: 134px;
+				}
+			}
+
+
+			&:hover {
+				svg path {
+					fill: #fff;
+				}
+			}
+		}
+
+		&--only-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			min-width: 0;
+			border: 1px solid #1d6383;
+			border-radius: 2px;
+			line-height: 38px;
+			text-align: center;
+			font-size: 0;
+			background: #fff;
+
+			&-small {
+				height: 29px;
+				width: 29px;
+			}
+
+			i {
+				display: block;
+				font-size: 0;
+				line-height: 1;
+			}
+
+			&:hover {
+				svg path {
+					fill: #fff;
+				}
+			}
+		}
+
+		&--edit,
+		&--save,
+		&--remove {
+			// background: #fff;
+		}
+
+		&--remove {
+			border-color: #f03e41;
+			color: #f03e41;
+		}
+	}
+
+	.btn--add-small.btn--only-icon-small svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	.btn--save-small.btn--only-icon-small svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	.btn--cancel-small.btn--only-icon-small svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	// .btn-save,
+	// .btn-cancel,
+	// .btn-back,
+	// .btn-add {
+	// 	width: 40px;
+	// 	height: 40px;
+	// 	border: 1px solid #1d6383;
+	// 	border-radius: 2px;
+	// 	line-height: 38px;
+	// 	text-align: center;
+	// 	font-size: 0;
+	// 	background: #fff;
+	// }
+
+	// .btn-back i,
+	// .btn-save i,
+	// .btn-cancel i,
+	// .btn-add i {
+	// 	display: block;
+	// 	font-size: 0;
+	// 	line-height: 1;
+	// }
+
+	// .btn-back {
+	// 	display: block;
+	// }
+	// .btn-back i {
+	// 	line-height: 38px;
+	// 	font-size: 20px;
+	// }
+
+	// .btn--edit,
+	// .btn--remove {
+	// 	position: relative;
+	// 	background: #fff;
+
+	// 	padding-left: 20px;
+	// 	text-align: center;
+
+	// 	i {
+	// 		position: absolute;
+	// 		left: 10px;
+	// 		top: 50%;
+	// 		transform: translateY(-50%);
+	// 		font-size: 0;
+	// 		line-height: 1;
+	// 	}
+
+	// 	&:hover {
+	// 		svg path {
+	// 			fill: #fff;
+	// 		}
+	// 	}
+	// }
+
+	// .btn--remove {
+	// 	border-color: #f03e41;
+	// 	color: #f03e41;
+	// }
+
+	.btn-modal {
+		width: 40px;
+		background: none;
+		border: none;
+	}
+
+	.btn--report {
+		padding: 24px 0 0 0;
+	}
+
+	.btn-add-small,
+	.btn-back-small {
+		i {
+			line-height: 38px;
+			font-size: 20px;
+		}
+	}
+
+	.btn-edit-small {
+		text-align: center;
+		line-height: 16px;
+		width: 18px;
+		height: 18px;
+		border-radius: 4px;
+		border: 1px solid #1d6383;
+		background: none;
+	}
+
+	.btn-delete-small {
+		margin-left: 10px;
+	}
+
+	.btn-delete-small i,
+	.btn-edit-small i {
+		display: block;
+		font-size: 0;
+		line-height: 1;
+	}
+
+	.btn-edit-small i {
+		margin-top: 3px;
+	}
+
+	.btn-task-form {
+		display: flex;
+		min-height: 32px;
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		text-align: center;
+	}
+
+	.btn-task-form i {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		padding-right: 15px;
+		text-align: right;
+	}
+
+	.btn-task-form-close {
+		display: inline-flex;
+		height: 35px;
+		width: 35px;
+		margin: 0px;
+		padding: 0px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 4px;
+		box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		line-height: 35px;
+		text-align: center;
+		font-size: 0;
+	}
+
+	.btn-task-form-close i {
+		margin: 0;
+		padding: 0;
+	}
+
+	//.btn-task-form  i{
+	//   display: flex;
+	//   align-items: flex-end;
+	//   justify-content: flex-end;
+	//   text-align: right;
+	//}
+
+	.btn-task-add {
+		display: block;
+		min-height: 29px;
+		line-height: 27px;
+		align-items: flex-end;
+		justify-content: flex-end;
+		border-radius: 4px;
+		box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		text-align: center;
+	}
+
+	.btn-task-add i {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		padding-right: 15px;
+		text-align: right;
+		line-height: 1;
+	}
+
+	.btn-notes,
+	.btn-back-wide {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid #1d6383;
+		height: 32px;
+		line-height: 30px;
+		padding: 0 10px;
+		background: #fff;
+
+		span {
+			text-transform: uppercase;
+		}
+
+		i {
+			font-size: 0;
+			line-height: 1;
+		}
+
+		i + span {
+			margin-left: 10px;
+		}
+	}
+
+	.btn-notes {
+		min-width: 113px;
+		text-align: center;
+
+		.notes-counter {
+			display: block;
+			height: 20px;
+			line-height: 20px;
+			min-width: 20px;
+			text-align: center;
+			font-size: 13px;
+			font-weight: 700;
+			color: #fff;
+			background: #1d6383;
+			margin-left: auto;
+		}
+	}
+
+	/* Mobile */
+
+	// $breakpoint-mobile {
+	// 	.btn-back,
+	// 	.btn-add { width: 29px; height: 29px; line-height: 27px; }
+
+	// 	.btn-back i { line-height: 27px; }
+
+	// 	.btn-add svg { width: 14px; height: 14px; }
+	// }
+
+	.btn-tootlip {
+		border: none;
+		padding: 0;
+		background: none;
+	}
+}

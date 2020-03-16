@@ -1,0 +1,176 @@
+.argon-container {
+  .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $zindex-popover;
+    display: block;
+    max-width: $argon-popover-max-width;
+    // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
+    // So reset our font and text properties to avoid inheriting weird values.
+    @include reset-text();
+    @include font-size($argon-popover-font-size);
+    // Allow breaking very long words so they don't overflow the popover's bounds
+    word-wrap: break-word;
+    background-color: $argon-popover-bg;
+    background-clip: padding-box;
+    border: $argon-popover-border-width solid $argon-popover-border-color;
+    @include border-radius($argon-popover-border-radius);
+    @include box-shadow($argon-popover-box-shadow);
+
+    .arrow {
+      position: absolute;
+      display: block;
+      width: $argon-popover-arrow-width;
+      height: $argon-popover-arrow-height;
+      margin: 0 $argon-border-radius-lg;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        border-color: transparent;
+        border-style: solid;
+      }
+    }
+  }
+
+  .bs-popover-top {
+    margin-bottom: $argon-popover-arrow-height;
+
+    > .arrow {
+      bottom: calc((#{$argon-popover-arrow-height} + #{$argon-popover-border-width}) * -1);
+
+      &::before {
+        bottom: 0;
+        border-width: $argon-popover-arrow-height ($argon-popover-arrow-width / 2) 0;
+        border-top-color: $argon-popover-arrow-outer-color;
+      }
+
+      &::after {
+        bottom: $argon-popover-border-width;
+        border-width: $argon-popover-arrow-height ($argon-popover-arrow-width / 2) 0;
+        border-top-color: $argon-popover-arrow-color;
+      }
+    }
+  }
+
+  .bs-popover-right {
+    margin-left: $argon-popover-arrow-height;
+
+    > .arrow {
+      left: calc((#{$argon-popover-arrow-height} + #{$argon-popover-border-width}) * -1);
+      width: $argon-popover-arrow-height;
+      height: $argon-popover-arrow-width;
+      margin: $argon-border-radius-lg 0; // make sure the arrow does not touch the popover's rounded corners
+
+      &::before {
+        left: 0;
+        border-width: ($argon-popover-arrow-width / 2) $argon-popover-arrow-height ($argon-popover-arrow-width / 2) 0;
+        border-right-color: $argon-popover-arrow-outer-color;
+      }
+
+      &::after {
+        left: $argon-popover-border-width;
+        border-width: ($argon-popover-arrow-width / 2) $argon-popover-arrow-height ($argon-popover-arrow-width / 2) 0;
+        border-right-color: $argon-popover-arrow-color;
+      }
+    }
+  }
+
+  .bs-popover-bottom {
+    margin-top: $argon-popover-arrow-height;
+
+    > .arrow {
+      top: calc((#{$argon-popover-arrow-height} + #{$argon-popover-border-width}) * -1);
+
+      &::before {
+        top: 0;
+        border-width: 0 ($argon-popover-arrow-width / 2) $argon-popover-arrow-height ($argon-popover-arrow-width / 2);
+        border-bottom-color: $argon-popover-arrow-outer-color;
+      }
+
+      &::after {
+        top: $argon-popover-border-width;
+        border-width: 0 ($argon-popover-arrow-width / 2) $argon-popover-arrow-height ($argon-popover-arrow-width / 2);
+        border-bottom-color: $argon-popover-arrow-color;
+      }
+    }
+
+    // This will remove the popover-header's border just below the arrow
+    .popover-header::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: block;
+      width: $argon-popover-arrow-width;
+      margin-left: -$argon-popover-arrow-width / 2;
+      content: "";
+      border-bottom: $argon-popover-border-width solid $argon-popover-header-bg;
+    }
+  }
+
+  .bs-popover-left {
+    margin-right: $argon-popover-arrow-height;
+
+    > .arrow {
+      right: calc((#{$argon-popover-arrow-height} + #{$argon-popover-border-width}) * -1);
+      width: $argon-popover-arrow-height;
+      height: $argon-popover-arrow-width;
+      margin: $argon-border-radius-lg 0; // make sure the arrow does not touch the popover's rounded corners
+
+      &::before {
+        right: 0;
+        border-width: ($argon-popover-arrow-width / 2) 0 ($argon-popover-arrow-width / 2) $argon-popover-arrow-height;
+        border-left-color: $argon-popover-arrow-outer-color;
+      }
+
+      &::after {
+        right: $argon-popover-border-width;
+        border-width: ($argon-popover-arrow-width / 2) 0 ($argon-popover-arrow-width / 2) $argon-popover-arrow-height;
+        border-left-color: $argon-popover-arrow-color;
+      }
+    }
+  }
+
+  .bs-popover-auto {
+    &[x-placement^="top"] {
+      @extend .bs-popover-top;
+    }
+
+    &[x-placement^="right"] {
+      @extend .bs-popover-right;
+    }
+
+    &[x-placement^="bottom"] {
+      @extend .bs-popover-bottom;
+    }
+
+    &[x-placement^="left"] {
+      @extend .bs-popover-left;
+    }
+  }
+
+
+  // Offset the popover to account for the popover arrow
+  .popover-header {
+    padding: $argon-popover-header-padding-y $argon-popover-header-padding-x;
+    margin-bottom: 0; // Reset the default from Reboot
+    @include font-size($argon-font-size-base);
+    color: $argon-popover-header-color;
+    background-color: $argon-popover-header-bg;
+    border-bottom: $argon-popover-border-width solid darken($argon-popover-header-bg, 5%);
+    $offset-border-width: calc(#{$argon-border-radius-lg} - #{$argon-popover-border-width});
+    @include border-top-radius($offset-border-width);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .popover-body {
+    padding: $argon-popover-body-padding-y $argon-popover-body-padding-x;
+    color: $argon-popover-body-color;
+  }
+}

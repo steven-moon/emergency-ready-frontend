@@ -1,0 +1,181 @@
+.black-container {
+      h1, h2, h3, h4, h5, h6,
+      .h1, .h2, .h3, .h4, .h5, .h6 {
+         line-height: $black-headings-line-height;
+      }
+
+
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+         font-family: $black-font-family-base;
+      }
+
+      .card {
+         h1, h2, h3, h4, h5, h6, p {
+            color: $black-opacity-8;
+         }
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+         font-weight: $black-font-weight-normal;
+         color: $black-opacity-8;
+      }
+
+      a {
+         color: $black-primary-states;
+         font-weight: $black-font-weight-light;
+
+         &:hover,
+         &:focus {
+            color: $black-primary;
+         }
+      }
+
+      h1, .h1 {
+         line-height: 1.05;
+         margin-bottom: $black-margin-base-vertical * 2;
+
+         small {
+            font-weight: $black-font-weight-bold;
+            text-transform: uppercase;
+            opacity: .8;
+         }
+
+      }
+
+      h2, .h2 {
+         margin-bottom: $black-margin-base-vertical * 2;
+         line-height: 1.2;
+
+      }
+
+      h3, .h3 {
+         margin-bottom: $black-margin-base-vertical * 2;
+         line-height: 1.4em;
+      }
+
+      h4, .h4 {
+         line-height: 1.45em;
+         margin-bottom: $black-margin-base-vertical;
+
+         & + .category,
+         &.title + .category {
+            margin-top: -10px;
+         }
+      }
+
+      h5, .h5 {
+         line-height: 1.4em;
+         margin-bottom: 15px;
+      }
+
+      h6, .h6 {
+         text-transform: uppercase;
+         font-weight: $black-font-weight-bold;
+      }
+
+      p {
+         color: $black-opacity-8;
+         margin-bottom: 5px;
+
+         &.description {
+            font-size: 1.14em;
+         }
+      }
+
+
+      .title {
+         font-weight: $black-font-weight-bold;
+
+         &.title-up {
+            text-transform: uppercase;
+
+            a {
+               color: $black-black;
+               text-decoration: none;
+            }
+         }
+
+         & + .category {
+            margin-top: -10px;
+         }
+      }
+
+      .description,
+      .card-description,
+      .footer-big p,
+      .card .footer .stats {
+         color: $black-dark-gray;
+         font-weight: $black-font-weight-light;
+      }
+
+      .category,
+      .card-category {
+         text-transform: capitalize;
+         font-weight: $black-font-weight-normal;
+         color: rgba($black-white, 0.6);
+         font-size: $black-font-size-sm;
+      }
+
+      .card-category {
+         font-size: $black-font-size-sm;
+      }
+
+      .blockquote {
+         border-left: none;
+         border: 1px solid $black-default;
+         padding: 20px;
+         font-size: $black-blockquote-font-size;
+         line-height: 1.8;
+
+         small {
+            color: $black-default;
+            font-size: $black-font-size-sm;
+            text-transform: uppercase;
+         }
+
+         &.blockquote-primary {
+            border-color: $black-primary;
+            color: $black-primary;
+
+            small {
+               color: $black-primary;
+            }
+         }
+
+         &.blockquote-danger {
+            border-color: $black-danger;
+            color: $black-danger;
+
+            small {
+               color: $black-danger;
+            }
+         }
+
+         &.blockquote-white {
+            border-color: $black-opacity-8;
+            color: $black-white;
+
+            small {
+               color: $black-opacity-8;
+            }
+         }
+      }
+
+      ul li, ol li {
+         color: $black-white;
+      }
+
+      pre {
+         color: $black-opacity-8;
+      }
+
+      hr {
+         border-top: 1px solid rgba(0, 0, 0, 0.1);
+         margin-top: $black-spacer;
+         margin-bottom: $black-spacer;
+      }
+}

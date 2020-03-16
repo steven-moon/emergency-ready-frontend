@@ -1,0 +1,45 @@
+// Gradients
+
+@mixin gradient-bg($color) {
+  @if $argon-enable-gradients {
+    background: $color linear-gradient(180deg, mix($argon-body-bg, $color, 15%), $color) repeat-x;
+  } @else {
+    background-color: $color;
+  }
+}
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-x($argon-start-color: $argon-gray-700, $end-color: $argon-gray-800, $argon-start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $argon-start-color $argon-start-percent, $end-color $end-percent);
+  background-repeat: repeat-x;
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-y($argon-start-color: $argon-gray-700, $end-color: $argon-gray-800, $argon-start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to bottom, $argon-start-color $argon-start-percent, $end-color $end-percent);
+  background-repeat: repeat-x;
+}
+
+@mixin gradient-directional($argon-start-color: $argon-gray-700, $end-color: $argon-gray-800, $argon-deg: 45deg) {
+  background-image: linear-gradient($argon-deg, $argon-start-color, $end-color);
+  background-repeat: repeat-x;
+}
+@mixin gradient-x-three-colors($argon-start-color: $argon-blue, $mid-color: $argon-purple, $color-stop: 50%, $end-color: $argon-red) {
+  background-image: linear-gradient(to right, $argon-start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-y-three-colors($argon-start-color: $argon-blue, $mid-color: $argon-purple, $color-stop: 50%, $end-color: $argon-red) {
+  background-image: linear-gradient($argon-start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-radial($inner-color: $argon-gray-700, $outer-color: $argon-gray-800) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-striped($color: rgba($argon-white, .15), $angle: 45deg) {
+  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}

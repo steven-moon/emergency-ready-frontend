@@ -1,0 +1,187 @@
+.argon-container {
+  //
+  // Basic Bootstrap table
+  //
+
+  .table {
+    width: 100%;
+    margin-bottom: $argon-spacer;
+    color: $argon-table-color;
+    background-color: $argon-table-bg; // Reset for nesting within parents with `background-color`.
+
+    th,
+    td {
+      padding: $argon-table-cell-padding;
+      vertical-align: top;
+      border-top: $argon-table-border-width solid $argon-table-border-color;
+    }
+
+    thead th {
+      vertical-align: bottom;
+      border-bottom: (2 * $argon-table-border-width) solid $argon-table-border-color;
+    }
+
+    tbody + tbody {
+      border-top: (2 * $argon-table-border-width) solid $argon-table-border-color;
+    }
+  }
+
+
+  //
+  // Condensed table w/ half padding
+  //
+
+  .table-sm {
+    th,
+    td {
+      padding: $argon-table-cell-padding-sm;
+    }
+  }
+
+
+  // Border versions
+  //
+  // Add or remove borders all around the table and between all the columns.
+
+  .table-bordered {
+    border: $argon-table-border-width solid $argon-table-border-color;
+
+    th,
+    td {
+      border: $argon-table-border-width solid $argon-table-border-color;
+    }
+
+    thead {
+      th,
+      td {
+        border-bottom-width: 2 * $argon-table-border-width;
+      }
+    }
+  }
+
+  .table-borderless {
+    th,
+    td,
+    thead th,
+    tbody + tbody {
+      border: 0;
+    }
+  }
+
+  // Zebra-striping
+  //
+  // Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+  .table-striped {
+    tbody tr:nth-of-type(#{$argon-table-striped-order}) {
+      background-color: $argon-table-accent-bg;
+    }
+  }
+
+
+  // Hover effect
+  //
+  // Placed here since it has to come after the potential zebra striping
+
+  .table-hover {
+    tbody tr {
+      @include hover {
+        color: $argon-table-hover-color;
+        background-color: $argon-table-hover-bg;
+      }
+    }
+  }
+
+
+  // Table backgrounds
+  //
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+
+  @each $color, $value in $argon-themecolors {
+    @include table-row-variant($color, theme-color-level($color, $argon-table-bg-level), theme-color-level($color, $argon-table-border-level));
+  }
+
+  @include table-row-variant(active, $argon-table-active-bg);
+
+
+  // Dark styles
+  //
+  // Same table markup, but inverted color scheme: dark background and light text.
+
+  // stylelint-disable-next-line no-duplicate-selectors
+  .table {
+    .thead-dark {
+      th {
+        color: $argon-table-dark-color;
+        background-color: $argon-table-dark-bg;
+        border-color: $argon-table-dark-border-color;
+      }
+    }
+
+    .thead-light {
+      th {
+        color: $argon-table-head-color;
+        background-color: $argon-table-head-bg;
+        border-color: $argon-table-border-color;
+      }
+    }
+  }
+
+  .table-dark {
+    color: $argon-table-dark-color;
+    background-color: $argon-table-dark-bg;
+
+    th,
+    td,
+    thead th {
+      border-color: $argon-table-dark-border-color;
+    }
+
+    &.table-bordered {
+      border: 0;
+    }
+
+    &.table-striped {
+      tbody tr:nth-of-type(odd) {
+        background-color: $argon-table-dark-accent-bg;
+      }
+    }
+
+    &.table-hover {
+      tbody tr {
+        @include hover {
+          color: $argon-table-dark-hover-color;
+          background-color: $argon-table-dark-hover-bg;
+        }
+      }
+    }
+  }
+
+
+  // Responsive tables
+  //
+  // Generate series of `.table-responsive-*` classes for configuring the screen
+  // size of where your table will overflow.
+
+  .table-responsive {
+    @each $breakpoint in map-keys($argon-grid-breakpoints) {
+      $next: breakpoint-next($breakpoint, $argon-grid-breakpoints);
+      $infix: breakpoint-infix($next, $argon-grid-breakpoints);
+
+      &#{$infix} {
+        @include media-breakpoint-down($breakpoint) {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+
+          // Prevent double border on horizontal scroll due to use of `display: block;`
+          > .table-bordered {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Notes
+    \* ------------------------------------------------------------ */
+
+	.note-container {
+		flex-grow: 1;
+		height: 500px;
+		display: flex;
+
+		&__inner {
+			width: 100%;
+		}
+	}
+
+	.note {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		.note__body {
+			flex-grow: 1;
+			width: 100%;
+			padding: 15px 10px 0;
+		}
+
+		.note__actions {
+			flex-shrink: 0;
+			width: 100%;
+			padding: 0 16px 13px;
+
+			ul {
+				list-style-type: none;
+				display: flex;
+				margin: 0 -10px;
+			}
+
+			li {
+				padding: 0 10px;
+				width: 50%;
+			}
+
+			button {
+				width: 100%;
+
+				span {
+					flex-grow: 1;
+				}
+			}
+		}
+
+		.note__content {
+			flex-grow: 1;
+			padding: 20px 22px;
+
+			h6,
+			h5 {
+				color: #000;
+				line-height: 1.33;
+			}
+
+			h6 {
+				font-size: 15px;
+				font-weight: 400;
+			}
+
+			h5 {
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 10px;
+			}
+		}
+
+		.textarea,
+		.field {
+			background: #fbfbfb;
+			border: 1px solid #e7e7e7;
+			font-size: 14px;
+		}
+
+		.field {
+			height: 40px;
+		}
+
+		.textarea {
+			height: 372px;
+		}
+
+		@media #{$summa-mobile} {
+			& {
+				background: #fff;
+			}
+
+			.note__content {
+				padding: 0;
+			}
+
+			.btn:not(:hover) {
+				background: #fff;
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$black-grid-columns`.
+
+@mixin black-make-grid-columns($columns: $black-grid-columns, $gutter: $black-grid-gutter-width, $black-breakpoints: $black-grid-breakpoints) {
+  // Common properties for all breakpoints
+  %black-grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+
+  @each $black-breakpoint in map-keys($black-breakpoints) {
+    $black-infix: black-breakpoint-infix($black-breakpoint, $black-breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .col#{$black-infix}-#{$i} {
+        @extend %black-grid-column;
+      }
+    }
+    .col#{$black-infix},
+    .col#{$black-infix}-auto {
+      @extend %black-grid-column;
+    }
+
+    @include black-media-breakpoint-up($black-breakpoint, $black-breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+      .col#{$black-infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+
+      @for $i from 1 through $black-grid-row-columns {
+        .row-cols#{$black-infix}-#{$i} {
+          @include black-row-cols($i);
+        }
+      }
+
+      .col#{$black-infix}-auto {
+        @include black-make-col-auto();
+      }
+
+      @for $i from 1 through $columns {
+        .col#{$black-infix}-#{$i} {
+          @include black-make-col($i, $columns);
+        }
+      }
+
+      .order#{$black-infix}-first { order: -1; }
+
+      .order#{$black-infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$black-infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($black-infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$black-infix}-#{$i} {
+            @include black-make-col-offset($i, $columns);
+          }
+        }
+      }
+    }
+  }
+}

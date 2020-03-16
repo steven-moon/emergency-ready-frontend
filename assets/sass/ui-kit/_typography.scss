@@ -1,0 +1,180 @@
+.ui-kit-container {
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: $kit-sans-serif-family;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: $kit-font-weight-normal;
+    }
+
+    small {
+        font-size: 60%;
+    }
+
+    a {
+        color: $kit-primary-color;
+
+        &:hover,
+        &:focus {
+            color: $kit-primary-color;
+        }
+    }
+
+    h1, .h1 {
+        font-size: $kit-font-size-h1;
+        line-height: 1.15;
+        margin-bottom: $kit-margin-base-vertical * 2;
+
+        small {
+            font-weight: $kit-font-weight-bold;
+            text-transform: uppercase;
+            opacity: .8;
+        }
+    }
+
+    h2, .h2 {
+        font-size: $kit-font-size-h2;
+        margin-bottom: $kit-margin-base-vertical * 2;
+    }
+
+    h3, .h3 {
+        font-size: $kit-font-size-h3;
+        margin-bottom: $kit-margin-base-vertical * 2;
+        line-height: 1.4em;
+    }
+
+    h4, .h4 {
+        font-size: $kit-font-size-h4;
+        line-height: 1.45em;
+        margin-top: $kit-margin-base-vertical * 2;
+        margin-bottom: $kit-margin-base-vertical;
+
+        & + .category,
+        &.title + .category {
+            margin-top: -5px;
+        }
+    }
+
+    h5, .h5 {
+        font-size: $kit-font-size-h5;
+        line-height: 1.4em;
+        margin-bottom: 15px;
+
+        &.category {
+            font-weight: 400;
+        }
+    }
+
+    h6, .h6 {
+        font-size: $kit-font-size-h6;
+        font-weight: $kit-font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    p {
+        line-height: 1.61em;
+        font-weight: 300;
+        font-size: 1.2em;
+    }
+
+    .title {
+        font-weight: $kit-font-weight-bold;
+        padding-top: 30px;
+
+
+        &.title-up {
+            text-transform: uppercase;
+
+            a {
+                color: $kit-black-color;
+                text-decoration: none;
+            }
+        }
+
+        & + .category {
+            margin-top: -25px;
+        }
+    }
+
+    .description,
+    .card-description,
+    .footer-big p {
+        color: $kit-dark-gray;
+        font-weight: $kit-font-weight-light;
+    }
+
+    .category {
+        text-transform: capitalize;
+        font-weight: $kit-font-weight-bold;
+        color: $kit-dark-gray;
+    }
+
+    .text-primary {
+        color: $kit-brand-primary !important;
+    }
+
+    .text-info {
+        color: $kit-brand-info !important;
+    }
+
+    .text-success {
+        color: $kit-brand-success !important;
+    }
+
+    .text-warning {
+        color: $kit-brand-warning !important;
+    }
+
+    .text-danger {
+        color: $kit-brand-danger !important;
+    }
+
+    .text-black {
+        color: $kit-light-black;
+    }
+
+    .blockquote {
+        border-left: none;
+        border: 1px solid $kit-default-color;
+        padding: 20px;
+        font-size: $kit-font-size-blockquote;
+        line-height: 1.8;
+
+        small {
+            color: $kit-default-color;
+            font-size: $kit-font-size-small;
+            text-transform: uppercase;
+        }
+
+        &.blockquote-primary {
+            border-color: $kit-primary-color;
+            color: $kit-primary-color;
+
+            small {
+                color: $kit-primary-color;
+            }
+        }
+
+        &.blockquote-danger {
+            border-color: $kit-danger-color;
+            color: $kit-danger-color;
+
+            small {
+                color: $kit-danger-color;
+            }
+        }
+
+        &.blockquote-white {
+            border-color: $kit-opacity-8;
+            color: $kit-white-color;
+
+            small {
+                color: $kit-opacity-8;
+            }
+        }
+    }
+}

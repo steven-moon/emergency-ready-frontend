@@ -1,0 +1,44 @@
+.argon-container {
+    //
+    // Breadcrumb
+    //
+
+    .breadcrumb-item {
+        font-size: $argon-font-size-sm;
+    }
+
+    .breadcrumb-dark {
+        background-color: $argon-breadcrumb-dark-bg;
+
+        .breadcrumb-item {
+            font-weight: 600;
+
+            a {
+                color: $argon-breadcrumb-dark-color;
+
+                &:hover {
+                    color: $argon-breadcrumb-dark-hover-color;
+                }
+            }
+
+            + .breadcrumb-item {
+                &::before {
+                    color: $argon-breadcrumb-dark-divider-color;
+                }
+            }
+
+            &.active {
+                color: $argon-breadcrumb-dark-active-color;
+            }
+        }
+    }
+
+
+    // Links
+
+    .breadcrumb-links {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+    }
+}

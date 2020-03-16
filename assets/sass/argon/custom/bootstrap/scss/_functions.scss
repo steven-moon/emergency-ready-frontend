@@ -1,0 +1,87 @@
+
+  // Bootstrap functions
+  //
+  // Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+  // Ascending
+  // Used to evaluate Sass maps like our grid breakpoints.
+  @mixin _assert-ascending($argon-map, $argon-map-name) {
+    $argon-prev-key: null;
+    $argon-prev-num: null;
+    @each $key, $num in $argon-map {
+      @if $argon-prev-num == null or unit($num) == "%" {
+        // Do nothing
+      } @else if not comparable($argon-prev-num, $num) {
+        @warn "Potentially invalid value for #{$argon-map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$argon-prev-num}, the value of the previous key '#{$argon-prev-key}' !";
+      } @else if $argon-prev-num >= $num {
+        @warn "Invalid value for #{$argon-map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$argon-prev-num}, the value of the previous key '#{$argon-prev-key}' !";
+      }
+      $argon-prev-key: $key;
+      $argon-prev-num: $num;
+    }
+  }
+
+  // Starts at zero
+  // Used to ensure the min-width of the lowest breakpoint starts at 0.
+  @mixin _assert-starts-at-zero($argon-map, $argon-map-name: "$argon-grid-breakpoints") {
+    $values: map-values($argon-map);
+    $first-value: nth($values, 1);
+    @if $first-value != 0 {
+      @warn "First breakpoint in #{$argon-map-name} must start at 0, but starts at #{$first-value}.";
+    }
+  }
+
+  // Replace `$argon-search` with `$replace` in `$argon-string`
+  // Used on our SVG icon backgrounds for custom forms.
+  //
+  // @author Hugo Giraudel
+  // @param {String} $argon-string - Initial string
+  // @param {String} $argon-search - Substring to replace
+  // @param {String} $replace ('') - New value
+  // @return {String} - Updated string
+  @function str-replace($argon-string, $argon-search, $replace: "") {
+    $index: str-index($argon-string, $argon-search);
+
+    @if $index {
+      @return str-slice($argon-string, 1, $index - 1) + $replace + str-replace(str-slice($argon-string, $index + str-length($argon-search)), $argon-search, $replace);
+    }
+
+    @return $argon-string;
+  }
+
+  // Color contrast
+  @function color-yiq($color, $argon-dark: $argon-yiq-text-dark, $argon-light: $argon-yiq-text-light) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $argon-yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($argon-yiq >= $argon-yiq-contrasted-threshold) {
+      @return $argon-dark;
+    } @else {
+      @return $argon-light;
+    }
+  }
+
+  // Retrieve color Sass maps
+  @function color($key: "blue") {
+    @return map-get($argon-colors, $key);
+  }
+
+  @function theme-color($key: "primary") {
+    @return map-get($argon-themecolors, $key);
+  }
+
+  @function gray($key: "100") {
+    @return map-get($argon-grays, $key);
+  }
+
+  // Request a theme color level
+  @function theme-color-level($color-name: "primary", $argon-level: 0) {
+    $color: theme-color($color-name);
+    $color-base: if($argon-level > 0, $argon-black, $argon-white);
+    $argon-level: abs($argon-level);
+
+    @return mix($color-base, $color, $argon-level * $argon-themecolor-interval);
+  }

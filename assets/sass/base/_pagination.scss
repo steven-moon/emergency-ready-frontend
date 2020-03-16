@@ -1,0 +1,156 @@
+.base-container {
+    .pagination {
+
+        .page-item .page-link {
+            border: 0;
+            border-radius: 30px !important;
+            transition: all .3s;
+            padding: 0px 11px;
+            margin: 0 3px;
+            min-width: 30px;
+            text-align: center;
+            box-shadow: none;
+            height: 30px;
+            line-height: 30px;
+            color: $base-black-color;
+            cursor: pointer;
+            font-size: $base-font-size-base;
+            text-transform: uppercase;
+            background: transparent;
+
+            &:hover,
+            &:focus {
+                color: $base-black-color;
+                background-color: $base-opacity-gray-3;
+                border: none;
+            }
+        }
+
+        .arrow-margin-left,
+        .arrow-margin-right {
+            position: absolute;
+        }
+
+        .arrow-margin-right {
+            right: 0;
+        }
+
+        .arrow-margin-left {
+            left: 0;
+        }
+
+        .page-item.active > .page-link {
+            color: $base-light-gray;
+            box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+
+            &,
+            &:focus,
+            &:hover {
+                background-color: $default-color;
+                border-color: $default-color;
+                color: $base-white-color;
+            }
+        }
+
+        .page-item.disabled > .page-link {
+            opacity: .5;
+            background-color: rgba(255, 255, 255, .2);
+            color: $base-white-color;
+        }
+
+        // Colors
+        &.pagination-default {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $default-color;
+                    border-color: $default-color;
+                }
+            }
+        }
+
+        &.pagination-info {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-brand-info;
+                    border-color: $base-brand-info;
+                }
+            }
+        }
+
+        &.pagination-success {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-brand-success;
+                    border-color: $base-brand-success;
+                }
+            }
+        }
+
+        &.pagination-primary {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-brand-primary;
+                    border-color: $base-brand-primary;
+                }
+            }
+        }
+
+        &.pagination-warning {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-brand-warning;
+                    border-color: $base-brand-warning;
+                }
+            }
+        }
+
+        &.pagination-danger {
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-brand-danger;
+                    border-color: $base-brand-danger;
+                }
+            }
+        }
+
+        &.pagination-neutral {
+            .page-item > .page-link {
+                color: $base-white-color;
+
+                &:focus,
+                &:hover {
+                    background-color: $base-opacity-2;
+                    color: $base-white-color;
+                }
+            }
+
+            .page-item.active > .page-link {
+                &,
+                &:focus,
+                &:hover {
+                    background-color: $base-white-bg;
+                    border-color: $base-white-bg;
+                    color: $base-brand-primary;
+                }
+            }
+        }
+
+    }
+
+    .pagination-container {
+        display: flex;
+        align-items: center;
+    }
+}

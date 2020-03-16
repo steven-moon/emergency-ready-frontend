@@ -1,0 +1,35 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Search Users
+    \* ------------------------------------------------------------ */
+
+	.search-users {
+		padding: 16px 36px 20px 24px;
+		background: #F7F7F7;
+
+		.search__list {
+			padding: 12px;
+			border-radius: 4px;
+			background: #fff;
+			box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+
+			ul {
+				list-style: none outside none;
+			}
+
+			li + li {
+				margin-top: 10px;
+			}
+
+			.avatar {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.search-users {
+			padding: 10px;
+		}
+	}
+}

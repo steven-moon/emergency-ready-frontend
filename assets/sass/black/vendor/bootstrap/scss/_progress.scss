@@ -1,0 +1,52 @@
+.black-container {
+  // Disable animation if transitions are disabled
+  @if $black-enable-transitions {
+    @keyframes progress-bar-stripes {
+      from {
+        background-position: $black-progress-height 0;
+      }
+      to {
+        background-position: 0 0;
+      }
+    }
+  }
+
+  .progress {
+    display: flex;
+    height: $black-progress-height;
+    overflow: hidden; // force rounded corners by cropping it
+    @include font-size($black-progress-font-size);
+    background-color: $black-progress-bg;
+    @include border-radius($black-progress-border-radius);
+    @include box-shadow($black-progress-box-shadow);
+  }
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: $black-progress-bar-color;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $black-progress-bar-bg;
+    @include transition($black-progress-bar-transition);
+  }
+
+  .progress-bar-striped {
+    @include gradient-striped();
+    background-size: $black-progress-height $black-progress-height;
+  }
+
+  @if $black-enable-transitions {
+    .progress-bar-animated {
+      animation: progress-bar-stripes $black-progress-bar-animation-timing;
+
+      @if $black-enable-prefers-reduced-motion-media-query {
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+        }
+      }
+    }
+  }
+}

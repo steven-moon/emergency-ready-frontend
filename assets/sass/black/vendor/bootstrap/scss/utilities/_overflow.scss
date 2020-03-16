@@ -1,0 +1,9 @@
+// stylelint-disable declaration-no-important
+
+@each $value in $black-overflows {
+  .black-container {
+    .overflow-#{$value} {
+      overflow: $value !important;
+    }
+  }
+}

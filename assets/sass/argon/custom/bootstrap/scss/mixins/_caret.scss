@@ -1,0 +1,62 @@
+@mixin caret-down {
+  border-top: $argon-caret-width solid;
+  border-right: $argon-caret-width solid transparent;
+  border-bottom: 0;
+  border-left: $argon-caret-width solid transparent;
+}
+
+@mixin caret-up {
+  border-top: 0;
+  border-right: $argon-caret-width solid transparent;
+  border-bottom: $argon-caret-width solid;
+  border-left: $argon-caret-width solid transparent;
+}
+
+@mixin caret-right {
+  border-top: $argon-caret-width solid transparent;
+  border-right: 0;
+  border-bottom: $argon-caret-width solid transparent;
+  border-left: $argon-caret-width solid;
+}
+
+@mixin caret-left {
+  border-top: $argon-caret-width solid transparent;
+  border-right: $argon-caret-width solid;
+  border-bottom: $argon-caret-width solid transparent;
+}
+
+@mixin caret($argon-direction: down) {
+  @if $argon-enable-caret {
+    &::after {
+      display: inline-block;
+      margin-left: $argon-caret-spacing;
+      vertical-align: $argon-caret-vertical-align;
+      content: "";
+      @if $argon-direction == down {
+        @include caret-down;
+      } @else if $argon-direction == up {
+        @include caret-up;
+      } @else if $argon-direction == right {
+        @include caret-right;
+      }
+    }
+
+    @if $argon-direction == left {
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        display: inline-block;
+        margin-right: $argon-caret-spacing;
+        vertical-align: $argon-caret-vertical-align;
+        content: "";
+        @include caret-left;
+      }
+    }
+
+    &:empty::after {
+      margin-left: 0;
+    }
+  }
+}

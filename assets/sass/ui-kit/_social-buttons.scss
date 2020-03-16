@@ -1,0 +1,52 @@
+.ui-kit-container {
+  .btn {
+    // social buttons
+    &.btn-facebook {
+      @include social-buttons-color($kit-social-facebook, $kit-social-facebook-state-color);
+    }
+
+    &.btn-twitter {
+      @include social-buttons-color($kit-social-twitter, $kit-social-twitter-state-color);
+    }
+
+    &.btn-pinterest {
+      @include social-buttons-color($kit-social-pinterest, $kit-social-pinterest-state-color);
+    }
+
+    &.btn-google {
+      @include social-buttons-color($kit-social-google, $kit-social-google-state-color);
+    }
+
+    &.btn-linkedin {
+      @include social-buttons-color($kit-social-linkedin, $kit-social-linkedin-state-color);
+    }
+
+    &.btn-dribbble {
+      @include social-buttons-color($kit-social-dribbble, $kit-social-dribbble-state-color);
+    }
+
+    &.btn-github {
+      @include social-buttons-color($kit-social-github, $kit-social-github-state-color);
+    }
+
+    &.btn-youtube {
+      @include social-buttons-color($kit-social-youtube, $kit-social-youtube-state-color);
+    }
+
+    &.btn-instagram {
+      @include social-buttons-color($kit-social-instagram, $kit-social-instagram-state-color);
+    }
+
+    &.btn-reddit {
+      @include social-buttons-color($kit-social-reddit, $kit-social-reddit-state-color);
+    }
+
+    &.btn-tumblr {
+      @include social-buttons-color($kit-social-tumblr, $kit-social-tumblr-state-color);
+    }
+
+    &.btn-behance {
+      @include social-buttons-color($kit-social-behance, $kit-social-behance-state-color);
+    }
+  }
+}

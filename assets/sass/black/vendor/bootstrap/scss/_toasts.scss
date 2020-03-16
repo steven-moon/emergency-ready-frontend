@@ -1,0 +1,46 @@
+.black-container {
+  .toast {
+    max-width: $black-toast-max-width;
+    overflow: hidden; // cheap rounded corners on nested items
+    @include font-size($black-toast-font-size);
+    color: $black-toast-color;
+    background-color: $black-toast-background-color;
+    background-clip: padding-box;
+    border: $black-toast-border-width solid $black-toast-border-color;
+    box-shadow: $black-toast-box-shadow;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    @include border-radius($black-toast-border-radius);
+
+    &:not(:last-child) {
+      margin-bottom: $black-toast-padding-x;
+    }
+
+    &.showing {
+      opacity: 1;
+    }
+
+    &.show {
+      display: block;
+      opacity: 1;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .toast-header {
+    display: flex;
+    align-items: center;
+    padding: $black-toast-padding-y $black-toast-padding-x;
+    color: $black-toast-header-color;
+    background-color: $black-toast-header-background-color;
+    background-clip: padding-box;
+    border-bottom: $black-toast-border-width solid $black-toast-header-border-color;
+  }
+
+  .toast-body {
+    padding: $black-toast-padding-x; // apply to both vertical and horizontal
+  }
+}

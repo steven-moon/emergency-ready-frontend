@@ -1,6 +1,6 @@
-# emergency-ready
+# combined-base-app
 
-> emergency ready website
+> base combined website
 
 ## Build Setup ad
 

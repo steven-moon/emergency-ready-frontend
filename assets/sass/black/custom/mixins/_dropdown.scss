@@ -1,0 +1,26 @@
+@mixin dropdown-colors($black-brand-color, $black-dropdown-header-color, $black-dropdown-color, $black-background-color ) {
+    background-color: $black-brand-color;
+
+    &:before{
+        color: $black-brand-color;
+    }
+
+    .dropdown-header:not([href]):not([tabindex]){
+        color: $black-dropdown-header-color;
+    }
+
+    .dropdown-item{
+        color: $black-dropdown-color;
+
+        &:hover,
+        &:focus{
+            background-color: $black-background-color;
+        }
+    }
+
+    .dropdown-divider{
+        background-color: $black-background-color;
+    }
+
+
+}

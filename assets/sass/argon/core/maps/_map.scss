@@ -1,0 +1,12 @@
+.argon-container {
+    //
+    // Map
+    //
+
+    .map-canvas {
+        position: relative;
+        width: 100%;
+        height: $argon-map-height;
+        border-radius: $argon-border-radius;
+    }
+}

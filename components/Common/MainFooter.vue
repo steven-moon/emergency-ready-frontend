@@ -22,7 +22,7 @@
                 </a>
               </li>
               <li>
-                <a href="/featured-apps" class="text-muted">
+                <a href="/featureds" class="text-muted">
                   Featured Apps
                 </a>
               </li>

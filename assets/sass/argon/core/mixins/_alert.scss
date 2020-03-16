@@ -1,0 +1,22 @@
+@mixin alert-variant($background, $argon-border, $color) {
+    color: color-yiq($background);
+    border-color: $argon-border;
+    @include gradient-bg($background);
+
+    a {
+        color: darken($background, 30%);
+        font-weight: 600;
+
+        &:hover {
+            color: color-yiq($background);
+        }
+    }
+
+    hr {
+        border-top-color: darken($argon-border, 5%);
+    }
+
+    .alert-link {
+        color: darken($color, 10%);
+    }
+}

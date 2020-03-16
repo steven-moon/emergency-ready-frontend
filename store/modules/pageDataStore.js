@@ -103,6 +103,20 @@ export default {
       description: 'Here are a few of the projects we have helped develop',
       backgroundUrl: 'img/project/project9.jpg',
       cards: [
+
+        {
+          title: 'Emergency Ready App',
+          description: '',
+          category: '',
+          backgroundUrl: '/img/featured/i-calq-image-1.jpg',
+          image: '/img/featured/i-calq-image-1.jpg',
+          icon: 'now-ui-icons ui-1_send',
+          link: '/featured/emergency-ready-app',
+          linkText: 'Learn More',
+          badgeText: '',
+          layout: '',
+          info: []
+        },
         {
           title: 'Utah County Emergency Management',
           description: '',

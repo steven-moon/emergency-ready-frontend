@@ -1,0 +1,114 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Widget
+    \* ------------------------------------------------------------ */
+
+	.widgets {
+		list-style: none outside none;
+		display: flex;
+		height: 2000px;
+
+		.widget + .widget {
+			margin-left: 24px;
+		}
+	}
+
+	.widget--time,
+	.widget--project {
+		width: 100%;
+		max-width: 300px;
+		margin: 0;
+	}
+
+	.widget--time {
+		.widget__head {
+			padding: 11px;
+			background: #fff;
+			margin-bottom: 12px;
+		}
+
+		.widget__head {
+		}
+
+		.widget__head h5 {
+			margin-bottom: 0;
+			color: #333;
+		}
+	}
+
+	.widget--project {
+	}
+
+	@media #{$summa-tablet-portrait} {
+		.widget--time,
+		.widget--project {
+			margin: 0;
+		}
+
+		.widget--project {
+			margin-left: 10px;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.widget--project {
+			margin-left: 0;
+		}
+		.widget {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.widget--time {
+			.widget__head {
+				padding: 13px 50px;
+				position: relative;
+				text-align: center;
+			}
+
+			.widget__head h5 {
+				text-transform: uppercase;
+				font-size: 18px;
+				font-weight: 500;
+
+				span {
+					text-transform: none;
+				}
+			}
+		}
+
+		.widget__head {
+			.btn--add-small,
+			.btn--back-small {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.btn--back-small {
+				left: 12px;
+				height: 28px;
+				width: 28px;
+
+				i {
+					line-height: 28px;
+					font-size: 20px;
+				}
+			}
+
+			.btn--add-small {
+				right: 12px;
+			}
+		}
+
+		.widget .field-datepicker {
+			height: 60px;
+			font-size: 16px;
+		}
+	}
+}
+
+/* Mobile */
+
+// $breakpoint-mobile {
+// }

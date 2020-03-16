@@ -219,7 +219,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="picture">
-                                <img v-lazy="'img/pricing1.jpg'" alt="Thumbnail Image" class="rounded img-raised">
+                                <img v-lazy="'img/pricing/pricing1.jpg'" alt="Thumbnail Image" class="rounded img-raised">
                             </div>
                         </div>
                     </div>

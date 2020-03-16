@@ -1,0 +1,135 @@
+.black-container {
+  // stylelint-disable declaration-no-important
+
+  //
+  // Text
+  //
+
+  .text-monospace {
+    font-family: $black-font-family-monospace !important;
+  }
+
+  // Alignment
+
+  .text-justify {
+    text-align: justify !important;
+  }
+
+  .text-wrap {
+    white-space: normal !important;
+  }
+
+  .text-nowrap {
+    white-space: nowrap !important;
+  }
+
+  .text-truncate {
+    @include text-truncate();
+  }
+
+}
+// Responsive alignment
+
+@each $black-breakpoint in map-keys($black-grid-breakpoints) {
+  @include black-media-breakpoint-up($black-breakpoint) {
+    $black-infix: black-breakpoint-infix($black-breakpoint, $black-grid-breakpoints);
+    .black-container {
+      .text#{$black-infix}-left {
+        text-align: left !important;
+      }
+
+      .text#{$black-infix}-right {
+        text-align: right !important;
+      }
+
+      .text#{$black-infix}-center {
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+// Transformation
+.black-container {
+  .text-lowercase {
+    text-transform: lowercase !important;
+  }
+
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+
+  .text-capitalize {
+    text-transform: capitalize !important;
+  }
+
+  // Weight and italics
+
+  .font-weight-light {
+    font-weight: $black-font-weight-light !important;
+  }
+
+  .font-weight-lighter {
+    font-weight: $black-font-weight-lighter !important;
+  }
+
+  .font-weight-normal {
+    font-weight: $black-font-weight-normal !important;
+  }
+
+  .font-weight-bold {
+    font-weight: $black-font-weight-bold !important;
+  }
+
+  .font-weight-bolder {
+    font-weight: $black-font-weight-bolder !important;
+  }
+
+  .font-italic {
+    font-style: italic !important;
+  }
+
+  // Contextual colors
+
+  .text-white {
+    color: $black-white !important;
+  }
+}
+@each $color, $value in $black-theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value, true);
+}
+
+.black-container {
+  .text-body {
+    color: $black-body-color !important;
+  }
+
+  .text-muted {
+    color: $black-text-muted !important;
+  }
+
+  .text-black-50 {
+    color: rgba($black-black, .5) !important;
+  }
+
+  .text-white-50 {
+    color: rgba($black-white, .5) !important;
+  }
+}
+
+// Misc
+
+.text-hide {
+  @include text-hide($ignore-warning: true);
+}
+
+.text-decoration-none { text-decoration: none !important; }
+
+.text-break {
+  word-break: break-word !important; // IE & < Edge 18
+  overflow-wrap: break-word !important;
+}
+
+// Reset
+
+.text-reset { color: inherit !important; }

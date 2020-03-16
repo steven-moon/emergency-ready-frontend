@@ -1,0 +1,190 @@
+.black-container {
+    .custom-control-label {
+        // Background-color and (when enabled) gradient
+        &::before {
+            border: $black-custom-control-indicator-border-width solid $black-custom-control-indicator-border-color;
+            @if $black-enable-transitions {
+                transition: $black-input-transition;
+            }
+        }
+
+        span {
+            position: relative;
+            top: 2px;
+        }
+    }
+
+    .custom-control-label {
+        margin-bottom: 0;
+    }
+
+    .custom-control-input {
+        &:active ~ .custom-control-label::before {
+            border-color: $black-custom-control-indicator-active-border-color;
+        }
+    }
+
+    // Alternative custom control
+    .custom-control-alternative {
+        .custom-control-label {
+            // Background-color and (when enabled) gradient
+            &::before {
+                border: 0;
+                box-shadow: $black-input-alternative-box-shadow;
+            }
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        box-shadow: $black-input-focus-alternative-box-shadow;
+                    }
+                }
+            }
+
+            &:active ~ .custom-control-label::before,
+            &:focus ~ .custom-control-label::before {
+                box-shadow: $black-input-alternative-box-shadow;
+            }
+        }
+    }
+
+
+    // Checkboxes
+    .custom-checkbox {
+        .custom-control-input ~ .custom-control-label {
+            cursor: pointer;
+            font-size: $black-font-size-sm;
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $black-custom-control-indicator-checked-border-color;
+                    }
+
+                    &::after {
+                        background-image: $black-custom-checkbox-indicator-icon-checked;
+                    }
+                }
+            }
+
+            &:disabled {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $black-custom-control-indicator-disabled-bg;
+                    }
+                }
+
+                &:checked {
+                    &::before {
+                        border-color: $black-custom-control-indicator-checked-disabled-bg;
+                    }
+                }
+            }
+        }
+    }
+
+    // Radios
+    .custom-radio {
+        .custom-control-input ~ .custom-control-label {
+            cursor: pointer;
+            font-size: $black-font-size-sm;
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $black-custom-control-indicator-checked-border-color;
+                    }
+
+                    &::after {
+                        background-image: $black-custom-radio-indicator-icon-checked;
+                    }
+                }
+            }
+
+            &:disabled {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $black-custom-control-indicator-disabled-bg;
+                    }
+                }
+
+                &:checked {
+                    &::before {
+                        border-color: $black-custom-control-indicator-checked-disabled-bg;
+                    }
+                }
+            }
+        }
+
+    }
+
+    // Toggles
+    .custom-toggle {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 1.5rem;
+
+        input {
+            display: none;
+
+            &:checked {
+                + .custom-toggle-slider {
+                    border: $black-custom-control-indicator-border-width solid $black-custom-control-indicator-checked-border-color;
+
+                    &:before {
+                        background: $black-custom-toggle-checked-bg;
+                        transform: translateX(1.625rem);
+                    }
+                }
+            }
+
+            &:disabled {
+                + .custom-toggle-slider {
+                    border: $black-custom-control-indicator-border-width solid $black-custom-control-indicator-disabled-bg;
+                }
+
+                &:checked {
+                    + .custom-toggle-slider {
+                        border: $black-custom-control-indicator-border-width solid $black-custom-control-indicator-disabled-bg;
+
+                        &:before {
+                            background-color: lighten($black-custom-control-indicator-checked-bg, 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .custom-toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: $black-custom-control-indicator-border-width solid $black-input-border-color;
+        border-radius: 34px !important;
+        background-color: transparent;
+
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 2px;
+            bottom: 2px;
+            border-radius: 50% !important;
+            background-color: $black-custom-toggle-slider-bg;
+            transition: $black-input-transition;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="base-container" class="base-container">
     <main-navbar></main-navbar>
     <nuxt />
     <main-footer></main-footer>
@@ -22,4 +22,8 @@ export default {
   }
 }
 </script>
-<style></style>
+<style lang="scss">
+  body {
+    margin: 0;
+  }
+</style>

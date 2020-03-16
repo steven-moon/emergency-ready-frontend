@@ -1,0 +1,139 @@
+/* ------------------------------------------------------------ *\
+	Comment
+\* ------------------------------------------------------------ */
+
+.summa-container {
+	.comment {
+		& + .comment {
+			margin-top: 15px;
+		}
+
+		.comment__head {
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+
+		.comment__body {
+			padding: 15px 10px;
+			background: #FFFFFF;
+			border-radius: 4px;
+			box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+		}
+
+		.comment__entry ol, li {
+			margin-left: 20px;
+		}
+
+		.comment__author {
+			margin-right: 10px;
+			//quotes: ;
+		}
+
+		.comment__date {
+			margin-right: 10px;
+		}
+
+		.comment__actions {
+			font-size: 0;
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Comment Add
+    \* ------------------------------------------------------------ */
+
+	.comment-add {
+		.comment__body {
+			display: flex;
+			margin-bottom: 18px;
+		}
+
+		.comment__author {
+			margin-right: 10px;
+		}
+
+		.comment__field {
+			flex: 1;
+			height: 350px;
+
+			.quill-editor {
+				min-height: 150px;
+				max-height: 250px;
+				background: #ffffff;
+			}
+
+			textarea {
+				width: 100%;
+				height: 67px;
+				padding: 5px 10px;
+				border: 0;
+				border-radius: 4px;
+				box-shadow: 0 2px 5px rgba(227, 227, 227, 0.88);
+				font-size: 14px;
+				resize: none;
+			}
+		}
+
+		.comment__actions {
+			text-align: right;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.comment-add {
+			.comment__actions {
+				text-align: center;
+			}
+
+			.comment__field {
+				height: 290px;
+			}
+
+			.quill-editor {
+				height: auto;
+			}
+		}
+	}
+
+	/* ------------------------------------------------------------ *\
+        Comment Add
+    \* ------------------------------------------------------------ */
+
+	.comment__edit {
+		.comment__body {
+			display: flex;
+			margin-bottom: 18px;
+		}
+
+		.comment__author {
+			margin-right: 10px;
+		}
+
+		.comment__field {
+			flex: 1;
+
+			textarea {
+				width: 100%;
+				height: 67px;
+				padding: 5px 10px;
+				border: 0;
+				border-radius: 4px;
+				font-size: 14px;
+				resize: none;
+			}
+		}
+
+		.comment__actions {
+			text-align: right;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.comment__edit {
+			.comment__actions {
+				text-align: center;
+			}
+		}
+	}
+}

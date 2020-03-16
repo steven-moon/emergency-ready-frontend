@@ -1,0 +1,73 @@
+
+@import "mixins";
+.black-container {
+  // Container widths
+  //
+  // Set the container width, and override it for fixed navbars in media queries.
+
+  @if $black-enable-grid-classes {
+    // Single container class with breakpoint max-widths
+    .container {
+      @include black-make-container();
+      @include black-make-container-max-widths();
+    }
+
+    // 100% wide container at all breakpoints
+    .container-fluid {
+      @include black-make-container();
+    }
+
+    // Responsive containers that are 100% wide until a breakpoint
+    @each $black-breakpoint, $black-container-max-width in $black-container-max-widths {
+      .container-#{$black-breakpoint} {
+        @extend .container-fluid;
+      }
+
+      @include black-media-breakpoint-up($black-breakpoint, $black-grid-breakpoints) {
+        %responsive-container-#{$black-breakpoint} {
+          max-width: $black-container-max-width;
+        }
+
+        @each $name, $width in $black-grid-breakpoints {
+          @if ($black-container-max-width > $width or $black-breakpoint == $name) {
+            .container#{black-breakpoint-infix($name, $black-grid-breakpoints)} {
+              @extend %responsive-container-#{$black-breakpoint};
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // Row
+  //
+  // Rows contain your columns.
+
+  @if $black-enable-grid-classes {
+    .row {
+      @include black-make-row();
+    }
+
+    // Remove the negative margin from default .row, then the horizontal padding
+    // from all immediate children columns (to prevent runaway style inheritance).
+    .no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+
+      > .col,
+      > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  // Columns
+  //
+  // Common styles for small and large grid columns
+
+  @if $black-enable-grid-classes {
+    @include black-make-grid-columns();
+  }
+}

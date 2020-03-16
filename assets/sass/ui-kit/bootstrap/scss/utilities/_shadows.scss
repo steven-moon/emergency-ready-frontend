@@ -1,0 +1,19 @@
+.ui-kit-container {
+  // stylelint-disable declaration-no-important
+
+  .shadow-sm {
+    box-shadow: $base-box-shadow-sm !important;
+  }
+
+  .shadow {
+    box-shadow: $base-box-shadow !important;
+  }
+
+  .shadow-lg {
+    box-shadow: $base-box-shadow-lg !important;
+  }
+
+  .shadow-none {
+    box-shadow: none !important;
+  }
+}

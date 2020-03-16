@@ -1,0 +1,148 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Wrapper
+    \* ------------------------------------------------------------ */
+
+	.wrapper {
+		position: relative;
+		overflow: hidden;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+
+		.header {
+			flex-shrink: 0;
+		}
+
+		.main {
+			flex-grow: 1;
+		}
+
+		@media #{$summa-mobile} {
+			.page__head {
+				padding: 13px 50px;
+				min-height: 45px;
+			}
+			.page__head h3 {
+				font-size: 18px;
+			}
+
+			.page__head .btn--back-small,
+			.page__head .btn--back-small {
+				height: 29px;
+				width: 29px;
+				line-height: 27px;
+			}
+			.page__head .btn--back-small i,
+			.page__head .btn-back i {
+				line-height: 1;
+			}
+		}
+		// $breakpoint-mobile {
+
+		// }
+	}
+
+	.page__head {
+		position: relative;
+		padding: 10px 50px;
+		background: #fff;
+		margin-bottom: 12px;
+		text-align: center;
+		min-height: 48px;
+
+		h3 {
+			font-size: 23px;
+			letter-spacing: 0.02em;
+			font-weight: 500;
+			margin: 0;
+			text-transform: uppercase;
+
+			span {
+				text-transform: none;
+			}
+		}
+
+		.btn--add-small,
+		.btn--back-small,
+		.btn-back {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.btn--back-small,
+		.btn-back {
+			height: 28px;
+			width: 28px;
+			line-height: 28px;
+		}
+
+		.btn--back-small i,
+		.btn-back i {
+			line-height: 1;
+		}
+
+		.btn--back-small,
+		.btn-back {
+			left: 12px;
+		}
+
+		.btn--add-small,
+		.btn-add {
+			right: 12px;
+		}
+
+		.page__head-content {
+			h3 {
+				line-height: 1.5;
+			}
+
+			h3 + h3 {
+				border-top: 1px solid #e4e4e4;
+			}
+		}
+
+		.page__head__flex {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&--align-top {
+			.btn--add-small,
+			.btn--back-small,
+			.btn-back {
+				position: absolute;
+				top: 10px;
+				transform: translateY(0);
+			}
+		}
+
+		@media #{$summa-mobile} {
+			padding: 13px 50px;
+			min-height: 45px;
+
+			h3 {
+				font-size: 18px;
+			}
+
+			.btn--add-small,
+			.btn-add,
+			.btn--back-small,
+			.btn-back {
+				height: 29px;
+				width: 29px;
+				line-height: 27px;
+			}
+			.btn--back-small i,
+			.btn-back i {
+				line-height: 27px;
+			}
+			.btn--add-small svg,
+			.btn-add svg {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+}

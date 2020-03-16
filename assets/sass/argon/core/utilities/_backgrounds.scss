@@ -1,0 +1,53 @@
+.argon-container {
+  //
+  // Backgrounds
+  //
+
+
+  @each $color, $value in $argon-colors {
+    @include argon-bg-variant(".bg-#{$color}", $value);
+  }
+
+  @each $color, $value in $argon-themecolors {
+    @include argon-bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+
+  @each $color, $value in $argon-colors {
+    @include argon-bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+
+
+  // Background colors with transparency
+
+  @each $color, $value in $argon-themecolors {
+    @include argon-bg-translucent-variant(".bg-translucent-#{$color}", $value);
+  }
+
+
+  // Sections backgrounds
+
+  @each $color, $value in $argon-section-colors {
+    @include argon-bg-variant(".section-#{$color}", $value);
+  }
+
+  @each $color, $value in $argon-themecolors {
+    @include argon-bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+
+
+  // Shape (svg) fill colors
+
+  @each $color, $value in $argon-themecolors {
+    .fill-#{$color} {
+      fill: $value;
+    }
+
+    .stroke-#{$color} {
+      stroke: $value;
+    }
+  }
+
+  .fill-opacity-8 {
+    fill-opacity: .8;
+  }
+}

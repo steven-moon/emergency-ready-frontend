@@ -1,0 +1,56 @@
+.argon-container {
+  // Base class
+  //
+  // Requires one of the contextual, color modifier classes for `color` and
+  // `background-color`.
+
+  .badge {
+    display: inline-block;
+    padding: $argon-badge-padding-y $argon-badge-padding-x;
+    @include font-size($argon-badge-font-size);
+    font-weight: $argon-badge-font-weight;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    @include border-radius($argon-badge-border-radius);
+    @include transition($argon-badge-transition);
+
+    @at-root a#{&} {
+      @include hover-focus {
+        text-decoration: none;
+      }
+    }
+
+    // Empty badges collapse automatically
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Quick fix for badges in buttons
+  .btn .badge {
+    position: relative;
+    top: -1px;
+  }
+
+  // Pill badges
+  //
+  // Make them extra rounded with a modifier to replace v3's badges.
+
+  .badge-pill {
+    padding-right: $argon-badge-pill-padding-x;
+    padding-left: $argon-badge-pill-padding-x;
+    @include border-radius($argon-badge-pill-border-radius);
+  }
+
+  // Colors
+  //
+  // Contextual variations (linked badges get darker on :hover).
+
+  @each $color, $value in $argon-themecolors {
+    .badge-#{$color} {
+      @include badge-variant($value);
+    }
+  }
+}

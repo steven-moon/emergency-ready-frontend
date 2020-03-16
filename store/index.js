@@ -1,11 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-
-import pageDataStore from './modules/pageDataStore';
-import featuredAppDataStore from './modules/featuredAppDataStore';
-
 Vue.use(Vuex);
+
+import userStore from './modules/userStore';
+import cityStore from './modules/cityStore';
+import testimonialStore from './modules/testimonialStore';
+import teamStore from './modules/teamStore';
+import projectPageDataStore from './modules/projectPageDataStore';
+import pageDataStore from './modules/pageDataStore';
+import sectionDataStore from './modules/sectionDataStore';
+import featuredAppDataStore from './modules/featuredAppDataStore';
 
 
 const namespaced = true;
@@ -14,8 +19,14 @@ const createStore = () => {
    return new Vuex.Store({
       namespaced,
       modules: {
-         pageDataStore: pageDataStore,
-         featuredAppDataStore: featuredAppDataStore
+         userStore: userStore,
+        cityStore: cityStore,
+        teamStore: teamStore,
+        testimonialStore: testimonialStore,
+        projectPageDataStore: projectPageDataStore,
+        pageDataStore: pageDataStore,
+        sectionDataStore: sectionDataStore,
+        featuredAppDataStore: featuredAppDataStore
       },
       state: {
          userId: null,
@@ -35,13 +46,33 @@ const createStore = () => {
             return state.userId;
          },
          user(state) {
-            return state.user;
-         },
+            if(state.user) {
+               console.log("get user state.user != null");
+               return state.user;
+            }else if (process.client) {
+                  console.log("get user state.user = null process is client");
+                  var user = null;
+                  try {
+                     user = JSON.parse(localStorage.getItem("user"));
+                  } catch(e) {
+                     user = null;
+                     console.log("JSON Parse Error");
+                     console.log(e);
+                     //alert(e); // error in the above string (in this case, yes)!
+                  }
+                  return user;
+            }else {
+               console.log("get user return null");
+               return null;
+            }
+
+         }
+         ,
          isUserLoggedIn(state) {
             return state.authToken != null;
          },
          isSidebarCollapsed(state) {
-            return state.isSidebarCollapsed
+            return state.isSidebarCollapsed;
          },
          getModal(state) {
             return state.modal
@@ -71,11 +102,10 @@ const createStore = () => {
             state.basePage = basePage;
          },
          setAuthToken(state, authToken) {
-            //console.log("action setAuthToken");
             state.authToken = authToken;
          },
-         toggleSidebarCollapse(state) {
-            state.isSidebarCollapsed = !state.isSidebarCollapsed;
+         toggleSidebarCollapse(state, payload) {
+            state.isSidebarCollapsed = payload;
          },
          setAppUsers(state, payload) {
             state.appUsers = payload
@@ -105,20 +135,86 @@ const createStore = () => {
          logout(state) {
             console.log("Log out Mutation called");
          },
-         //    state('clearToken');
-         //    this.$cookies.remove("userId");
-         //    this.$cookies.remove("authToken");
-         //    if (process.client) {
-         //       localStorage.removeItem("userId");
-         //       localStorage.removeItem("authToken");
-         //    }
-         //
-         //    this.taskstore.reset();
-         //    this.boardstore.reset();
-         //    this.projectstore.reset();
-         //    this.leadstore.reset();
-         //    this.timestore.reset();
-         // },
+         initAuth(state, req) {
+            //console.log("initAuth Call");
+            let userId;
+            let authToken;
+            let user;
+
+            // console.log(req.headers);
+            if (req && req.headers && req.headers.cookie) {
+               const userIdCookie = req.headers.cookie
+                   .split(";")
+                   .find(c => c.trim().startsWith("userId="));
+
+               if (userIdCookie) {
+                  userId = userIdCookie.split("=")[1];
+               }
+
+               const tokenCookie = req.headers.cookie
+                   .split(";")
+                   .find(c => c.trim().startsWith("authToken="));
+
+               if (tokenCookie) {
+                  authToken = decodeURIComponent(tokenCookie.split("=")[1]);
+               }
+
+               const userCookie = req.headers.cookie
+                   .split(";")
+                   .find(c => c.trim().startsWith("user="));
+
+               if (userCookie) {
+                  //console.log("userCookie");
+                  var userJson = decodeURIComponent(userCookie.split("=")[1]);
+                  //console.log(userJson);
+                  //user = userJson;
+                  try {
+                     user = JSON.parse(userJson);
+                  } catch(e) {
+                     user = null;
+                     console.log("JSON Parse Error");
+                     console.log(e);
+                     //alert(e); // error in the above string (in this case, yes)!
+                  }
+               }
+
+            } else if (process.client) {
+               userId = localStorage.getItem("userId");
+               authToken = localStorage.getItem("authToken");
+
+               try {
+                  user = JSON.parse(localStorage.getItem("user"));
+               } catch(e) {
+                  user = null;
+                  console.log("JSON Parse Error");
+                  console.log(e);
+                  //alert(e); // error in the above string (in this case, yes)!
+               }
+            }
+
+            if (userId) {
+               state.userId = userId;
+               //commit("setUserID", userId);
+            }
+
+            if (user) {
+               state.user = user;
+               //commit("setUser", user);
+            }
+
+            if (authToken) {
+               state.authToken = authToken;
+               //commit("setAuthToken", authToken);
+            } else {
+               console.log("authtoken cookie was not set")
+            }
+
+            // Change sidebar toggled state
+            const isSidebarCollapsedCookie = this.$cookies.get('isSidebarCollapsed') !== undefined ? this.$cookies.get('isSidebarCollapsed') : true;
+
+            state.isSidebarCollapsed = isSidebarCollapsedCookie;
+            //commit("toggleSidebarCollapse", isSidebarCollapsedCookie);
+         },
       },
       actions: {
 
@@ -132,7 +228,7 @@ const createStore = () => {
          setAuthToken({commit}, payload) {
             //console.log("action setAuthToken");
             localStorage.setItem("authToken", payload);
-            ///this.$cookies.set("authToken", payload
+            this.$cookies.set("authToken", payload);
             commit('setAuthToken', payload);
          },
          setUserID({commit}, payload) {
@@ -152,76 +248,7 @@ const createStore = () => {
             // Cookie.set("refresh_token", result.data.refresh_token);
          },
          async nuxtServerInit({commit}, {req, res, app}) {
-            //initAuth(vuexContext, req) {
-            //console.log("initAuth Call");
-            let userId;
-            let authToken;
-            let user;
-            //console.log(req.headers);
-            if (req && req.headers && req.headers.cookie) {
-               const userIdCookie = req.headers.cookie
-                  .split(";")
-                  .find(c => c.trim().startsWith("userId="));
-
-               if (userIdCookie) {
-                  userId = userIdCookie.split("=")[1];
-               }
-
-               const tokenCookie = req.headers.cookie
-                  .split(";")
-                  .find(c => c.trim().startsWith("authToken="));
-
-               if (tokenCookie) {
-                  authToken = tokenCookie.split("=")[1];
-               }
-
-               const userCookie = req.headers.cookie
-                  .split(";")
-                  .find(c => c.trim().startsWith("user="));
-
-               if (userCookie) {
-                  //console.log("userCookie");
-                  var userJson = decodeURIComponent(userCookie.split("=")[1]);
-                  //console.log(userJson);
-                  //user = userJson;
-                  try {
-                     user = JSON.parse(userJson);
-                  } catch(e) {
-                     user = null;
-                     console.log("JSON Parse Error");
-                     console.log(e);
-                     //alert(e); // error in the above string (in this case, yes)!
-                  }
-               }
-
-
-            } else if (process.client) {
-               userId = localStorage.getItem("userId");
-               authToken = localStorage.getItem("authToken");
-               try {
-                  user = JSON.parse(localStorage.getItem("user"));
-               } catch(e) {
-                  user = null;
-                  console.log("JSON Parse Error");
-                  console.log(e);
-                  //alert(e); // error in the above string (in this case, yes)!
-               }
-            }
-
-            if (userId) {
-               commit("setUserID", userId);
-            }
-
-            if (user) {
-               commit("setUser", user);
-            }
-
-            if (authToken) {
-               commit("setAuthToken", authToken);
-            } else {
-               console.log("authtoken cookie was not set")
-            }
-
+            commit("initAuth", req);
          },
          logout(vuexContext) {
             console.log("Log out action called");
@@ -244,8 +271,9 @@ const createStore = () => {
          // logout({commit}) {
          //    commit('logout');
          // },
-         toggleSidebarCollapse({commit}) {
-            commit('toggleSidebarCollapse');
+         toggleSidebarCollapse({commit}, payload) {
+            this.$cookies.set("isSidebarCollapsed", payload);
+            commit('toggleSidebarCollapse', payload);
          },
          openModal({commit}, payload) {
             commit('openModal', payload);
@@ -259,6 +287,9 @@ const createStore = () => {
          },
          setBasePage({commit}, payload) {
             commit('setBasePage', payload);
+         },
+         initAuth({commit}, payload) {
+            commit('initAuth', payload);
          },
       }
    })

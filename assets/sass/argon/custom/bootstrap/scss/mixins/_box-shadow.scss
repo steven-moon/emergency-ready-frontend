@@ -1,0 +1,20 @@
+@mixin box-shadow($argon-shadow...) {
+  @if $argon-enable-shadows {
+    $result: ();
+
+    @if (length($argon-shadow) == 1) {
+      // We can pass `@include box-shadow(none);`
+      $result: $argon-shadow;
+    } @else {
+      // Filter to avoid invalid properties for example `box-shadow: none, 1px 1px black;`
+      @for $i from 1 through length($argon-shadow) {
+        @if nth($argon-shadow, $i) != "none" {
+          $result: append($result, nth($argon-shadow, $i), "comma");
+        }
+      }
+    }
+    @if (length($result) > 0) {
+      box-shadow: $result;
+    }
+  }
+}

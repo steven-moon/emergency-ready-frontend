@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="base-container">
     <main-navbar></main-navbar>
     <nuxt />
   </div>
@@ -13,4 +13,8 @@ export default {
   }
 }
 </script>
-<style></style>
+<style lang="scss">
+  body {
+    margin: 0;
+  }
+</style>

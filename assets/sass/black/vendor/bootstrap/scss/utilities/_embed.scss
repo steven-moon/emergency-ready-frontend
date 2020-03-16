@@ -1,0 +1,41 @@
+.black-container {
+  // Credit: Nicolas Gallagher and SUIT CSS.
+
+  .embed-responsive {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    &::before {
+      display: block;
+      content: "";
+    }
+
+    .embed-responsive-item,
+    iframe,
+    embed,
+    object,
+    video {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+
+  @each $black-embed-responsive-aspect-ratio in $black-embed-responsive-aspect-ratios {
+    $black-embed-responsive-aspect-ratio-x: nth($black-embed-responsive-aspect-ratio, 1);
+    $black-embed-responsive-aspect-ratio-y: nth($black-embed-responsive-aspect-ratio, 2);
+
+    .embed-responsive-#{$black-embed-responsive-aspect-ratio-x}by#{$black-embed-responsive-aspect-ratio-y} {
+      &::before {
+        padding-top: percentage($black-embed-responsive-aspect-ratio-y / $black-embed-responsive-aspect-ratio-x);
+      }
+    }
+  }
+}

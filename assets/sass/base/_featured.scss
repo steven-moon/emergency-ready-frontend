@@ -1,0 +1,30 @@
+.base-container {
+  .featured-app {
+    padding: 80px 0;
+
+
+    .info {
+      max-width: none;
+      margin: 0 auto;
+      padding: 10px 0 0px;
+      vertical-align: top;
+    }
+
+    .info:first-child {
+      padding-top: 10px;
+    }
+
+    .row {
+      padding-bottom: 50px;
+    }
+
+    .top {
+      vertical-align: top;
+    }
+
+    .center {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

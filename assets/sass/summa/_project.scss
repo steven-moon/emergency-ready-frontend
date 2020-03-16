@@ -1,0 +1,62 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Project
+    \* ------------------------------------------------------------ */
+
+	.project {
+		display: flex;
+		flex-flow: column;
+		padding: 10px;
+		height: 90vh;
+		overflow: hidden;
+
+		.project__head {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 12px;
+		}
+
+		.project__body {
+			position: relative;
+			flex-grow: 3;
+			display: flex;
+			overflow-y: hidden;
+
+			.list-cards-wrap {
+				//position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		.select__dropdown {
+			max-height: 75vh;
+			overflow: auto;
+		}
+	}
+
+	@media #{$summa-mobile} {
+		.project {
+			padding: 0;
+
+			.project__head {
+				padding: 10px;
+				background: #fff;
+				margin-bottom: 0;
+			}
+
+			.project__body {
+				border: 1px solid #E2E2E2;
+				flex-grow: 3;
+				display: flex;
+
+				.list-cards-wrap {
+					padding: 7px 10px;
+				}
+			}
+		}
+	}
+}

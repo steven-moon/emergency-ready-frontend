@@ -1,5 +1,5 @@
 <template>
-  <nav :class="classes" class="navbar navbar-expand-lg">
+  <nav :class="classes" class="navbar navbar-expand-lg" >
     <div class="container">
       <div class="navbar-translate">
         <slot v-bind="slotData"></slot>
@@ -108,6 +108,7 @@ export default {
       }
 
       return [
+        {'nav-open' : this.showMenu},
         { 'navbar-transparent': this.transparent || colorOnScrollTransparent },
         { [color]: !this.transparent && this.colorOnScroll === 0 },
         navPosition,
@@ -123,15 +124,8 @@ export default {
   },
   methods: {
     setNav(value) {
-      const docClasess = document.body.classList
-      if (value) {
-        docClasess.add('nav-open')
-      } else {
-        docClasess.remove('nav-open')
-      }
-      const isOpen = docClasess.contains('nav-open')
-      const eventToTrigger = isOpen ? 'open' : 'close'
-      this.showMenu = isOpen
+      const eventToTrigger = this.showMenu ? 'open' : 'close'
+      this.showMenu = !this.showMenu;
       this.$emit(eventToTrigger)
     },
     toggle() {

@@ -1,5 +1,6 @@
+import Vue from 'vue'
 /**
- * You can register global components here
+ * You can register global components here and use them as a plugin in your main Vue instance
  */
 
 import Card from '@/components/Common/Cards/Card'
@@ -16,6 +17,7 @@ import { Select, Option, Carousel, CarouselItem } from 'element-ui'
 
 const globalComponents = {
   install (Vue) {
+
     Vue.component('fg-input', FormGroupInput);
     Vue.component('card', Card);
     Vue.component('n-button',Button);

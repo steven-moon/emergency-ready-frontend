@@ -1,0 +1,75 @@
+.argon-container {
+  // stylelint-disable declaration-no-important
+
+  // Margin and Padding
+
+  @each $breakpoint in map-keys($argon-grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+
+      @each $argon-prop, $abbrev in (margin: m, padding: p) {
+        @each $argon-size, $argon-length in $argon-spacers {
+          .#{$abbrev}#{$infix}-#{$argon-size} { #{$argon-prop}: $argon-length !important; }
+          .#{$abbrev}t#{$infix}-#{$argon-size},
+          .#{$abbrev}y#{$infix}-#{$argon-size} {
+            #{$argon-prop}-top: $argon-length !important;
+          }
+          .#{$abbrev}r#{$infix}-#{$argon-size},
+          .#{$abbrev}x#{$infix}-#{$argon-size} {
+            #{$argon-prop}-right: $argon-length !important;
+          }
+          .#{$abbrev}b#{$infix}-#{$argon-size},
+          .#{$abbrev}y#{$infix}-#{$argon-size} {
+            #{$argon-prop}-bottom: $argon-length !important;
+          }
+          .#{$abbrev}l#{$infix}-#{$argon-size},
+          .#{$abbrev}x#{$infix}-#{$argon-size} {
+            #{$argon-prop}-left: $argon-length !important;
+          }
+        }
+      }
+
+      // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+      @each $argon-size, $argon-length in $argon-spacers {
+        @if $argon-size != 0 {
+          .m#{$infix}-n#{$argon-size} { margin: -$argon-length !important; }
+          .mt#{$infix}-n#{$argon-size},
+          .my#{$infix}-n#{$argon-size} {
+            margin-top: -$argon-length !important;
+          }
+          .mr#{$infix}-n#{$argon-size},
+          .mx#{$infix}-n#{$argon-size} {
+            margin-right: -$argon-length !important;
+          }
+          .mb#{$infix}-n#{$argon-size},
+          .my#{$infix}-n#{$argon-size} {
+            margin-bottom: -$argon-length !important;
+          }
+          .ml#{$infix}-n#{$argon-size},
+          .mx#{$infix}-n#{$argon-size} {
+            margin-left: -$argon-length !important;
+          }
+        }
+      }
+
+      // Some special margin utils
+      .m#{$infix}-auto { margin: auto !important; }
+      .mt#{$infix}-auto,
+      .my#{$infix}-auto {
+        margin-top: auto !important;
+      }
+      .mr#{$infix}-auto,
+      .mx#{$infix}-auto {
+        margin-right: auto !important;
+      }
+      .mb#{$infix}-auto,
+      .my#{$infix}-auto {
+        margin-bottom: auto !important;
+      }
+      .ml#{$infix}-auto,
+      .mx#{$infix}-auto {
+        margin-left: auto !important;
+      }
+    }
+  }
+}

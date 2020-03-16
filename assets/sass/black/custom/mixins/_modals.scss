@@ -1,0 +1,15 @@
+@mixin modal-colors($bg-color, $color) {
+    .modal-content{
+        background-color: $bg-color;
+        color: $color;
+    }
+
+    .modal-body p{
+      color: rgba($black-white, 0.8);
+    }
+
+    //inputs
+    @include input-coloured-bg($black-opacity-5, $black-white, $black-white, $black-transparent-bg, $black-opacity-1, $black-opacity-2);
+
+
+}

@@ -1,0 +1,50 @@
+.argon-container {
+    //
+    // Custom checkbox
+    //
+
+    .custom-checkbox {
+        .custom-control-input ~ .custom-control-label {
+            cursor: pointer;
+            font-size: $argon-font-size-sm;
+            height: $argon-custom-control-indicator-size;
+        }
+
+        .custom-control-input {
+            &:checked {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-checked-border-color;
+                    }
+
+                    &::after {
+                        background-image: $argon-custom-checkbox-indicator-icon-checked;
+                    }
+                }
+            }
+
+            &:disabled {
+                ~ .custom-control-label {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-disabled-bg;
+                    }
+                }
+
+                &:checked {
+                    &::before {
+                        border-color: $argon-custom-control-indicator-checked-disabled-bg;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Color variations
+
+    @each $color, $value in $argon-themecolors {
+        .custom-checkbox-#{$color} {
+            @include custom-checkbox-variant($value);
+        }
+    }
+}

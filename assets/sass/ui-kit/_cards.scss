@@ -1,0 +1,46 @@
+.ui-kit-container {
+  .card {
+    border: 0;
+    border-radius: $kit-border-radius-small;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+
+    .card-header {
+      background-color: $kit-transparent-bg;
+      border-bottom: 0;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .card-footer {
+      padding: 0;
+      margin-top: 15px;
+      background-color: $kit-transparent-bg;
+      border: 0;
+    }
+
+    &[data-background-color="orange"] {
+      background-color: $kit-primary-color;
+    }
+
+    &[data-background-color="red"] {
+      background-color: $kit-danger-color;
+    }
+
+    &[data-background-color="yellow"] {
+      background-color: $kit-warning-color;
+    }
+
+    &[data-background-color="blue"] {
+      background-color: $kit-info-color;
+    }
+
+    &[data-background-color="green"] {
+      background-color: darken($kit-success-color, 5%);
+    }
+  }
+}

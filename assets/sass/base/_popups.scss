@@ -1,0 +1,87 @@
+.base-container {
+    .popover {
+        font-size: $base-font-size-base;
+        box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
+        border: none;
+        line-height: 1.7;
+        max-width: 240px;
+
+        &.bs-popover-top .arrow:before,
+        &.bs-popover-left .arrow:before,
+        &.bs-popover-right .arrow:before,
+        &.bs-popover-bottom .arrow:before {
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        .popover-header {
+            color: $default-color-opacity;
+            font-size: $base-font-size-base;
+            text-transform: capitalize;
+            font-weight: $base-font-weight-semi;
+            margin: 0;
+            margin-top: 5px;
+            border: none;
+            background-color: transparent;
+        }
+
+        &:before {
+            display: none;
+        }
+
+        &.bs-tether-element-attached-top:after {
+            border-bottom-color: $base-white-color;
+            top: -9px;
+        }
+
+        &.popover-primary {
+            @include popover-color($base-primary-color, $base-white-color);
+        }
+
+        &.popover-info {
+            @include popover-color($base-info-color, $base-white-color);
+        }
+
+        &.popover-warning {
+            @include popover-color($base-warning-color, $base-white-color);
+        }
+
+        &.popover-danger {
+            @include popover-color($base-danger-color, $base-white-color);
+        }
+
+        &.popover-success {
+            @include popover-color($base-success-color, $base-white-color);
+        }
+    }
+
+
+    .tooltip {
+        &.bs-tooltip-right .arrow:before {
+            border-right-color: $base-white-color;
+        }
+
+        &.bs-tooltip-top .arrow:before {
+            border-top-color: $base-white-color;
+        }
+
+        &.bs-tooltip-bottom .arrow:before {
+            border-bottom-color: $base-white-color;
+        }
+
+        &.bs-tooltip-left .arrow:before {
+            border-left-color: $base-white-color;
+        }
+    }
+
+    .tooltip-inner {
+        padding: $base-padding-base-vertical $base-padding-base-horizontal;
+        min-width: 130px;
+        background-color: $base-white-color;
+        font-size: $base-font-size-base;
+        color: inherit;
+        box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    }
+}

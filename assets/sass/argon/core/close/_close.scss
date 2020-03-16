@@ -1,0 +1,49 @@
+.argon-container {
+    //
+    // Close
+    //
+
+    .close {
+        @if $argon-enable-transitions {
+            transition: $argon-transition-base;
+        }
+
+        & > span:not(.sr-only) {
+            background-color: $argon-close-bg;
+            color: $argon-close-color;
+            line-height: 17px;
+            height: 1.25rem;
+            width: 1.25rem;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            display: block;
+            @if $argon-enable-transitions {
+                transition: $argon-transition-base;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $argon-close-hover-bg;
+            color: $argon-close-hover-color;
+            outline: none;
+
+            span:not(.sr-only) {
+                background-color: $argon-close-hover-bg;
+            }
+        }
+    }
+
+    .close-dark {
+        & > span:not(.sr-only) {
+            color: rgba(255, 255, 255, .8);
+        }
+
+        &:hover,
+        &:focus {
+            & > span:not(.sr-only) {
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}

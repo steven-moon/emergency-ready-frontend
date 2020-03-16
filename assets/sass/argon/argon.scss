@@ -1,0 +1,73 @@
+
+/*!
+
+=========================================================
+* Nuxt Argon Dashboard PRO - v1.0.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/nuxt-argon-dashboard-pro
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Coded by www.creative-tim.com and www.binarcode.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+
+
+
+// Bootstrap functions
+@import 'custom/bootstrap/scss/functions';
+@import "custom/bootstrap/scss/mixins";
+
+// Argon functions
+@import "custom/functions";
+@import "custom/variables";
+@import "custom/bootstrap/scss/variables";
+
+// Argon mixins
+@import "custom/mixins";
+
+// Bootstrap components
+@import "custom/bootstrap/scss/root";
+@import "custom/bootstrap/scss/reboot";
+@import "custom/bootstrap/scss/type";
+@import "custom/bootstrap/scss/images";
+@import "custom/bootstrap/scss/code";
+@import "custom/bootstrap/scss/grid";
+@import "custom/bootstrap/scss/tables";
+@import "custom/bootstrap/scss/forms";
+@import "custom/bootstrap/scss/buttons";
+@import "custom/bootstrap/scss/transitions";
+@import "custom/bootstrap/scss/dropdown";
+@import "custom/bootstrap/scss/button-group";
+@import "custom/bootstrap/scss/input-group";
+@import "custom/bootstrap/scss/custom-forms";
+@import "custom/bootstrap/scss/nav";
+@import "custom/bootstrap/scss/navbar";
+@import "custom/bootstrap/scss/card";
+@import "custom/bootstrap/scss/breadcrumb";
+@import "custom/bootstrap/scss/pagination";
+@import "custom/bootstrap/scss/badge";
+@import "custom/bootstrap/scss/jumbotron";
+@import "custom/bootstrap/scss/alert";
+@import "custom/bootstrap/scss/progress";
+@import "custom/bootstrap/scss/media";
+@import "custom/bootstrap/scss/list-group";
+@import "custom/bootstrap/scss/close";
+@import "custom/bootstrap/scss/modal";
+@import "custom/bootstrap/scss/tooltip";
+@import "custom/bootstrap/scss/popover";
+@import "custom/bootstrap/scss/carousel";
+@import "custom/bootstrap/scss/utilities";
+@import "custom/bootstrap/scss/print";
+
+// Argon components
+@import 'custom/components';
+@import 'custom/utilities';
+@import 'custom/vendors';
+@import 'custom/transitions';
+
+

@@ -1,0 +1,91 @@
+// stylelint-disable declaration-no-important
+
+// Margin and Padding
+
+@each $black-breakpoint in map-keys($black-grid-breakpoints) {
+  @include black-media-breakpoint-up($black-breakpoint) {
+    $black-infix: black-breakpoint-infix($black-breakpoint, $black-grid-breakpoints);
+
+    @each $black-prop, $abbrev in (margin: m, padding: p) {
+      @each $black-size, $length in $black-spacers {
+        .black-container {
+          .#{$abbrev}#{$black-infix}-#{$black-size} { #{$black-prop}: $length !important; }
+          .#{$abbrev}t#{$black-infix}-#{$black-size},
+          .#{$abbrev}y#{$black-infix}-#{$black-size} {
+            #{$black-prop}-top: $length !important;
+          }
+          .#{$abbrev}r#{$black-infix}-#{$black-size},
+          .#{$abbrev}x#{$black-infix}-#{$black-size} {
+            #{$black-prop}-right: $length !important;
+          }
+          .#{$abbrev}b#{$black-infix}-#{$black-size},
+          .#{$abbrev}y#{$black-infix}-#{$black-size} {
+            #{$black-prop}-bottom: $length !important;
+          }
+          .#{$abbrev}l#{$black-infix}-#{$black-size},
+          .#{$abbrev}x#{$black-infix}-#{$black-size} {
+            #{$black-prop}-left: $length !important;
+          }
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $black-size, $length in $black-spacers {
+      @if $black-size != 0 {
+        .black-container {
+          .m#{$black-infix}-n#{$black-size} {
+            margin: -$length !important;
+          }
+
+          .mt#{$black-infix}-n#{$black-size},
+          .my#{$black-infix}-n#{$black-size} {
+            margin-top: -$length !important;
+          }
+
+          .mr#{$black-infix}-n#{$black-size},
+          .mx#{$black-infix}-n#{$black-size} {
+            margin-right: -$length !important;
+          }
+
+          .mb#{$black-infix}-n#{$black-size},
+          .my#{$black-infix}-n#{$black-size} {
+            margin-bottom: -$length !important;
+          }
+
+          .ml#{$black-infix}-n#{$black-size},
+          .mx#{$black-infix}-n#{$black-size} {
+            margin-left: -$length !important;
+          }
+        }
+      }
+    }
+
+    .black-container {
+      // Some special margin utils
+      .m#{$black-infix}-auto {
+        margin: auto !important;
+      }
+
+      .mt#{$black-infix}-auto,
+      .my#{$black-infix}-auto {
+        margin-top: auto !important;
+      }
+
+      .mr#{$black-infix}-auto,
+      .mx#{$black-infix}-auto {
+        margin-right: auto !important;
+      }
+
+      .mb#{$black-infix}-auto,
+      .my#{$black-infix}-auto {
+        margin-bottom: auto !important;
+      }
+
+      .ml#{$black-infix}-auto,
+      .mx#{$black-infix}-auto {
+        margin-left: auto !important;
+      }
+    }
+  }
+}

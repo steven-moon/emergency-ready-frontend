@@ -1,0 +1,35 @@
+.argon-container {
+    //
+    // Nav
+    //
+
+
+    // Nav wrapper (container)
+
+    // Nav wrapper
+    .nav-wrapper {
+        padding: 1rem 0;
+        @include border-top-radius($argon-card-border-radius);
+
+        + .card {
+            @include border-top-radius(0);
+            @include border-bottom-radius($argon-card-border-radius);
+        }
+    }
+
+
+    // Nav links
+
+    .nav-link {
+        color: $argon-nav-link-color;
+
+        &:hover {
+            color: $argon-nav-link-hover-color;
+        }
+
+        i.ni {
+            position: relative;
+            top: 2px;
+        }
+    }
+}

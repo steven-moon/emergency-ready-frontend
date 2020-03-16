@@ -1,0 +1,93 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Pagination
+    \* ------------------------------------------------------------ */
+
+	.pagination-holder {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+
+		span {
+			font-size: 14px;
+		}
+
+		.label {
+			margin-right: 12px;
+		}
+	}
+
+	.paginate-links {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+
+		li {
+			margin: 0 3px;
+		}
+
+		a {
+			display: block;
+			padding: 0 1px;
+			border-radius: 4px;
+			border: 1px solid #e4e4e4;
+			width: 25px;
+			height: 25px;
+			line-height: 23px;
+			font-size: 14px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		.active a {
+			border-color: #1d6283;
+		}
+
+		.ellipses a {
+			border: none;
+		}
+
+		.left-arrow,
+		.right-arrow {
+			display: none;
+		}
+	}
+
+	.paging-counter {
+		margin-left: 24px;
+	}
+
+	@media (max-width: 1400px) {
+		.paging-counter {
+			margin-left: 10px;
+		}
+	}
+
+	@media #{$summa-small-desktop} {
+		.pagination-holder {
+			flex-wrap: wrap;
+			margin-left: auto;
+			max-width: 200px;
+		}
+		.paging-counter {
+			width: 100%;
+			margin-left: 0;
+			padding-top: 10px;
+		}
+	}
+	@media #{$summa-tablet-portrait} {
+	}
+
+	@media #{$summa-mobile} {
+		.pagination-holder {
+			max-width: 100%;
+		}
+		.paging-counter {
+			width: auto;
+			padding-top: 0;
+			margin-left: auto;
+		}
+	}
+}

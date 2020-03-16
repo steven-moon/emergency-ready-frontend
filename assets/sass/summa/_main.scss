@@ -1,0 +1,48 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Main
+    \* ------------------------------------------------------------ */
+
+	.main {
+		flex-grow: 1;
+		display: flex;
+
+		@media #{$summa-mobile} {
+			display: flex;
+			overflow: hidden;
+
+			.sidebar {
+				width: 240px;
+				transform: translateX(-240px);
+				position: fixed;
+				top: 68px;
+				bottom: 0;
+				z-index: 9;
+				transition: transform 0.4s;
+				overflow-y: auto;
+				max-height: calc(100vh - 68px);
+			}
+
+			&.show-sidebar .sidebar {
+				transform: translateX(0);
+			}
+
+			&:after {
+				position: fixed;
+				top: 68px;
+				left: 0;
+				bottom: 0;
+				content: '';
+				width: 0;
+				background: #000;
+				opacity: 0;
+				transition: opacity 0.4s;
+			}
+			&.show-sidebar:after {
+				width: 100%;
+				opacity: 0.2;
+				z-index: 2;
+			}
+		}
+	}
+}

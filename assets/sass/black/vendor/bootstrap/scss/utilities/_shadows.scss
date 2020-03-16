@@ -1,0 +1,19 @@
+.black-container {
+  // stylelint-disable declaration-no-important
+
+  .shadow-sm {
+    box-shadow: $black-box-shadow-sm !important;
+  }
+
+  .shadow {
+    box-shadow: $black-box-shadow !important;
+  }
+
+  .shadow-lg {
+    box-shadow: $black-box-shadow-lg !important;
+  }
+
+  .shadow-none {
+    box-shadow: none !important;
+  }
+}

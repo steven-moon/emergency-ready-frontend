@@ -1,0 +1,42 @@
+//@each $color, $value in $black-colors {
+//	@include bg-variant(".bg-#{$color}", $value);
+//}
+
+@each $color, $value in $black-theme-colors {
+	@include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+}
+
+@each $color, $value in $black-colors {
+	@include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+}
+
+
+// Sections
+
+section {
+    //background-color: section-color("primary");
+}
+
+//@each $color, $value in $black-section-colors {
+//    @include bg-variant(".section-#{$color}", $value);
+//}
+
+@each $color, $value in $black-theme-colors {
+    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+}
+
+
+// Shape (svg) fill colors
+@each $color, $value in $black-theme-colors {
+    .fill-#{$color}  {
+        fill: $value;
+    }
+
+    .stroke-#{$color}  {
+        stroke: $value;
+    }
+}
+
+.fill-opacity-8 {
+	fill-opacity: .8;
+}

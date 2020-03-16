@@ -1,0 +1,102 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Select Custom
+    \* ------------------------------------------------------------ */
+
+	.select-custom {
+		position: relative;
+
+		a {
+			text-decoration: none;
+		}
+
+		.select__active__item__icon {
+			position: relative;
+			padding-right: 8px;
+		}
+
+		.select__toggle {
+			position: relative;
+			z-index: 915;
+			font-size: 16px;
+			font-weight: 600;
+
+			i {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 0;
+				margin-left: 5px;
+				transition: .3s;
+			}
+		}
+
+		.select__dropdown {
+			min-width: 200px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 915;
+			background: #fff;
+			border: 1px solid #c1c1c1;
+			border-radius: 3px;
+			margin-top: 10px;
+			font-size: 14px;
+			opacity: 0;
+			visibility: hidden;
+			transition: .3s;
+
+			ul {
+				list-style: none outside none;
+				padding: 0;
+				margin: 0;
+			}
+
+			li {
+				position: relative;
+			}
+
+			.select__item__link {
+				display: block;
+				padding: 10px 20px;
+
+				&:hover {
+					background: #f1f1f1;
+				}
+			}
+
+			.select__item__icon {
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				transform: translateY(-50%);
+			}
+		}
+
+		.select__overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 910;
+			display: none;
+		}
+
+		&.active {
+			.select__dropdown {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.select__toggle {
+				i {
+					transform: rotate(180deg);
+				}
+			}
+
+			.select__overlay {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.summa-container {
+	/* ------------------------------------------------------------ *\
+        Users
+    \* ------------------------------------------------------------ */
+
+	.users {
+		.users__actions {
+			display: inline-flex;
+			vertical-align: middle;
+
+			a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 27px;
+				height: 27px;
+				background: #fff;
+				border-radius: 50%;
+				text-decoration: none;
+				box-shadow: 0 2px 19px rgba(227, 227, 227, 0.32);
+			}
+
+		}
+
+		.avatar {
+			margin-right: -7px;
+		}
+	}
+}

@@ -1,0 +1,156 @@
+.argon-container {
+    //
+    // Table
+    //
+
+
+    // General styles
+
+    .table,
+    .el-table {
+        thead th {
+            padding-top: $argon-table-head-spacer-y;
+            padding-bottom: $argon-table-head-spacer-y;
+            font-size: $argon-table-head-font-size;
+            text-transform: $argon-table-head-text-transform;
+            letter-spacing: $argon-table-head-letter-spacing;
+            border-bottom: $argon-table-border-width solid $argon-table-border-color;
+            border-top: $argon-table-border-width solid $argon-table-border-color;
+        }
+
+        th {
+            font-weight: $argon-table-head-font-weight;
+        }
+
+        td {
+            .progress {
+                height: 3px;
+                width: 120px;
+                margin: 0;
+            }
+        }
+
+        td,
+        th {
+            color: $argon-table-color;
+            font-size: $argon-table-body-font-size;
+            white-space: nowrap;
+        }
+
+
+        // Vetical align table content
+
+        &.align-items-center {
+            td,
+            th {
+                vertical-align: middle;
+            }
+        }
+
+
+        // Styles for dark table
+
+        .thead-dark {
+            th {
+                background-color: $argon-table-dark-head-bg;
+                color: $argon-table-dark-head-color;
+
+                a {
+                    color: $argon-table-dark-head-color;
+                }
+            }
+        }
+
+
+        // Styles for light table
+
+        .thead-light {
+            th {
+                background-color: $argon-table-head-bg;
+                color: $argon-table-head-color;
+
+                a {
+                    color: $argon-table-head-color;
+                }
+            }
+        }
+    }
+
+
+    // Add transition for hover state
+
+    .table-hover {
+        tr {
+            @include transition($argon-transition-base);
+        }
+    }
+
+    .el-table.table-dark,
+    .table-dark {
+        color: $argon-body-bg;
+
+        tbody .cell {
+            color: $argon-body-bg;
+        }
+
+        thead th,
+        th, td {
+            border-color: #1f3a68;
+        }
+    }
+
+
+    // Flush tables
+
+    .table-flush {
+        td,
+        th {
+            border-left: 0;
+            border-right: 0;
+        }
+
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+
+                &:last-child {
+                    td,
+                    th {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Tables inside cards
+
+    .card {
+        .table,
+        .el-table {
+            margin-bottom: 0;
+
+            td,
+            th {
+                padding-left: $argon-card-spacer-x;
+                padding-right: $argon-card-spacer-x;
+            }
+        }
+    }
+
+
+    // Fixes for custom elements inside tables
+
+    .table,
+    .el-table {
+        .custom-toggle {
+            display: block;
+        }
+    }
+}

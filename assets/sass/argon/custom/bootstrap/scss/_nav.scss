@@ -1,0 +1,123 @@
+.argon-container {
+  // Base class
+  //
+  // Kickstart any navigation component with a set of style resets. Works with
+  // `<nav>`s or `<ul>`s.
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    display: block;
+    padding: $argon-nav-link-padding-y $argon-nav-link-padding-x;
+
+    @include hover-focus {
+      text-decoration: none;
+    }
+
+    // Disabled state lightens text
+    &.disabled {
+      color: $argon-nav-link-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  //
+  // Tabs
+  //
+
+  .nav-tabs {
+    border-bottom: $argon-nav-tabs-border-width solid $argon-nav-tabs-border-color;
+
+    .nav-item {
+      margin-bottom: -$argon-nav-tabs-border-width;
+    }
+
+    .nav-link {
+      border: $argon-nav-tabs-border-width solid transparent;
+      @include border-top-radius($argon-nav-tabs-border-radius);
+
+      @include hover-focus {
+        border-color: $argon-nav-tabs-link-hover-border-color;
+      }
+
+      &.disabled {
+        color: $argon-nav-link-disabled-color;
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+      color: $argon-nav-tabs-link-active-color;
+      background-color: $argon-nav-tabs-link-active-bg;
+      border-color: $argon-nav-tabs-link-active-border-color;
+    }
+
+    .dropdown-menu {
+      // Make dropdown border overlap tab border
+      margin-top: -$argon-nav-tabs-border-width;
+      // Remove the top rounded corners here since there is a hard edge above the menu
+      @include border-top-radius(0);
+    }
+  }
+
+
+  //
+  // Pills
+  //
+
+  .nav-pills {
+    .nav-link {
+      @include border-radius($argon-nav-pills-border-radius);
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+      color: $argon-nav-pills-link-active-color;
+      background-color: $argon-nav-pills-link-active-bg;
+    }
+  }
+
+
+  //
+  // Justified variants
+  //
+
+  .nav-fill {
+    .nav-item {
+      flex: 1 1 auto;
+      text-align: center;
+    }
+  }
+
+  .nav-justified {
+    .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+
+
+  // Tabbable tabs
+  //
+  // Hide tabbable panes to start, show them when `.active`
+
+  .tab-content {
+    > .tab-pane {
+      display: none;
+    }
+
+    > .active {
+      display: block;
+    }
+  }
+}

@@ -1,7 +1,6 @@
 <template>
     <div class="wrapper about-page">
-        <emergency-ready-app-privacy-policy/>
-        <emergency-ready-app/>
+<!---->
         <contact-us :withMap="true"/>
         <subscribe :showImage="true"/>
     </div>
@@ -9,8 +8,6 @@
 Emergency Ready
 <script>
 
-    import EmergencyReadyApp from '@/components/Sections/EmergencyReadyApp'
-    import EmergencyReadyAppPrivacyPolicy from '@/components/Sections/EmergencyReadyAppPrivacyPolicy'
     import ContactUs from '@/components/Sections/ContactUs'
     import Subscribe from '@/components/Sections/Subscribe'
 

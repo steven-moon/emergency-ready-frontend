@@ -1,0 +1,76 @@
+.argon-container {
+  .pagination {
+    display: flex;
+    @include list-unstyled();
+    @include border-radius();
+  }
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: $argon-pagination-padding-y $argon-pagination-padding-x;
+    margin-left: -$argon-pagination-border-width;
+    line-height: $argon-pagination-line-height;
+    color: $argon-pagination-color;
+    background-color: $argon-pagination-bg;
+    border: $argon-pagination-border-width solid $argon-pagination-border-color;
+
+    &:hover {
+      z-index: 2;
+      color: $argon-pagination-hover-color;
+      text-decoration: none;
+      background-color: $argon-pagination-hover-bg;
+      border-color: $argon-pagination-hover-border-color;
+    }
+
+    &:focus {
+      z-index: 2;
+      outline: $argon-pagination-focus-outline;
+      box-shadow: $argon-pagination-focus-box-shadow;
+    }
+  }
+
+  .page-item {
+    &:first-child {
+      .page-link {
+        margin-left: 0;
+        @include border-left-radius($argon-border-radius);
+      }
+    }
+
+    &:last-child {
+      .page-link {
+        @include border-right-radius($argon-border-radius);
+      }
+    }
+
+    &.active .page-link {
+      z-index: 1;
+      color: $argon-pagination-active-color;
+      background-color: $argon-pagination-active-bg;
+      border-color: $argon-pagination-active-border-color;
+    }
+
+    &.disabled .page-link {
+      color: $argon-pagination-disabled-color;
+      pointer-events: none;
+      // Opinionated: remove the "hand" cursor set previously for .page-link
+      cursor: auto;
+      background-color: $argon-pagination-disabled-bg;
+      border-color: $argon-pagination-disabled-border-color;
+    }
+  }
+
+
+  //
+  // Sizing
+  //
+
+  .pagination-lg {
+    @include pagination-size($argon-pagination-padding-y-lg, $argon-pagination-padding-x-lg, $argon-font-size-lg, $argon-line-height-lg, $argon-border-radius-lg);
+  }
+
+  .pagination-sm {
+    @include pagination-size($argon-pagination-padding-y-sm, $argon-pagination-padding-x-sm, $argon-font-size-sm, $argon-line-height-sm, $argon-border-radius-sm);
+  }
+}

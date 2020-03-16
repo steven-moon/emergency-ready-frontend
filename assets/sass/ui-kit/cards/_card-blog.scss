@@ -1,0 +1,13 @@
+.ui-kit-container {
+    .card-blog {
+        .row {
+            .category {
+                margin-bottom: 0;
+            }
+        }
+
+        .card-image + .category {
+            margin-top: 20px;
+        }
+    }
+}

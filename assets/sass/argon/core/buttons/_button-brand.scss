@@ -1,0 +1,14 @@
+.argon-container {
+    //
+    // Brand buttons
+    //
+
+
+    // Color variations
+
+    @each $color, $value in $argon-brand-colors {
+        .btn-#{$color} {
+            @include button-variant($value, $value);
+        }
+    }
+}

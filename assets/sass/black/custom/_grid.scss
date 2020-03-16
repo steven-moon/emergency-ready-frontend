@@ -1,0 +1,7 @@
+.black-container {
+	@include black-media-breakpoint-up(xl) {
+		.container-lg {
+			max-width: 1160px;
+		}
+	}
+}

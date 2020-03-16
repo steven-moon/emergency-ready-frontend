@@ -1,0 +1,277 @@
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$kit-sans-serif-family:          'Montserrat', 'Helvetica Neue',  Arial, sans-serif !default;
+
+$kit-none:                       0   !default;
+$kit-border-thin:                1px !default;
+$kit-border-thick:               2px !default;
+
+$kit-white-color:                #FFFFFF !default;
+$kit-white-bg:                   #FFFFFF !default;
+$kit-orange-bg:                  #e95e38 !default;
+
+$kit-smoke-bg:                   #F5F5F5 !default;
+$kit-light-black:                #444    !default;
+
+$kit-black-bg:                   rgba(30,30,30,.97) !default;
+
+$kit-black-color:                #2c2c2c !default;
+$kit-black-hr:                   #444444 !default;
+
+$kit-light-gray:                 #E3E3E3 !default;
+$kit-medium-gray:                #DDDDDD !default;
+$kit-dark-gray:                  #9A9A9A !default;
+
+$kit-opacity-gray-3:             rgba(222,222,222, .3) !default;
+$kit-opacity-gray-5:             rgba(222,222,222, .5) !default;
+$kit-opacity-gray-8:             rgba(222,222,222, .8) !default;
+
+
+$kit-opacity-5:                  rgba(255,255,255, .5) !default;
+$kit-opacity-8:                  rgba(255,255,255, .8) !default;
+
+$kit-datepicker-color-days:             rgba(255,255,255, .8)  !default;
+$kit-datepicker-color-old-new-days:     rgba(255,255,255, .4)  !default;
+
+
+$kit-opacity-1:                  rgba(255,255,255, .1) !default;
+$kit-opacity-2:                  rgba(255,255,255, .2) !default;
+
+$kit-transparent-bg:             transparent !default;
+$kit-dark-background:            #555555 !default;
+
+$kit-default-color:              #888888 !default;
+$kit-default-states-color:       lighten($kit-default-color, 6%) !default;
+$kit-default-color-opacity:      rgba(182, 182, 182, .6) !default;
+$kit-primary-color:              #f96332 !default;
+$kit-primary-states-color:       lighten($kit-primary-color, 6%) !default;
+$kit-primary-color-opacity:      rgba(249, 99, 50, .3) !default;
+$kit-primary-color-alert:        rgba(249, 99, 50, .8) !default;
+
+$kit-success-color:              #18ce0f !default;
+$kit-success-states-color:       lighten($kit-success-color, 6%) !default;
+$kit-success-color-opacity:      rgba(24, 206, 15, .3) !default;
+$kit-success-color-alert:        rgba(24, 206, 15, .8) !default;
+
+$kit-info-color:                 #2CA8FF !default;
+$kit-info-states-color:          lighten($kit-info-color, 6%) !default;
+$kit-info-color-opacity:         rgba(44, 168, 255, .3) !default;
+$kit-info-color-alert:           rgba(44, 168, 255, .8) !default;
+
+$kit-warning-color:              #FFB236 !default;
+$kit-warning-states-color:       lighten($kit-warning-color, 6%) !default;
+$kit-warning-color-opacity:      rgba(255, 178, 54, .3) !default;
+$kit-warning-color-alert:        rgba(255, 178, 54, .8) !default;
+
+$kit-danger-color:               #FF3636 !default;
+$kit-danger-states-color:        lighten($kit-danger-color, 6%) !default;
+$kit-danger-color-opacity:       rgba(255, 54, 54, .3) !default;
+$kit-danger-color-alert:         rgba(255, 54, 54, .8) !default;
+
+/*     brand Colors              */
+$kit-brand-primary:              $kit-primary-color !default;
+$kit-brand-info:                 $kit-info-color !default;
+$kit-brand-success:              $kit-success-color !default;
+$kit-brand-warning:              $kit-warning-color !default;
+$kit-brand-danger:               $kit-danger-color !default;
+$kit-brand-inverse:              $kit-black-color !default;
+
+$kit-link-disabled-color:        #666666 !default;
+
+/*      light colors         */
+$kit-light-blue:                 rgba($kit-primary-color, .2);
+$kit-light-azure:                rgba($kit-info-color, .2);
+$kit-light-green:                rgba($kit-success-color, .2);
+$kit-light-orange:               rgba($kit-warning-color, .2);
+$kit-light-red:                  rgba($kit-danger-color, .2);
+
+//== Components
+//
+
+$kit-padding-input-vertical:        11px !default;
+$kit-padding-input-horizontal:      19px !default;
+
+$kit-padding-btn-vertical:         11px !default;
+$kit-padding-btn-horizontal:       22px !default;
+
+$kit-padding-base-vertical:        .5rem !default;
+$kit-padding-base-horizontal:      .7rem !default;
+
+$kit-padding-round-horizontal:     23px !default;
+
+$kit-padding-simple-vertical:      10px !default;
+$kit-padding-simple-horizontal:    17px !default;
+
+$kit-padding-large-vertical:       15px !default;
+$kit-padding-large-horizontal:     48px !default;
+
+$kit-padding-small-vertical:        5px !default;
+$kit-padding-small-horizontal:     15px !default;
+
+// $kit-padding-xs-vertical:           1px !default;
+// $kit-padding-xs-horizontal:         5px !default;
+
+$kit-padding-label-vertical:        2px !default;
+$kit-padding-label-horizontal:     12px !default;
+
+$kit-margin-large-vertical:        30px !default;
+$kit-margin-base-vertical:         15px !default;
+
+$kit-margin-base-horizontal:       15px !default;
+
+$kit-margin-bottom:                 10px        !default;
+$kit-border:                        1px solid   !default;
+$kit-border-radius-extra-small:     0.125rem    !default;
+$kit-border-radius-small:           0.1875rem   !default;
+$kit-border-radius-large:           0.25rem     !default;
+$kit-border-radius-extreme:         0.875rem    !default;
+
+$kit-border-radius-large-top:      $kit-border-radius-large $kit-border-radius-large 0 0 !default;
+$kit-border-radius-large-bottom:   0 0 $kit-border-radius-large $kit-border-radius-large !default;
+
+$kit-btn-round-radius:             30px         !default;
+
+$kit-height-base:                  55px         !default;
+
+$kit-btn-icon-size:                 3.5rem       !default;
+$kit-btn-icon-size-regular:         2.375rem      !default;
+$kit-btn-icon-font-size-regular:    0.9375rem     !default;
+$kit-btn-icon-font-size-small:      0.6875rem      !default;
+$kit-btn-icon-size-small:           1.875rem     !default;
+$kit-btn-icon-font-size-lg:         1.325rem     !default;
+$kit-btn-icon-size-lg:              3.6rem         !default;
+
+$kit-font-size-h1:                 3.5em        !default; // ~ 49px
+$kit-font-size-h2:                 2.5em        !default; // ~ 35px
+$kit-font-size-h3:                 1.825em      !default; // ~ 28px
+$kit-font-size-h4:                 1.5em        !default; // ~ 24px
+$kit-font-size-h5:                 1.3em        !default; // ~ 22px
+$kit-font-size-h6:                 .9em         !default; // ~ 12px
+
+$kit-font-paragraph:               1.2em          !default;
+$kit-font-size-navbar:             1em          !default;
+$kit-font-size-mini:               0.7142em     !default;
+$kit-font-size-small:              0.8571em     !default;
+$kit-font-size-base:               14px         !default;
+$kit-font-size-large:              1em          !default;
+$kit-font-size-large-navbar:       20px         !default;
+$kit-font-size-blockquote:         1.1em        !default; // ~ 15px
+
+$kit-font-weight-light:             300         !default;
+$kit-font-weight-normal:            400         !default;
+$kit-font-weight-semi:              600         !default;
+$kit-font-weight-bold:              700         !default;
+
+$kit-line-height-general:        1.5            !default;
+$kit-line-height-nav-link:       1.625rem       !default;
+$kit-btn-icon-line-height:       2.4em          !default;
+$kit-line-height:                1.35em         !default;
+$kit-line-height-lg:             54px           !default;
+
+
+$kit-border-radius-top:        10px 10px 0 0     !default;
+$kit-border-radius-bottom:     0 0 10px 10px     !default;
+
+$kit-dropdown-shadow:          1px 2px 3px rgba(0, 0, 0, 0.125);
+$kit-box-shadow-raised:        0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+
+$kit-general-transition-time:  300ms             !default;
+
+$kit-slow-transition-time:           370ms       !default;
+$kit-dropdown-coordinates:      29px -50px       !default;
+
+$kit-fast-transition-time:           150ms       !default;
+$select-coordinates:         50% -40px       !default;
+
+$kit-transition-linear:         linear           !default;
+$kit-transition-bezier:         cubic-bezier(0.34, 1.61, 0.7, 1) !default;
+$kit-transition-ease:           ease 0s;
+
+
+//$kit-navbar-padding-a:               9px 13px;
+$kit-navbar-margin-a:                15px 0px;
+
+$kit-padding-social-a:               10px 5px;
+
+$kit-navbar-margin-a-btn:            15px 0px;
+$kit-navbar-margin-a-btn-round:      16px 0px;
+
+$kit-navbar-padding-a-icons:         6px 15px;
+$kit-navbar-margin-a-icons:          6px  3px;
+
+$kit-navbar-padding-base:            0.625rem;
+//$kit-navbar-margin-brand:             5px  0px;
+
+$kit-navbar-margin-brand-icons:      12px auto;
+$kit-navbar-margin-btn:              15px  3px;
+
+$kit-height-icon-sm:				 32px;
+$kit-width-icon-sm:					 32px;
+$kit-padding-icon-sm:			     4px;
+$kit-border-radius-icon-sm:			 7px;
+
+$kit-height-icon-message:			 40px;
+$kit-width-icon-message:			 40px;
+
+$kit-height-icon-message-sm: 		 20px;
+$kit-width-icon-message-sm:			 20px;
+
+$kit-white-navbar:                  rgba(#FFFFFF, .96);
+$kit-primary-navbar:                rgba(#34ACDC, .98);
+$kit-info-navbar:                   rgba(#5BCAFF, .98);
+$kit-success-navbar:                rgba(#4CD964, .98);
+$kit-warning-navbar:                rgba(#FF9500, .98);
+$kit-danger-navbar:                 rgba(#FF4C40, .98);
+
+$kit-topbar-x:             topbar-x !default;
+$kit-topbar-back:          topbar-back !default;
+$kit-bottombar-x:          bottombar-x !default;
+$kit-bottombar-back:       bottombar-back !default;
+
+//Nucleo Icons
+
+$kit-nc-font-path:        '../fonts' !default;
+$kit-nc-font-size-base:   14px !default;
+$kit-nc-css-prefix:       now-ui !default;
+$kit-nc-background-color:     #eee !default;
+$kit-nc-li-width:         (30em / 14) !default;
+$kit-nc-padding-width:    (1em/3) !default;
+
+// Social icons color
+$kit-social-twitter:                   #55acee !default;
+$kit-social-twitter-state-color:       lighten(#55acee, 6%) !default;
+
+$kit-social-facebook: 			       #3b5998 !default;
+$kit-social-facebook-state-color:      lighten(#3b5998, 6%) !default;
+
+$kit-social-google: 			       #dd4b39 !default;
+$kit-social-google-state-color:        lighten(#dd4b39, 6%) !default;
+
+$kit-social-linkedin: 			       #0077B5 !default;
+$kit-social-linkedin-state-color:      lighten(#0077B5, 6%) !default;
+
+$kit-social-pinterest: 			       #cc2127 !default;
+$kit-social-pinterest-state-color:     lighten(#cc2127, 6%) !default;
+
+$kit-social-dribbble: 		           #ea4c89 !default;
+$kit-social-dribbble-state-color:      lighten(#ea4c89, 6%) !default;
+
+$kit-social-github: 		      	   #333333 !default;
+$kit-social-github-state-color:        lighten(#333333, 6%) !default;
+
+$kit-social-youtube: 		    	   #e52d27 !default;
+$kit-social-youtube-state-color:       lighten(#e52d27, 6%) !default;
+
+$kit-social-instagram: 		           #125688 !default;
+$kit-social-instagram-state-color:     lighten(#125688, 6%) !default;
+
+$kit-social-reddit: 		  	       #ff4500 !default;
+$kit-social-reddit-state-color:        lighten(#ff4500, 6%) !default;
+
+$kit-social-tumblr: 			       #35465c !default;
+$kit-social-tumblr-state-color:        lighten(#35465c, 6%) !default;
+
+$kit-social-behance: 			       #1769ff !default;
+$kit-social-behance-state-color:       lighten(#1769ff, 6%) !default;

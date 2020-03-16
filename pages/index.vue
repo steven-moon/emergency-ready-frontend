@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper landing-page">
     <about-us-summary/>
-    <about-founder/>
     <contact-us :withMap="true"/>
     <subscribe :showImage="true"/>
   </div>
@@ -18,13 +17,12 @@
   import AboutUsSummary from '@/components/Sections/AboutUsSummary'
   import ContactUs from '@/components/Sections/ContactUs'
   import Subscribe from '@/components/Sections/Subscribe'
-  import AboutFounder from '@/components/Sections/AboutFounder'
 
   export default {
     name: 'Home',
+    layout: 'default',
     components: {
       AboutUsSummary,
-      AboutFounder,
       ContactUs,
       Subscribe,
     },
@@ -39,7 +37,7 @@
     },
     data() {
       return {
-        title: "Emergency Ready App"
+        title: "Base App"
       }
     },
     mounted() {

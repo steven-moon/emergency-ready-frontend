@@ -1,0 +1,52 @@
+.base-container {
+  .btn {
+    // social buttons
+    &.btn-facebook {
+      @include social-buttons-color($base-social-facebook, $base-social-facebook-state-color);
+    }
+
+    &.btn-twitter {
+      @include social-buttons-color($base-social-twitter, $base-social-twitter-state-color);
+    }
+
+    &.btn-pinterest {
+      @include social-buttons-color($base-social-pinterest, $base-social-pinterest-state-color);
+    }
+
+    &.btn-google {
+      @include social-buttons-color($base-social-google, $base-social-google-state-color);
+    }
+
+    &.btn-linkedin {
+      @include social-buttons-color($base-social-linkedin, $base-social-linkedin-state-color);
+    }
+
+    &.btn-dribbble {
+      @include social-buttons-color($base-social-dribbble, $base-social-dribbble-state-color);
+    }
+
+    &.btn-github {
+      @include social-buttons-color($base-social-github, $base-social-github-state-color);
+    }
+
+    &.btn-youtube {
+      @include social-buttons-color($base-social-youtube, $base-social-youtube-state-color);
+    }
+
+    &.btn-instagram {
+      @include social-buttons-color($base-social-instagram, $base-social-instagram-state-color);
+    }
+
+    &.btn-reddit {
+      @include social-buttons-color($base-social-reddit, $base-social-reddit-state-color);
+    }
+
+    &.btn-tumblr {
+      @include social-buttons-color($base-social-tumblr, $base-social-tumblr-state-color);
+    }
+
+    &.btn-behance {
+      @include social-buttons-color($base-social-behance, $base-social-behance-state-color);
+    }
+  }
+}

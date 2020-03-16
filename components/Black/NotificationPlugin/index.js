@@ -1,0 +1,74 @@
+import Notifications from './Notifications.vue';
+
+const BlackNotificationStore = {
+  state: [], // here the notifications will be added
+  settings: {
+    overlap: false,
+    verticalAlign: 'top',
+    horizontalAlign: 'right',
+    type: 'info',
+    timeout: 5000,
+    closeOnClick: true,
+    showClose: true,
+    order: 'normal' // normal | reverse (When reverse, each notification will be added on top)
+  },
+  setOptions(options) {
+    this.settings = Object.assign(this.settings, options);
+  },
+  removeNotification(timestamp) {
+    const indexToDelete = this.state.findIndex(n => n.timestamp === timestamp);
+    if (indexToDelete !== -1) {
+      this.state.splice(indexToDelete, 1);
+    }
+  },
+  addNotification(notification) {
+    if (typeof notification === 'string' || notification instanceof String) {
+      notification = { message: notification };
+    }
+    notification.timestamp = new Date();
+    notification.timestamp.setMilliseconds(
+      notification.timestamp.getMilliseconds() + this.state.length
+    );
+    notification = Object.assign({}, this.settings, notification);
+    if (this.settings.order === 'reverse') {
+      this.state.unshift(notification)
+    } else {
+      this.state.push(notification)
+    }
+  },
+  notify(notification) {
+     console.log("Notify add notification");
+     console.log(notification);
+    if (Array.isArray(notification)) {
+      notification.forEach(notificationInstance => {
+        this.addNotification(notificationInstance);
+      });
+    } else {
+      this.addNotification(notification);
+    }
+  }
+};
+
+const BlackNotificationsPlugin = {
+  install(Vue, options) {
+     console.log("Install Notification Plugin");
+    let app = new Vue({
+      data: {
+        blackNotificationStore: BlackNotificationStore
+      },
+      methods: {
+        notify(notification) {
+          this.blackNotificationStore.notify(notification);
+        }
+      }
+    });
+    Vue.prototype.$blackNotify = app.notify;
+    Vue.prototype.$blackNotifications = app.blackNotificationStore;
+    Vue.component('BlackNotifications', Notifications);
+    if (options) {
+      BlackNotificationStore.setOptions(options);
+    }
+  }
+};
+
+export default BlackNotificationsPlugin;

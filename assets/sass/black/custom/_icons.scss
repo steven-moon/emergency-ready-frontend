@@ -1,0 +1,94 @@
+.black-container {
+	.icon {
+		width: $black-icon-size;
+		height: $black-icon-size;
+
+		i, svg {
+			font-size: $black-icon-size - .75;
+		}
+	}
+
+	.icon + .icon-text {
+		padding-left: 1rem;
+		width: calc(100% - #{$black-icon-size-regular} - 1);
+	}
+
+	.icon-xl {
+		width: $black-icon-size-xl;
+		height: $black-icon-size-xl;
+
+		i, svg {
+			font-size: $black-icon-size-xl - .75;
+		}
+	}
+
+	.icon-xl + .icon-text {
+		width: calc(100% - #{$black-icon-size-xl} - 1);
+	}
+
+	.icon-lg {
+		width: $black-icon-size-lg;
+		height: $black-icon-size-lg;
+
+		i, svg {
+			font-size: $black-icon-size-lg - .75;
+		}
+	}
+
+	.icon-lg + .icon-text {
+		width: calc(100% - #{$black-icon-size-lg} - 1);
+	}
+
+	.icon-sm {
+		width: $black-icon-size-sm;
+		height: $black-icon-size-sm;
+
+		i, svg {
+			font-size: $black-icon-size-sm - .75;
+		}
+	}
+
+	.icon-sm + .icon-text {
+		width: calc(100% - #{$black-icon-size-sm} - 1);
+	}
+
+
+	// Icons included in shapes
+	.icon-shape {
+		padding: 12px;
+		text-align: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+
+
+		i, svg {
+			font-size: 1.25rem;
+		}
+
+		&.icon-lg {
+			i, svg {
+				font-size: 1.625rem;
+			}
+		}
+
+		&.icon-sm {
+			i, svg {
+				font-size: .875rem;
+			}
+		}
+
+		svg {
+			width: 30px;
+			height: 30px;
+		}
+
+	}
+
+	@each $color, $value in $black-theme-colors {
+		.icon-shape-#{$color} {
+			@include icon-shape-variant(theme-color($color));
+		}
+	}
+}

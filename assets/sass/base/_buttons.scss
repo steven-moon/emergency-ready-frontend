@@ -1,0 +1,180 @@
+@import "variables";
+@import "mixins";
+
+.base-container {
+    .btn-base,
+    .btn,
+    .navbar .navbar-nav > a.btn {
+        border-width: $base-border-thick;
+        font-weight: $base-font-weight-normal;
+        font-size: $base-font-size-small;
+        line-height: $base-line-height;
+        margin: 10px 1px;
+        border: none;
+        border-radius: $base-border-radius-small;
+        padding: $base-padding-btn-vertical $base-padding-btn-horizontal;
+        cursor: pointer;
+
+        @include base-btn-styles($default-color, $default-states-color);
+
+        &:hover,
+        &:focus {
+            @include opacity(1);
+            outline: 0 !important;
+        }
+
+        &:active,
+        &.active,
+        .open > &.dropdown-toggle {
+            @include box-shadow(none);
+            outline: 0 !important;
+        }
+
+        &.btn-icon {
+            // see above for color variations
+            height: $base-btn-icon-size-regular;
+            min-width: $base-btn-icon-size-regular;
+            width: $base-btn-icon-size-regular;
+            padding: 0;
+            font-size: $base-btn-icon-font-size-regular;
+            overflow: hidden;
+            position: relative;
+            line-height: normal;
+
+            &.btn-simple {
+                padding: 0;
+            }
+
+            &.btn-sm {
+                height: $base-btn-icon-size-small;
+                min-width: $base-btn-icon-size-small;
+                width: $base-btn-icon-size-small;
+
+                i.fab,
+                i.now-ui-icons {
+                    font-size: $base-btn-icon-font-size-small;
+                }
+            }
+
+            &.btn-lg {
+                height: $base-btn-icon-size-lg;
+                min-width: $base-btn-icon-size-lg;
+                width: $base-btn-icon-size-lg;
+
+                i.now-ui-icons,
+                i.fab {
+                    font-size: $base-btn-icon-font-size-lg;
+                }
+            }
+
+            &:not(.btn-footer) i.now-ui-icons,
+            &:not(.btn-footer) i.fab {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-12px, -12px);
+                line-height: 1.5626rem;
+                width: 23px;
+            }
+
+        }
+
+        &:not(.btn-icon) .now-ui-icons {
+            position: relative;
+            top: 1px;
+        }
+    }
+
+    // Apply the mixin to the buttons
+    // .btn-default { @include btn-styles($default-color, $default-states-color); }
+    .btn-primary {
+        @include base-btn-styles($base-primary-color, $base-primary-states-color);
+    }
+
+    .btn-success {
+        @include base-btn-styles($base-success-color, $base-success-states-color);
+    }
+
+    .btn-info {
+        @include base-btn-styles($base-info-color, $base-info-states-color);
+    }
+
+    .btn-warning {
+        @include base-btn-styles($base-warning-color, $base-warning-states-color);
+    }
+
+    .btn-danger {
+        @include base-btn-styles($base-danger-color, $base-danger-states-color);
+    }
+
+    .btn-neutral {
+        @include base-btn-styles($base-white-color, $base-white-color);
+    }
+
+    .btn-round {
+        border-width: $base-border-thin;
+        border-radius: $base-btn-round-radius !important;
+        padding: $base-padding-btn-vertical $base-padding-round-horizontal;
+
+        &.btn-simple {
+            padding: $base-padding-btn-vertical - 1 $base-padding-round-horizontal - 1;
+        }
+    }
+
+    .btn-simple {
+        border: $base-border;
+        border-color: $default-color;
+        padding: $base-padding-btn-vertical - 1 $base-padding-round-horizontal - 1;
+        background-color: $base-transparent-bg;
+    }
+
+    .btn-simple,
+    .btn-link {
+        &.disabled,
+        &:disabled,
+        &[disabled],
+        fieldset[disabled] & {
+            &,
+            &:hover,
+            &:focus,
+            &.focus,
+            &:active,
+            &.active {
+                background-color: $base-transparent-bg;
+            }
+        }
+    }
+
+    .btn-lg {
+        @include btn-size($base-padding-large-vertical, $base-padding-large-horizontal, $base-font-size-large, $base-border-radius-large);
+    }
+
+    .btn-sm {
+        @include btn-size($base-padding-small-vertical, $base-padding-small-horizontal, $base-font-size-base, $base-border-radius-small);
+    }
+
+    .btn-link {
+        border: $base-none;
+        padding: $base-padding-base-vertical $base-padding-base-horizontal;
+        background-color: $base-transparent-bg;
+    }
+
+    .btn-wd {
+        min-width: 140px;
+    }
+
+    .btn-group.select {
+        width: 100%;
+    }
+
+    .btn-group.select .btn {
+        text-align: left;
+    }
+
+    .btn-group.select .caret {
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        right: 8px;
+    }
+}

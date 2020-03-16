@@ -1,0 +1,49 @@
+.argon-container {
+  // Disable animation if transitions are disabled
+  @if $argon-enable-transitions {
+    @keyframes progress-bar-stripes {
+      from {
+        background-position: $argon-progress-height 0;
+      }
+      to {
+        background-position: 0 0;
+      }
+    }
+  }
+
+  .progress {
+    display: flex;
+    height: $argon-progress-height;
+    overflow: hidden; // force rounded corners by cropping it
+    @include font-size($argon-progress-font-size);
+    background-color: $argon-progress-bg;
+    @include border-radius($argon-progress-border-radius);
+    @include box-shadow($argon-progress-box-shadow);
+  }
+
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $argon-progress-bar-color;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $argon-progress-bar-bg;
+    @include transition($argon-progress-bar-transition);
+  }
+
+  .progress-bar-striped {
+    @include gradient-striped();
+    background-size: $argon-progress-height $argon-progress-height;
+  }
+
+  @if $argon-enable-transitions {
+    .progress-bar-animated {
+      animation: progress-bar-stripes $argon-progress-bar-animation-timing;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+}
