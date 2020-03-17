@@ -1,7 +1,7 @@
 const pkg = require('./package');
 const webpack = require("webpack");
 const nodeExternals = require('webpack-node-externals');
-const axios = require('axios');
+//const axios = require('axios');
 
 require('dotenv').config();
 
@@ -60,7 +60,10 @@ export default {
             {rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icons/favicon-16x16.png'},
 
             {rel: 'manifest', href: '/icons/manifest.json'},
-        ]
+        ],
+        bodyAttrs: {
+            class: 'sidebar-mini' // delete the class to have the sidebar expanded by default. Add `white-content` class here to enable "white" mode.
+        }
     },
     /*
      ** Customize the progress-bar color
@@ -96,12 +99,10 @@ export default {
         {src: '~/plugins/vue-image-upload.js', mode: 'client'},
         {src: '~plugins/nuxt-quill-plugin.js', ssr: false},
         {src: '~/plugins/vue-h5-swiper.js', ssr: false, mode: 'client'},
-        '~/plugins/argon/dashboard-plugin',
         {src: '~/plugins/argon/full-calendar', ssr: false },
         {src: '~/plugins/argon/world-map', ssr: false },
-        `~/plugins/black/dashboard-plugin.js`,
-        { src: '~/plugins/black/full-calendar.js', ssr: false },
-        { src: '~/plugins/black/world-map.js', ssr: false }
+        // { src: '~/plugins/black/full-calendar.js', ssr: false },
+        // { src: '~/plugins/black/world-map.js', ssr: false }
     ],
     /*
     ** Nuxt.js dev-modules
@@ -148,7 +149,7 @@ export default {
         // },
         //vendor: ["jquery", "vuejs-datepicker"],
 
-        transpile: [/^element-ui/],
+        //transpile: [/^element-ui/],
         plugins: [
             new webpack.ProvidePlugin({
                 $: "jquery"
@@ -160,8 +161,8 @@ export default {
                 [
                     'component',
                     {
-                        libraryName: 'element-ui',
-                        styleLibraryName: 'theme-chalk'
+                        "libraryName": 'element-ui',
+                        "styleLibraryName": 'theme-chalk'
                     }
                 ]
             ]

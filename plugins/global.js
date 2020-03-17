@@ -11,7 +11,7 @@ import VuePaginate from 'vue-paginate';
 import VTooltip from 'v-tooltip';
 import VueMq from 'vue-mq'
 
-import './extra/polyfills';
+import '@/polyfills';
 
 // Notifications plugin. Used on Notifications page
 import BlackNotifications from '@/components/Black/NotificationPlugin';
@@ -63,3 +63,6 @@ import RTLPlugin from './RTLPlugin';
   Vue.use(ArgonSideBar);
   Vue.use(ArgonNotifications);
 // }
+
+// import './black/dashboard-plugin';
+import './argon/dashboard-plugin';

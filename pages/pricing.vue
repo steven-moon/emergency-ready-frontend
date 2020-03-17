@@ -171,11 +171,13 @@
 </template>
 <script>
     import BaseTable from '~/components/Argon/argon-core/BaseTable.vue';
+    import Card from '~/components/Argon/argon-core/Cards/Card.vue';
     export default {
-        layout: 'argon-dashboard-layout',
+        layout: 'argon-auth-layout',
         name: 'pricing-page',
         components: {
-            BaseTable
+            BaseTable,
+            Card
         },
         data() {
             return {
