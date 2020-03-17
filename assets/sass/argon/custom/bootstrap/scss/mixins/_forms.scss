@@ -10,7 +10,7 @@
 //
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
-@mixin form-control-focus() {
+@mixin argon-form-control-focus() {
   &:focus {
     color: $argon-input-focus-color;
     background-color: $argon-input-focus-bg;
@@ -26,12 +26,12 @@
 }
 
 
-@mixin form-validation-state($argon-state, $color, $argon-icon) {
+@mixin argon-form-validation-state($argon-state, $color, $argon-icon) {
   .#{$argon-state}-feedback {
     display: none;
     width: 100%;
     margin-top: $argon-form-feedback-margin-top;
-    @include font-size($argon-form-feedback-font-size);
+    @include  argon-font-size($argon-form-feedback-font-size);
     color: $color;
   }
 
@@ -43,11 +43,11 @@
     max-width: 100%; // Contain to parent when possible
     padding: $argon-form-feedback-tooltip-padding-y $argon-form-feedback-tooltip-padding-x;
     margin-top: .1rem;
-    @include font-size($argon-form-feedback-tooltip-font-size);
+    @include  argon-font-size($argon-form-feedback-tooltip-font-size);
     line-height: $argon-form-feedback-tooltip-line-height;
-    color: color-yiq($color);
+    color: argon-color-yiq($color);
     background-color: rgba($color, $argon-form-feedback-tooltip-opacity);
-    @include border-radius($argon-form-feedback-tooltip-border-radius);
+    @include argon-border-radius($argon-form-feedback-tooltip-border-radius);
   }
 
   .form-control {
@@ -152,7 +152,7 @@
       &:checked {
         ~ .custom-control-label::before {
           border-color: lighten($color, 10%);
-          @include gradient-bg(lighten($color, 10%));
+          @include argon-gradient-bg(lighten($color, 10%));
         }
       }
 

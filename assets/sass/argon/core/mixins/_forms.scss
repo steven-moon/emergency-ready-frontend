@@ -1,4 +1,4 @@
-@mixin form-control-focus() {
+@mixin argon-form-control-focus() {
   &:focus {
     color: $argon-input-focus-color;
     background-color: $argon-input-focus-bg;
@@ -14,7 +14,7 @@
 }
 
 
-@mixin form-validation-state($argon-state, $color, $argon-icon) {
+@mixin argon-form-validation-state($argon-state, $color, $argon-icon) {
   .#{$argon-state}-feedback {
     display: none;
     width: 100%;
@@ -89,7 +89,7 @@
 
       &:checked {
         ~ .custom-control-label::before {
-          @include gradient-bg(lighten($color, 10%));
+          @include argon-gradient-bg(lighten($color, 10%));
           border-color: lighten($color, 25%);
         }
       }

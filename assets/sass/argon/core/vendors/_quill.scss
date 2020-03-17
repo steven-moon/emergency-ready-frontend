@@ -46,8 +46,8 @@
             border-radius: 0;
         }
 
-        @include box-shadow($argon-input-box-shadow);
-        @include transition($argon-input-transition);
+        @include argon-box-shadow($argon-input-box-shadow);
+        @include argon-transition($argon-input-transition);
 
         // Unstyle the caret on `<select>`s in IE10+.
         &::-ms-expand {
@@ -56,7 +56,7 @@
         }
 
         // Customize the `:focus` state to imitate native WebKit styles.
-        @include form-control-focus();
+        @include argon-form-control-focus();
 
         &:focus {
             border-color: $argon-input-border-color;
@@ -189,8 +189,8 @@
 
     .ql-tooltip .ql-preview {
         width: 100%;
-        @include button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
-        @include transition($argon-btn-transition);
+        @include argon-button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
+        @include argon-transition($argon-btn-transition);
     }
 
     .ql-tooltip.ql-editing .ql-preview {
@@ -233,11 +233,11 @@
         user-select: none;
         border: $argon-btn-border-width solid transparent;
         cursor: pointer;
-        @include button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
-        @include transition($argon-btn-transition);
+        @include argon-button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
+        @include argon-transition($argon-btn-transition);
 
         // Share hover and focus styles
-        @include hover-focus {
+        @include argon-hover-focus {
             text-decoration: none;
         }
 
@@ -250,7 +250,7 @@
 
     .ql-tooltip .ql-action::before,
     .ql-tooltip.ql-editing .ql-action::before {
-        @include button-variant($argon-primary, $argon-primary);
+        @include argon-button-variant($argon-primary, $argon-primary);
     }
 
     .ql-tooltip .ql-action::before {
@@ -262,7 +262,7 @@
     }
 
     .ql-tooltip .ql-remove::before {
-        @include button-variant($argon-white, $argon-white);
+        @include argon-button-variant($argon-white, $argon-white);
         content: 'Remove';
         border-color: $argon-gray-300;
     }

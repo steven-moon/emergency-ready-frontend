@@ -6,11 +6,11 @@
     <div class="scrollbar-inner" ref="sidebarScrollArea">
       <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="#">
-          <img :src="logo" class="navbar-brand-img" alt="Sidebar logo">
+          <img src="/img/brand/blue.png" class="navbar-brand-img" alt="Sidebar logo">
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->
-          <div class="sidenav-toggler d-none d-xl-block"
+          <div  class="sidenav-toggler d-block d-xl-none pr-2"
                :class="{'active': !$asidebar.isMinimized }"
                @click="minimizeSidebar">
             <div class="sidenav-toggler-inner">
@@ -99,11 +99,20 @@ export default {
       autoClose: this.autoClose
     };
   },
+  computed: {
+    showMenuButton(){
+      if(process.client) {
+        return this.$asidebar.breakpoint <= window.innerWidth;
+      }else{
+        return true;
+      }
+    }
+  },
   methods: {
     minimizeSidebar() {
-      if (this.$asidebar) {
+      //if (this.$asidebar) {
         this.$asidebar.toggleMinimize();
-      }
+      //}
     }
   },
   mounted() {

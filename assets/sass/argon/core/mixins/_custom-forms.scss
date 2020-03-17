@@ -1,10 +1,10 @@
-@mixin custom-checkbox-variant($color) {
+@mixin argon-custom-checkbox-variant($color) {
     .custom-control-input {
         &:checked {
             ~ .custom-control-label {
                 &::before {
                     border-color: $color;
-                    @include gradient-bg($color);
+                    @include argon-gradient-bg($color);
                 }
                 &::after {
                     background-image: $color;
@@ -15,7 +15,7 @@
 
 }
 
-@mixin custom-toggle-variant($color) {
+@mixin argon-custom-toggle-variant($color) {
     input {
         &:checked {
              + .custom-toggle-slider {

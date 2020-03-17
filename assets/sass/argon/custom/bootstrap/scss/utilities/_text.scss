@@ -30,8 +30,8 @@
   // Responsive alignment
 
   @each $breakpoint in map-keys($argon-grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+    @include argon-media-breakpoint-up($breakpoint) {
+      $infix: argon-breakpoint-infix($breakpoint, $argon-grid-breakpoints);
 
       .text#{$infix}-left {
         text-align: left !important;
@@ -92,7 +92,7 @@
   }
 
   @each $color, $value in $argon-themecolors {
-    @include text-emphasis-variant(".text-#{$color}", $value);
+    @include argon-text-emphasis-variant(".text-#{$color}", $value);
   }
 
   .text-body {
@@ -114,7 +114,7 @@
   // Misc
 
   .text-hide {
-    @include text-hide($ignore-warning: true);
+    @include argon-text-hide($ignore-warning: true);
   }
 
   .text-decoration-none {

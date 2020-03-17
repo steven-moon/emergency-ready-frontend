@@ -21,7 +21,7 @@
                 background: $argon-white;
                 z-index: 1;
                 transform: translate(-50%, -50%);
-                @include box-shadow($argon-box-shadow);
+                @include argon-box-shadow($argon-box-shadow);
                 transition: all .2s cubic-bezier(.25, .65, .9, .75);
 
                 &.icon {
@@ -38,7 +38,7 @@
 
                 &:nth-child(1) {
                     font-size: 42px;
-                    color: theme-color("warning");
+                    color: argon-theme-color("warning");
                     z-index: 2;
                 }
             }
@@ -50,7 +50,7 @@
                     left: 50%;
                     top: 50%;
                     font-size: 42px;
-                    color: theme-color("warning");
+                    color: argon-theme-color("warning");
                 }
 
                 &:nth-child(2) {

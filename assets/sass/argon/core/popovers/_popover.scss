@@ -17,7 +17,7 @@
 
   @each $color, $value in $argon-themecolors {
     .popover-#{$color} {
-      @include popover-variant($value);
+      @include argon-popover-variant($value);
     }
   }
 }

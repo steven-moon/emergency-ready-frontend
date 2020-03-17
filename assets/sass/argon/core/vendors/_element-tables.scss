@@ -21,7 +21,7 @@
     }
 
     .ascending .sort-caret.ascending {
-      border-bottom-color: theme-color("default");
+      border-bottom-color: argon-theme-color("default");
     }
 
     .sort-caret.descending {
@@ -29,7 +29,7 @@
     }
 
     .descending .sort-caret.descending {
-      border-top-color: theme-color("default");
+      border-top-color: argon-theme-color("default");
     }
   }
 

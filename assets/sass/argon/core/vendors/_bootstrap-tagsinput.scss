@@ -44,8 +44,8 @@
             background: $tag-bg;
             color: $tag-color;
             line-height: 1.5;
-            @include box-shadow($tag-box-shadow);
-            @include transition($argon-transition-base);
+            @include argon-box-shadow($tag-box-shadow);
+            @include argon-transition($argon-transition-base);
 
             &:hover {
                 padding-right: 1.5rem;

@@ -1,14 +1,14 @@
-@mixin alert-variant($background, $argon-border, $color) {
-    color: color-yiq($background);
+@mixin argon-alert-variant($background, $argon-border, $color) {
+    color: argon-color-yiq($background);
     border-color: $argon-border;
-    @include gradient-bg($background);
+    @include argon-gradient-bg($background);
 
     a {
         color: darken($background, 30%);
         font-weight: 600;
 
         &:hover {
-            color: color-yiq($background);
+            color: argon-color-yiq($background);
         }
     }
 

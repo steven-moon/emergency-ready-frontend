@@ -9,18 +9,18 @@
 //
 // Issue: https://github.com/twbs/bootstrap/issues/25195
 
-@mixin hover {
+@mixin  argon-hover {
   &:hover { @content; }
 }
 
-@mixin hover-focus {
+@mixin argon-hover-focus {
   &:hover,
   &:focus {
     @content;
   }
 }
 
-@mixin plain-hover-focus {
+@mixin argon-plain-hover-focus {
   &,
   &:hover,
   &:focus {
@@ -28,7 +28,7 @@
   }
 }
 
-@mixin hover-focus-active {
+@mixin argon-hover-focus-active {
   &:hover,
   &:focus,
   &:active {

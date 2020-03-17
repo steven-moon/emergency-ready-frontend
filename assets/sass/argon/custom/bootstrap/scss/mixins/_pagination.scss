@@ -1,21 +1,21 @@
 // Pagination
 
-@mixin pagination-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
+@mixin argon-pagination-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
   .page-link {
     padding: $argon-padding-y $argon-padding-x;
-    @include font-size($argon-font-size);
+    @include  argon-font-size($argon-font-size);
     line-height: $argon-line-height;
   }
 
   .page-item {
     &:first-child {
       .page-link {
-        @include border-left-radius($argon-border-radius);
+        @include argon-border-left-radius($argon-border-radius);
       }
     }
     &:last-child {
       .page-link {
-        @include border-right-radius($argon-border-radius);
+        @include argon-border-right-radius($argon-border-radius);
       }
     }
   }

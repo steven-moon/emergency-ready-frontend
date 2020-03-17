@@ -174,7 +174,7 @@ $argon-body-color:                $argon-gray-900 !default;
 //
 // Style anchor elements.
 
-$argon-link-color:                              theme-color("primary") !default;
+$argon-link-color:                              argon-theme-color("primary") !default;
 $argon-link-decoration:                         none !default;
 $argon-link-hover-color:                        darken($argon-link-color, 15%) !default;
 $argon-link-hover-decoration:                   underline !default;
@@ -201,8 +201,8 @@ $argon-grid-breakpoints: (
   xl: 1200px
 ) !default;
 
-@include _assert-ascending($argon-grid-breakpoints, "$argon-grid-breakpoints");
-@include _assert-starts-at-zero($argon-grid-breakpoints, "$argon-grid-breakpoints");
+@include _argon-assert-ascending($argon-grid-breakpoints, "$argon-grid-breakpoints");
+@include _argon-assert-starts-at-zero($argon-grid-breakpoints, "$argon-grid-breakpoints");
 
 
 // Grid containers
@@ -216,7 +216,7 @@ $container-max-widths: (
   xl: 1140px
 ) !default;
 
-@include _assert-ascending($container-max-widths, "$container-max-widths");
+@include _argon-assert-ascending($container-max-widths, "$container-max-widths");
 
 
 // Grid columns
@@ -248,7 +248,7 @@ $argon-box-shadow:                  0 .5rem 1rem rgba($argon-black, .15) !defaul
 $argon-box-shadow-lg:               0 1rem 3rem rgba($argon-black, .175) !default;
 
 $argon-component-active-color:      $argon-white !default;
-$argon-component-active-bg:         theme-color("primary") !default;
+$argon-component-active-bg:         argon-theme-color("primary") !default;
 
 $argon-caret-width:                 .3em !default;
 $argon-caret-vertical-align:        $argon-caret-width * .85 !default;
@@ -537,7 +537,7 @@ $argon-custom-control-label-disabled-color:           $argon-gray-600 !default;
 
 $argon-custom-control-indicator-checked-color:        $argon-component-active-color !default;
 $argon-custom-control-indicator-checked-bg:           $argon-component-active-bg !default;
-$argon-custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+$argon-custom-control-indicator-checked-disabled-bg:  rgba(argon-theme-color("primary"), .5) !default;
 $argon-custom-control-indicator-checked-box-shadow:   none !default;
 $argon-custom-control-indicator-checked-border-color: $argon-custom-control-indicator-checked-bg !default;
 
@@ -651,8 +651,8 @@ $argon-custom-file-text: (
 
 $argon-form-feedback-margin-top:          $argon-form-text-margin-top !default;
 $argon-form-feedback-font-size:           $argon-small-font-size !default;
-$argon-form-feedback-valid-color:         theme-color("success") !default;
-$argon-form-feedback-invalid-color:       theme-color("danger") !default;
+$argon-form-feedback-valid-color:         argon-theme-color("success") !default;
+$argon-form-feedback-invalid-color:       argon-theme-color("danger") !default;
 
 $argon-form-feedback-icon-valid-color:    $argon-form-feedback-valid-color !default;
 $argon-form-feedback-icon-valid:          str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{$argon-form-feedback-icon-valid-color}' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e"), "#", "%23") !default;
@@ -991,7 +991,7 @@ $argon-progress-bg:                       $argon-gray-200 !default;
 $argon-progress-border-radius:            $argon-border-radius !default;
 $argon-progress-box-shadow:               inset 0 .1rem .1rem rgba($argon-black, .1) !default;
 $argon-progress-bar-color:                $argon-white !default;
-$argon-progress-bar-bg:                   theme-color("primary") !default;
+$argon-progress-bar-bg:                   argon-theme-color("primary") !default;
 $argon-progress-bar-animation-timing:     1s linear infinite !default;
 $argon-progress-bar-transition:           width .6s ease !default;
 

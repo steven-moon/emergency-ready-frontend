@@ -8,7 +8,7 @@
     }
 
     .shortcut-media {
-        @include transition($argon-transition-cubic-bezier);
+        @include argon-transition($argon-transition-cubic-bezier);
     }
 
     .shortcut-item {

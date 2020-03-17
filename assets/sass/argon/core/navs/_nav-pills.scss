@@ -31,14 +31,14 @@
             background-color: $argon-nav-pills-link-active-bg;
         }
 
-        @include media-breakpoint-down(xs) {
+        @include argon-media-breakpoint-down(xs) {
             .nav-item {
                 margin-bottom: $argon-spacer;
             }
         }
     }
 
-    @include media-breakpoint-down(sm) {
+    @include argon-media-breakpoint-down(sm) {
         .nav-pills:not(.nav-pills-circle) {
             .nav-item {
                 padding-right: 0;

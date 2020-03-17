@@ -1,6 +1,6 @@
-@mixin alert-variant($background, $argon-border, $color) {
+@mixin argon-alert-variant($background, $argon-border, $color) {
   color: $color;
-  @include gradient-bg($background);
+  @include argon-gradient-bg($background);
   border-color: $argon-border;
 
   hr {

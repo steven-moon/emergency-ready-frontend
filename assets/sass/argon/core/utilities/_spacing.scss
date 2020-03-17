@@ -7,17 +7,17 @@
         margin-top: 3rem;
     }
 
-    @include media-breakpoint-up(lg) {
+    @include argon-media-breakpoint-up(lg) {
         .row.row-grid > [class*="col-lg-"] + [class*="col-lg-"] {
             margin-top: 0;
         }
     }
-    @include media-breakpoint-up(md) {
+    @include argon-media-breakpoint-up(md) {
         .row.row-grid > [class*="col-md-"] + [class*="col-md-"] {
             margin-top: 0;
         }
     }
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
         .row.row-grid > [class*="col-sm-"] + [class*="col-sm-"] {
             margin-top: 0;
         }

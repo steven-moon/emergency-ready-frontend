@@ -2,8 +2,8 @@
   .el-checkbox {
     .el-checkbox__input.is-checked .el-checkbox__inner,
     .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-      background-color: theme-color('primary');
-      border-color: theme-color('primary');
+      background-color: argon-theme-color('primary');
+      border-color: argon-theme-color('primary');
     }
 
     .el-checkbox__input .el-checkbox__inner {
@@ -23,7 +23,7 @@
       }
 
       &:hover {
-        border-color: theme-color('primary');
+        border-color: argon-theme-color('primary');
       }
     }
   }

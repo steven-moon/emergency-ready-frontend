@@ -2,13 +2,13 @@
 
 // Typography
 
-@mixin text-emphasis-variant($argon-parent, $color) {
+@mixin argon-text-emphasis-variant($argon-parent, $color) {
   #{$argon-parent} {
     color: $color !important;
   }
   @if $emphasized-link-hover-darken-percentage != 0 {
     a#{$argon-parent} {
-      @include hover-focus {
+      @include argon-hover-focus {
         color: darken($color, $emphasized-link-hover-darken-percentage) !important;
       }
     }

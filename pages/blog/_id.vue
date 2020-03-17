@@ -229,7 +229,7 @@
 
   export default {
     name: 'blog-post',
-    layout: 'argon-auth-layout',
+    layout: 'argon-dashboard-layout',
     components: {
       ContactUs,
       Subscribe

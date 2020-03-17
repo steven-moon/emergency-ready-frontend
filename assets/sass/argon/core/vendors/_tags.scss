@@ -12,8 +12,8 @@
     line-height: 1.5;
     cursor: pointer;
     font-weight: 600;
-    @include box-shadow($tag-box-shadow);
-    @include transition($argon-transition-base);
+    @include argon-box-shadow($tag-box-shadow);
+    @include argon-transition($argon-transition-base);
 
     .el-tag__close.el-icon-close {
       background-color: transparent;

@@ -80,7 +80,7 @@
    import ProgressTrackList from '~/components/Argon/widgets/ProgressTrackList.vue';
 
    export default {
-      layout: 'argon-auth-layout',
+      layout: 'argon-dashboard-layout',
       components: {
          EditProfileForm,
          UserCard,

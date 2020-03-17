@@ -1,6 +1,6 @@
 // Tables
 
-@mixin table-row-variant($argon-state, $background, $argon-border: null) {
+@mixin argon-table-row-variant($argon-state, $background, $argon-border: null) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
   .table-#{$argon-state} {
@@ -26,7 +26,7 @@
     $argon-hover-background: darken($background, 5%);
 
     .table-#{$argon-state} {
-      @include hover {
+      @include  argon-hover {
         background-color: $argon-hover-background;
 
         > td,

@@ -1,12 +1,12 @@
-@mixin button-variant($background, $argon-border, $argon-hover-background: darken($background, 0%), $argon-hover-border: darken($argon-border, 0%), $active-background: darken($background, 10%), $active-border: darken($argon-border, 0%)) {
-    color: color-yiq($background);
-    @include gradient-bg($background);
+@mixin argon-button-variant($background, $argon-border, $argon-hover-background: darken($background, 0%), $argon-hover-border: darken($argon-border, 0%), $active-background: darken($background, 10%), $active-border: darken($argon-border, 0%)) {
+    color: argon-color-yiq($background);
+    @include argon-gradient-bg($background);
     border-color: $argon-border;
-    @include box-shadow($argon-btn-box-shadow);
+    @include argon-box-shadow($argon-btn-box-shadow);
 
-    @include hover {
-        color: color-yiq($argon-hover-background);
-        @include gradient-bg($argon-hover-background);
+    @include  argon-hover {
+        color: argon-color-yiq($argon-hover-background);
+        @include argon-gradient-bg($argon-hover-background);
         border-color: $argon-hover-border;
     }
 
@@ -22,7 +22,7 @@
     } // Disabled comes first so active can properly restyle
     &.disabled,
     &:disabled {
-        color: color-yiq($background);
+        color: argon-color-yiq($background);
         background-color: $background;
         border-color: $argon-border;
     }
@@ -30,7 +30,7 @@
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     .show>&.dropdown-toggle {
-        color: color-yiq($active-background);
+        color: argon-color-yiq($active-background);
         background-color: $active-background;
         @if $argon-enable-gradients {
             background-image: none; // Remove the gradient for the pressed/active state
@@ -49,7 +49,7 @@
     }
 }
 
-@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+@mixin argon-button-outline-variant($color, $color-hover: argon-color-yiq($color), $active-background: $color, $active-border: $color) {
     color: $color;
     background-color: transparent;
     background-image: none;
@@ -75,7 +75,7 @@
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active,
     .show>&.dropdown-toggle {
-        color: color-yiq($active-background);
+        color: argon-color-yiq($active-background);
         background-color: $active-background;
         border-color: $active-border;
 
@@ -92,7 +92,7 @@
 }
 
 // Button sizes
-@mixin button-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
+@mixin argon-button-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
     padding: $argon-padding-y $argon-padding-x;
     font-size: $argon-font-size;
     line-height: $argon-line-height; // Manually declare to provide an override to the browser default

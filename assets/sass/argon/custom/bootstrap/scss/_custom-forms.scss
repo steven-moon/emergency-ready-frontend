@@ -28,8 +28,8 @@
     &:checked ~ .custom-control-label::before {
       color: $argon-custom-control-indicator-checked-color;
       border-color: $argon-custom-control-indicator-checked-border-color;
-      @include gradient-bg($argon-custom-control-indicator-checked-bg);
-      @include box-shadow($argon-custom-control-indicator-checked-box-shadow);
+      @include argon-gradient-bg($argon-custom-control-indicator-checked-bg);
+      @include argon-box-shadow($argon-custom-control-indicator-checked-box-shadow);
     }
 
     &:focus ~ .custom-control-label::before {
@@ -49,7 +49,7 @@
       color: $argon-custom-control-indicator-active-color;
       background-color: $argon-custom-control-indicator-active-bg;
       border-color: $argon-custom-control-indicator-active-border-color;
-      @include box-shadow($argon-custom-control-indicator-active-box-shadow);
+      @include argon-box-shadow($argon-custom-control-indicator-active-box-shadow);
     }
 
     &:disabled {
@@ -84,7 +84,7 @@
       content: "";
       background-color: $argon-custom-control-indicator-bg;
       border: $argon-custom-control-indicator-border-color solid $argon-custom-control-indicator-border-width;
-      @include box-shadow($argon-custom-control-indicator-box-shadow);
+      @include argon-box-shadow($argon-custom-control-indicator-box-shadow);
     }
 
     // Foreground (icon)
@@ -107,7 +107,7 @@
 
   .custom-checkbox {
     .custom-control-label::before {
-      @include border-radius($argon-custom-checkbox-indicator-border-radius);
+      @include argon-border-radius($argon-custom-checkbox-indicator-border-radius);
     }
 
     .custom-control-input:checked ~ .custom-control-label {
@@ -119,8 +119,8 @@
     .custom-control-input:indeterminate ~ .custom-control-label {
       &::before {
         border-color: $argon-custom-checkbox-indicator-indeterminate-border-color;
-        @include gradient-bg($argon-custom-checkbox-indicator-indeterminate-bg);
-        @include box-shadow($argon-custom-checkbox-indicator-indeterminate-box-shadow);
+        @include argon-gradient-bg($argon-custom-checkbox-indicator-indeterminate-bg);
+        @include argon-box-shadow($argon-custom-checkbox-indicator-indeterminate-box-shadow);
       }
 
       &::after {
@@ -187,7 +187,7 @@
         background-color: $argon-custom-control-indicator-border-color;
         // stylelint-disable-next-line property-blacklist
         border-radius: $argon-custom-switch-indicator-border-radius;
-        @include transition(transform .15s ease-in-out, $argon-custom-forms-transition);
+        @include argon-transition(transform .15s ease-in-out, $argon-custom-forms-transition);
       }
     }
 
@@ -218,7 +218,7 @@
     height: $argon-custom-select-height;
     padding: $argon-custom-select-padding-y ($argon-custom-select-padding-x + $argon-custom-select-indicator-padding) $argon-custom-select-padding-y $argon-custom-select-padding-x;
     font-family: $argon-custom-select-font-family;
-    @include font-size($argon-custom-select-font-size);
+    @include  argon-font-size($argon-custom-select-font-size);
     font-weight: $argon-custom-select-font-weight;
     line-height: $argon-custom-select-line-height;
     color: $argon-custom-select-color;
@@ -226,8 +226,8 @@
     background: $argon-custom-select-background;
     background-color: $argon-custom-select-bg;
     border: $argon-custom-select-border-width solid $argon-custom-select-border-color;
-    @include border-radius($argon-custom-select-border-radius, 0);
-    @include box-shadow($argon-custom-select-box-shadow);
+    @include argon-border-radius($argon-custom-select-border-radius, 0);
+    @include argon-box-shadow($argon-custom-select-box-shadow);
     appearance: none;
 
     &:focus {
@@ -273,7 +273,7 @@
     padding-top: $argon-custom-select-padding-y-sm;
     padding-bottom: $argon-custom-select-padding-y-sm;
     padding-left: $argon-custom-select-padding-x-sm;
-    @include font-size($argon-custom-select-font-size-sm);
+    @include  argon-font-size($argon-custom-select-font-size-sm);
   }
 
   .custom-select-lg {
@@ -281,7 +281,7 @@
     padding-top: $argon-custom-select-padding-y-lg;
     padding-bottom: $argon-custom-select-padding-y-lg;
     padding-left: $argon-custom-select-padding-x-lg;
-    @include font-size($argon-custom-select-font-size-lg);
+    @include  argon-font-size($argon-custom-select-font-size-lg);
   }
 
 
@@ -339,8 +339,8 @@
     color: $argon-custom-file-color;
     background-color: $argon-custom-file-bg;
     border: $argon-custom-file-border-width solid $argon-custom-file-border-color;
-    @include border-radius($argon-custom-file-border-radius);
-    @include box-shadow($argon-custom-file-box-shadow);
+    @include argon-border-radius($argon-custom-file-border-radius);
+    @include argon-box-shadow($argon-custom-file-box-shadow);
 
     &::after {
       position: absolute;
@@ -354,9 +354,9 @@
       line-height: $argon-custom-file-line-height;
       color: $argon-custom-file-button-color;
       content: "Browse";
-      @include gradient-bg($argon-custom-file-button-bg);
+      @include argon-gradient-bg($argon-custom-file-button-bg);
       border-left: inherit;
-      @include border-radius(0 $argon-custom-file-border-radius $argon-custom-file-border-radius 0);
+      @include argon-border-radius(0 $argon-custom-file-border-radius $argon-custom-file-border-radius 0);
     }
   }
 
@@ -377,7 +377,7 @@
       outline: none;
 
       // Pseudo-elements must be split across multiple rulesets to have an effect.
-      // No box-shadow() mixin for focus accessibility.
+      // No argon-box-shadow() mixin for focus accessibility.
       &::-webkit-slider-thumb {
         box-shadow: $argon-custom-range-thumb-focus-box-shadow;
       }
@@ -399,15 +399,15 @@
       width: $argon-custom-range-thumb-width;
       height: $argon-custom-range-thumb-height;
       margin-top: ($argon-custom-range-track-height - $argon-custom-range-thumb-height) / 2; // Webkit specific
-      @include gradient-bg($argon-custom-range-thumb-bg);
+      @include argon-gradient-bg($argon-custom-range-thumb-bg);
       border: $argon-custom-range-thumb-border;
-      @include border-radius($argon-custom-range-thumb-border-radius);
-      @include box-shadow($argon-custom-range-thumb-box-shadow);
-      @include transition($argon-custom-forms-transition);
+      @include argon-border-radius($argon-custom-range-thumb-border-radius);
+      @include argon-box-shadow($argon-custom-range-thumb-box-shadow);
+      @include argon-transition($argon-custom-forms-transition);
       appearance: none;
 
       &:active {
-        @include gradient-bg($argon-custom-range-thumb-active-bg);
+        @include argon-gradient-bg($argon-custom-range-thumb-active-bg);
       }
     }
 
@@ -418,22 +418,22 @@
       cursor: $argon-custom-range-track-cursor;
       background-color: $argon-custom-range-track-bg;
       border-color: transparent;
-      @include border-radius($argon-custom-range-track-border-radius);
-      @include box-shadow($argon-custom-range-track-box-shadow);
+      @include argon-border-radius($argon-custom-range-track-border-radius);
+      @include argon-box-shadow($argon-custom-range-track-box-shadow);
     }
 
     &::-moz-range-thumb {
       width: $argon-custom-range-thumb-width;
       height: $argon-custom-range-thumb-height;
-      @include gradient-bg($argon-custom-range-thumb-bg);
+      @include argon-gradient-bg($argon-custom-range-thumb-bg);
       border: $argon-custom-range-thumb-border;
-      @include border-radius($argon-custom-range-thumb-border-radius);
-      @include box-shadow($argon-custom-range-thumb-box-shadow);
-      @include transition($argon-custom-forms-transition);
+      @include argon-border-radius($argon-custom-range-thumb-border-radius);
+      @include argon-box-shadow($argon-custom-range-thumb-box-shadow);
+      @include argon-transition($argon-custom-forms-transition);
       appearance: none;
 
       &:active {
-        @include gradient-bg($argon-custom-range-thumb-active-bg);
+        @include argon-gradient-bg($argon-custom-range-thumb-active-bg);
       }
     }
 
@@ -444,8 +444,8 @@
       cursor: $argon-custom-range-track-cursor;
       background-color: $argon-custom-range-track-bg;
       border-color: transparent; // Firefox specific?
-      @include border-radius($argon-custom-range-track-border-radius);
-      @include box-shadow($argon-custom-range-track-box-shadow);
+      @include argon-border-radius($argon-custom-range-track-border-radius);
+      @include argon-box-shadow($argon-custom-range-track-box-shadow);
     }
 
     &::-ms-thumb {
@@ -454,15 +454,15 @@
       margin-top: 0; // Edge specific
       margin-right: $argon-custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
       margin-left: $argon-custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
-      @include gradient-bg($argon-custom-range-thumb-bg);
+      @include argon-gradient-bg($argon-custom-range-thumb-bg);
       border: $argon-custom-range-thumb-border;
-      @include border-radius($argon-custom-range-thumb-border-radius);
-      @include box-shadow($argon-custom-range-thumb-box-shadow);
-      @include transition($argon-custom-forms-transition);
+      @include argon-border-radius($argon-custom-range-thumb-border-radius);
+      @include argon-box-shadow($argon-custom-range-thumb-box-shadow);
+      @include argon-transition($argon-custom-forms-transition);
       appearance: none;
 
       &:active {
-        @include gradient-bg($argon-custom-range-thumb-active-bg);
+        @include argon-gradient-bg($argon-custom-range-thumb-active-bg);
       }
     }
 
@@ -474,18 +474,18 @@
       background-color: transparent;
       border-color: transparent;
       border-width: $argon-custom-range-thumb-height / 2;
-      @include box-shadow($argon-custom-range-track-box-shadow);
+      @include argon-box-shadow($argon-custom-range-track-box-shadow);
     }
 
     &::-ms-fill-lower {
       background-color: $argon-custom-range-track-bg;
-      @include border-radius($argon-custom-range-track-border-radius);
+      @include argon-border-radius($argon-custom-range-track-border-radius);
     }
 
     &::-ms-fill-upper {
       margin-right: 15px; // arbitrary?
       background-color: $argon-custom-range-track-bg;
-      @include border-radius($argon-custom-range-track-border-radius);
+      @include argon-border-radius($argon-custom-range-track-border-radius);
     }
 
     &:disabled {
@@ -514,6 +514,6 @@
   .custom-control-label::before,
   .custom-file-label,
   .custom-select {
-    @include transition($argon-custom-forms-transition);
+    @include argon-transition($argon-custom-forms-transition);
   }
 }

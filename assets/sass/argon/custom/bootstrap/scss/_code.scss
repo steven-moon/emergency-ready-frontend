@@ -1,7 +1,7 @@
 .argon-container {
   // Inline code
   code {
-    @include font-size($code-font-size);
+    @include  argon-font-size($code-font-size);
     color: $code-color;
     word-break: break-word;
 
@@ -14,29 +14,29 @@
   // User input typically entered via keyboard
   kbd {
     padding: $kbd-padding-y $kbd-padding-x;
-    @include font-size($kbd-font-size);
+    @include  argon-font-size($kbd-font-size);
     color: $kbd-color;
     background-color: $kbd-bg;
-    @include border-radius($argon-border-radius-sm);
-    @include box-shadow($kbd-box-shadow);
+    @include argon-border-radius($argon-border-radius-sm);
+    @include argon-box-shadow($kbd-box-shadow);
 
     kbd {
       padding: 0;
-      @include font-size(100%);
+      @include  argon-font-size(100%);
       font-weight: $nested-kbd-font-weight;
-      @include box-shadow(none);
+      @include argon-box-shadow(none);
     }
   }
 
   // Blocks of code
   pre {
     display: block;
-    @include font-size($code-font-size);
+    @include  argon-font-size($code-font-size);
     color: $argon-pre-color;
 
     // Account for some code outputs that place code tags in pre tags
     code {
-      @include font-size(inherit);
+      @include  argon-font-size(inherit);
       color: inherit;
       word-break: normal;
     }

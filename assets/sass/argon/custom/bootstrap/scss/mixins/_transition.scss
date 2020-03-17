@@ -1,5 +1,5 @@
 // stylelint-disable property-blacklist
-@mixin transition($argon-transition...) {
+@mixin argon-transition($argon-transition...) {
   @if $argon-enable-transitions {
     @if length($argon-transition) == 0 {
       transition: $argon-transition-base;

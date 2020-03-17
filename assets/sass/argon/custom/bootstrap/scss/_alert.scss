@@ -8,7 +8,7 @@
     padding: $argon-alert-padding-y $argon-alert-padding-x;
     margin-bottom: $argon-alert-margin-bottom;
     border: $argon-alert-border-width solid transparent;
-    @include border-radius($argon-alert-border-radius);
+    @include argon-border-radius($argon-alert-border-radius);
   }
 
   // Headings for larger alerts
@@ -47,7 +47,7 @@
 
   @each $color, $value in $argon-themecolors {
     .alert-#{$color} {
-      @include alert-variant(theme-color-level($color, $argon-alert-bg-level), theme-color-level($color, $argon-alert-border-level), theme-color-level($color, $argon-alert-color-level));
+      @include argon-alert-variant(argon-theme-color-level($color, $argon-alert-bg-level), argon-theme-color-level($color, $argon-alert-border-level), argon-theme-color-level($color, $argon-alert-color-level));
     }
   }
 }

@@ -7,17 +7,17 @@
   .badge {
     display: inline-block;
     padding: $argon-badge-padding-y $argon-badge-padding-x;
-    @include font-size($argon-badge-font-size);
+    @include  argon-font-size($argon-badge-font-size);
     font-weight: $argon-badge-font-weight;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    @include border-radius($argon-badge-border-radius);
-    @include transition($argon-badge-transition);
+    @include argon-border-radius($argon-badge-border-radius);
+    @include argon-transition($argon-badge-transition);
 
     @at-root a#{&} {
-      @include hover-focus {
+      @include argon-hover-focus {
         text-decoration: none;
       }
     }
@@ -41,7 +41,7 @@
   .badge-pill {
     padding-right: $argon-badge-pill-padding-x;
     padding-left: $argon-badge-pill-padding-x;
-    @include border-radius($argon-badge-pill-border-radius);
+    @include argon-border-radius($argon-badge-pill-border-radius);
   }
 
   // Colors
@@ -50,7 +50,7 @@
 
   @each $color, $value in $argon-themecolors {
     .badge-#{$color} {
-      @include badge-variant($value);
+      @include argon-badge-variant($value);
     }
   }
 }

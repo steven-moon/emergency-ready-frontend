@@ -6,7 +6,7 @@
     margin-bottom: $argon-breadcrumb-margin-bottom;
     list-style: none;
     background-color: $argon-breadcrumb-bg;
-    @include border-radius($argon-breadcrumb-border-radius);
+    @include argon-border-radius($argon-breadcrumb-border-radius);
   }
 
   .breadcrumb-item {

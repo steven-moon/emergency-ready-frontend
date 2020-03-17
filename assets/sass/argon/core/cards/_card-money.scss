@@ -22,7 +22,7 @@
             }
         }
 
-        @include media-breakpoint-down(xs) {
+        @include argon-media-breakpoint-down(xs) {
             font-size: $argon-h3-font-size;
         }
     }

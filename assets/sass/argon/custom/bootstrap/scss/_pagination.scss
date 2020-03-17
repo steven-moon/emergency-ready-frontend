@@ -2,7 +2,7 @@
   .pagination {
     display: flex;
     @include list-unstyled();
-    @include border-radius();
+    @include argon-border-radius();
   }
 
   .page-link {
@@ -34,13 +34,13 @@
     &:first-child {
       .page-link {
         margin-left: 0;
-        @include border-left-radius($argon-border-radius);
+        @include argon-border-left-radius($argon-border-radius);
       }
     }
 
     &:last-child {
       .page-link {
-        @include border-right-radius($argon-border-radius);
+        @include argon-border-right-radius($argon-border-radius);
       }
     }
 
@@ -67,10 +67,10 @@
   //
 
   .pagination-lg {
-    @include pagination-size($argon-pagination-padding-y-lg, $argon-pagination-padding-x-lg, $argon-font-size-lg, $argon-line-height-lg, $argon-border-radius-lg);
+    @include argon-pagination-size($argon-pagination-padding-y-lg, $argon-pagination-padding-x-lg, $argon-font-size-lg, $argon-line-height-lg, $argon-border-radius-lg);
   }
 
   .pagination-sm {
-    @include pagination-size($argon-pagination-padding-y-sm, $argon-pagination-padding-x-sm, $argon-font-size-sm, $argon-line-height-sm, $argon-border-radius-sm);
+    @include argon-pagination-size($argon-pagination-padding-y-sm, $argon-pagination-padding-x-sm, $argon-font-size-sm, $argon-line-height-sm, $argon-border-radius-sm);
   }
 }

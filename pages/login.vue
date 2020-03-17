@@ -1,5 +1,6 @@
 <template>
-   <section class="section-login">
+   <div class="summa-container">
+      <section class="section-login">
       <div class="section__inner">
          <div class="form-login">
             <div v-if="showSpinner">
@@ -78,6 +79,7 @@
          </div>
       </div>
    </section>
+   </div>
 </template>
 
 <script>
@@ -101,7 +103,7 @@
             validationMixin,
             formValidationMixin
         ],
-        layout: "login",
+        layout: "argon-dashboard-layout",
         components: {
             Field,
             BaseAlert

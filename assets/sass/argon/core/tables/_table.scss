@@ -81,7 +81,7 @@
 
     .table-hover {
         tr {
-            @include transition($argon-transition-base);
+            @include argon-transition($argon-transition-base);
         }
     }
 

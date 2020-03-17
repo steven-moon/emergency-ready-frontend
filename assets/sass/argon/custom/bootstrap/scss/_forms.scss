@@ -11,7 +11,7 @@
     height: $argon-input-height;
     padding: $argon-input-padding-y $argon-input-padding-x;
     font-family: $argon-input-font-family;
-    @include font-size($argon-input-font-size);
+    @include  argon-font-size($argon-input-font-size);
     font-weight: $argon-input-font-weight;
     line-height: $argon-input-line-height;
     color: $argon-input-color;
@@ -20,10 +20,10 @@
     border: $argon-input-border-width solid $argon-input-border-color;
 
     // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-    @include border-radius($argon-input-border-radius, 0);
+    @include argon-border-radius($argon-input-border-radius, 0);
 
-    @include box-shadow($argon-input-box-shadow);
-    @include transition($argon-input-transition);
+    @include argon-box-shadow($argon-input-box-shadow);
+    @include argon-transition($argon-input-transition);
 
     // Unstyle the caret on `<select>`s in IE10+.
     &::-ms-expand {
@@ -32,7 +32,7 @@
     }
 
     // Customize the `:focus` state to imitate native WebKit styles.
-    @include form-control-focus();
+    @include argon-form-control-focus();
 
     // Placeholder
     &::placeholder {
@@ -84,21 +84,21 @@
     padding-top: calc(#{$argon-input-padding-y} + #{$argon-input-border-width});
     padding-bottom: calc(#{$argon-input-padding-y} + #{$argon-input-border-width});
     margin-bottom: 0; // Override the `<label>/<legend>` default
-    @include font-size(inherit); // Override the `<legend>` default
+    @include  argon-font-size(inherit); // Override the `<legend>` default
     line-height: $argon-input-line-height;
   }
 
   .col-form-label-lg {
     padding-top: calc(#{$argon-input-padding-y-lg} + #{$argon-input-border-width});
     padding-bottom: calc(#{$argon-input-padding-y-lg} + #{$argon-input-border-width});
-    @include font-size($argon-input-font-size-lg);
+    @include  argon-font-size($argon-input-font-size-lg);
     line-height: $argon-input-line-height-lg;
   }
 
   .col-form-label-sm {
     padding-top: calc(#{$argon-input-padding-y-sm} + #{$argon-input-border-width});
     padding-bottom: calc(#{$argon-input-padding-y-sm} + #{$argon-input-border-width});
-    @include font-size($argon-input-font-size-sm);
+    @include  argon-font-size($argon-input-font-size-sm);
     line-height: $argon-input-line-height-sm;
   }
 
@@ -138,17 +138,17 @@
   .form-control-sm {
     height: $argon-input-height-sm;
     padding: $argon-input-padding-y-sm $argon-input-padding-x-sm;
-    @include font-size($argon-input-font-size-sm);
+    @include  argon-font-size($argon-input-font-size-sm);
     line-height: $argon-input-line-height-sm;
-    @include border-radius($argon-input-border-radius-sm);
+    @include argon-border-radius($argon-input-border-radius-sm);
   }
 
   .form-control-lg {
     height: $argon-input-height-lg;
     padding: $argon-input-padding-y-lg $argon-input-padding-x-lg;
-    @include font-size($argon-input-font-size-lg);
+    @include  argon-font-size($argon-input-font-size-lg);
     line-height: $argon-input-line-height-lg;
-    @include border-radius($argon-input-border-radius-lg);
+    @include argon-border-radius($argon-input-border-radius-lg);
   }
 
   // stylelint-disable-next-line no-duplicate-selectors
@@ -244,7 +244,7 @@
   // server side validation.
 
   @each $argon-state, $argon-data in $argon-form-validation-states {
-    @include form-validation-state($argon-state, map-get($argon-data, color), map-get($argon-data, icon));
+    @include argon-form-validation-state($argon-state, map-get($argon-data, color), map-get($argon-data, icon));
   }
 
   // Inline forms
@@ -269,7 +269,7 @@
     }
 
     // Kick in the inline
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
       label {
         display: flex;
         align-items: center;

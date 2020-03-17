@@ -8,7 +8,7 @@
         // Background-color and (when enabled) gradient
         &::before {
             border: $argon-custom-control-indicator-border-width solid $argon-custom-control-indicator-border-color;
-            @include transition($argon-input-transition);
+            @include argon-transition($argon-input-transition);
             top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
             left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size - 1rem);
 

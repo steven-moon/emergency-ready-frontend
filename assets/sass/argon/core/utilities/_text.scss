@@ -116,6 +116,6 @@
 	// Color variations
 
 	@each $color, $value in $argon-colors {
-		@include text-emphasis-variant(".text-#{$color}", $value);
+		@include argon-text-emphasis-variant(".text-#{$color}", $value);
 	}
 }

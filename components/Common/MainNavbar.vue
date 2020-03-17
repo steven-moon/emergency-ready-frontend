@@ -8,7 +8,7 @@
   >
     <template slot-scope="{ toggle, isToggled }">
       <nuxt-link v-popover:popover1 class="navbar-brand" to="/">
-        Combined Base App
+        Emergency Ready App
       </nuxt-link>
       <el-popover
         ref="popover1"

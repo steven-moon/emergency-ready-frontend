@@ -56,7 +56,7 @@
             padding: .4rem .5rem;
             display: block;
             color: $argon-white;
-            @include text-truncate();
+            @include argon-text-truncate();
             font-weight: $argon-font-weight-bold;
         }
 
@@ -98,7 +98,7 @@
         line-height: 35px;
 
         &:hover {
-            color: theme-color("primary");
+            color: argon-theme-color("primary");
         }
     }
 
@@ -130,7 +130,7 @@
             position: relative;
             margin-bottom: -2px;
             z-index: 2;
-            @include media-breakpoint-down(xs) {
+            @include argon-media-breakpoint-down(xs) {
                 height: 135px;
             }
         }
@@ -139,7 +139,7 @@
             padding: .5rem 1rem;
             width: 100%;
             box-sizing: border-box;
-            @include media-breakpoint-up(sm) {
+            @include argon-media-breakpoint-up(sm) {
                 font-size: $argon-font-size-sm;
                 font-weight: $argon-font-weight-bold;
                 color: lighten($argon-body-color, 10%);
@@ -160,7 +160,7 @@
 
     [data-calendar-month] {
         background-size: contain;
-        @include transition(background-image 300ms);
+        @include argon-transition(background-image 300ms);
     }
 
     [data-calendar-month="0"] {

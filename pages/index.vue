@@ -338,7 +338,7 @@
 
   import { Tooltip } from 'element-ui'
   export default {
-    layout: 'argon-auth-layout',
+    layout: 'argon-dashboard-layout',
     name: 'home-page',
     components: {
       [Tooltip.name]: Tooltip

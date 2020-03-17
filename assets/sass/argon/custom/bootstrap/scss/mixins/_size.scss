@@ -1,6 +1,6 @@
 // Sizing shortcuts
 
-@mixin size($width, $argon-height: $width) {
+@mixin argon-size($width, $argon-height: $width) {
   width: $width;
   height: $argon-height;
   @include deprecate("`size()`", "v4.3.0", "v5");

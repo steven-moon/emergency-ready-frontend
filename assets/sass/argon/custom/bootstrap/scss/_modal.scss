@@ -43,7 +43,7 @@
 
     // When fading in the modal, animate it to slide down
     .modal.fade & {
-      @include transition($argon-modal-transition);
+      @include argon-transition($argon-modal-transition);
       transform: $argon-modal-fade-transform;
     }
 
@@ -111,8 +111,8 @@
     background-color: $argon-modal-content-bg;
     background-clip: padding-box;
     border: $argon-modal-content-border-width solid $argon-modal-content-border-color;
-    @include border-radius($argon-modal-content-border-radius);
-    @include box-shadow($argon-modal-content-box-shadow-xs);
+    @include argon-border-radius($argon-modal-content-border-radius);
+    @include argon-box-shadow($argon-modal-content-box-shadow-xs);
     // Remove focus outline from opened modal
     outline: 0;
   }
@@ -145,7 +145,7 @@
     justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
     padding: $argon-modal-header-padding;
     border-bottom: $argon-modal-header-border-width solid $argon-modal-header-border-color;
-    @include border-top-radius($argon-modal-content-border-radius);
+    @include argon-border-top-radius($argon-modal-content-border-radius);
 
     .close {
       padding: $argon-modal-header-padding;
@@ -177,7 +177,7 @@
     justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
     padding: $argon-modal-inner-padding;
     border-top: $argon-modal-footer-border-width solid $argon-modal-footer-border-color;
-    @include border-bottom-radius($argon-modal-content-border-radius);
+    @include argon-border-bottom-radius($argon-modal-content-border-radius);
 
     // Easily place margin between footer elements
     > :not(:first-child) {
@@ -199,7 +199,7 @@
   }
 
   // Scale up the modal
-  @include media-breakpoint-up(sm) {
+  @include argon-media-breakpoint-up(sm) {
     // Automatically set modal's width for larger viewports
     .modal-dialog {
       max-width: $argon-modal-md;
@@ -223,7 +223,7 @@
     }
 
     .modal-content {
-      @include box-shadow($argon-modal-content-box-shadow-sm-up);
+      @include argon-box-shadow($argon-modal-content-box-shadow-sm-up);
     }
 
     .modal-sm {
@@ -231,14 +231,14 @@
     }
   }
 
-  @include media-breakpoint-up(lg) {
+  @include argon-media-breakpoint-up(lg) {
     .modal-lg,
     .modal-xl {
       max-width: $argon-modal-lg;
     }
   }
 
-  @include media-breakpoint-up(xl) {
+  @include argon-media-breakpoint-up(xl) {
     .modal-xl {
       max-width: $argon-modal-xl;
     }

@@ -5,8 +5,8 @@
 
   @if $argon-enable-grid-classes {
     .container {
-      @include make-container();
-      @include make-container-max-widths();
+      @include argon-make-container();
+      @include argon-make-container-max-widths();
     }
   }
 
@@ -17,7 +17,7 @@
 
   @if $argon-enable-grid-classes {
     .container-fluid {
-      @include make-container();
+      @include argon-make-container();
     }
   }
 
@@ -27,7 +27,7 @@
 
   @if $argon-enable-grid-classes {
     .row {
-      @include make-row();
+      @include argon-make-row();
     }
 
     // Remove the negative margin from default .row, then the horizontal padding
@@ -49,6 +49,6 @@
   // Common styles for small and large grid columns
 
   @if $argon-enable-grid-classes {
-    @include make-grid-columns();
+    @include argon-make-grid-columns();
   }
 }

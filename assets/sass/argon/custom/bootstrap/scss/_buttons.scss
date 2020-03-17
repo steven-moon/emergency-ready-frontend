@@ -15,10 +15,10 @@
     user-select: none;
     background-color: transparent;
     border: $argon-btn-border-width solid transparent;
-    @include button-size($argon-btn-padding-y, $argon-btn-padding-x, $argon-btn-font-size, $argon-btn-line-height, $argon-btn-border-radius);
-    @include transition($argon-btn-transition);
+    @include argon-button-size($argon-btn-padding-y, $argon-btn-padding-x, $argon-btn-font-size, $argon-btn-line-height, $argon-btn-border-radius);
+    @include argon-transition($argon-btn-transition);
 
-    @include hover {
+    @include  argon-hover {
       color: $argon-body-color;
       text-decoration: none;
     }
@@ -33,15 +33,15 @@
     &.disabled,
     &:disabled {
       opacity: $argon-btn-disabled-opacity;
-      @include box-shadow(none);
+      @include argon-box-shadow(none);
     }
 
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active {
-      @include box-shadow($argon-btn-active-box-shadow);
+      @include argon-box-shadow($argon-btn-active-box-shadow);
 
       &:focus {
-        @include box-shadow($argon-btn-focus-box-shadow, $argon-btn-active-box-shadow);
+        @include argon-box-shadow($argon-btn-focus-box-shadow, $argon-btn-active-box-shadow);
       }
     }
   }
@@ -59,13 +59,13 @@
 
   @each $color, $value in $argon-themecolors {
     .btn-#{$color} {
-      @include button-variant($value, $value);
+      @include argon-button-variant($value, $value);
     }
   }
 
   @each $color, $value in $argon-themecolors {
     .btn-outline-#{$color} {
-      @include button-outline-variant($value);
+      @include argon-button-outline-variant($value);
     }
   }
 
@@ -80,7 +80,7 @@
     color: $argon-link-color;
     text-decoration: $argon-link-decoration;
 
-    @include hover {
+    @include  argon-hover {
       color: $argon-link-hover-color;
       text-decoration: $argon-link-hover-decoration;
     }
@@ -106,11 +106,11 @@
   //
 
   .btn-lg {
-    @include button-size($argon-btn-padding-y-lg, $argon-btn-padding-x-lg, $argon-btn-font-size-lg, $argon-btn-line-height-lg, $argon-btn-border-radius-lg);
+    @include argon-button-size($argon-btn-padding-y-lg, $argon-btn-padding-x-lg, $argon-btn-font-size-lg, $argon-btn-line-height-lg, $argon-btn-border-radius-lg);
   }
 
   .btn-sm {
-    @include button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-btn-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
+    @include argon-button-size($argon-btn-padding-y-sm, $argon-btn-padding-x-sm, $argon-btn-font-size-sm, $argon-btn-line-height-sm, $argon-btn-border-radius-sm);
   }
 
 

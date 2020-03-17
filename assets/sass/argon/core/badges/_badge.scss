@@ -49,8 +49,8 @@
     }
 
     .badge-secondary {
-        background-color: theme-color("secondary");
-        color: color-yiq(theme-color("secondary"));
+        background-color: argon-theme-color("secondary");
+        color: argon-color-yiq(argon-theme-color("secondary"));
     }
 
 

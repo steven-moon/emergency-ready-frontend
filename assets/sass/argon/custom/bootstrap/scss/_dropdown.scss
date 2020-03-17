@@ -25,20 +25,20 @@
     min-width: $argon-dropdown-min-width;
     padding: $argon-dropdown-padding-y 0;
     margin: $argon-dropdown-spacer 0 0; // override default ul
-    @include font-size($argon-dropdown-font-size);
+    @include  argon-font-size($argon-dropdown-font-size);
     color: $argon-dropdown-color;
     text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
     list-style: none;
     background-color: $argon-dropdown-bg;
     background-clip: padding-box;
     border: $argon-dropdown-border-width solid $argon-dropdown-border-color;
-    @include border-radius($argon-dropdown-border-radius);
-    @include box-shadow($argon-dropdown-box-shadow);
+    @include argon-border-radius($argon-dropdown-border-radius);
+    @include argon-box-shadow($argon-dropdown-box-shadow);
   }
 
   @each $breakpoint in map-keys($argon-grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+    @include argon-media-breakpoint-up($breakpoint) {
+      $infix: argon-breakpoint-infix($breakpoint, $argon-grid-breakpoints);
 
       .dropdown-menu#{$infix}-left {
         right: auto;
@@ -63,7 +63,7 @@
     }
 
     .dropdown-toggle {
-      @include caret(up);
+      @include argon-caret(up);
     }
   }
 
@@ -77,7 +77,7 @@
     }
 
     .dropdown-toggle {
-      @include caret(right);
+      @include argon-caret(right);
 
       &::after {
         vertical-align: 0;
@@ -95,7 +95,7 @@
     }
 
     .dropdown-toggle {
-      @include caret(left);
+      @include argon-caret(left);
 
       &::before {
         vertical-align: 0;
@@ -117,7 +117,7 @@
 
   // Dividers (basically an `<hr>`) within the dropdown
   .dropdown-divider {
-    @include nav-divider($argon-dropdown-divider-bg, $argon-dropdown-divider-margin-y);
+    @include argon-nav-divider($argon-dropdown-divider-bg, $argon-dropdown-divider-margin-y);
   }
 
   // Links, buttons, and more within the dropdown menu
@@ -139,25 +139,25 @@
     // See https://github.com/twbs/bootstrap/pull/27703
     @if $argon-dropdown-padding-y == 0 {
       &:first-child {
-        @include border-top-radius($argon-dropdown-inner-border-radius);
+        @include argon-border-top-radius($argon-dropdown-inner-border-radius);
       }
 
       &:last-child {
-        @include border-bottom-radius($argon-dropdown-inner-border-radius);
+        @include argon-border-bottom-radius($argon-dropdown-inner-border-radius);
       }
     }
 
-    @include hover-focus {
+    @include argon-hover-focus {
       color: $argon-dropdown-link-hover-color;
       text-decoration: none;
-      @include gradient-bg($argon-dropdown-link-hover-bg);
+      @include argon-gradient-bg($argon-dropdown-link-hover-bg);
     }
 
     &.active,
     &:active {
       color: $argon-dropdown-link-active-color;
       text-decoration: none;
-      @include gradient-bg($argon-dropdown-link-active-bg);
+      @include argon-gradient-bg($argon-dropdown-link-active-bg);
     }
 
     &.disabled,
@@ -181,7 +181,7 @@
     display: block;
     padding: $argon-dropdown-padding-y $argon-dropdown-item-padding-x;
     margin-bottom: 0; // for use with heading elements
-    @include font-size($argon-font-size-sm);
+    @include  argon-font-size($argon-font-size-sm);
     color: $argon-dropdown-header-color;
     white-space: nowrap; // as with > li > a
   }

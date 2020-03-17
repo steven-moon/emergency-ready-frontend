@@ -4,8 +4,8 @@
   // Margin and Padding
 
   @each $breakpoint in map-keys($argon-grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+    @include argon-media-breakpoint-up($breakpoint) {
+      $infix: argon-breakpoint-infix($breakpoint, $argon-grid-breakpoints);
 
       @each $argon-prop, $abbrev in (margin: m, padding: p) {
         @each $argon-size, $argon-length in $argon-spacers {

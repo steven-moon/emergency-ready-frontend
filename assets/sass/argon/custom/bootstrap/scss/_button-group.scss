@@ -14,7 +14,7 @@
 
       // Bring the hover, focused, and "active" buttons to the front to overlay
       // the borders properly
-      @include hover {
+      @include  argon-hover {
         z-index: 1;
       }
 
@@ -47,12 +47,12 @@
     // Reset rounded corners
     > .btn:not(:last-child):not(.dropdown-toggle),
     > .btn-group:not(:last-child) > .btn {
-      @include border-right-radius(0);
+      @include argon-border-right-radius(0);
     }
 
     > .btn:not(:first-child),
     > .btn-group:not(:first-child) > .btn {
-      @include border-left-radius(0);
+      @include argon-border-left-radius(0);
     }
   }
 
@@ -102,11 +102,11 @@
   // The clickable button for toggling the menu
   // Set the same inset shadow as the :active state
   .btn-group.show .dropdown-toggle {
-    @include box-shadow($argon-btn-active-box-shadow);
+    @include argon-box-shadow($argon-btn-active-box-shadow);
 
     // Show no shadow for `.btn-link` since it has no other button styles.
     &.btn-link {
-      @include box-shadow(none);
+      @include argon-box-shadow(none);
     }
   }
 
@@ -133,12 +133,12 @@
     // Reset rounded corners
     > .btn:not(:last-child):not(.dropdown-toggle),
     > .btn-group:not(:last-child) > .btn {
-      @include border-bottom-radius(0);
+      @include argon-border-bottom-radius(0);
     }
 
     > .btn:not(:first-child),
     > .btn-group:not(:first-child) > .btn {
-      @include border-top-radius(0);
+      @include argon-border-top-radius(0);
     }
   }
 

@@ -4,9 +4,9 @@
     margin-bottom: $jumbotron-padding;
     color: $jumbotron-color;
     background-color: $jumbotron-bg;
-    @include border-radius($argon-border-radius-lg);
+    @include argon-border-radius($argon-border-radius-lg);
 
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
       padding: ($jumbotron-padding * 2) $jumbotron-padding;
     }
   }
@@ -14,6 +14,6 @@
   .jumbotron-fluid {
     padding-right: 0;
     padding-left: 0;
-    @include border-radius(0);
+    @include argon-border-radius(0);
   }
 }

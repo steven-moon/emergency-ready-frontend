@@ -85,7 +85,7 @@
 
   .table-hover {
     tbody tr {
-      @include hover {
+      @include  argon-hover {
         color: $argon-table-hover-color;
         background-color: $argon-table-hover-bg;
       }
@@ -99,10 +99,10 @@
   // inheritance to nested tables.
 
   @each $color, $value in $argon-themecolors {
-    @include table-row-variant($color, theme-color-level($color, $argon-table-bg-level), theme-color-level($color, $argon-table-border-level));
+    @include argon-table-row-variant($color, argon-theme-color-level($color, $argon-table-bg-level), argon-theme-color-level($color, $argon-table-border-level));
   }
 
-  @include table-row-variant(active, $argon-table-active-bg);
+  @include argon-table-row-variant(active, $argon-table-active-bg);
 
 
   // Dark styles
@@ -150,7 +150,7 @@
 
     &.table-hover {
       tbody tr {
-        @include hover {
+        @include  argon-hover {
           color: $argon-table-dark-hover-color;
           background-color: $argon-table-dark-hover-bg;
         }
@@ -166,11 +166,11 @@
 
   .table-responsive {
     @each $breakpoint in map-keys($argon-grid-breakpoints) {
-      $next: breakpoint-next($breakpoint, $argon-grid-breakpoints);
-      $infix: breakpoint-infix($next, $argon-grid-breakpoints);
+      $next: argon-breakpoint-next($breakpoint, $argon-grid-breakpoints);
+      $infix: argon-breakpoint-infix($next, $argon-grid-breakpoints);
 
       &#{$infix} {
-        @include media-breakpoint-down($breakpoint) {
+        @include argon-media-breakpoint-down($breakpoint) {
           display: block;
           width: 100%;
           overflow-x: auto;

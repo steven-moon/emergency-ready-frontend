@@ -109,7 +109,7 @@
             text-align: center;
             min-width: 1.66667rem;
             overflow: hidden;
-            @include transition($argon-transition-base);
+            @include argon-transition($argon-transition-base);
         }
     }
 
@@ -118,7 +118,7 @@
 
     @each $color, $value in $argon-themecolors {
         .custom-toggle-#{$color} {
-            @include custom-toggle-variant($value);
+            @include argon-custom-toggle-variant($value);
         }
     }
 }

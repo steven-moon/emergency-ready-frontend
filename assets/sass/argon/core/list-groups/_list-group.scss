@@ -9,7 +9,7 @@
   .list-group-space {
     .list-group-item {
       margin-bottom: 1.5rem;
-      @include border-radius($argon-list-group-border-radius);
+      @include argon-border-radius($argon-list-group-border-radius);
     }
   }
 

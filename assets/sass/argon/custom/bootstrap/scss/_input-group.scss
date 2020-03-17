@@ -45,11 +45,11 @@
     > .form-control,
     > .custom-select {
       &:not(:last-child) {
-        @include border-right-radius(0);
+        @include argon-border-right-radius(0);
       }
 
       &:not(:first-child) {
-        @include border-left-radius(0);
+        @include argon-border-left-radius(0);
       }
     }
 
@@ -61,11 +61,11 @@
 
       &:not(:last-child) .custom-file-label,
       &:not(:last-child) .custom-file-label::after {
-        @include border-right-radius(0);
+        @include argon-border-right-radius(0);
       }
 
       &:not(:first-child) .custom-file-label {
-        @include border-left-radius(0);
+        @include argon-border-left-radius(0);
       }
     }
   }
@@ -120,7 +120,7 @@
     align-items: center;
     padding: $argon-input-padding-y $argon-input-padding-x;
     margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
-    @include font-size($argon-input-font-size); // Match inputs
+    @include  argon-font-size($argon-input-font-size); // Match inputs
     font-weight: $argon-font-weight-normal;
     line-height: $argon-input-line-height;
     color: $argon-input-group-addon-color;
@@ -128,7 +128,7 @@
     white-space: nowrap;
     background-color: $argon-input-group-addon-bg;
     border: $argon-input-border-width solid $argon-input-group-addon-border-color;
-    @include border-radius($argon-input-border-radius);
+    @include argon-border-radius($argon-input-border-radius);
 
     // Nuke default margins from checkboxes and radios to vertically center within.
     input[type="radio"],
@@ -155,9 +155,9 @@
   .input-group-lg > .input-group-prepend > .btn,
   .input-group-lg > .input-group-append > .btn {
     padding: $argon-input-padding-y-lg $argon-input-padding-x-lg;
-    @include font-size($argon-input-font-size-lg);
+    @include  argon-font-size($argon-input-font-size-lg);
     line-height: $argon-input-line-height-lg;
-    @include border-radius($argon-input-border-radius-lg);
+    @include argon-border-radius($argon-input-border-radius-lg);
   }
 
   .input-group-sm > .form-control:not(textarea),
@@ -172,9 +172,9 @@
   .input-group-sm > .input-group-prepend > .btn,
   .input-group-sm > .input-group-append > .btn {
     padding: $argon-input-padding-y-sm $argon-input-padding-x-sm;
-    @include font-size($argon-input-font-size-sm);
+    @include  argon-font-size($argon-input-font-size-sm);
     line-height: $argon-input-line-height-sm;
-    @include border-radius($argon-input-border-radius-sm);
+    @include argon-border-radius($argon-input-border-radius-sm);
   }
 
   .input-group-lg > .custom-select,
@@ -196,7 +196,7 @@
   .input-group > .input-group-append:not(:last-child) > .input-group-text,
   .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
   .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
-    @include border-right-radius(0);
+    @include argon-border-right-radius(0);
   }
 
   .input-group > .input-group-append > .btn,
@@ -205,6 +205,6 @@
   .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
   .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
   .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
-    @include border-left-radius(0);
+    @include argon-border-left-radius(0);
   }
 }

@@ -2,19 +2,19 @@
 
 // Contextual backgrounds
 
-@mixin bg-variant($argon-parent, $color) {
+@mixin argon-bg-variant($argon-parent, $color) {
   #{$argon-parent} {
     background-color: $color !important;
   }
   a#{$argon-parent},
   button#{$argon-parent} {
-    @include hover-focus {
+    @include argon-hover-focus {
       background-color: darken($color, 10%) !important;
     }
   }
 }
 
-@mixin bg-gradient-variant($argon-parent, $color) {
+@mixin argon-bg-gradient-variant($argon-parent, $color) {
   #{$argon-parent} {
     background: $color linear-gradient(180deg, mix($argon-body-bg, $color, 15%), $color) repeat-x !important;
   }

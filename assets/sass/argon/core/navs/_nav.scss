@@ -9,11 +9,11 @@
     // Nav wrapper
     .nav-wrapper {
         padding: 1rem 0;
-        @include border-top-radius($argon-card-border-radius);
+        @include argon-border-top-radius($argon-card-border-radius);
 
         + .card {
-            @include border-top-radius(0);
-            @include border-bottom-radius($argon-card-border-radius);
+            @include argon-border-top-radius(0);
+            @include argon-border-bottom-radius($argon-card-border-radius);
         }
     }
 

@@ -3,15 +3,15 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 
-@mixin button-variant($background, $argon-border, $argon-hover-background: darken($background, 7.5%), $argon-hover-border: darken($argon-border, 10%), $active-background: darken($background, 10%), $active-border: darken($argon-border, 12.5%)) {
-  color: color-yiq($background);
-  @include gradient-bg($background);
+@mixin argon-button-variant($background, $argon-border, $argon-hover-background: darken($background, 7.5%), $argon-hover-border: darken($argon-border, 10%), $active-background: darken($background, 10%), $active-border: darken($argon-border, 12.5%)) {
+  color: argon-color-yiq($background);
+  @include argon-gradient-bg($background);
   border-color: $argon-border;
-  @include box-shadow($argon-btn-box-shadow);
+  @include argon-box-shadow($argon-btn-box-shadow);
 
-  @include hover {
-    color: color-yiq($argon-hover-background);
-    @include gradient-bg($argon-hover-background);
+  @include  argon-hover {
+    color: argon-color-yiq($argon-hover-background);
+    @include argon-gradient-bg($argon-hover-background);
     border-color: $argon-hover-border;
   }
 
@@ -19,16 +19,16 @@
   &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $argon-enable-shadows {
-      box-shadow: $argon-btn-box-shadow, 0 0 0 $argon-btn-focus-width rgba(mix(color-yiq($background), $argon-border, 15%), .5);
+      box-shadow: $argon-btn-box-shadow, 0 0 0 $argon-btn-focus-width rgba(mix(argon-color-yiq($background), $argon-border, 15%), .5);
     } @else {
-      box-shadow: 0 0 0 $argon-btn-focus-width rgba(mix(color-yiq($background), $argon-border, 15%), .5);
+      box-shadow: 0 0 0 $argon-btn-focus-width rgba(mix(argon-color-yiq($background), $argon-border, 15%), .5);
     }
   }
 
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    color: color-yiq($background);
+    color: argon-color-yiq($background);
     background-color: $background;
     border-color: $argon-border;
     // Remove CSS gradients if they're enabled
@@ -40,7 +40,7 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq($active-background);
+    color: argon-color-yiq($active-background);
     background-color: $active-background;
     @if $argon-enable-gradients {
       background-image: none; // Remove the gradient for the pressed/active state
@@ -50,19 +50,19 @@
     &:focus {
       // Avoid using mixin so we can pass custom focus shadow properly
       @if $argon-enable-shadows and $argon-btn-active-box-shadow != none {
-        box-shadow: $argon-btn-active-box-shadow, 0 0 0 $argon-btn-focus-width rgba(mix(color-yiq($background), $argon-border, 15%), .5);
+        box-shadow: $argon-btn-active-box-shadow, 0 0 0 $argon-btn-focus-width rgba(mix(argon-color-yiq($background), $argon-border, 15%), .5);
       } @else {
-        box-shadow: 0 0 0 $argon-btn-focus-width rgba(mix(color-yiq($background), $argon-border, 15%), .5);
+        box-shadow: 0 0 0 $argon-btn-focus-width rgba(mix(argon-color-yiq($background), $argon-border, 15%), .5);
       }
     }
   }
 }
 
-@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+@mixin argon-button-outline-variant($color, $color-hover: argon-color-yiq($color), $active-background: $color, $active-border: $color) {
   color: $color;
   border-color: $color;
 
-  @include hover {
+  @include  argon-hover {
     color: $color-hover;
     background-color: $active-background;
     border-color: $active-border;
@@ -82,7 +82,7 @@
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active,
   .show > &.dropdown-toggle {
-    color: color-yiq($active-background);
+    color: argon-color-yiq($active-background);
     background-color: $active-background;
     border-color: $active-border;
 
@@ -98,10 +98,10 @@
 }
 
 // Button sizes
-@mixin button-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
+@mixin argon-button-size($argon-padding-y, $argon-padding-x, $argon-font-size, $argon-line-height, $argon-border-radius) {
   padding: $argon-padding-y $argon-padding-x;
-  @include font-size($argon-font-size);
+  @include  argon-font-size($argon-font-size);
   line-height: $argon-line-height;
   // Manually declare to provide an override to the browser default
-  @include border-radius($argon-border-radius, 0);
+  @include argon-border-radius($argon-border-radius, 0);
 }

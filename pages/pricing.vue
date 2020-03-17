@@ -172,7 +172,7 @@
 <script>
     import BaseTable from '~/components/Argon/argon-core/BaseTable.vue';
     export default {
-        layout: 'argon-auth-layout',
+        layout: 'argon-dashboard-layout',
         name: 'pricing-page',
         components: {
             BaseTable

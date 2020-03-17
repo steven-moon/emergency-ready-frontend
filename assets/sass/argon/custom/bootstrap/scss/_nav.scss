@@ -16,7 +16,7 @@
     display: block;
     padding: $argon-nav-link-padding-y $argon-nav-link-padding-x;
 
-    @include hover-focus {
+    @include argon-hover-focus {
       text-decoration: none;
     }
 
@@ -41,9 +41,9 @@
 
     .nav-link {
       border: $argon-nav-tabs-border-width solid transparent;
-      @include border-top-radius($argon-nav-tabs-border-radius);
+      @include argon-border-top-radius($argon-nav-tabs-border-radius);
 
-      @include hover-focus {
+      @include argon-hover-focus {
         border-color: $argon-nav-tabs-link-hover-border-color;
       }
 
@@ -65,7 +65,7 @@
       // Make dropdown border overlap tab border
       margin-top: -$argon-nav-tabs-border-width;
       // Remove the top rounded corners here since there is a hard edge above the menu
-      @include border-top-radius(0);
+      @include argon-border-top-radius(0);
     }
   }
 
@@ -76,7 +76,7 @@
 
   .nav-pills {
     .nav-link {
-      @include border-radius($argon-nav-pills-border-radius);
+      @include argon-border-radius($argon-nav-pills-border-radius);
     }
 
     .nav-link.active,

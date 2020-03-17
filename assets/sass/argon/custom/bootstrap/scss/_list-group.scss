@@ -24,7 +24,7 @@
     text-align: inherit; // For `<button>`s (anchors inherit)
 
     // Hover state
-    @include hover-focus {
+    @include argon-hover-focus {
       z-index: 1; // Place hover/focus items above their siblings for proper border styling
       color: $argon-list-group-action-hover-color;
       text-decoration: none;
@@ -53,12 +53,12 @@
     border: $argon-list-group-border-width solid $argon-list-group-border-color;
 
     &:first-child {
-      @include border-top-radius($argon-list-group-border-radius);
+      @include argon-border-top-radius($argon-list-group-border-radius);
     }
 
     &:last-child {
       margin-bottom: 0;
-      @include border-bottom-radius($argon-list-group-border-radius);
+      @include argon-border-bottom-radius($argon-list-group-border-radius);
     }
 
     &.disabled,
@@ -83,8 +83,8 @@
   // Change the layout of list group items from vertical (default) to horizontal.
 
   @each $breakpoint in map-keys($argon-grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+    @include argon-media-breakpoint-up($breakpoint) {
+      $infix: argon-breakpoint-infix($breakpoint, $argon-grid-breakpoints);
 
       .list-group-horizontal#{$infix} {
         flex-direction: row;
@@ -94,14 +94,14 @@
           margin-bottom: 0;
 
           &:first-child {
-            @include border-left-radius($argon-list-group-border-radius);
-            @include border-top-right-radius(0);
+            @include argon-border-left-radius($argon-list-group-border-radius);
+            @include argon-border-top-right-radius(0);
           }
 
           &:last-child {
             margin-right: 0;
-            @include border-right-radius($argon-list-group-border-radius);
-            @include border-bottom-left-radius(0);
+            @include argon-border-right-radius($argon-list-group-border-radius);
+            @include argon-border-bottom-left-radius(0);
           }
         }
       }
@@ -118,7 +118,7 @@
     .list-group-item {
       border-right: 0;
       border-left: 0;
-      @include border-radius(0);
+      @include argon-border-radius(0);
 
       &:last-child {
         margin-bottom: -$argon-list-group-border-width;
@@ -146,6 +146,6 @@
   // Organizationally, this must come after the `:hover` states.
 
   @each $color, $value in $argon-themecolors {
-    @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+    @include argon-list-group-item-variant($color, argon-theme-color-level($color, -9), argon-theme-color-level($color, 6));
   }
 }

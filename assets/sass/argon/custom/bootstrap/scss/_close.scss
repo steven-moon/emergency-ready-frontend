@@ -1,7 +1,7 @@
 .argon-container {
   .close {
     float: right;
-    @include font-size($argon-close-font-size);
+    @include  argon-font-size($argon-close-font-size);
     font-weight: $argon-close-font-weight;
     line-height: 1;
     color: $argon-close-color;
@@ -9,13 +9,13 @@
     opacity: .5;
 
     // Override <a>'s hover style
-    @include hover {
+    @include  argon-hover {
       color: $argon-close-color;
       text-decoration: none;
     }
 
     &:not(:disabled):not(.disabled) {
-      @include hover-focus {
+      @include argon-hover-focus {
         opacity: .75;
       }
     }

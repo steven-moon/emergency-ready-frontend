@@ -5,7 +5,7 @@
     }
     a#{$argon-parent},
     button#{$argon-parent} {
-        @include hover-focus {
+        @include argon-hover-focus {
             background-color: darken($color, 10%) !important;
         }
     }
@@ -23,7 +23,7 @@
     }
     a#{$argon-parent},
     button#{$argon-parent} {
-        @include hover-focus {
+        @include argon-hover-focus {
             background-color: darken(rgba($color, $argon-translucent-color-opacity), 12%) !important;
         }
     }

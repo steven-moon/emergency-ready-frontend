@@ -7,7 +7,7 @@
   }
 
   .flatpickr-calendar {
-    @include box-shadow($argon-dropdown-box-shadow);
+    @include argon-box-shadow($argon-dropdown-box-shadow);
     padding: $argon-datepicker-dropdown-padding;
     width: 347px;
     color: $argon-gray-700;

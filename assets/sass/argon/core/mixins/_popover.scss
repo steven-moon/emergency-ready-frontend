@@ -1,17 +1,17 @@
-@mixin popover-variant($background) {
+@mixin argon-popover-variant($background) {
 
 	background-color: $background;
 
 	.popover-header {
 		background-color: $background;
-		color: color-yiq($background);
+		color: argon-color-yiq($background);
 	}
 
 	.popover-body {
-		color: color-yiq($background);
+		color: argon-color-yiq($background);
 	}
 	.popover-header{
-		border-color: rgba(color-yiq($background), .2);
+		border-color: rgba(argon-color-yiq($background), .2);
 	}
 	&.bs-popover-top {
 		.arrow::after {

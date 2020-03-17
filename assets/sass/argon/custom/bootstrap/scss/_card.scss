@@ -12,7 +12,7 @@
     background-color: $argon-card-bg;
     background-clip: border-box;
     border: $argon-card-border-width solid $argon-card-border-color;
-    @include border-radius($argon-card-border-radius);
+    @include argon-border-radius($argon-card-border-radius);
 
     > hr {
       margin-right: 0;
@@ -21,13 +21,13 @@
 
     > .list-group:first-child {
       .list-group-item:first-child {
-        @include border-top-radius($argon-card-border-radius);
+        @include argon-border-top-radius($argon-card-border-radius);
       }
     }
 
     > .list-group:last-child {
       .list-group-item:last-child {
-        @include border-bottom-radius($argon-card-border-radius);
+        @include argon-border-bottom-radius($argon-card-border-radius);
       }
     }
   }
@@ -54,7 +54,7 @@
   }
 
   .card-link {
-    @include hover {
+    @include  argon-hover {
       text-decoration: none;
     }
 
@@ -75,7 +75,7 @@
     border-bottom: $argon-card-border-width solid $argon-card-border-color;
 
     &:first-child {
-      @include border-radius($argon-card-inner-border-radius $argon-card-inner-border-radius 0 0);
+      @include argon-border-radius($argon-card-inner-border-radius $argon-card-inner-border-radius 0 0);
     }
 
     + .list-group {
@@ -91,7 +91,7 @@
     border-top: $argon-card-border-width solid $argon-card-border-color;
 
     &:last-child {
-      @include border-radius(0 0 $argon-card-inner-border-radius $argon-card-inner-border-radius);
+      @include argon-border-radius(0 0 $argon-card-inner-border-radius $argon-card-inner-border-radius);
     }
   }
 
@@ -124,18 +124,18 @@
 
   .card-img {
     width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-    @include border-radius($argon-card-inner-border-radius);
+    @include argon-border-radius($argon-card-inner-border-radius);
   }
 
   // Card image caps
   .card-img-top {
     width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-    @include border-top-radius($argon-card-inner-border-radius);
+    @include argon-border-top-radius($argon-card-inner-border-radius);
   }
 
   .card-img-bottom {
     width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-    @include border-bottom-radius($argon-card-inner-border-radius);
+    @include argon-border-bottom-radius($argon-card-inner-border-radius);
   }
 
 
@@ -149,7 +149,7 @@
       margin-bottom: $argon-card-deck-margin;
     }
 
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
       flex-flow: row wrap;
       margin-right: -$argon-card-deck-margin;
       margin-left: -$argon-card-deck-margin;
@@ -181,7 +181,7 @@
       margin-bottom: $argon-card-group-margin;
     }
 
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
       flex-flow: row wrap;
       // The child selector allows nested `.card` within `.card-group`
       // to display properly.
@@ -198,7 +198,7 @@
         // Handle rounded corners
         @if $argon-enable-rounded {
           &:not(:last-child) {
-            @include border-right-radius(0);
+            @include argon-border-right-radius(0);
 
             .card-img-top,
             .card-header {
@@ -214,7 +214,7 @@
           }
 
           &:not(:first-child) {
-            @include border-left-radius(0);
+            @include argon-border-left-radius(0);
 
             .card-img-top,
             .card-header {
@@ -243,7 +243,7 @@
       margin-bottom: $argon-card-columns-margin;
     }
 
-    @include media-breakpoint-up(sm) {
+    @include argon-media-breakpoint-up(sm) {
       column-count: $argon-card-columns-count;
       column-gap: $argon-card-columns-gap;
       orphans: 1;
@@ -267,22 +267,22 @@
 
       &:not(:first-of-type) {
         .card-header:first-child {
-          @include border-radius(0);
+          @include argon-border-radius(0);
         }
 
         &:not(:last-of-type) {
           border-bottom: 0;
-          @include border-radius(0);
+          @include argon-border-radius(0);
         }
       }
 
       &:first-of-type {
         border-bottom: 0;
-        @include border-bottom-radius(0);
+        @include argon-border-bottom-radius(0);
       }
 
       &:last-of-type {
-        @include border-top-radius(0);
+        @include argon-border-top-radius(0);
       }
 
       .card-header {

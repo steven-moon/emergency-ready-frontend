@@ -15,10 +15,10 @@
     display: flex;
     height: $argon-progress-height;
     overflow: hidden; // force rounded corners by cropping it
-    @include font-size($argon-progress-font-size);
+    @include  argon-font-size($argon-progress-font-size);
     background-color: $argon-progress-bg;
-    @include border-radius($argon-progress-border-radius);
-    @include box-shadow($argon-progress-box-shadow);
+    @include argon-border-radius($argon-progress-border-radius);
+    @include argon-box-shadow($argon-progress-box-shadow);
   }
 
   .progress-bar {
@@ -29,11 +29,11 @@
     text-align: center;
     white-space: nowrap;
     background-color: $argon-progress-bar-bg;
-    @include transition($argon-progress-bar-transition);
+    @include argon-transition($argon-progress-bar-transition);
   }
 
   .progress-bar-striped {
-    @include gradient-striped();
+    @include argon-gradient-striped();
     background-size: $argon-progress-height $argon-progress-height;
   }
 

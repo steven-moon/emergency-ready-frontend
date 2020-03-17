@@ -16,8 +16,8 @@
     padding: $thumbnail-padding;
     background-color: $thumbnail-bg;
     border: $thumbnail-border-width solid $thumbnail-border-color;
-    @include border-radius($thumbnail-border-radius);
-    @include box-shadow($thumbnail-box-shadow);
+    @include argon-border-radius($thumbnail-border-radius);
+    @include argon-box-shadow($thumbnail-box-shadow);
 
     // Keep them at most 100% wide
     @include img-fluid;
@@ -38,7 +38,7 @@
   }
 
   .figure-caption {
-    @include font-size($figure-caption-font-size);
+    @include  argon-font-size($figure-caption-font-size);
     color: $figure-caption-color;
   }
 }

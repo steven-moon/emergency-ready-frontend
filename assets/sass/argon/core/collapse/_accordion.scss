@@ -17,7 +17,7 @@
 				transform: translateY(-50%);
 				font: normal normal normal 14px/1 NucleoIcons;
 				line-height: 0;
-				@include transition($argon-transition-cubic-bezier);
+				@include argon-transition($argon-transition-cubic-bezier);
 			}
 		}
 
@@ -33,7 +33,7 @@
 			}
 
 			.heading {
-				color: theme-color("primary");
+				color: argon-theme-color("primary");
 			}
 		}
 	}

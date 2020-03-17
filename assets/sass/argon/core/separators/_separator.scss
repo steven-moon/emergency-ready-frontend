@@ -49,7 +49,7 @@
     .separator-skew {
         height: 60px;
 
-        @include media-breakpoint-up(xl) {
+        @include argon-media-breakpoint-up(xl) {
             height: 70px;
         }
     }

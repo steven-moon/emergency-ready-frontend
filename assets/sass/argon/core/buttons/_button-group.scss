@@ -27,8 +27,8 @@
             }
 
             &.active {
-                background-color: theme-color("primary");
-                color: color-yiq(theme-color("primary"));
+                background-color: argon-theme-color("primary");
+                color: argon-color-yiq(argon-theme-color("primary"));
             }
         }
     }
@@ -58,8 +58,8 @@
                 color: $argon-white;
                 transform: scale(0);
                 opacity: 0;
-                @include icon-font('\ea26', 14px);
-                @include transition(transform 200ms, opacity 200ms);
+                @include argon-icon-font('\ea26', 14px);
+                @include argon-transition(transform 200ms, opacity 200ms);
             }
 
             &.btn:not([class*="bg-"]) {

@@ -357,7 +357,7 @@
     import FileInput from '@/components/Argon/argon-core/Inputs/FileInput'
     export default {
         name: 'form-elements',
-        layout: 'argon-auth-layout',
+        layout: 'argon-dashboard-layout',
         components: {
             FileInput
         },

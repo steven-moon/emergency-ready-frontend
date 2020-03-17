@@ -45,11 +45,11 @@
     padding-top: $argon-navbar-brand-padding-y;
     padding-bottom: $argon-navbar-brand-padding-y;
     margin-right: $argon-navbar-padding-x;
-    @include font-size($argon-navbar-brand-font-size);
+    @include  argon-font-size($argon-navbar-brand-font-size);
     line-height: inherit;
     white-space: nowrap;
 
-    @include hover-focus {
+    @include argon-hover-focus {
       text-decoration: none;
     }
   }
@@ -108,13 +108,13 @@
   // Button for toggling the navbar when in its collapsed state
   .navbar-toggler {
     padding: $argon-navbar-toggler-padding-y $argon-navbar-toggler-padding-x;
-    @include font-size($argon-navbar-toggler-font-size);
+    @include  argon-font-size($argon-navbar-toggler-font-size);
     line-height: 1;
     background-color: transparent; // remove default button style
     border: $argon-border-width solid transparent; // remove default button style
-    @include border-radius($argon-navbar-toggler-border-radius);
+    @include argon-border-radius($argon-navbar-toggler-border-radius);
 
-    @include hover-focus {
+    @include argon-hover-focus {
       text-decoration: none;
     }
   }
@@ -135,11 +135,11 @@
   // where your navbar collapses.
   .navbar-expand {
     @each $breakpoint in map-keys($argon-grid-breakpoints) {
-      $next: breakpoint-next($breakpoint, $argon-grid-breakpoints);
-      $infix: breakpoint-infix($next, $argon-grid-breakpoints);
+      $next: argon-breakpoint-next($breakpoint, $argon-grid-breakpoints);
+      $infix: argon-breakpoint-infix($next, $argon-grid-breakpoints);
 
       &#{$infix} {
-        @include media-breakpoint-down($breakpoint) {
+        @include argon-media-breakpoint-down($breakpoint) {
           > .container,
           > .container-fluid {
             padding-right: 0;
@@ -147,7 +147,7 @@
           }
         }
 
-        @include media-breakpoint-up($next) {
+        @include argon-media-breakpoint-up($next) {
           flex-flow: row nowrap;
           justify-content: flex-start;
 
@@ -195,7 +195,7 @@
     .navbar-brand {
       color: $argon-navbar-light-brand-color;
 
-      @include hover-focus {
+      @include argon-hover-focus {
         color: $argon-navbar-light-brand-hover-color;
       }
     }
@@ -204,7 +204,7 @@
       .nav-link {
         color: $argon-navbar-light-color;
 
-        @include hover-focus {
+        @include argon-hover-focus {
           color: $argon-navbar-light-hover-color;
         }
 
@@ -236,7 +236,7 @@
       a {
         color: $argon-navbar-light-active-color;
 
-        @include hover-focus {
+        @include argon-hover-focus {
           color: $argon-navbar-light-active-color;
         }
       }
@@ -248,7 +248,7 @@
     .navbar-brand {
       color: $argon-navbar-dark-brand-color;
 
-      @include hover-focus {
+      @include argon-hover-focus {
         color: $argon-navbar-dark-brand-hover-color;
       }
     }
@@ -257,7 +257,7 @@
       .nav-link {
         color: $argon-navbar-dark-color;
 
-        @include hover-focus {
+        @include argon-hover-focus {
           color: $argon-navbar-dark-hover-color;
         }
 
@@ -289,7 +289,7 @@
       a {
         color: $argon-navbar-dark-active-color;
 
-        @include hover-focus {
+        @include argon-hover-focus {
           color: $argon-navbar-dark-active-color;
         }
       }

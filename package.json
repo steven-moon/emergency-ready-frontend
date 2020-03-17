@@ -1,8 +1,8 @@
 {
-  "name": "combined-base-app",
+  "name": "emergency-ready-app",
   "version": "1.0.0",
-  "description": "Creative Time Combined Base App",
-  "author": "Steven Moon",
+  "description": "Emergency Ready App",
+  "author": "Clever Coding LLC",
   "private": true,
   "scripts": {
     "dev": "nuxt",

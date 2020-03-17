@@ -27,7 +27,7 @@
 
     @each $color, $value in $argon-themecolors {
         .modal-#{$color} {
-            @include modal-variant($value);
+            @include argon-modal-variant($value);
         }
     }
 }

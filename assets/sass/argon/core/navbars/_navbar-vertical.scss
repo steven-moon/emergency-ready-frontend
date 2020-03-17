@@ -1,10 +1,10 @@
-.argon-container {
+
     //
     // Vertical navbar + Sidenav
     //
 
 
-    .navbar-vertical {
+    .argon-container .navbar-vertical {
         padding-top: 0;
         border-width: 0 0 1px 0;
         border-style: solid;
@@ -43,7 +43,7 @@
 
         // Navbar collapse
 
-        @include media-breakpoint-up(md) {
+        @include argon-media-breakpoint-up(md) {
             .navbar-collapse {
                 margin-left: -$argon-navbar-padding-x;
                 margin-right: -$argon-navbar-padding-x;
@@ -125,13 +125,13 @@
                 content: "\f105";
                 margin-left: auto;
                 color: $argon-gray-400;
-                @include transition($argon-transition-base);
+                @include argon-transition($argon-transition-base);
             }
 
             // Expanded
             &[aria-expanded="true"] {
                 &:after {
-                    color: theme-color("primary");
+                    color: argon-theme-color("primary");
                     transform: rotate(90deg);
                 }
             }
@@ -163,7 +163,7 @@
         &.navbar-expand {
             @each $breakpoint, $argon-dimension in $argon-grid-breakpoints {
                 &-#{$breakpoint} {
-                    @include media-breakpoint-up(#{$breakpoint}) {
+                    @include argon-media-breakpoint-up(#{$breakpoint}) {
                         display: block;
                         position: fixed;
                         top: 0;
@@ -253,8 +253,8 @@
 
                         .lavalamp-object {
                             width: calc(100% - 1rem) !important;
-                            background: theme-color("primary");
-                            color: color-yiq($argon-primary);
+                            background: argon-theme-color("primary");
+                            color: argon-color-yiq($argon-primary);
                             margin-right: .5rem;
                             margin-left: .5rem;
                             padding-left: 1rem;
@@ -283,10 +283,10 @@
 
     // Offsets the main content depending on the sidebar positioning
 
-    .navbar-vertical.navbar-expand {
+    .argon-container .navbar-vertical.navbar-expand {
         @each $breakpoint, $argon-dimension in $argon-grid-breakpoints {
             &-#{$breakpoint} {
-                @include media-breakpoint-up(#{$breakpoint}) {
+                @include argon-media-breakpoint-up(#{$breakpoint}) {
                     &.fixed-left + .main-content {
                         margin-left: $argon-navbar-vertical-width;
                     }
@@ -298,21 +298,21 @@
         }
     }
 
-    .sidenav {
+    .argon-container .sidenav {
         &.fixed-left + .main-content {
             margin-left: $argon-navbar-vertical-width;
-            @include transition($argon-transition-base);
+            @include argon-transition($argon-transition-base);
         }
 
         &.fixed-right + .main-content {
             margin-right: $argon-navbar-vertical-width;
-            @include transition($argon-transition-base);
+            @include argon-transition($argon-transition-base);
         }
     }
 
     .g-sidenav-pinned {
         .sidenav {
-            @include media-breakpoint-up(xl) {
+            @include argon-media-breakpoint-up(xl) {
                 &.fixed-left + .main-content {
                     margin-left: $argon-navbar-vertical-open-width;
                 }
@@ -328,11 +328,11 @@
     // Sidenav
     //
 
-    .sidenav {
+    .argon-container .sidenav {
         z-index: 1050;
-        @include transition($argon-transition-base);
+        @include argon-transition($argon-transition-base);
 
-        @include media-breakpoint-up(xl) {
+        @include argon-media-breakpoint-up(xl) {
             &:hover {
                 max-width: $argon-navbar-vertical-open-width;
             }
@@ -349,7 +349,7 @@
         }
     }
 
-    .sidenav-header {
+    .argon-container .sidenav-header {
         height: 78px;
     }
 
@@ -365,7 +365,7 @@
 
             .nav-item .collapse {
                 height: auto;
-                @include transition($argon-transition-base);
+                @include argon-transition($argon-transition-base);
             }
         }
     }
@@ -424,7 +424,7 @@
 
     // Media fixes for iPhone 5 like resolutions
 
-    @include media-breakpoint-down(lg) {
+    @include argon-media-breakpoint-down(lg) {
         .sidenav {
             transform: translateX(-$argon-navbar-vertical-width);
 
@@ -442,13 +442,13 @@
 
     // Sidenav toggler
 
-    .sidenav-toggler-inner,
-    .sidenav-toggler-line {
+    .argon-container .sidenav-toggler-inner,
+    .argon-container .sidenav-toggler-line {
         width: 18px;
-        @include transition($argon-transition-base);
+        @include argon-transition($argon-transition-base);
     }
 
-    .sidenav-toggler-inner {
+    .argon-container .sidenav-toggler-inner {
         position: relative;
 
         &:before {
@@ -461,13 +461,13 @@
             // background-color: rgba($argon-primary, .15);
             border-radius: 50%;
             transform: scale(0);
-            @include transition($argon-transition-cubic-bezier);
+            @include argon-transition($argon-transition-cubic-bezier);
         }
     }
 
-    .sidenav-toggler-line {
+    .argon-container .sidenav-toggler-line {
         height: 2px;
-        background-color: theme-color("default");
+        background-color: argon-theme-color("default");
         display: block;
         position: relative;
 
@@ -476,13 +476,13 @@
         }
     }
 
-    .sidenav-toggler-dark {
+    .argon-container .sidenav-toggler-dark {
         .sidenav-toggler-line {
             background-color: $argon-white;
         }
     }
 
-    .sidenav-toggler {
+    .argon-container .sidenav-toggler {
         cursor: pointer;
 
         &.active {
@@ -493,7 +493,7 @@
             }
 
             .sidenav-toggler-line {
-                background-color: theme-color("primary]");
+                background-color: argon-theme-color("primary]");
 
                 &:first-child {
                     width: 13px;
@@ -507,4 +507,4 @@
             }
         }
     }
-}
+

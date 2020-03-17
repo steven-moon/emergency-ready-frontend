@@ -30,7 +30,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            background-color: theme-color("primary");
+            background-color: argon-theme-color("primary");
             border-radius: 8px;
         }
     }
@@ -47,7 +47,7 @@
     @each $color, $value in $argon-themecolors {
         .checklist-item-#{$color} {
             &:before {
-                background-color: theme-color($color);
+                background-color: argon-theme-color($color);
             }
         }
     }

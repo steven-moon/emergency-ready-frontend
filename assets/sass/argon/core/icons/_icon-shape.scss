@@ -44,7 +44,7 @@
 
 	@each $color, $value in $argon-themecolors {
 		.icon-shape-#{$color} {
-			@include icon-shape-variant(theme-color($color));
+			@include argon-icon-shape-variant(argon-theme-color($color));
 		}
 	}
 }

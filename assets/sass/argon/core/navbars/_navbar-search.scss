@@ -7,7 +7,7 @@
         .input-group {
             border-radius: $argon-navbar-search-border-radius;
             border: $argon-navbar-search-border-width solid;
-            @include transition($argon-transition-bg);
+            @include argon-transition($argon-transition-bg);
             transition-delay: $argon-transition-base-time;
 
             .input-group-text {
@@ -21,7 +21,7 @@
             width: $argon-navbar-search-width;
             background-color: transparent;
             border: 0;
-            @include transition($argon-navbar-search-transition);
+            @include argon-transition($argon-navbar-search-transition);
         }
 
         .focused {
@@ -93,12 +93,12 @@
     }
 
     // When navbar search is open on xs
-    @include media-breakpoint-down(xs) {
+    @include argon-media-breakpoint-down(xs) {
         .navbar-search {
             display: none;
             width: 100%;
             transform: translateX(-150%);
-            @include transition($argon-transition-cubic-bezier);
+            @include argon-transition($argon-transition-cubic-bezier);
 
             .form-group {
                 width: 100%;
@@ -129,7 +129,7 @@
 
         .navbar-top {
             .navbar-nav {
-                @include transition($argon-transition-base);
+                @include argon-transition($argon-transition-base);
             }
         }
 

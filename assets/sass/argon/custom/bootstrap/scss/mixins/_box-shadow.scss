@@ -1,9 +1,9 @@
-@mixin box-shadow($argon-shadow...) {
+@mixin argon-box-shadow($argon-shadow...) {
   @if $argon-enable-shadows {
     $result: ();
 
     @if (length($argon-shadow) == 1) {
-      // We can pass `@include box-shadow(none);`
+      // We can pass `@include argon-box-shadow(none);`
       $result: $argon-shadow;
     } @else {
       // Filter to avoid invalid properties for example `box-shadow: none, 1px 1px black;`

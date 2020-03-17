@@ -13,7 +13,7 @@
                 font-weight: $argon-navbar-nav-link-font-weight;
                 text-transform: $argon-navbar-nav-link-text-transform;
                 letter-spacing: $argon-navbar-nav-link-letter-spacing;
-                // @include transition($argon-navbar-transition);
+                // @include argon-transition($argon-navbar-transition);
 
                 .nav-link-inner--text {
                     margin-left: .25rem;
@@ -53,7 +53,7 @@
             }
         }
 
-        @include media-breakpoint-up(lg) {
+        @include argon-media-breakpoint-up(lg) {
             // .navbar-main {
             //     padding: 1rem 0;
             // }
@@ -187,13 +187,13 @@
             }
         }
 
-        @include media-breakpoint-up(md) {
+        @include argon-media-breakpoint-up(md) {
             &.navbar-transparent {
                 .navbar-nav {
                     .nav-link {
                         color: $argon-navbar-dark-color;
 
-                        @include hover-focus {
+                        @include argon-hover-focus {
                             color: $argon-navbar-dark-hover-color;
                         }
 
@@ -213,7 +213,7 @@
                 .navbar-brand {
                     color: $argon-navbar-dark-color;
 
-                    @include hover-focus {
+                    @include argon-hover-focus {
                         color: $argon-navbar-dark-color;
                     }
                 }
@@ -226,11 +226,11 @@
             display: none;
         }
 
-        @include media-breakpoint-down(md) {
+        @include argon-media-breakpoint-down(md) {
             .navbar-nav {
                 .nav-link {
                     padding: .625rem 0;
-                    color: theme-color("default") !important;
+                    color: argon-theme-color("default") !important;
                 }
 
                 .dropdown-menu {

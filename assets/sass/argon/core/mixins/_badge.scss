@@ -1,10 +1,10 @@
-@mixin badge-variant($bg) {
+@mixin argon-badge-variant($bg) {
 	color: saturate(darken($bg, 10%), 10);
     background-color: lighten($bg, 32%);
 
   	&[href] {
-	    @include hover-focus {
-	        color: color-yiq($bg);
+	    @include argon-hover-focus {
+	        color: argon-color-yiq($bg);
 	        text-decoration: none;
 	        background-color: darken($bg, 12%);
 	    }

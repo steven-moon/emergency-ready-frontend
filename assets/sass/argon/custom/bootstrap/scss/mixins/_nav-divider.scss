@@ -2,7 +2,7 @@
 //
 // Dividers (basically an hr) within dropdowns and nav lists
 
-@mixin nav-divider($color: $argon-nav-divider-color, $margin-y: $argon-nav-divider-margin-y) {
+@mixin argon-nav-divider($color: $argon-nav-divider-color, $margin-y: $argon-nav-divider-margin-y) {
   height: 0;
   margin: $margin-y 0;
   overflow: hidden;

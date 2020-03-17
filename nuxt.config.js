@@ -27,7 +27,7 @@ export default {
     ** Headers of the page
     */
     head: {
-        title: 'Combined Base App',
+        title: 'Emergency Ready App',
         meta: [
             {charset: 'utf-8'},
             {

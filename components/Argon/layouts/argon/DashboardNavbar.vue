@@ -26,7 +26,7 @@
       <li class="nav-item d-xl-none">
         <!-- Sidenav toggler -->
         <div class="pr-3 sidenav-toggler"
-             :class="{active: $asidebar.showSidebar, 'sidenav-toggler-dark': type === 'default', 'sidenav-toggler-light': type === 'light'}"
+             :class="{active: !$asidebar.isMinimized, 'sidenav-toggler-dark': type === 'default', 'sidenav-toggler-light': type === 'light'}"
              @click="toggleSidebar">
           <div class="sidenav-toggler-inner">
             <i class="sidenav-toggler-line"></i>

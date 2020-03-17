@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper blog-posts">
+  <div class="base-container wrapper blog-posts">
     <div class="page-header page-header-small rellax-header">
       <div class="page-header-image" style="background-image: url('img/backgrounds/bg44.jpg') ;">
       </div>
@@ -159,7 +159,7 @@
 
   export default {
     name: 'blog',
-    layout: 'default-no-footer',
+    layout: 'argon-dashboard-layout',
     components: {
     },
     data() {

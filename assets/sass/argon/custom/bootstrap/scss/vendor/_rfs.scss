@@ -60,7 +60,7 @@
   }
 
   // Responsive font-size mixin
-  @mixin rfs($fs, $important: false) {
+  @mixin argon-rfs($fs, $important: false) {
     // Cache $fs unit
     $fs-unit: if(type-of($fs) == "number", unit($fs), false);
 
@@ -183,11 +183,11 @@
   }
 
   // The font-size & responsive-font-size mixin uses RFS to rescale font sizes
-  @mixin font-size($fs, $important: false) {
-    @include rfs($fs, $important);
+  @mixin  argon-font-size($fs, $important: false) {
+    @include argon-rfs($fs, $important);
   }
 
   @mixin responsive-font-size($fs, $important: false) {
-    @include rfs($fs, $important);
+    @include argon-rfs($fs, $important);
   }
 

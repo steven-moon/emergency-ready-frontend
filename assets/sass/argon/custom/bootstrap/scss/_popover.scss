@@ -8,15 +8,15 @@
     max-width: $argon-popover-max-width;
     // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
     // So reset our font and text properties to avoid inheriting weird values.
-    @include reset-text();
-    @include font-size($argon-popover-font-size);
+    @include argon-reset-text();
+    @include  argon-font-size($argon-popover-font-size);
     // Allow breaking very long words so they don't overflow the popover's bounds
     word-wrap: break-word;
     background-color: $argon-popover-bg;
     background-clip: padding-box;
     border: $argon-popover-border-width solid $argon-popover-border-color;
-    @include border-radius($argon-popover-border-radius);
-    @include box-shadow($argon-popover-box-shadow);
+    @include argon-border-radius($argon-popover-border-radius);
+    @include argon-box-shadow($argon-popover-box-shadow);
 
     .arrow {
       position: absolute;
@@ -157,12 +157,12 @@
   .popover-header {
     padding: $argon-popover-header-padding-y $argon-popover-header-padding-x;
     margin-bottom: 0; // Reset the default from Reboot
-    @include font-size($argon-font-size-base);
+    @include  argon-font-size($argon-font-size-base);
     color: $argon-popover-header-color;
     background-color: $argon-popover-header-bg;
     border-bottom: $argon-popover-border-width solid darken($argon-popover-header-bg, 5%);
     $offset-border-width: calc(#{$argon-border-radius-lg} - #{$argon-popover-border-width});
-    @include border-top-radius($offset-border-width);
+    @include argon-border-top-radius($offset-border-width);
 
     &:empty {
       display: none;

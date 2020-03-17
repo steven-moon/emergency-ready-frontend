@@ -5,7 +5,7 @@
 
   // Ascending
   // Used to evaluate Sass maps like our grid breakpoints.
-  @mixin _assert-ascending($argon-map, $argon-map-name) {
+  @mixin _argon-assert-ascending($argon-map, $argon-map-name) {
     $argon-prev-key: null;
     $argon-prev-num: null;
     @each $key, $num in $argon-map {
@@ -23,7 +23,7 @@
 
   // Starts at zero
   // Used to ensure the min-width of the lowest breakpoint starts at 0.
-  @mixin _assert-starts-at-zero($argon-map, $argon-map-name: "$argon-grid-breakpoints") {
+  @mixin _argon-assert-starts-at-zero($argon-map, $argon-map-name: "$argon-grid-breakpoints") {
     $values: map-values($argon-map);
     $first-value: nth($values, 1);
     @if $first-value != 0 {
@@ -50,7 +50,7 @@
   }
 
   // Color contrast
-  @function color-yiq($color, $argon-dark: $argon-yiq-text-dark, $argon-light: $argon-yiq-text-light) {
+  @function argon-color-yiq($color, $argon-dark: $argon-yiq-text-dark, $argon-light: $argon-yiq-text-light) {
     $r: red($color);
     $g: green($color);
     $b: blue($color);
@@ -69,7 +69,7 @@
     @return map-get($argon-colors, $key);
   }
 
-  @function theme-color($key: "primary") {
+  @function argon-theme-color($key: "primary") {
     @return map-get($argon-themecolors, $key);
   }
 
@@ -78,8 +78,8 @@
   }
 
   // Request a theme color level
-  @function theme-color-level($color-name: "primary", $argon-level: 0) {
-    $color: theme-color($color-name);
+  @function argon-theme-color-level($color-name: "primary", $argon-level: 0) {
+    $color: argon-theme-color($color-name);
     $color-base: if($argon-level > 0, $argon-black, $argon-white);
     $argon-level: abs($argon-level);
 

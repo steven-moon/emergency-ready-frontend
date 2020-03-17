@@ -248,8 +248,8 @@ $argon-grid-breakpoints: (
   xl: 1200px
 );
 
-@include _assert-ascending($argon-grid-breakpoints, "$argon-grid-breakpoints");
-@include _assert-starts-at-zero($argon-grid-breakpoints);
+@include _argon-assert-ascending($argon-grid-breakpoints, "$argon-grid-breakpoints");
+@include _argon-assert-starts-at-zero($argon-grid-breakpoints);
 
 
 
@@ -320,8 +320,8 @@ $argon-box-shadow-lg:               0 0 3rem rgba($argon-gray-600, .175) !defaul
 // Component - main styles for most of the components
 
 $argon-component-active-color:        $argon-white !default;
-$argon-component-active-bg:           theme-color("primary") !default;
-$argon-component-active-border-color: theme-color("primary") !default;
+$argon-component-active-bg:           argon-theme-color("primary") !default;
+$argon-component-active-border-color: argon-theme-color("primary") !default;
 
 $argon-component-hover-color:        $argon-gray-300 !default;
 $argon-component-hover-bg:           $argon-gray-300 !default;
@@ -476,15 +476,15 @@ $argon-table-action-color:          $argon-gray-500 !default;
 
 $argon-table-body-font-size:        .8125rem !default;
 
-$argon-table-dark-bg:               theme-color("default") !default;
+$argon-table-dark-bg:               argon-theme-color("default") !default;
 $argon-table-dark-accent-bg:        rgba($argon-white, .05) !default;
 $argon-table-dark-hover-bg:         rgba($argon-white, .075) !default;
-$argon-table-dark-border-color:     lighten(theme-color("default"), 7%) !default;
+$argon-table-dark-border-color:     lighten(argon-theme-color("default"), 7%) !default;
 $argon-table-dark-color:            $argon-body-bg !default;
 
-$argon-table-dark-head-bg:          lighten(theme-color("default"), 4%) !default;
-$argon-table-dark-head-color:       lighten(theme-color("default"), 35%) !default;
-$argon-table-dark-action-color:     lighten(theme-color("default"), 35%) !default;
+$argon-table-dark-head-bg:          lighten(argon-theme-color("default"), 4%) !default;
+$argon-table-dark-head-color:       lighten(argon-theme-color("default"), 35%) !default;
+$argon-table-dark-action-color:     lighten(argon-theme-color("default"), 35%) !default;
 
 
 
@@ -568,9 +568,9 @@ $argon-form-group-margin-bottom:              1.5rem !default;
 // Form validation
 
 $argon-form-feedback-valid-bg:         lighten($argon-success, 15%) !default;
-$argon-form-feedback-valid-color:      theme-color("success") !default;
+$argon-form-feedback-valid-color:      argon-theme-color("success") !default;
 $argon-form-feedback-invalid-bg:       lighten($argon-warning, 15%) !default;
-$argon-form-feedback-invalid-color:    theme-color("warning") !default;
+$argon-form-feedback-invalid-color:    argon-theme-color("warning") !default;
 
 
 
@@ -612,7 +612,7 @@ $argon-custom-control-indicator-checked-color:        $argon-component-active-co
 $argon-custom-control-indicator-checked-bg:           $argon-component-active-bg !default;
 $argon-custom-control-indicator-checked-border-color: $argon-component-active-border-color !default;
 $argon-custom-control-indicator-checked-box-shadow:   $argon-custom-control-indicator-box-shadow !default;
-$argon-custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+$argon-custom-control-indicator-checked-disabled-bg:  rgba(argon-theme-color("primary"), .5) !default;
 
 $argon-custom-control-indicator-disabled-bg:          $argon-gray-200 !default;
 $argon-custom-control-label-disabled-color:           $argon-gray-600 !default;
@@ -624,7 +624,7 @@ $argon-custom-checkbox-indicator-border-radius:       $argon-border-radius-sm !d
 
 $argon-custom-toggle-width:                           52px !default;
 $argon-custom-toggle-slider-bg:                       $argon-gray-200 !default;
-$argon-custom-toggle-checked-bg:                      theme-color("primary") !default;
+$argon-custom-toggle-checked-bg:                      argon-theme-color("primary") !default;
 $argon-custom-toggle-border-color:                    $argon-gray-400;
 
 
@@ -698,7 +698,7 @@ $argon-map-height: 500px !default;
 $argon-nav-link-padding-y:                .25rem !default;
 $argon-nav-link-padding-x:                .75rem !default;
 $argon-nav-link-color:                    $argon-gray-700 !default;
-$argon-nav-link-hover-color:              theme-color("primary") !default;
+$argon-nav-link-hover-color:              argon-theme-color("primary") !default;
 $argon-nav-link-disabled-color:           $argon-gray-600 !default;
 
 $argon-nav-pills-padding-y:               .75rem !default;
@@ -708,13 +708,13 @@ $argon-nav-pills-space-x:                 1rem !default;
 
 $argon-nav-pills-bg:                      $argon-white !default;
 $argon-nav-pills-border-width:            1px !default;
-$argon-nav-pills-border-color:            theme-color("primary") !default;
+$argon-nav-pills-border-color:            argon-theme-color("primary") !default;
 $argon-nav-pills-border-radius:           $argon-border-radius !default;
 
-$argon-nav-pills-link-color:              theme-color("primary") !default;
-$argon-nav-pills-link-hover-color:        darken(theme-color("primary"), 5%) !default;
-$argon-nav-pills-link-active-color:       color-yiq(theme-color("primary")) !default;
-$argon-nav-pills-link-active-bg:          theme-color("primary") !default;
+$argon-nav-pills-link-color:              argon-theme-color("primary") !default;
+$argon-nav-pills-link-hover-color:        darken(argon-theme-color("primary"), 5%) !default;
+$argon-nav-pills-link-active-color:       argon-color-yiq(argon-theme-color("primary")) !default;
+$argon-nav-pills-link-active-bg:          argon-theme-color("primary") !default;
 $argon-nav-pills-box-shadow:              $argon-btn-box-shadow !default;
 
 
@@ -758,7 +758,7 @@ $argon-navbar-light-toggler-border-color:        transparent !default;
 
 $argon-navbar-vertical-box-shadow:                0 0 2rem 0 rgba(136, 152, 170, .15) !default;
 $argon-navbar-vertical-border-color:              rgba($argon-black, .05) !default;
-$argon-navbar-vertical-width:                     62px !default;
+$argon-navbar-vertical-width:                     250px !default;
 $argon-navbar-vertical-open-width:                250px !default;
 $argon-navbar-vertical-padding-x:                 1.5rem !default;
 $argon-navbar-vertical-nav-link-padding-x:        1.5rem !default;
@@ -1012,10 +1012,10 @@ $argon-datepicker-disabled-old-new-color: $argon-gray-500 !default;
 $argon-datepicker-header-cell-border-radius: $argon-border-radius !default;
 
 $argon-datepicker-active-color: $argon-white !default;
-$argon-datepicker-active-background: theme-color("primary") !default;
+$argon-datepicker-active-background: argon-theme-color("primary") !default;
 $argon-datepicker-active-box-shadow:      none !default;
 
-$argon-datepicker-range-background: theme-color("primary") !default;
+$argon-datepicker-range-background: argon-theme-color("primary") !default;
 $argon-datepicker-range-cell-focused-background: darken($argon-datepicker-range-background, 5%);
 $argon-datepicker-range-color: $argon-white !default;
 $argon-datepicker-range-highlighted-bg: $argon-gray-200 !default;
@@ -1038,7 +1038,7 @@ $argon-noui-slider-connect-bg:          $argon-primary !default;
 $argon-noui-slider-connect-disabled-bg: #b2b2b2 !default;
 
 $argon-noui-handle-width:               15px !default;
-$argon-noui-handle-bg:                  theme-color("primary") !default;
+$argon-noui-handle-bg:                  argon-theme-color("primary") !default;
 $argon-noui-handle-border:              0 !default;
 $argon-noui-handle-border-radius:       100% !default;
 
@@ -1119,9 +1119,9 @@ $argon-tags-input-border-width:           0;
 $argon-tags-input-border-color:           transparent;
 $argon-tags-input-color:                  $argon-gray-600;
 
-$tag-bg:                            theme-color("default");
-$tag-color:                         color-yiq(theme-color("default"));
-$tag-close-color:                   color-yiq(theme-color("default"));
+$tag-bg:                            argon-theme-color("default");
+$tag-color:                         argon-color-yiq(argon-theme-color("default"));
+$tag-close-color:                   argon-color-yiq(argon-theme-color("default"));
 $tag-box-shadow:                    0 1px 2px rgba(68,68,68,0.25);
 
 

@@ -14,7 +14,7 @@
 		position: relative;
 		z-index: 1;
 		border: 4px solid $argon-white;
-		@include transition($argon-transition-base);
+		@include argon-transition($argon-transition-base);
 	}
 
 	.media-comment-text {

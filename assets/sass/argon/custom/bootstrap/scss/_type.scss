@@ -15,55 +15,55 @@
   }
 
   h1, .h1 {
-    @include font-size($argon-h1-font-size);
+    @include  argon-font-size($argon-h1-font-size);
   }
 
   h2, .h2 {
-    @include font-size($argon-h2-font-size);
+    @include  argon-font-size($argon-h2-font-size);
   }
 
   h3, .h3 {
-    @include font-size($argon-h3-font-size);
+    @include  argon-font-size($argon-h3-font-size);
   }
 
   h4, .h4 {
-    @include font-size($argon-h4-font-size);
+    @include  argon-font-size($argon-h4-font-size);
   }
 
   h5, .h5 {
-    @include font-size($argon-h5-font-size);
+    @include  argon-font-size($argon-h5-font-size);
   }
 
   h6, .h6 {
-    @include font-size($argon-h6-font-size);
+    @include  argon-font-size($argon-h6-font-size);
   }
 
   .lead {
-    @include font-size($argon-lead-font-size);
+    @include  argon-font-size($argon-lead-font-size);
     font-weight: $argon-lead-font-weight;
   }
 
   // Type display classes
   .display-1 {
-    @include font-size($argon-display1-size);
+    @include  argon-font-size($argon-display1-size);
     font-weight: $argon-display1-weight;
     line-height: $argon-display-line-height;
   }
 
   .display-2 {
-    @include font-size($argon-display2-size);
+    @include  argon-font-size($argon-display2-size);
     font-weight: $argon-display2-weight;
     line-height: $argon-display-line-height;
   }
 
   .display-3 {
-    @include font-size($argon-display3-size);
+    @include  argon-font-size($argon-display3-size);
     font-weight: $argon-display3-weight;
     line-height: $argon-display-line-height;
   }
 
   .display-4 {
-    @include font-size($argon-display4-size);
+    @include  argon-font-size($argon-display4-size);
     font-weight: $argon-display4-weight;
     line-height: $argon-display-line-height;
   }
@@ -87,7 +87,7 @@
 
   small,
   .small {
-    @include font-size($argon-small-font-size);
+    @include  argon-font-size($argon-small-font-size);
     font-weight: $argon-font-weight-normal;
   }
 
@@ -126,19 +126,19 @@
 
   // Builds on `abbr`
   .initialism {
-    @include font-size(90%);
+    @include  argon-font-size(90%);
     text-transform: uppercase;
   }
 
   // Blockquotes
   .blockquote {
     margin-bottom: $argon-spacer;
-    @include font-size($argon-blockquote-font-size);
+    @include  argon-font-size($argon-blockquote-font-size);
   }
 
   .blockquote-footer {
     display: block;
-    @include font-size($argon-blockquote-small-font-size);
+    @include  argon-font-size($argon-blockquote-small-font-size);
     color: $argon-blockquote-small-color;
 
     &::before {

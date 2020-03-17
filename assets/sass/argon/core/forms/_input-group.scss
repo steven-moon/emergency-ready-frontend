@@ -11,7 +11,7 @@
 	.input-group {
 		box-shadow: $argon-input-box-shadow;
 		border-radius: $argon-input-border-radius;
-		@include transition($argon-transition-ease-in-out);
+		@include argon-transition($argon-transition-ease-in-out);
 
 		.form-control {
 			box-shadow: none;
@@ -23,7 +23,7 @@
 	}
 
 	.input-group-text {
-		@include transition($argon-input-transition);
+		@include argon-transition($argon-input-transition);
 
 		i {
 			font-size: $argon-font-size-sm;

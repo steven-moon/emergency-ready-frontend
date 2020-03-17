@@ -6,8 +6,8 @@
   // Custom styles for additional flex alignment options.
 
   @each $breakpoint in map-keys($argon-grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-      $infix: breakpoint-infix($breakpoint, $argon-grid-breakpoints);
+    @include argon-media-breakpoint-up($breakpoint) {
+      $infix: argon-breakpoint-infix($breakpoint, $argon-grid-breakpoints);
 
       .flex#{$infix}-row {
         flex-direction: row !important;

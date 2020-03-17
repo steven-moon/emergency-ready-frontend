@@ -3,7 +3,7 @@
 // Used only by Bootstrap to generate the correct number of grid classes given
 // any value of `$argon-grid-columns`.
 
-@mixin make-grid-columns($columns: $argon-grid-columns, $gutter: $argon-grid-gutter-width, $breakpoints: $argon-grid-breakpoints) {
+@mixin argon-make-grid-columns($columns: $argon-grid-columns, $gutter: $argon-grid-gutter-width, $breakpoints: $argon-grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
@@ -13,7 +13,7 @@
   }
 
   @each $breakpoint in map-keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $infix: argon-breakpoint-infix($breakpoint, $breakpoints);
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
@@ -26,7 +26,7 @@
       @extend %grid-column;
     }
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include argon-media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
         flex-basis: 0;
@@ -41,7 +41,7 @@
 
       @for $i from 1 through $columns {
         .col#{$infix}-#{$i} {
-          @include make-col($i, $columns);
+          @include argon-make-col($i, $columns);
         }
       }
 
@@ -57,7 +57,7 @@
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
           .offset#{$infix}-#{$i} {
-            @include make-col-offset($i, $columns);
+            @include argon-make-col-offset($i, $columns);
           }
         }
       }

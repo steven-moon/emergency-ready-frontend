@@ -17,10 +17,10 @@
 
     .card-pricing.popular {
         z-index: 1;
-        border: 3px solid theme-color("primary") !important;
+        border: 3px solid argon-theme-color("primary") !important;
     }
 
-    @include media-breakpoint-up(md) {
+    @include argon-media-breakpoint-up(md) {
         .card-pricing.zoom-in {
             z-index: 1;
             transform: scale(1.1);
