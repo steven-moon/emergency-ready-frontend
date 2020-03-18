@@ -32,7 +32,7 @@
            </div>
          </div>
 
-         <ul class="navbar-nav mr-auto">
+         <ul class="navbar-nav mr-auto" v-if="isUserLoggedIn">
            <li class="nav-item">
              <nuxt-link to="/dashboards" class="nav-link">
                <span class="nav-link-inner--text">Dashboards</span>
@@ -97,27 +97,21 @@
          <hr class="d-lg-none">
          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
            <li class="nav-item">
-             <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" rel="noopener" aria-label="Facebook">
+             <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
                <i class="fab fa-facebook-square"></i>
                <span class="nav-link-inner--text d-lg-none">Facebook</span>
              </a>
            </li>
            <li class="nav-item">
-             <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" rel="noopener" aria-label="Instagram">
+             <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
                <i class="fab fa-instagram"></i>
                <span class="nav-link-inner--text d-lg-none">Instagram</span>
              </a>
            </li>
            <li class="nav-item">
-             <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" rel="noopener" aria-label="Twitter">
+             <a class="nav-link nav-link-icon" href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter">
                <i class="fab fa-twitter-square"></i>
                <span class="nav-link-inner--text d-lg-none">Twitter</span>
-             </a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial" target="_blank" rel="noopener" aria-label="Github">
-               <i class="fab fa-github"></i>
-               <span class="nav-link-inner--text d-lg-none">Github</span>
              </a>
            </li>
          </ul>
@@ -133,23 +127,19 @@
           <div class="row align-items-center justify-content-xl-between">
             <div class="col-xl-6">
               <div class="copyright text-center text-lg-left text-muted">
-                © {{year}} <a href="/" class="font-weight-bold ml-1" rel="noopener">Creative Tim</a> &
-                <a href="https://www.binarcode.com?ref=creative-tim" class="font-weight-bold ml-1" target="_blank" rel="noopener">Binar Code</a>
+                © {{year}} <a href="/" class="font-weight-bold ml-1" rel="noopener">Clever Coding LLC</a>
               </div>
             </div>
             <div class="col-xl-6">
               <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                 <li class="nav-item">
-                  <a href="/" class="nav-link" rel="noopener">Creative Tim</a>
+                  <a href="/about" class="nav-link" target="_blank" rel="noopener">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank" rel="noopener">About Us</a>
+                  <a href="/blog/" class="nav-link" target="_blank" rel="noopener">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a href="http://blog.creative-tim.com" class="nav-link" target="_blank" rel="noopener">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank" rel="noopener">License</a>
+                  <a href="/privacy-policy" class="nav-link" target="_blank" rel="noopener">Terms & Privacy</a>
                 </li>
               </ul>
             </div>
@@ -161,6 +151,7 @@
 </template>
 <script>
   import BaseNav  from '~/components/Argon/argon-core/Navbar/BaseNav.vue';
+  import {mapActions, mapGetters} from "vuex";
 
   export default {
     components: {
@@ -195,6 +186,13 @@
       };
     },
     computed: {
+      ...mapActions([
+        'logout'
+      ]),
+      ...mapGetters({
+        isUserLoggedIn: 'isUserLoggedIn',
+      }),
+
       title() {
         return `${this.$route.name} Page`;
       },

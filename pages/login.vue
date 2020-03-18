@@ -1,85 +1,72 @@
 <template>
-   <div class="summa-container">
-      <section class="section-login">
-      <div class="section__inner">
-         <div class="form-login">
-            <div v-if="showSpinner">
-               <tile :loading="showSpinner"></tile>
+    <div>
+        <!-- Header -->
+        <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
+            <div class="container">
+                <div class="header-body text-center mb-7">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                            <h1 class="text-white">Login</h1>
+                            <p class="text-lead text-white"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <form @submit.prevent="handleFormSubmit" v-else>
-               <div class="form__head">
-                  <h3>Log in</h3>
-               </div>
+            <div class="separator separator-bottom separator-skew zindex-100">
+                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container mt--8 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="card bg-secondary border-0 mb-0">
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div v-if="showSpinner">
+                                <tile :loading="showSpinner"></tile>
+                            </div>
 
-               <div class="form__body">
-                  <div class="form__row" v-if="message">
-                     <div class="form__col">
-                        <base-alert :type="alertType">{{message}}</base-alert>
-                     </div>
-                  </div>
-                  <div class="form__row">
-                     <div class="form__col">
-                        <div class="form__controls">
-                           <field
-                              :is-invalid="fieldError(['email'])"
-                              :is-required="requiredField(['email'])"
-                              error-message="Error: Invalid Email"
-                              id="field-username"
-                              label="E-Mail"
-                              placeholder="Example: john@gmail.com"
-                              size="large"
-                              v-model.trim="$v.form.email.$model"
-                              withAsterisk
-                           />
-                        </div><!-- /.form__controls -->
-                     </div>
-                  </div>
+                            <form @submit.prevent="handleFormSubmit" v-else>
+                                <div v-if="message"  class="text-center">
+                                    <base-alert :type="alertType">{{message}}</base-alert>
+                                </div>
+                                <base-input alternative
+                                            class="mb-3"
+                                            placeholder="Email"
+                                            prepend-icon="ni ni-email-83"
+                                            v-model="$v.form.email.$model">
+                                </base-input>
 
-                  <div class="form__row">
-                     <div class="form__col">
-                        <div class="form__controls">
-                           <field
-                              :is-invalid="fieldError(['password'])"
-                              :is-required="requiredField(['password'])"
-                              error-message="Error: Password must be at least 6 characters"
-                              id="field-password"
-                              label="Password"
-                              placeholder="Your Password"
-                              size="large"
-                              type="password"
-                              v-model.trim="$v.form.password.$model"
-                              withAsterisk
-                           />
-                        </div><!-- /.form__controls -->
-                     </div>
-                  </div>
-               </div>
+                                <base-input alternative
+                                            class="mb-3"
+                                            placeholder="Password"
+                                            prepend-icon="ni ni-lock-circle-open"
+                                            type="password"
+                                            v-model="$v.form.password.$model">
+                                </base-input>
 
-               <div class="form__actions">
-                  <div class="d-flex justify-content-between align-items-center flex-wrap">
-                     <div class="password-link">
-                        <a href="/forgot-password">
-                           <img alt="" height="16" src="/images/ico-questionmark@2x.png" width="16">
-
-                           <span>Forgot password?</span>
-                        </a>
-                     </div>
-
-                     <div class="checkbox">
-                        <a href="/signup">
-
-                           <span>Create Account</span>
-                        </a>
-                     </div>
-
-                     <button class="form__btn btn" type="submit">Log In</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </section>
-   </div>
+                                <base-checkbox v-model="form.rememberMe">Remember me</base-checkbox>
+                                <div class="text-center">
+                                    <base-button class="my-4" type="primary">Sign in</base-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <nuxt-link class="text-light" to="/forgot-password"><small>Forgot password?</small>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 text-right">
+                            <nuxt-link class="text-light" to="/signup"><small>Create new account</small></nuxt-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -92,10 +79,9 @@
     /**
      * @ The internal dependecies.
      */
-    import Field from '~/components/Summa/Common/Field';
     import CommonAPI from '~/api/CommonAPI';
     import formValidationMixin from '~/plugins/form-validation';
-    import {BaseAlert } from '~/components/Black';
+    import BaseAlert from '~/components/Argon/argon-core/BaseAlert';
 
     export default {
         name: 'login',
@@ -103,9 +89,8 @@
             validationMixin,
             formValidationMixin
         ],
-        layout: "argon-dashboard-layout",
+        layout: "argon-auth-layout",
         components: {
-            Field,
             BaseAlert
         },
         validations: {
@@ -120,7 +105,8 @@
             alertType: "info",
             form: {
                 email: '',
-                password: ''
+                password: '',
+                rememberMe: true
             }
         }),
         computed: {
@@ -140,7 +126,7 @@
                     console.log(this.$v.form);
                     this.alertType = 'danger';
                     this.message = "Error in form.  Make sure you are using a valid email and passwords.";
-                }else {
+                } else {
                     this.showSpinner = true;
                     this.message = null;
                     CommonAPI.login(this.$store, this.form.email, this.form.password)
@@ -166,9 +152,9 @@
                                 window.location.href = "/";
                             } else {
                                 this.alertType = 'danger';
-                                if(response.message && response.message.length > 0) {
+                                if (response.message && response.message.length > 0) {
                                     this.message = response.message;
-                                }else{
+                                } else {
                                     this.message = 'A server error has occurred.  Please try again later.';
                                 }
                                 this.showSpinner = false;

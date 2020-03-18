@@ -1,62 +1,62 @@
 <template>
-    <section class="section-login">
-        <div class="section__inner">
-            <div class="form-login">
-                <div v-if="showSpinner">
-                    <tile :loading="showSpinner"></tile>
+    <div>
+        <!-- Header -->
+        <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
+            <div class="container">
+                <div class="header-body text-center mb-7">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                            <h1 class="text-white">Forgot Password</h1>
+                            <p class="text-lead text-white">Enter your email below to get sent a reset password</p>
+                        </div>
+                    </div>
                 </div>
-               <div v-else>
-                <form @submit.prevent="handleFormSubmit">
-                    <div class="form__head">
-                        <h3>Forgot Password</h3>
-                    </div>
-
-                    <div class="form__body">
-                       <div class="form__row" v-if="message">
-                          <div class="form__col">
-                             <base-alert :type="alertType">{{message}}</base-alert>
-                          </div>
-                       </div>
-                        <div class="form__row">
-                            <div class="form__col">
-                                <div class="form__controls">
-                                    <field
-                                            :is-invalid="fieldError(['email'])"
-                                            :is-required="requiredField(['email'])"
-                                            error-message="Error: Invalid Email"
-                                            id="field-username"
-                                            label="E-Mail"
-                                            placeholder="Example: john@gmail.com"
-                                            size="large"
-                                            v-model.trim="$v.form.email.$model"
-                                            withAsterisk
-                                    />
-                                </div><!-- /.form__controls -->
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="form__actions">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap">
-                            <button class="form__btn btn" type="submit">Send Reset Password Email</button>
-                        </div>
-                    </div>
-                </form>
-               </div>
-               <div>
-                  <form @submit.prevent="returnToLogin">
-
-                     <div class="form__actions">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap">
-                           <button class="form__btn btn" type="submit">Return to Login</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
+            </div>
+            <div class="separator separator-bottom separator-skew zindex-100">
+                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
             </div>
         </div>
-    </section>
+        <!-- Page content -->
+        <div class="container mt--8 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="card bg-secondary border-0 mb-0">
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <div v-if="showSpinner">
+                                <tile :loading="showSpinner"></tile>
+                            </div>
+                            <form @submit.prevent="handleFormSubmit" v-else>
+                                <div v-if="message"  class="text-center">
+                                    <base-alert :type="alertType">{{message}}</base-alert>
+                                </div>
+                                <base-input alternative
+                                            class="mb-3"
+                                            placeholder="Email"
+                                            prepend-icon="ni ni-email-83"
+                                            v-model="$v.form.email.$model">
+                                </base-input>
+
+                                <div class="text-center">
+                                    <base-button class="my-4" type="primary">Send Reset Email</base-button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <nuxt-link class="text-light" to="/login"><small>Return to Login</small>
+                            </nuxt-link>
+                        </div>
+                        <div class="col-6 text-right">
+                            <nuxt-link class="text-light" to="/"><small>Home Page</small></nuxt-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -80,7 +80,7 @@
             validationMixin,
             formValidationMixin
         ],
-        layout: "login",
+        layout: "argon-auth-layout",
         components: {
             Field,
             BaseAlert

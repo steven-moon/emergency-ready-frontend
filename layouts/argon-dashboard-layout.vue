@@ -23,7 +23,7 @@
           </argon-sidebar-item>
 
           <argon-sidebar-item :link="{
-                    name: 'Examples',
+                    name: 'Sections',
                     icon: 'ni ni-ungroup text-orange'
                     }">
             <argon-sidebar-item :link="{ name: 'Twitter Feed', path: '/twitter-feed' }"/>
