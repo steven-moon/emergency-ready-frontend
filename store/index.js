@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
+import reportStore from './modules/reportStore';
 import userStore from './modules/userStore';
 import cityStore from './modules/cityStore';
 import testimonialStore from './modules/testimonialStore';
@@ -19,6 +20,7 @@ const createStore = () => {
    return new Vuex.Store({
       namespaced,
       modules: {
+         reportStore: reportStore,
          userStore: userStore,
         cityStore: cityStore,
         teamStore: teamStore,

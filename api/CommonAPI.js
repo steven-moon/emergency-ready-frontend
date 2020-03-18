@@ -17,6 +17,23 @@ function addUserName(item, index, arr) {
 }
 
 const instance = {
+    getAllPost(authToken, path, data) {
+        let params = null;
+        let baseUrl = this.getBaseURL(path, '', params);
+        let config = this.getBaseAPIConfig(authToken);
+
+        //axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        axios.defaults.withCredentials = false;
+
+        return axios.post(baseUrl, data, config)
+            .then(response => {
+                return response.data.data;
+            })
+            .catch((error) => {
+                console.log(error);
+                return error;
+            });
+    },
     getAll(authToken, path, params, offset = 0, limit = 200) {
 
         let baseUrl = this.getBaseURL(path, '', params, offset, limit);
@@ -117,12 +134,8 @@ const instance = {
         //console.log("document.domain: " + document.domain);
         if (process.env.baseUrl) {
             baseUrl = process.env.baseUrl;
-        } else if (document && document.domain === 'beta.summacoding.com') {
-            baseUrl = 'https://beta-api.summacoding.com/';
-        } else if (document && document.domain === 'summacoding.com') {
-            baseUrl = 'https://api.summacoding.com/';
         } else {
-            baseUrl = 'http://summa-api:8080/';
+            baseUrl = 'http://emergency-api:8080/';
         }
 
         baseUrl = baseUrl + 'api/' + path;
@@ -147,10 +160,17 @@ const instance = {
     getBaseAPIConfig(authToken) {
         //console.log('getBaseAPIConfig. authToken: ' + store.getters.getAuthToken);
 
-        return {
-            headers: this.getBaseHeaders(authToken),
-            responseType: 'json'
-        };
+        if(authToken && authToken.length > 0) {
+            return {
+                headers: this.getBaseHeaders(authToken),
+                responseType: 'json'
+            };
+        }else{
+            return {
+                headers: this.getBaseHeadersNoAuth(),
+                responseType: 'json'
+            };
+        }
     },
     getBaseFileAPIConfig(theStore) {
         //console.log('getBaseAPIConfig. authToken: ' + store.getters.getAuthToken);
@@ -159,6 +179,12 @@ const instance = {
             headers: this.getBaseFileHeaders(authToken),
             responseType: 'json'
         };
+    },
+    getBaseHeadersNoAuth() {
+
+        return {
+            "api-auth": "12,34,644",
+        }
     },
     getBaseHeaders(authToken) {
 

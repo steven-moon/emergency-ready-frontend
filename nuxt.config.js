@@ -116,7 +116,6 @@ export default {
         '@nuxtjs/dotenv',
         '@nuxtjs/redirect-module',
         '@nuxtjs/sitemap',
-        '@nuxtjs/axios',
         ['@nuxtjs/google-analytics', {id: process.env.GOOGLE_ID}],
         'cookie-universal-nuxt',
         'nuxt-i18n',
@@ -136,6 +135,10 @@ export default {
         lazy: true,
         langDir: 'lang/',
         defaultLocale: 'en',
+    },
+    axios: {
+        baseURL: "https://api.emergencyreadyapp.com/api",
+        credentials: false
     },
     /*
      ** Build configuration
@@ -176,7 +179,7 @@ export default {
     env: {
         WORDPRESS: process.env.WORDPRESS || 'https://wordpress.emergencyreadyapp.com/',
         HOST: process.env.HOST || '0.0.0.0',
-        baseApiUrl: process.env.baseApiUrl || 'https://api.summacoding.com/api',
+        baseApiUrl: process.env.baseApiUrl || 'https://api.emergencyreadyapp.com/api',
         WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-coding/v1/get-post',
         WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-codingy/v1/get-posts',
     },
