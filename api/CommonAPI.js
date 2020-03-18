@@ -135,7 +135,7 @@ const instance = {
         if (process.env.baseUrl) {
             baseUrl = process.env.baseUrl;
         } else {
-            baseUrl = 'http://emergency-api:8080/';
+            baseUrl = 'https://api.emergencyreadyapp.com/';
         }
 
         baseUrl = baseUrl + 'api/' + path;
