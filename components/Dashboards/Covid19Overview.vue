@@ -4,7 +4,7 @@
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white d-inline-block mb-0">Covid-19 Overview</h6>
-                    <span class="text-nowrap"> data as of {{dataDate}}</span>
+                    <span class="text-nowrap"> data as of {{dataDate | formatDate}}</span>
                 </div>
             </div>
             <!-- Card stats -->
@@ -14,9 +14,9 @@
             <div v-else class="row">
                 <div class="col-xl-3 col-md-6">
                     <stats-card title="Total Confirmed"
-                                type="gradient-red"
+                                type="gradient-orange"
                                 :sub-title="overViewValues.confirmed"
-                                icon="ni ni-active-40">
+                                icon="ni ni-ambulance">
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.confirmed_percentage}}%</span>
@@ -26,9 +26,9 @@
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <stats-card title="Total Deaths"
-                                type="gradient-orange"
+                                type="gradient-red"
                                 :sub-title="overViewValues.deaths"
-                                icon="ni ni-chart-pie-35">
+                                icon="ni ni-single-02">
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.deaths_percentage}}%</span>
@@ -40,7 +40,7 @@
                     <stats-card title="Total Recovered"
                                 type="gradient-green"
                                 :sub-title="overViewValues.recovered"
-                                icon="ni ni-money-coins">
+                                icon="ni ni-satisfied">
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.recovered_percentage}}%</span>
@@ -113,6 +113,7 @@
     </div>
 </template>
 <script>
+    import moment from 'moment';
     import {mapGetters} from 'vuex';
 
     // Charts
@@ -235,6 +236,14 @@
                     labels: labels,
                 };
 
+            }
+        },
+        filters: {
+            formatDate(value) {
+                if(value) {
+                    return moment(value).format('MMM D')
+
+                }
             }
         },
         methods: {
