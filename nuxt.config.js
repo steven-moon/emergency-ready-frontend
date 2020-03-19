@@ -116,10 +116,10 @@ export default {
         '@nuxtjs/dotenv',
         '@nuxtjs/redirect-module',
         '@nuxtjs/sitemap',
-        ['@nuxtjs/google-analytics', {id: process.env.GOOGLE_ID}],
+        ['@nuxtjs/google-analytics', {id: 'G-HWPLF2DR7W'}],
         'cookie-universal-nuxt',
         'nuxt-i18n',
-        ['@nuxtjs/google-gtag', {id: process.env.GOOGLE_ID || 'G-74KS4Z8X2W'}]
+        ['@nuxtjs/google-gtag', {id: 'G-HWPLF2DR7W'}]
     ],
     i18n: {
         locales: [
@@ -212,15 +212,15 @@ export default {
     {from: '^/(.*)\.php$', to: '/$1'},
     {from: '^/(.*)\.html$', to: '/$1'},
   ],
-    sitemap: {
-        hostname: 'https://clevercoding.com',
-        exclude: [
-            '/samples',
-            '/samples/**'
-        ],
-        routes: [
-            "/States/Mobile-Dev-Alabama",
-            "/States/Mobile-Dev-Alaska",
-        ]
-    },
+    // sitemap: {
+    //     hostname: 'https://clevercoding.com',
+    //     exclude: [
+    //         '/samples',
+    //         '/samples/**'
+    //     ],
+    //     routes: [
+    //         "/States/Mobile-Dev-Alabama",
+    //         "/States/Mobile-Dev-Alaska",
+    //     ]
+    // },
 };
