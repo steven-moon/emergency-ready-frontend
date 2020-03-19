@@ -41,6 +41,44 @@
           </argon-sidebar-item>
 
         </template>
+        <template slot="links-after">
+          <hr class="my-3">
+          <h6 class="navbar-heading p-0 text-muted"></h6>
+
+          <ul class="navbar-nav mb-md-3">
+            <li class="nav-item">
+              <a class="nav-link" href="https://clevercoding.com/"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-atom"></i>
+                <span class="nav-link-text">Custom App Development</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/emergency-ready-app"
+                 target="_blank" rel="noopener">
+                <i class="ni ambulance"></i>
+                <span class="nav-link-text">Custom Branded Emergency App</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/contactus"
+                 target="_blank" rel="noopener">
+                <i class="ni chat-round"></i>
+                <span class="nav-link-text">Contact Us</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/blog"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-collection"></i>
+                <span class="nav-link-text">Blog</span>
+              </a>
+            </li>
+          </ul>
+        </template>
       </argon-side-bar>
       <div class="main-content">
         <app-dashboard-navbar type="default"></app-dashboard-navbar>

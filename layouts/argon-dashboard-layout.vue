@@ -11,24 +11,25 @@
           <argon-sidebar-item
             :link="{
               name: 'Dashboards',
-              icon: 'ni ni-shop text-primary',
+              icon: 'ni ni-chart-bar-32 text-primary',
             }"
           >
-            <argon-sidebar-item
-              :link="{ name: 'Overview', path: '/dashboards/' }"
-            ></argon-sidebar-item>
-            <argon-sidebar-item
-              :link="{ name: 'Overview By Country', path: '/dashboards/country' }"
-            ></argon-sidebar-item>
-            <argon-sidebar-item
-                    :link="{ name: 'Trends', path: '/dashboards/trends' }"
-            ></argon-sidebar-item>
-            <argon-sidebar-item
-                    :link="{ name: 'Trends By Country', path: '/dashboards/trends/country' }"
-            ></argon-sidebar-item>
+              <argon-sidebar-item
+                :link="{ name: 'Overview', path: '/dashboards/' }"
+              ></argon-sidebar-item>
+              <argon-sidebar-item
+                :link="{ name: 'Overview By Country', path: '/dashboards/country' }"
+              ></argon-sidebar-item>
+              <argon-sidebar-item
+                      :link="{ name: 'Trends', path: '/dashboards/trends' }"
+              ></argon-sidebar-item>
+              <argon-sidebar-item
+                      :link="{ name: 'Trends By Country', path: '/dashboards/trends/country' }"
+              ></argon-sidebar-item>
           </argon-sidebar-item>
 
-          <argon-sidebar-item :link="{
+
+          <!--<argon-sidebar-item :link="{
                     name: 'Sections',
                     icon: 'ni ni-ungroup text-orange'
                     }">
@@ -36,13 +37,13 @@
             <argon-sidebar-item :link="{ name: 'Notifications', path: '/notifications' }"/>
             <argon-sidebar-item :link="{ name: 'Pricing', path: '/pricing' }"/>
             <argon-sidebar-item :link="{ name: 'Featured Apps', path: '/featured-apps' }"/>
-            <argon-sidebar-item :link="{ name: 'Contact Us', path: '/contact-us' }"/>
+            <argon-sidebar-item :link="{ name: 'Contact Us', path: 'https://clevercoding.com/contactus' }"/>
             <argon-sidebar-item :link="{ name: 'Blog', path: '/blog' }"/>
 
 
-          </argon-sidebar-item>
+          </argon-sidebar-item>-->
 
-          <argon-sidebar-item :link="{
+          <!--<argon-sidebar-item :link="{
                     name: 'Admin',
                     icon: 'ni ni-ui-04 text-info'
                   }">
@@ -51,11 +52,49 @@
             <argon-sidebar-item :link="{ name: 'Manage Notifications', path: '/admin/notifications/manage' }"/>
             <argon-sidebar-item :link="{ name: 'Send Notifications', path: '/admin/notifications/send' }"/>
 
-          </argon-sidebar-item>
+          </argon-sidebar-item>-->
+        </template>
+        <template slot="links-after">
+          <hr class="my-3">
+          <h6 class="navbar-heading p-0 text-muted"></h6>
+
+          <ul class="navbar-nav mb-md-3">
+            <li class="nav-item">
+              <a class="nav-link" href="https://clevercoding.com/"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-atom"></i>
+                <span class="nav-link-text">Custom App Development</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/emergency-ready-app"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-ambulance"></i>
+                <span class="nav-link-text">Custom Branded Emergency App</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/contactus"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-chat-round"></i>
+                <span class="nav-link-text">Contact Us</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 href="https://clevercoding.com/blog"
+                 target="_blank" rel="noopener">
+                <i class="ni ni-collection"></i>
+                <span class="nav-link-text">Blog</span>
+              </a>
+            </li>
+          </ul>
         </template>
       </argon-side-bar>
       <div class="main-content">
-        <dashboard-navbar :type="$route.name === 'alternative' ? 'light': 'default'"></dashboard-navbar>
+        <app-dashboard-navbar :type="$route.name === 'alternative' ? 'light': 'default'"></app-dashboard-navbar>
 
         <div @click="$asidebar.displaySidebar(false)">
           <nuxt></nuxt>
@@ -85,13 +124,13 @@
     }
   }
 
-  import DashboardNavbar from '~/components/Argon/layouts/argon/DashboardNavbar.vue';
+  import AppDashboardNavbar from '~/components/Argon/layouts/argon/AppDashboardNavbar.vue';
   import ContentFooter from '~/components/Argon/layouts/argon/ContentFooter.vue';
   import DashboardContent from '~/components/Argon/layouts/argon/Content.vue';
 
   export default {
     components: {
-      DashboardNavbar,
+      AppDashboardNavbar,
       ContentFooter,
       DashboardContent
     },
