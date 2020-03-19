@@ -7,6 +7,14 @@ export default {
   state: {
     images: [],
     aboutUs: {
+      emergencyReadyApp: {
+        title: 'Emergency Ready App',
+        description: 'Base App for all Custom Builds',
+        deviceImage: '/img/featured/emergency-ready-1.png',
+        deviceImages: ['/img/featured/emergency-ready-1.png'],
+        appStoreLink: 'https://apps.apple.com/us/app/emergency-ready/id1480621536?ls=1',
+        playStoreLink: 'https://play.google.com/store/apps/details?id=com.clevercoding.theemergencyapp'
+      },
       title: 'The Emergency Ready App allows users to access emergency information on the go.',
       subtitle: 'Hear is a little be about the emergeny app',
       description: 'This is the description',
