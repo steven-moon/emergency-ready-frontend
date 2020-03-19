@@ -1,13 +1,13 @@
 <template>
     <div>
-        <base-header class="pb-6">
+        <base-header class="pb-6 pt-5">
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white ">Covid-19 Trends - {{country_region}}</h6>
-                    <p class="text-white"> Current as of {{dataDate | formatDate}}</p>
+                    <p class="text-white" v-if="!isLoading"> Current as of {{dataDate | formatDate}}</p>
                 </div>
                 <div class="col-lg-6 col-7">
-                    <base-input label="Select Country">
+                    <base-input label="Select Country" v-if="!isLoading">
                         <select class="form-control" @change="updateCountry($event)" v-model="country_region">
                             <option v-for="country in countries" :value="country.country_region" :key="country.country_region">{{country.country_region}}   ({{ country.confirmed}})</option>
                         </select>
@@ -16,7 +16,7 @@
             </div>
             <!-- Card stats -->
             <div v-if="isLoading">
-                <tile :loading="isLoading"></tile>
+                <tile :loading="true"></tile>
             </div>
             <div v-else class="row">
                 <div class="col-xl-3 col-md-6">
@@ -75,7 +75,7 @@
         <div class="container-fluid mt--6">
             <div class="row">
                 <div class="col-xl-8">
-                    <card type="default" header-classes="bg-transparent">
+                    <card type="default" header-classes="bg-transparent" v-if="!isLoading">
                         <div slot="header" class="row align-items-center">
                             <div class="col">
                                 <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
@@ -139,7 +139,7 @@
         data() {
             return {
                 country_region: 'US',
-                isLoading: false,
+                isLoading: true,
                 bigLineChart: {
                     activeIndex: 0,
                     extraOptions: chartConfigs.blueChartOptions,

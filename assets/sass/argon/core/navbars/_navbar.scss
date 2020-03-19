@@ -2,9 +2,26 @@
     //
     // Navbar
     //
+    .navbar {
+        //width: 100%;
+        //min-width: 100%;
+        padding: 15px 0 0 !important;
 
+        //.container {
+        //    width: 100%;
+        //    min-width: 100%;
+        //    padding: 0
+        //}
+    }
 
     // Navbar links
+
+    @include argon-media-breakpoint-up(md) {
+        .navbar {
+            padding: 15px 15px 0 !important;
+        }
+    }
+
 
     .navbar-horizontal {
         .navbar-nav {
@@ -53,7 +70,7 @@
             }
         }
 
-        @include argon-media-breakpoint-up(lg) {
+        //@include argon-media-breakpoint-up(lg) {
             // .navbar-main {
             //     padding: 1rem 0;
             // }
@@ -162,7 +179,7 @@
                     padding: 1rem;
                 }
             }
-        }
+        //}
 
         // Transparent navbar
         &.navbar-transparent {
@@ -187,7 +204,7 @@
             }
         }
 
-        @include argon-media-breakpoint-up(md) {
+        //@include argon-media-breakpoint-up(md) {
             &.navbar-transparent {
                 .navbar-nav {
                     .nav-link {
@@ -218,7 +235,7 @@
                     }
                 }
             }
-        }
+        //}
 
         // Collapse
 
@@ -226,7 +243,7 @@
             display: none;
         }
 
-        @include argon-media-breakpoint-down(md) {
+        //@include argon-media-breakpoint-down(md) {
             .navbar-nav {
                 .nav-link {
                     padding: .625rem 0;
@@ -314,7 +331,7 @@
             .navbar-collapse.collapsing-out {
                 animation: hide-navbar-collapse .2s ease forwards;
             }
-        }
+        //}
 
         // Keyframes
 

@@ -16,8 +16,8 @@ export default {
         playStoreLink: 'https://play.google.com/store/apps/details?id=com.clevercoding.theemergencyapp'
       },
       title: 'The Emergency Ready App allows users to access emergency information on the go.',
-      subtitle: 'Hear is a little be about the emergeny app',
-      description: 'This is the description',
+      subtitle: 'New!! Updated Dashboards to Track Covid19 Pandemic',
+      description: 'New!! Updated Dashboards to Track Covid19 Pandemic',
       backgroundUrl: 'img/project/project9.jpg',
       cards: [
         {

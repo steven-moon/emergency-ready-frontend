@@ -6,8 +6,15 @@
 
     // General styles
 
-    .app-store-badge img {
-        height: 100px;
+    .app-store-badge {
+
+        text-align: center;
+        align-items: center;
+        align-content: center;
+
+        img {
+            height: 100px;
+        }
     }
 
     .badge {

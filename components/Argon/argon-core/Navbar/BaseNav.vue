@@ -49,7 +49,7 @@ export default {
     },
     expand: {
       type: String,
-      default: 'lg',
+      default: '',
       description: 'Breakpoint where nav should expand'
     },
     menuClasses: {
@@ -60,7 +60,7 @@ export default {
     },
     containerClasses: {
       type: [String, Object, Array],
-      default: 'container',
+      default: 'container-fluid',
       description:
         'Container classes. Can be used to control container classes (contains both navbar brand and menu items)'
     },

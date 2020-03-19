@@ -7,20 +7,24 @@
           <div class="row align-items-center" v-if="aboutUs">
             <div class="col-lg-6">
               <div class="pr-5">
-                <h1 class="display-2 text-white font-weight-bold mb-0">{{aboutUs.title}}</h1>
-               <!-- <h2 class="display-4 text-white font-weight-light">{{aboutUs.subtitle}}</h2>
-                <p class="text-white mt-4">{{aboutUs.description}}</p>-->
+                <h1 class="display-2 text-white font-weight-bold mb-0 pb-2">{{aboutUs.title}}</h1>
+                <h2 class="display-4 text-white font-weight-light">{{aboutUs.subtitle}}</h2>
+<!--                <p class="text-white mt-4">{{aboutUs.description}}</p>-->
               </div>
             </div>
             <div class="col-lg-6" >
               <div class="row pt-5">
-                <div class="app-store-badge col-md-6">
-                  <a :href='aboutUs.emergencyReadyApp.appStoreLink'><img alt='Download on the App Store'
+                <div class="app-store-badge col-md-6 pb-3">
+                  <div>
+                    <a :href='aboutUs.emergencyReadyApp.appStoreLink'><img alt='Download on the App Store'
                                                                          src='/img/featured/Download_on_the_App_Store_Badge.png'/></a>
+                  </div>
                 </div>
                 <div class="app-store-badge col-md-6">
-                  <a :href='aboutUs.emergencyReadyApp.playStoreLink'><img alt='Get it on Google Play'
+                  <div>
+                    <a :href='aboutUs.emergencyReadyApp.playStoreLink'><img alt='Get it on Google Play'
                                                                           src='/img/featured/google_play_badge_web_generic.png'/></a>
+                  </div>
                 </div>
               </div>
             </div>
