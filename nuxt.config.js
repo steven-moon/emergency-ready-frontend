@@ -137,7 +137,7 @@ export default {
         defaultLocale: 'en',
     },
     axios: {
-        baseURL: "https://api.emergencyreadyapp.com/api",
+        baseURL: "https://api.emergencyreadyapp.com/",
         credentials: false
     },
     /*
