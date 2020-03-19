@@ -5,10 +5,16 @@ export default {
    namespaced,
    state: {
       totals: [],
+      countries: []
+
+
    },
    getters: {
       totals(state) {
          return state.totals
+      },
+      countries(state) {
+         return state.countries
       },
    },
    mutations: {
@@ -19,6 +25,9 @@ export default {
       setTotals(state, totals) {
          state.totals = totals;
       },
+      setCountries(state, countries) {
+         state.countries = countries;
+      },
    },
    actions: {
       reset({commit}) {
@@ -26,6 +35,9 @@ export default {
       },
       setTotals({commit}, payload) {
          commit('setTotals', payload);
+      },
+      setCountries({commit}, payload) {
+         commit('setCountries', payload);
       },
    }
 };

@@ -3,8 +3,15 @@
         <base-header class="pb-6">
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white ">Covid-19 Overview </h6>
+                    <h6 class="h2 text-white ">Covid-19 Trends - {{country_region}}</h6>
                     <p class="text-white"> Current as of {{dataDate | formatDate}}</p>
+                </div>
+                <div class="col-lg-6 col-7">
+                    <base-input label="Select Country">
+                        <select class="form-control" @change="updateCountry($event)" v-model="country_region">
+                            <option v-for="country in countries" :value="country.country_region" :key="country.country_region">{{country.country_region}}   ({{ country.confirmed}})</option>
+                        </select>
+                    </base-input>
                 </div>
             </div>
             <!-- Card stats -->
@@ -20,7 +27,7 @@
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.confirmed_percentage}}%</span>
-                            <span class="text-nowrap">Last 7 days</span>
+                            <span class="text-nowrap">Last 3 days</span>
                         </template>
                     </stats-card>
                 </div>
@@ -32,7 +39,7 @@
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.deaths_percentage}}%</span>
-                            <span class="text-nowrap">Last 7 days</span>
+                            <span class="text-nowrap">Last 3 days</span>
                         </template>
                     </stats-card>
                 </div>
@@ -44,7 +51,7 @@
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.recovered_percentage}}%</span>
-                            <span class="text-nowrap">Last 7 days</span>
+                            <span class="text-nowrap">Last 3 days</span>
                         </template>
                     </stats-card>
 
@@ -131,6 +138,7 @@
         },
         data() {
             return {
+                country_region: 'US',
                 isLoading: false,
                 bigLineChart: {
                     activeIndex: 0,
@@ -141,6 +149,7 @@
         computed: {
             ...mapGetters('reportStore', {
                 totals: 'totals',
+                countries: 'countries'
             }),
             dataDate(){
                 if(this.totals && this.totals.length > 0) {
@@ -164,8 +173,8 @@
                     deaths = parseInt(current.deaths);
                     recovered = parseInt(current.recovered);
 
-                    if(this.totals.length >= 7){
-                        var last_week = this.totals[6];
+                    if(this.totals.length >= 3){
+                        var last_week = this.totals[2];
 
                         //Confirmed Percentage Increase
                         var last_week_confirmed = parseInt(last_week.confirmed);
@@ -212,9 +221,9 @@
                 var data = [];
 
                 var i = 0;
-                var step = 7; //parseInt(parseInt(this.totals.length) / 8);
+                var step = 2; //parseInt(parseInt(this.totals.length) / 8);
 
-                while(i < this.totals.length){
+                while(i < this.totals.length && i <= 12){
                     var row = this.totals[i];
                     labels.unshift(row.report_date.replace("2020-",""));
                     if(this.bigLineChart.activeIndex === 0){
@@ -250,13 +259,18 @@
             initBigChart(index) {
                 this.bigLineChart.activeIndex = index;
             },
+            updateCountry(event) {
+                console.log("update Country: " + event.target.value);
+                this.country_region = event.target.value;
+                this.getTotals();
+            },
             getTotals(){
 
                 let params = {
                     'report':'totals',
-                    'scope':'all',
+                    'scope':'country',
                     'province_state': '',
-                    'country_region': ''
+                    'country_region': this.country_region
                 };
 
                 this.isLoading = true;

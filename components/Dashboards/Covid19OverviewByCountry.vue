@@ -3,8 +3,15 @@
         <base-header class="pb-6">
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white ">Covid-19 Overview </h6>
+                    <h6 class="h2 text-white ">Covid-19 Overview - {{country_region}}</h6>
                     <p class="text-white"> Current as of {{dataDate | formatDate}}</p>
+                </div>
+                <div class="col-lg-6 col-7">
+                    <base-input label="Select Country">
+                        <select class="form-control" @change="updateCountry($event)" v-model="country_region">
+                            <option v-for="country in countries" :value="country.country_region" :key="country.country_region">{{country.country_region}}   ({{ country.confirmed}})</option>
+                        </select>
+                    </base-input>
                 </div>
             </div>
             <!-- Card stats -->
@@ -131,6 +138,7 @@
         },
         data() {
             return {
+                country_region: 'US',
                 isLoading: false,
                 bigLineChart: {
                     activeIndex: 0,
@@ -141,6 +149,7 @@
         computed: {
             ...mapGetters('reportStore', {
                 totals: 'totals',
+                countries: 'countries'
             }),
             dataDate(){
                 if(this.totals && this.totals.length > 0) {
@@ -216,11 +225,13 @@
 
                 while(i < this.totals.length){
                     var row = this.totals[i];
-                    labels.unshift(row.report_date.replace("2020-",""));
-                    if(this.bigLineChart.activeIndex === 0){
-                        data.unshift(row.confirmed);
-                    }else{
-                        data.unshift(row.deaths);
+                    if(parseInt(row.confirmed) > 10) {
+                        labels.unshift(row.report_date.replace("2020-", ""));
+                        if (this.bigLineChart.activeIndex === 0) {
+                            data.unshift(row.confirmed);
+                        } else {
+                            data.unshift(row.deaths);
+                        }
                     }
 
                     i = i + step;
@@ -250,13 +261,18 @@
             initBigChart(index) {
                 this.bigLineChart.activeIndex = index;
             },
+            updateCountry(event) {
+                console.log("update Country: " + event.target.value);
+                this.country_region = event.target.value;
+                this.getTotals();
+            },
             getTotals(){
 
                 let params = {
                     'report':'totals',
-                    'scope':'all',
+                    'scope':'country',
                     'province_state': '',
-                    'country_region': ''
+                    'country_region': this.country_region
                 };
 
                 this.isLoading = true;

@@ -50,18 +50,18 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Creative Tim',
-      description: 'Sidebar title'
+      default: '',
+      description: ''
     },
     shortTitle: {
       type: String,
-      default: 'CT',
-      description: 'Sidebar short title'
+      default: '',
+      description: ''
     },
     logo: {
       type: String,
-      default: 'https://demos.creative-tim.com/nuxt-argon-dashboard-pro/img/brand/green.png',
-      description: 'Sidebar app logo'
+      default: '',
+      description: ''
     },
     backgroundColor: {
       type: String,
