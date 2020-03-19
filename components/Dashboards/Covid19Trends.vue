@@ -20,7 +20,14 @@
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.confirmed_percentage}}%</span>
-                            <span class="text-nowrap">Last 3 days</span>
+                            <span class="text-nowrap pb-2">Last 3 days</span>
+
+                            <div class="pt-2">
+                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
+                                        <div class="text-primary col-3 text-left"> {{aStep.report_date | formatDate}} </div>
+                                        <div class="text-nowrap col-9 text-left">{{aStep.confirmed}} cases</div>
+                                </div>
+                            </div>
                         </template>
                     </stats-card>
                 </div>
@@ -33,6 +40,13 @@
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.deaths_percentage}}%</span>
                             <span class="text-nowrap">Last 3 days</span>
+
+                            <div class="pt-2">
+                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
+                                    <div class="text-primary col-3 text-left" v-if="parseInt(aStep.deaths) > 3"> {{aStep.report_date | formatDate}} </div>
+                                    <div class="text-nowrap col-9 text-left" v-if="parseInt(aStep.deaths) > 3">{{aStep.deaths}} deaths</div>
+                                </div>
+                            </div>
                         </template>
                     </stats-card>
                 </div>
@@ -45,6 +59,13 @@
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.recovered_percentage}}%</span>
                             <span class="text-nowrap">Last 7 days</span>
+
+                            <div class="pt-2">
+                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
+                                    <div class="text-primary col-3 text-left" v-if="parseInt(aStep.recovered) > 3"> {{aStep.report_date | formatDate}} </div>
+                                    <div class="text-nowrap col-9 text-left" v-if="parseInt(aStep.recovered) > 3">{{aStep.recovered}} recovered</div>
+                                </div>
+                            </div>
                         </template>
                     </stats-card>
 
@@ -131,6 +152,7 @@
         },
         data() {
             return {
+                trendStep: 7,
                 isLoading: true,
                 bigLineChart: {
                     activeIndex: 0,
@@ -214,7 +236,7 @@
                 var i = 0;
                 var step = 2; //parseInt(parseInt(this.totals.length) / 8);
 
-                while(i < this.totals.length && i <= 12){
+                while(i < this.totals.length && i <= 13){
                     var row = this.totals[i];
                     labels.unshift(row.report_date.replace("2020-",""));
                     if(this.bigLineChart.activeIndex === 0){
@@ -272,6 +294,22 @@
                         console.log(error);
                         this.isLoading = false;
                     });
+            },
+            totalsByStep(step){
+                var i = 0;
+                var steppedArray = [];
+
+                while(i < this.totals.length){
+                    var row = this.totals[i];
+                    if(parseInt(row.confirmed) > 12) {
+                        steppedArray.push(row);
+                    }
+                    i = i + step;
+                }
+                console.log("Stepped Array:");
+                console.log(steppedArray);
+
+                return steppedArray;
             }
         },
         mounted() {
