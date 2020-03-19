@@ -35,32 +35,26 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <nuxt-link to="/app/dashboards/" class="nav-link">
-                <i class="ni ni-chart-pie-35"></i>
-                <span class="nav-link-inner--text">Dashboards</span>
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/app/dashboards/" class="nav-link">
                 <i class="ni ni-notification-70"></i>
-                <span class="nav-link-inner--text">Overview</span>
+                <span class="nav-link-inner--text">Dashboard: Overview</span>
               </nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/app/dashboards/country" class="nav-link">
                 <i class="ni ni-world-2"></i>
-                <span class="nav-link-inner--text">Overview By Country</span>
+                <span class="nav-link-inner--text">Dashboard: Overview By Country</span>
               </nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/app/dashboards/trends" class="nav-link">
                 <i class="ni ni-chart-bar-32"></i>
-                <span class="nav-link-inner--text">Trends</span>
+                <span class="nav-link-inner--text">Dashboard: Trends</span>
               </nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/app/dashboards/trends/country" class="nav-link">
                 <i class="ni ni-map-big"></i>
-                <span class="nav-link-inner--text">Trends By Country</span>
+                <span class="nav-link-inner--text">Dashboard: Trends By Country</span>
               </nuxt-link>
             </li>
           </ul>
