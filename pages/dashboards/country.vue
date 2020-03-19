@@ -1,17 +1,17 @@
 <template>
    <div>
-      <covid19-overview></covid19-overview>
+      <covid19-overview-by-country></covid19-overview-by-country>
    </div>
 </template>
 <script>
 
    // Components
-   import Covid19Overview from '@/components/Dashboards/Covid19Overview';
+   import Covid19OverviewByCountry from '@/components/Dashboards/Covid19OverviewByCountry';
 
    export default {
       layout: 'argon-dashboard-layout',
       components: {
-         Covid19Overview,
+         Covid19OverviewByCountry,
       },
       data() {
          return {

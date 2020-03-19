@@ -15,10 +15,16 @@
             }"
           >
             <argon-sidebar-item
-              :link="{ name: 'Dashboards', path: '/dashboards/dashboard1' }"
+              :link="{ name: 'Overview', path: '/dashboards/' }"
             ></argon-sidebar-item>
             <argon-sidebar-item
-              :link="{ name: 'Alternative', path: '/dashboards/dashboard2' }"
+              :link="{ name: 'Overview By Country', path: '/dashboards/country' }"
+            ></argon-sidebar-item>
+            <argon-sidebar-item
+                    :link="{ name: 'Trends', path: '/dashboards/trends' }"
+            ></argon-sidebar-item>
+            <argon-sidebar-item
+                    :link="{ name: 'Trends By Country', path: '/dashboards/trends/country' }"
             ></argon-sidebar-item>
           </argon-sidebar-item>
 
