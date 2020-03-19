@@ -68,7 +68,7 @@ export default {
             },
             {
               title: 'Flexibility',
-              description: 'You can chose what type of contact info to share: like email, phone, facebook group and or webiste. You can also have us add your own custom content or edit the ones include.',
+              description: 'You can chose what type of contact info to share: like email, phone, facebook group and or website. You can also have us add your own custom content or edit the ones include.',
               icon: 'now-ui-icons arrows-1_refresh-69',
               type: 'primary'
             }
