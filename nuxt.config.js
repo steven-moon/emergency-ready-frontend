@@ -179,7 +179,7 @@ export default {
     env: {
         WORDPRESS: process.env.WORDPRESS || 'https://wordpress.emergencyreadyapp.com/',
         HOST: process.env.HOST || '0.0.0.0',
-        baseUrl: process.env.baseUrl || 'https://api.emergencyreadyapp.com/api',
+        baseUrl: process.env.baseUrl || 'https://api.emergencyreadyapp.com/',
         WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-coding/v1/get-post',
         WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-codingy/v1/get-posts',
     },
