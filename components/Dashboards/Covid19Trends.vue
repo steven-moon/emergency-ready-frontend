@@ -58,7 +58,7 @@
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.recovered_percentage}}%</span>
-                            <span class="text-nowrap">Last 7 days</span>
+                            <span class="text-nowrap">Last 3 days</span>
 
                             <div class="pt-2">
                                 <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
