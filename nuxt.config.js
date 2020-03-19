@@ -14,7 +14,7 @@ export default {
     // hardSource: true,
     /* /. Increase build speed */
     server: {
-        port: process.env.PORT || 9847,
+        port: process.env.PORT || 3727,
         host: process.env.HOST || '0.0.0.0',
     },
     // vue: {
