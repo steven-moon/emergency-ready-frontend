@@ -22,7 +22,7 @@
                 <tile :loading="true"></tile>
             </div>
             <div v-else class="row">
-                <div class="col-xl-3 col-md-6">
+                <div class="col-xl-4 col-md-6">
                     <stats-card title="Total Confirmed"
                                 type="gradient-orange"
                                 :sub-title="overViewValues.confirmed"
@@ -34,7 +34,7 @@
                         </template>
                     </stats-card>
                 </div>
-                <div class="col-xl-3 col-md-6">
+                <div class="col-xl-4 col-md-6">
                     <stats-card title="Total Deaths"
                                 type="gradient-red"
                                 :sub-title="overViewValues.deaths"
@@ -46,7 +46,7 @@
                         </template>
                     </stats-card>
                 </div>
-                <div class="col-xl-3 col-md-6">
+                <div class="col-xl-4 col-md-6">
                     <stats-card title="Total Recovered"
                                 type="gradient-green"
                                 :sub-title="overViewValues.recovered"
@@ -77,7 +77,7 @@
         <!--Charts-->
         <div class="container-fluid mt--6">
             <div class="row">
-                <div class="col-xl-8">
+                <div class="col-md-6">
                     <card type="default" header-classes="bg-transparent" v-if="!isLoading">
                         <div slot="header" class="row align-items-center">
                             <div class="col">
@@ -229,7 +229,7 @@
 
                 while(i < this.totals.length){
                     var row = this.totals[i];
-                    if(parseInt(row.confirmed) > 10) {
+                    if(parseInt(row.confirmed) > 12) {
                         labels.unshift(row.report_date.replace("2020-", ""));
                         if (this.bigLineChart.activeIndex === 0) {
                             data.unshift(row.confirmed);
