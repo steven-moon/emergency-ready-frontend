@@ -5,11 +5,12 @@
       <div class="container">
         <div class="header-body">
           <div class="row align-items-center" v-if="aboutUs">
-            <div class="col-lg-6">
+            <div class="col-lg-6 align-items-center">
               <div class="pr-5">
                 <h1 class="display-2 text-white font-weight-bold mb-0 pb-2">{{aboutUs.title}}</h1>
-                <h2 class="display-4 text-white font-weight-light">{{aboutUs.subtitle}}</h2>
-<!--                <p class="text-white mt-4">{{aboutUs.description}}</p>-->
+              </div>
+              <div class="pt-5 align-items-center">
+                <button type="button" class="btn btn-lg btn-primary btn-icon" @click.prevent="goToDashboard">Covid19 Dashboards</button>
               </div>
             </div>
             <div class="col-lg-6" >
@@ -110,6 +111,11 @@
         aboutUs: 'aboutUs',
       }),
     },
+    methods: {
+      goToDashboard(){
+        window.location.href = "/dashboards/"
+      }
+    }
   };
 
 </script>

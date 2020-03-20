@@ -5,6 +5,9 @@
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white ">Covid-19 Trends</h6>
                     <p class="text-white" v-if="!isLoading"> Current as of {{dataDate | formatDate}}</p>
+                    <div>
+                        <button type="button" class="btn btn-sm btn-primary btn-icon" @click.prevent="switchDashboards">Change Dashboard</button>
+                    </div>
                 </div>
             </div>
             <!-- Card stats -->
@@ -269,6 +272,10 @@
             }
         },
         methods: {
+            switchDashboards(){
+                console.log("BEGIN: switchDashboards");
+                this.$asidebar.displaySidebar(true);
+            },
             initBigChart(index) {
                 this.bigLineChart.activeIndex = index;
             },

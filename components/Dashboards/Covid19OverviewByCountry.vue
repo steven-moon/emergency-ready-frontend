@@ -5,8 +5,11 @@
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white ">Covid-19 Overview - {{country_region}}</h6>
                     <p class="text-white" v-if="!isLoading"> Current as of {{dataDate | formatDate}}</p>
+                    <div>
+                        <button type="button" class="btn btn-sm btn-primary btn-icon" @click.prevent="switchDashboards">Change Dashboard</button>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-7" v-if="!isLoading">
+                <div class="col-lg-6 col-7 pt-2" v-if="!isLoading">
                     <base-input label="Select Country">
                         <select class="form-control" @change="updateCountry($event)" v-model="country_region">
                             <option v-for="country in countries" :value="country.country_region" :key="country.country_region">{{country.country_region}}   ({{ country.confirmed}})</option>
@@ -149,7 +152,8 @@
         computed: {
             ...mapGetters('reportStore', {
                 totals: 'totals',
-                countries: 'countries'
+                countries: 'countries',
+                reports: 'reports'
             }),
             dataDate(){
                 if(this.totals && this.totals.length > 0) {
@@ -258,6 +262,10 @@
             }
         },
         methods: {
+            switchDashboards(){
+                console.log("BEGIN: switchDashboards");
+                this.$asidebar.displaySidebar(true);
+            },
             initBigChart(index) {
                 this.bigLineChart.activeIndex = index;
             },

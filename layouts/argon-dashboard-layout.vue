@@ -24,7 +24,7 @@
                 </nuxt-link>
               </div>
               <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" @click="showMenu = false">
+                <button type="button" class="navbar-toggler" @click="closeMenu">
                   <span></span>
                   <span></span>
                 </button>
@@ -122,6 +122,21 @@
       <footer class="py-5" id="footer-main">
         <div class="container">
           <div class="row align-items-center justify-content-xl-between">
+            <div class="app-store-badge col-xl-6">
+              <h2 class="text-white">Download the Free Emergency Ready App</h2>
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-xl-between pt-4 pb-4">
+            <div class="app-store-badge col-6">
+                  <a :href='aboutUs.emergencyReadyApp.appStoreLink'><img alt='Download on the App Store'
+                                                                         src='/img/featured/Download_on_the_App_Store_Badge.png'/></a>
+            </div>
+            <div class="app-store-badge col-6">
+                <a :href='aboutUs.emergencyReadyApp.playStoreLink'><img alt='Get it on Google Play'
+                                                                        src='/img/featured/google_play_badge_web_generic.png'/></a>
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-xl-between">
             <div class="col-xl-6">
               <div class="copyright text-center text-muted">
                 © {{year}} <a href="/" class="font-weight-bold ml-1" rel="noopener">Clever Coding LLC</a>
@@ -171,6 +186,7 @@
   import AppDashboardNavbar from '~/components/Argon/layouts/argon/AppDashboardNavbar.vue';
   import ContentFooter from '~/components/Argon/layouts/argon/ContentFooter.vue';
   import DashboardContent from '~/components/Argon/layouts/argon/Content.vue';
+  import {mapGetters} from "vuex";
 
   export default {
     components: {
@@ -187,7 +203,6 @@
     },
     data() {
       return {
-        showMenu: false,
         menuTransitionDuration: 250,
         year: new Date().getFullYear(),
         pageClass: 'login-page',
@@ -209,10 +224,22 @@
       },
       closeMenu() {
         document.body.classList.remove('nav-open');
-        this.showMenu = false;
+
+        console.log("BEGIN: closeMenu. argon-dashboard-layout");
+        this.$asidebar.displaySidebar(false);
       },
+      openMenu() {
+        console.log("BEGIN: openMenu in layout");
+        this.$asidebar.displaySidebar(true);
+      }
     },
     computed: {
+      ...mapGetters('pageDataStore', {
+        aboutUs: 'aboutUs',
+      }),
+      showMenu(){
+        return this.$asidebar.showSidebar;
+      },
       classes() {
 
 

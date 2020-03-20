@@ -24,7 +24,7 @@
                 </nuxt-link>
               </div>
               <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" @click="showMenu = false">
+                <button type="button" class="navbar-toggler" @click="closeMenu">
                   <span></span>
                   <span></span>
                 </button>
@@ -156,7 +156,6 @@
     },
     data() {
       return {
-        showMenu: false,
         menuTransitionDuration: 250,
         year: new Date().getFullYear(),
         pageClass: 'login-page',
@@ -178,10 +177,18 @@
       },
       closeMenu() {
         document.body.classList.remove('nav-open');
-        this.showMenu = false;
+        console.log("BEGIN: closeMenu. argon-dashboard-layout");
+        this.$asidebar.displaySidebar(false);
       },
+      openMenu() {
+        console.log("BEGIN: openMenu in layout");
+        this.$asidebar.displaySidebar(true);
+      }
     },
     computed: {
+      showMenu(){
+        return this.$asidebar.showSidebar;
+      },
       classes() {
 
 
