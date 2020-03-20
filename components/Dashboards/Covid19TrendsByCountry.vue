@@ -1,145 +1,32 @@
 <template>
     <div>
-        <base-header class="pb-6 pt-5">
-            <div class="row align-items-center py-4">
-                <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white ">Covid-19 Trends - {{country_region}}</h6>
-                    <p class="text-white" v-if="!isLoading"> Current as of {{dataDate | formatDate}}</p>
-                    <div>
-                        <button type="button" class="btn btn-sm btn-primary btn-icon" @click.prevent="switchDashboards">Change Dashboard</button>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-7 pt-2">
-                    <base-input label="Select Country" v-if="!isLoading">
-                        <select class="form-control" @change="updateCountry($event)" v-model="country_region">
-                            <option v-for="country in countries" :value="country.country_region" :key="country.country_region">{{country.country_region}}   ({{ country.confirmed}})</option>
-                        </select>
-                    </base-input>
-                </div>
-            </div>
-            <!-- Card stats -->
-            <div v-if="isLoading">
-                <tile :loading="true"></tile>
-            </div>
-            <div v-else class="row">
-                <div class="col-xl-4 col-md-6">
-                    <stats-card title="Total Confirmed"
-                                type="gradient-orange"
-                                :sub-title="overViewValues.confirmed"
-                                icon="ni ni-ambulance">
+        <covid19-header :isLoading="isLoading" :period="3" title="Trends by Country" :showSteps="true" :customStep="4"
+                        :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>
 
-                        <template slot="footer">
-                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.confirmed_percentage}}%</span>
-                            <span class="text-nowrap">Last 3 days</span>
-
-                            <div class="pt-2">
-                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                    <div class="text-primary  col-5 col-sm-6 col-md-3 text-left"> {{aStep.report_date | formatDate}} </div>
-                                    <div class="text-nowrap  col-7 col-sm-6 col-md-9 text-left">{{aStep.confirmed}} cases</div>
-                                </div>
-                            </div>
-                        </template>
-                    </stats-card>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <stats-card title="Total Deaths"
-                                type="gradient-red"
-                                :sub-title="overViewValues.deaths"
-                                icon="ni ni-single-02">
-
-                        <template slot="footer">
-                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.deaths_percentage}}%</span>
-                            <span class="text-nowrap">Last 3 days</span>
-
-                            <div class="pt-2">
-                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                    <div class="text-primary col-5 col-sm-6 col-md-3 text-left" v-if="parseInt(aStep.deaths) > 3"> {{aStep.report_date | formatDate}} </div>
-                                    <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left" v-if="parseInt(aStep.deaths) > 3">{{aStep.deaths}} deaths</div>
-                                </div>
-                            </div>
-                        </template>
-                    </stats-card>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <stats-card title="Total Recovered"
-                                type="gradient-green"
-                                :sub-title="overViewValues.recovered"
-                                icon="ni ni-satisfied">
-
-                        <template slot="footer">
-                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{overViewValues.recovered_percentage}}%</span>
-                            <span class="text-nowrap">Last 3 days</span>
-
-                            <div class="pt-2">
-                                <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                    <div class="text-primary col-5 col-sm-6 col-md-3 text-left" v-if="parseInt(aStep.recovered) > 3"> {{aStep.report_date | formatDate}} </div>
-                                    <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left" v-if="parseInt(aStep.recovered) > 3">{{aStep.recovered}} recovered</div>
-                                </div>
-                            </div>
-                        </template>
-                    </stats-card>
-
-                </div>
-                <!--<div class="col-xl-3 col-md-6">
-                   <stats-card title="Performance"
-                               type="gradient-info"
-                               sub-title="49,65%"
-                               icon="ni ni-chart-bar-32">
-
-                      <template slot="footer">
-                         <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 54.8%</span>
-                         <span class="text-nowrap">Since last month</span>
-                      </template>
-                   </stats-card>
-                </div>-->
-            </div>
-        </base-header>
 
         <!--Charts-->
         <div class="container-fluid mt--6">
             <div class="row">
                 <div class="col-md-6">
-                    <card type="default" header-classes="bg-transparent" v-if="!isLoading">
-                        <div slot="header" class="row align-items-center">
-                            <div class="col">
-                                <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                                <h5 class="h3 text-white mb-0">Confirmed / Deaths</h5>
-                            </div>
-                            <div class="col">
-                                <ul class="nav nav-pills justify-content-end">
-                                    <li class="nav-item mr-2 mr-md-0">
-                                        <a class="nav-link py-2 px-3"
-                                           href="#"
-                                           :class="{active: bigLineChart.activeIndex === 0}"
-                                           @click.prevent="initBigChart(0)">
-                                            <span class="d-none d-md-block">Confirmed</span>
-                                            <span class="d-md-none">C</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link py-2 px-3"
-                                           href="#"
-                                           :class="{active: bigLineChart.activeIndex === 1}"
-                                           @click.prevent="initBigChart(1)">
-                                            <span class="d-none d-md-block">Deaths</span>
-                                            <span class="d-md-none">D</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <line-chart
-                                :height="350"
-                                ref="bigChart"
-                                :chart-data="chartDataValues"
-                                :extra-options="bigLineChart.extraOptions"
-                        >
-                        </line-chart>
-
-                    </card>
+                    <line-chart :isLoading="isLoading" :customStep="4" :activeIndex="0"></line-chart>
+                </div>
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="4" :activeIndex="0"></bar-chart>
                 </div>
             </div>
         </div>
+
+        <div class="container-fluid mt--6 pt-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <line-chart :isLoading="isLoading" :customStep="4" :activeIndex="1"></line-chart>
+                </div>
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="4" :activeIndex="1"></bar-chart>
+                </div>
+            </div>
+        </div>
+        <covid19-data-source></covid19-data-source>
 
     </div>
 </template>
@@ -149,16 +36,19 @@
 
     // Charts
     import * as chartConfigs from '@/components/Argon/argon-core/Charts/config';
-    import LineChart from '@/components/Argon/argon-core/Charts/LineChart';
-    import BarChart from '@/components/Argon/argon-core/Charts/BarChart';
+    import LineChart from '@/components/Dashboards/Charts/LineChart';
+    import BarChart from '@/components/Dashboards//Charts/BarChart';
 
-    //API
+    import Covid19DataSource from '@/components/Dashboards/Covid19DataSource';
+    import Covid19Header from '@/components/Dashboards/Charts/Covid19Header';
     import ReportsAPI from '~/api/ReportsAPI';
 
     export default {
         components: {
             LineChart,
             BarChart,
+            Covid19Header,
+            Covid19DataSource
         },
         data() {
             return {
