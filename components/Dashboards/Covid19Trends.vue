@@ -27,8 +27,8 @@
 
                             <div class="pt-2">
                                 <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                        <div class="text-primary col-3 text-left"> {{aStep.report_date | formatDate}} </div>
-                                        <div class="text-nowrap col-9 text-left">{{aStep.confirmed}} cases</div>
+                                        <div class="text-primary col-5 col-sm-6 col-md-3 text-left"> {{aStep.report_date | formatDate}} </div>
+                                        <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left">{{aStep.confirmed}} cases</div>
                                 </div>
                             </div>
                         </template>
@@ -46,8 +46,8 @@
 
                             <div class="pt-2">
                                 <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                    <div class="text-primary col-3 text-left" v-if="parseInt(aStep.deaths) > 3"> {{aStep.report_date | formatDate}} </div>
-                                    <div class="text-nowrap col-9 text-left" v-if="parseInt(aStep.deaths) > 3">{{aStep.deaths}} deaths</div>
+                                    <div class="text-primary col-5 col-sm-6 col-md-3 text-left" v-if="parseInt(aStep.deaths) > 3"> {{aStep.report_date | formatDate}} </div>
+                                    <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left" v-if="parseInt(aStep.deaths) > 3">{{aStep.deaths}} deaths</div>
                                 </div>
                             </div>
                         </template>
@@ -65,8 +65,8 @@
 
                             <div class="pt-2">
                                 <div  class="row" v-for="aStep in totalsByStep(trendStep)" :key="aStep.report_date">
-                                    <div class="text-primary col-3 text-left" v-if="parseInt(aStep.recovered) > 3"> {{aStep.report_date | formatDate}} </div>
-                                    <div class="text-nowrap col-9 text-left" v-if="parseInt(aStep.recovered) > 3">{{aStep.recovered}} recovered</div>
+                                    <div class="text-primary col-5 col-sm-6 col-md-3 text-left" v-if="parseInt(aStep.recovered) > 3"> {{aStep.report_date | formatDate}} </div>
+                                    <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left" v-if="parseInt(aStep.recovered) > 3">{{aStep.recovered}} recovered</div>
                                 </div>
                             </div>
                         </template>
