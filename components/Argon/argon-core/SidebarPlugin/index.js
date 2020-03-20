@@ -5,7 +5,7 @@ const ArgonSidebarStore = {
   showSidebar: false,
   sidebarLinks: [],
   isMinimized: false,
-  breakpoint: 1200,
+  breakpoint: 10000,
   hovered: false,
   keepPinned(){
     if (process.client) {
@@ -15,13 +15,14 @@ const ArgonSidebarStore = {
     }
   },
   displaySidebar(value) {
-    if (process.client) {
-        if (window.innerWidth > this.breakpoint) {
-          return;
-        }
-    }
-    this.isMinimized = !value
+    console.log("BEGIN: displaySidebar: " + value);
+    // if (process.client) {
+    //     if (window.innerWidth > this.breakpoint) {
+    //       return;
+    //     }
+    // }
     this.showSidebar = value;
+
     // let docClasses = document.body.classList
     // if (value) {
     //   docClasses.add('g-sidenav-pinned')

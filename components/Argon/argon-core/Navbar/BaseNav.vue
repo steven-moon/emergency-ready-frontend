@@ -109,10 +109,12 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$emit('change', !this.show);
+      console.log("BEGIN: toggleMenu. BaseNav");
+      this.$asidebar.displaySidebar(!this.$asidebar.showSidebar)
     },
     closeMenu() {
-      this.$emit('change', false);
+      console.log("BEGIN: closeMenu. BaseNav");
+      //this.$asidebar.displaySidebar(false);
     }
   }
 };

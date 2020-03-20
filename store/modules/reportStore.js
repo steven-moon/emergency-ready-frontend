@@ -5,7 +5,13 @@ export default {
    namespaced,
    state: {
       totals: [],
-      countries: []
+      countries: [],
+      reports: [
+         {name:"Covid19 Overview", link:"/dashboards/"},
+         {name:"Covid19 Overview by Country", link:"/dashboards/country"},
+         {name:"Covid19 Trends", link:"/dashboards/trends/"},
+         {name:"Covid19 Trends by Country", link:"/dashboards/trends/country"}
+      ]
 
 
    },
@@ -15,6 +21,9 @@ export default {
       },
       countries(state) {
          return state.countries
+      },
+      reports(state) {
+         return state.reports
       },
    },
    mutations: {
