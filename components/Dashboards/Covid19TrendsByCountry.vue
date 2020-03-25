@@ -1,6 +1,6 @@
 <template>
     <div>
-        <covid19-header :isLoading="isLoading" :period="3" title="Trends by Country" :showSteps="true" :customStep="4"
+        <covid19-header :isLoading="isLoading" :period="3" title="Trends by Country" :showSteps="true" :customStep="1"
                         :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>
 
 
@@ -8,10 +8,10 @@
         <div class="container-fluid mt--6">
             <div class="row">
                 <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="4" :activeIndex="0"></line-chart>
+                    <line-chart :isLoading="isLoading" :customStep="2" :activeIndex="0"></line-chart>
                 </div>
                 <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="4" :activeIndex="0"></bar-chart>
+                    <bar-chart :isLoading="isLoading" :customStep="2" :activeIndex="0"></bar-chart>
                 </div>
             </div>
         </div>
@@ -19,10 +19,10 @@
         <div class="container-fluid mt--6 pt-6">
             <div class="row">
                 <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="4" :activeIndex="1"></line-chart>
+                    <line-chart :isLoading="isLoading" :customStep="2" :activeIndex="1"></line-chart>
                 </div>
                 <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="4" :activeIndex="1"></bar-chart>
+                    <bar-chart :isLoading="isLoading" :customStep="2" :activeIndex="1"></bar-chart>
                 </div>
             </div>
         </div>
@@ -196,9 +196,9 @@
 
                 return steppedArray;
             },
-            updateCountry(event) {
-                console.log("update Country: " + event.target.value);
-                this.country_region = event.target.value;
+            updateCountry(country) {
+                console.log("update Country in Overview by Country: " + country);
+                this.country_region = country;
                 this.getTotals();
             },
             getTotals(){

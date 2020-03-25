@@ -1,16 +1,16 @@
 <template>
     <div>
-        <covid19-header :isLoading="isLoading" :period="7" title="Trends" :showSteps="true" :customStep="7"></covid19-header>
+        <covid19-header :isLoading="isLoading" :period="7" title="Trends" :showSteps="true" :customStep="3"></covid19-header>
 
 
         <!--Charts-->
         <div class="container-fluid mt--6">
             <div class="row">
                 <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="7" :activeIndex="0"></line-chart>
+                    <line-chart :isLoading="isLoading" :customStep="3" :activeIndex="0"></line-chart>
                 </div>
                 <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="7" :activeIndex="0"></bar-chart>
+                    <bar-chart :isLoading="isLoading" :customStep="3" :activeIndex="0"></bar-chart>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
         <div class="container-fluid mt--6 pt-6">
             <div class="row">
                 <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="7" :activeIndex="1"></line-chart>
+                    <line-chart :isLoading="isLoading" :customStep="3" :activeIndex="1"></line-chart>
                 </div>
                 <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="7" :activeIndex="1"></bar-chart>
+                    <bar-chart :isLoading="isLoading" :customStep="3" :activeIndex="1"></bar-chart>
                 </div>
             </div>
         </div>
