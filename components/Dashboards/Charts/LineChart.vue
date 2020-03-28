@@ -3,13 +3,17 @@
     <card type="default" header-classes="bg-transparent" v-if="!isLoading">
         <div slot="header" class="row align-items-center">
             <div slot="header" class="row align-items-center">
-                <div class="col" v-if="bigLineChart.activeIndex === 0">
+                <div class="col" v-if="activeIndex === 0">
                     <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
                     <h5 class="h3 mb-0">Total Confirmed</h5>
                 </div>
-                <div class="col" v-if="bigLineChart.activeIndex === 1">
+                <div class="col" v-if="activeIndex === 1">
                     <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
                     <h5 class="h3 mb-0">Total Deaths</h5>
+                </div>
+                <div class="col" v-if="activeIndex === 2">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
+                    <h5 class="h3 mb-0">New Cases</h5>
                 </div>
             </div>
         </div>
@@ -69,8 +73,10 @@
                 var label = "";
                 if(this.activeIndex === 0){
                     label = "Confirmed";
-                }else{
+                }else if(this.activeIndex === 1){
                     label = "Deaths";
+                }else if(this.activeIndex === 2){
+                    label = "New Cases";
                 }
 
                 var labels = [];
@@ -84,8 +90,10 @@
                         labels.unshift(row.report_date.replace("2020-", ""));
                         if (this.activeIndex === 0) {
                             data.unshift(row.confirmed);
-                        } else {
+                        }  else if (this.activeIndex === 1) {
                             data.unshift(row.deaths);
+                        } else if (this.activeIndex === 2) {
+                            data.unshift(row.cases);
                         }
                     }
 
