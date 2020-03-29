@@ -7,8 +7,13 @@
                 <p class="text-white">Reliance on this website for medical guidance is strictly prohibited. For
                     informational purposes only</p>
             </div>
-
-            <ul class="nav nav-tabs row align-items-center text-center pl-3 pr-2 pb-3">
+        </div>
+        <!-- Card stats -->
+        <div v-if="isLoading">
+            <tile :loading="true"></tile>
+        </div>
+        <div v-else class="">
+            <ul class="nav nav-tabs row align-items-center text-center pb-3">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview'}]" @click.prevent="switchDashboards('overview')" >Overview</base-button>
                 </li>
@@ -22,21 +27,26 @@
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
                 </li>
             </ul>
-            <div class="col-10 col-xs-12 pt-2" v-if="!isLoading && showSelectCountryDropdown">
-                <base-input label="Select Country">
-                    <select @change="updateCountry($event)" class="form-control" v-model="country_region">
-                        <option :key="country.country_region" :value="country.country_region"
-                                v-for="country in countries">{{country.country_region}} ({{ country.confirmed}})
-                        </option>
-                    </select>
-                </base-input>
+            <div class="row pt-2" v-if="!isLoading && showSelectCountryDropdown">
+                <div class="col-6">
+                    <base-input label="Select Country">
+                        <select @change="updateCountry($event)" class="form-control" v-model="country_region">
+                            <option :key="country.country_region" :value="country.country_region"
+                                    v-for="country in sortedCountries">{{country.country_region}} ({{ country.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
+                <div class="col-6">
+                    <base-input label="By Confirmed">
+                        <select @change="updateCountry($event)" class="form-control" v-model="country_region">
+                            <option :key="country.country_region" :value="country.country_region"
+                                    v-for="country in countries">{{country.country_region}} ({{ country.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
             </div>
-        </div>
-        <!-- Card stats -->
-        <div v-if="isLoading">
-            <tile :loading="true"></tile>
-        </div>
-        <div v-else class="">
             <ul class="nav nav-tabs row align-items-center text-center pb-3">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('confirmed')" class="btn btn-icon btn-max" :class="buttonClass('confirmed')" type="button">
@@ -193,6 +203,7 @@
     import moment from 'moment';
     import {mapGetters} from 'vuex';
     import BarChart from '@/components/Dashboards//Charts/BarChart';
+    import clonedeep from 'lodash.clonedeep'
 
     export default {
         props: {
@@ -243,6 +254,10 @@
                 } else {
                     return "";
                 }
+            },
+            sortedCountries(){
+                var sortedContries = clonedeep(this.countries);
+                return sortedContries.sort(compare);
             },
             overViewValues() {
                 var confirmed = "";
@@ -316,6 +331,7 @@
             }
         },
         methods: {
+
             buttonClass(value){
                 if(value === 'confirmed' && this.$asidebar.activeChart === 'confirmed'){
                     return [{ "btn-info": true }];
@@ -432,5 +448,19 @@
         mounted() {
         }
     };
+
+    function compare(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const bandA = a.country_region.toUpperCase();
+        const bandB = b.country_region.toUpperCase();
+
+        let comparison = 0;
+        if (bandA > bandB) {
+            comparison = 1;
+        } else if (bandA < bandB) {
+            comparison = -1;
+        }
+        return comparison;
+    }
 </script>
 <style></style>

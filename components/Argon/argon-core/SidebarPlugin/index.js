@@ -16,6 +16,9 @@ const ArgonSidebarStore = {
       return false;
     }
   },
+  displaySidebar(value) {
+    this.showSidebar = value;
+  },
   setActiveChart(value){
     this.activeChart = value;
   },
