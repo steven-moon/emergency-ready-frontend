@@ -2,28 +2,8 @@
     <div>
         <covid19-header :isLoading="isLoading" :period="7" title="Overview"></covid19-header>
 
-        <!--Charts-->
-        <div class="container-fluid mt--6">
-            <div class="row">
-                <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="7" :activeIndex="0"></line-chart>
-                </div>
-                <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="7" :activeIndex="0"></bar-chart>
-                </div>
-            </div>
-        </div>
+        <covid-bar-charts :isLoading="isLoading"  :customStep="7"></covid-bar-charts>
 
-        <div class="container-fluid mt--6 pt-6">
-            <div class="row">
-                <div class="col-md-6">
-                    <line-chart :isLoading="isLoading" :customStep="7" :activeIndex="1"></line-chart>
-                </div>
-                <div class="col-md-6">
-                    <bar-chart :isLoading="isLoading" :customStep="7" :activeIndex="1"></bar-chart>
-                </div>
-            </div>
-        </div>
         <covid19-data-source></covid19-data-source>
     </div>
 </template>
@@ -33,8 +13,7 @@
 
     //
     import * as chartConfigs from '@/components/Argon/argon-core/Charts/config';
-    import LineChart from '@/components/Dashboards/Charts/LineChart';
-    import BarChart from '@/components/Dashboards//Charts/BarChart';
+    import CovidBarCharts from "./Charts/CovidBarCharts";
 
     import Covid19DataSource from '@/components/Dashboards/Covid19DataSource';
     import Covid19Header from '@/components/Dashboards/Charts/Covid19Header';
@@ -43,8 +22,7 @@
 
     export default {
         components: {
-            LineChart,
-            BarChart,
+            CovidBarCharts,
             Covid19DataSource,
             Covid19Header
         },

@@ -88,7 +88,7 @@
 
                 while (i < this.totals.length) {
                     var row = this.totals[i];
-                    if (row.report_date !== '2020-03-22') {
+                    if (row.report_date !== '2020-03-22'  && row.report_date !== '2020-03-13') {
                         if (this.activeIndex === 0 && parseInt(row.confirmed) > 12 ) {
                             labels.unshift(row.report_date.replace("2020-", ""));
                             data.unshift(row.confirmed);

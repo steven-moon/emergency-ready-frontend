@@ -283,7 +283,7 @@
                 while (i < this.totals.length) {
                     var row = this.totals[i];
                     var report_date = row.report_date;
-                    if (parseInt(row.confirmed) > 13 && report_date !== '2020-03-22') {
+                    if (parseInt(row.confirmed) > 13 && report_date !== '2020-03-22' && report_date !== '2020-03-13') {
 
                         var deaths = row.deaths;
                         var confirmed = row.confirmed;
