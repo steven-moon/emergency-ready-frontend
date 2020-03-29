@@ -7,7 +7,7 @@ const ArgonSidebarStore = {
   isMinimized: false,
   breakpoint: 10000,
   activeChart: "confirmed",
-  activeDashboard: "overview",
+  activeDashboard: "trends-by-country",
   hovered: false,
   keepPinned(){
     if (process.client) {
