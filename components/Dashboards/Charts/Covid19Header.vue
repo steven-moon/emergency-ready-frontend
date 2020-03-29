@@ -1,5 +1,5 @@
 <template>
-    <base-header class="pb-6 pt-5">
+    <base-header class="pb-6 pt-5 container-fluid">
         <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
                 <h6 class="h2 text-white" v-if="country_region">{{title}} - {{country_region}} </h6>
@@ -29,9 +29,32 @@
         <div v-if="isLoading">
             <tile :loading="true"></tile>
         </div>
-        <div v-else>
-            <div class="row">
-                <div class="col-6">
+        <div v-else class="">
+            <ul class="nav nav-tabs row pb-4 align-items-center text-center">
+                <li class="active col-3">
+                    <button @click.prevent="setActiveChart('confirmed')" class="btn btn-icon btn-max" :class="buttonClass('confirmed')" type="button">
+                        Confirmed
+                    </button>
+                </li>
+                <li class="active col-3">
+                    <button @click.prevent="setActiveChart('cases')" class="btn btn-icon btn-max" :class="buttonClass('cases')"  type="button">
+                        New Cases
+                    </button>
+                </li>
+                <li class="active col-3">
+                    <button @click.prevent="setActiveChart('deaths')" class="btn btn-icon btn-max " :class="buttonClass('deaths')"  type="button">
+                        Deaths
+                    </button>
+                </li>
+                <li class="active col-3">
+                    <button @click.prevent="setActiveChart('recovered')" class="btn btn-icon btn-max" :class="buttonClass('recovered')"  type="button">
+                        Recovered
+                    </button>
+                </li>
+            </ul>
+
+            <div class="row"  v-if="$asidebar.activeChart === 'confirmed'">
+                <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.confirmed"
                                 icon="ni ni-ambulance"
                                 title="Total Confirmed"
@@ -54,7 +77,12 @@
                         </template>
                     </stats-card>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="0"></bar-chart>
+                </div>
+            </div>
+            <div class="row"  v-if="$asidebar.activeChart === 'cases'">
+                <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.cases"
                                 :title="'New Cases (Last' + period + ' days)'"
                                 icon="ni ni-ambulance"
@@ -77,10 +105,13 @@
                         </template>
                     </stats-card>
                 </div>
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="1"></bar-chart>
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-6">
+            <div class="row"  v-if="$asidebar.activeChart === 'deaths'">
+                <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.deaths"
                                 icon="ni ni-single-02"
                                 title="Total Deaths"
@@ -103,7 +134,12 @@
                         </template>
                     </stats-card>
                 </div>
-                <div class="col-6">
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="2"></bar-chart>
+                </div>
+            </div>
+            <div class="row"  v-if="$asidebar.activeChart === 'recovered'">
+                <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.recovered"
                                 icon="ni ni-satisfied"
                                 title="Total Recovered"
@@ -127,6 +163,9 @@
                     </stats-card>
 
                 </div>
+                <div class="col-md-6">
+                    <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="3"></bar-chart>
+                </div>
             </div>
             <!--<div class="col-xl-3 col-md-6">
                <stats-card title="Performance"
@@ -146,6 +185,7 @@
 <script>
     import moment from 'moment';
     import {mapGetters} from 'vuex';
+    import BarChart from '@/components/Dashboards//Charts/BarChart';
 
     export default {
         props: {
@@ -178,7 +218,9 @@
                 default: false
             },
         },
-        components: {},
+        components: {
+            BarChart
+        },
         data() {
             return {};
         },
@@ -267,9 +309,25 @@
             }
         },
         methods: {
+            buttonClass(value){
+                if(value === 'confirmed' && this.$asidebar.activeChart === 'confirmed'){
+                    return [{ "btn-default": true }];
+                }else if(value === 'cases' && this.$asidebar.activeChart === 'cases'){
+                    return [{ "btn-default": true }];
+                }else if(value === 'deaths' && this.$asidebar.activeChart === 'deaths'){
+                    return [{ "btn-default": true }];
+                }else if(value === 'recovered' && this.$asidebar.activeChart === 'recovered'){
+                    return [{ "btn-default": true }];
+                }else{
+                    return [{ "btn-secondary": true }];
+                }
+            },
             switchDashboards() {
                 console.log("BEGIN: switchDashboards");
                 this.$asidebar.displaySidebar(true);
+            },
+            setActiveChart(value){
+                this.$asidebar.setActiveChart(value);
             },
             updateCountry(event) {
                 console.log("update Country: " + event.target.value);

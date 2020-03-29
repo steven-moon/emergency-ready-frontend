@@ -2,7 +2,7 @@
     <div>
         <covid19-header :isLoading="isLoading" :period="7" title="Overview"></covid19-header>
 
-        <covid-bar-charts :isLoading="isLoading"  :customStep="7"></covid-bar-charts>
+<!--        <covid-bar-charts :isLoading="isLoading"  :customStep="7"></covid-bar-charts>-->
 
         <covid19-data-source></covid19-data-source>
     </div>

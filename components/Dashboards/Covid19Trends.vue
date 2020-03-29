@@ -3,7 +3,7 @@
         <covid19-header :isLoading="isLoading" :period="7" title="Trends" :showSteps="true" :customStep="3"></covid19-header>
 
 
-        <covid-bar-charts :isLoading="isLoading"  :customStep="3"></covid-bar-charts>
+<!--        <covid-bar-charts :isLoading="isLoading"  :customStep="3"></covid-bar-charts>-->
         <covid19-data-source></covid19-data-source>
 
     </div>

@@ -6,6 +6,7 @@ const ArgonSidebarStore = {
   sidebarLinks: [],
   isMinimized: false,
   breakpoint: 10000,
+  activeChart: "confirmed",
   hovered: false,
   keepPinned(){
     if (process.client) {
@@ -13,6 +14,9 @@ const ArgonSidebarStore = {
     }else{
       return false;
     }
+  },
+  setActiveChart(value){
+    this.activeChart = value;
   },
   displaySidebar(value) {
     console.log("BEGIN: displaySidebar: " + value);
