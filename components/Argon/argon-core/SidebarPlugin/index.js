@@ -7,6 +7,7 @@ const ArgonSidebarStore = {
   isMinimized: false,
   breakpoint: 10000,
   activeChart: "confirmed",
+  activeDashboard: "overview",
   hovered: false,
   keepPinned(){
     if (process.client) {
@@ -18,14 +19,14 @@ const ArgonSidebarStore = {
   setActiveChart(value){
     this.activeChart = value;
   },
-  displaySidebar(value) {
-    console.log("BEGIN: displaySidebar: " + value);
+  setActiveDashboard(value) {
+    console.log("BEGIN: activeDashboard: " + value);
     // if (process.client) {
     //     if (window.innerWidth > this.breakpoint) {
     //       return;
     //     }
     // }
-    this.showSidebar = value;
+    this.activeDashboard = value;
 
     // let docClasses = document.body.classList
     // if (value) {

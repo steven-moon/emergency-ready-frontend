@@ -1,21 +1,32 @@
 <template>
     <base-header class="pb-6 pt-5 container-fluid">
         <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-                <h6 class="h2 text-white" v-if="country_region">{{title}} - {{country_region}} </h6>
-                <h6 class="h2 text-white" v-else>{{title}} </h6>
-
+            <div class="col-10 col-xs-12 pb-3">
                 <p class="text-white" v-if="!isLoading"> Current as of {{dataDate | formatDate}} <a
                         href="/dashboards/covid19-data-source">Data Source</a></p>
                 <p class="text-white">Reliance on this website for medical guidance is strictly prohibited. For
                     informational purposes only</p>
-                <div>
-                    <button @click.prevent="switchDashboards" class="btn btn-sm btn-primary btn-icon" type="button">
-                        Change Dashboard
-                    </button>
-                </div>
             </div>
-            <div class="col-lg-6 col-7 pt-2" v-if="!isLoading && showSelectCountryDropdown">
+
+            <ul class="nav nav-tabs row align-items-center text-center">
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
+                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview'}]" @click.prevent="switchDashboards('overview')" >Overview</base-button>
+                </li>
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
+                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview-by-country'}]" @click.prevent="switchDashboards('overview-by-country')">Overview By Country</base-button>
+                </li>
+                <li class="active col-6 col-md-3  col-xl-3 pb-2">
+                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends'}]" @click.prevent="switchDashboards('trends')">Trends</base-button>
+                </li>
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
+                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
+                </li>
+            </ul>
+<!--            <div class="col-10 col-xs-12">-->
+<!--                <h6 class="h2 text-white" v-if="country_region">{{title}} - {{country_region}} </h6>-->
+<!--                <h6 class="h2 text-white" v-else>{{title}} </h6>-->
+<!--            </div>-->
+            <div class="col-10 col-xs-12 pt-2" v-if="!isLoading && showSelectCountryDropdown">
                 <base-input label="Select Country">
                     <select @change="updateCountry($event)" class="form-control" v-model="country_region">
                         <option :key="country.country_region" :value="country.country_region"
@@ -30,23 +41,23 @@
             <tile :loading="true"></tile>
         </div>
         <div v-else class="">
-            <ul class="nav nav-tabs row pb-4 align-items-center text-center">
-                <li class="active col-3">
+            <ul class="nav nav-tabs row align-items-center text-center">
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('confirmed')" class="btn btn-icon btn-max" :class="buttonClass('confirmed')" type="button">
                         Confirmed
                     </button>
                 </li>
-                <li class="active col-3">
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('cases')" class="btn btn-icon btn-max" :class="buttonClass('cases')"  type="button">
                         New Cases
                     </button>
                 </li>
-                <li class="active col-3">
+                <li class="active col-6 col-md-3  col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('deaths')" class="btn btn-icon btn-max " :class="buttonClass('deaths')"  type="button">
                         Deaths
                     </button>
                 </li>
-                <li class="active col-3">
+                <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('recovered')" class="btn btn-icon btn-max" :class="buttonClass('recovered')"  type="button">
                         Recovered
                     </button>
@@ -311,20 +322,20 @@
         methods: {
             buttonClass(value){
                 if(value === 'confirmed' && this.$asidebar.activeChart === 'confirmed'){
-                    return [{ "btn-default": true }];
+                    return [{ "btn-info": true }];
                 }else if(value === 'cases' && this.$asidebar.activeChart === 'cases'){
-                    return [{ "btn-default": true }];
+                    return [{ "btn-info": true }];
                 }else if(value === 'deaths' && this.$asidebar.activeChart === 'deaths'){
-                    return [{ "btn-default": true }];
+                    return [{ "btn-info": true }];
                 }else if(value === 'recovered' && this.$asidebar.activeChart === 'recovered'){
-                    return [{ "btn-default": true }];
+                    return [{ "btn-info": true }];
                 }else{
                     return [{ "btn-secondary": true }];
                 }
             },
-            switchDashboards() {
+            switchDashboards(value) {
                 console.log("BEGIN: switchDashboards");
-                this.$asidebar.displaySidebar(true);
+                this.$asidebar.setActiveDashboard(value);
             },
             setActiveChart(value){
                 this.$asidebar.setActiveChart(value);

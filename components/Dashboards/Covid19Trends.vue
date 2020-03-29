@@ -4,7 +4,7 @@
 
 
 <!--        <covid-bar-charts :isLoading="isLoading"  :customStep="3"></covid-bar-charts>-->
-        <covid19-data-source></covid19-data-source>
+<!--        <covid19-data-source></covid19-data-source>-->
 
     </div>
 </template>

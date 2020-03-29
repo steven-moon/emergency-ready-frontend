@@ -127,11 +127,11 @@
             </div>
           </div>
           <div class="row align-items-center justify-content-xl-between pt-4 pb-4">
-            <div class="app-store-badge col-6">
+            <div class="app-store-badge col-12 col-lg-6 pb-4">
                   <a :href='aboutUs.emergencyReadyApp.appStoreLink'><img alt='Download on the App Store'
                                                                          src='/img/featured/Download_on_the_App_Store_Badge.png'/></a>
             </div>
-            <div class="app-store-badge col-6">
+            <div class="app-store-badge col-12 col-lg-6">
                 <a :href='aboutUs.emergencyReadyApp.playStoreLink'><img alt='Get it on Google Play'
                                                                         src='/img/featured/google_play_badge_web_generic.png'/></a>
             </div>

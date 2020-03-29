@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mt--6 pt-6">
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row pt-6">
+            <div class="col-12 pt-6">
                 <card header-classes="bg-transparent">
                     <div slot="header" class="row align-items-center">
                         <a name="datasource"></a>
