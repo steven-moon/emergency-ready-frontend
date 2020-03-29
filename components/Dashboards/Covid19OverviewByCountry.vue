@@ -40,8 +40,8 @@
                 isLoading: true,
                 reportLink: "/dashboards/",
                 trendStep: 7,
-                country_region: '',
-                scope: 'all'
+                country_region: 'US',
+                scope: 'country'
             };
         },
         watch:{

@@ -8,7 +8,7 @@
                     informational purposes only</p>
             </div>
 
-            <ul class="nav nav-tabs row align-items-center text-center">
+            <ul class="nav nav-tabs row align-items-center text-center pl-3 pr-2 pb-3">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview'}]" @click.prevent="switchDashboards('overview')" >Overview</base-button>
                 </li>
@@ -22,10 +22,6 @@
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
                 </li>
             </ul>
-<!--            <div class="col-10 col-xs-12">-->
-<!--                <h6 class="h2 text-white" v-if="country_region">{{title}} - {{country_region}} </h6>-->
-<!--                <h6 class="h2 text-white" v-else>{{title}} </h6>-->
-<!--            </div>-->
             <div class="col-10 col-xs-12 pt-2" v-if="!isLoading && showSelectCountryDropdown">
                 <base-input label="Select Country">
                     <select @change="updateCountry($event)" class="form-control" v-model="country_region">
@@ -41,7 +37,7 @@
             <tile :loading="true"></tile>
         </div>
         <div v-else class="">
-            <ul class="nav nav-tabs row align-items-center text-center">
+            <ul class="nav nav-tabs row align-items-center text-center pb-3">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('confirmed')" class="btn btn-icon btn-max" :class="buttonClass('confirmed')" type="button">
                         Confirmed
