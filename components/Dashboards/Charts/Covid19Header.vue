@@ -13,7 +13,7 @@
             <tile :loading="true"></tile>
         </div>
         <div v-else class="">
-            <ul class="nav nav-tabs row align-items-center text-center pb-3">
+            <ul class="nav nav-tabs row align-items-center text-center pb-2">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview'}]" @click.prevent="switchDashboards('overview')" >Overview</base-button>
                 </li>
@@ -27,7 +27,7 @@
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
                 </li>
             </ul>
-            <div class="row pt-2" v-if="!isLoading && showSelectCountryDropdown">
+            <div class="row pt-2" v-if="!isLoading && showSelectCountryDropdown"    >
                 <div class="col-6">
                     <base-input label="Select Country">
                         <select @change="updateCountry($event)" class="form-control" v-model="country_region">
@@ -47,7 +47,7 @@
                     </base-input>
                 </div>
             </div>
-            <ul class="nav nav-tabs row align-items-center text-center pb-3">
+            <ul class="nav nav-tabs row align-items-center text-center pb-2 pt-3">
                 <li class="active col-6 col-md-3 col-xl-3 pb-2">
                     <button @click.prevent="setActiveChart('confirmed')" class="btn btn-icon btn-max" :class="buttonClass('confirmed')" type="button">
                         Confirmed
@@ -70,7 +70,7 @@
                 </li>
             </ul>
 
-            <div class="row"  v-if="$asidebar.activeChart === 'confirmed'">
+            <div class="row pt-3"  v-if="$asidebar.activeChart === 'confirmed'">
                 <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.confirmed"
                                 icon="ni ni-ambulance"
@@ -98,7 +98,7 @@
                     <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="0"></bar-chart>
                 </div>
             </div>
-            <div class="row"  v-if="$asidebar.activeChart === 'cases'">
+            <div class="row pt-3"  v-if="$asidebar.activeChart === 'cases'">
                 <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.cases"
                                 :title="'New Cases (Last' + period + ' days)'"
@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <div class="row"  v-if="$asidebar.activeChart === 'deaths'">
+            <div class="row pt-3"  v-if="$asidebar.activeChart === 'deaths'">
                 <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.deaths"
                                 icon="ni ni-single-02"
@@ -155,7 +155,7 @@
                     <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="2"></bar-chart>
                 </div>
             </div>
-            <div class="row"  v-if="$asidebar.activeChart === 'recovered'">
+            <div class="row pt-3"  v-if="$asidebar.activeChart === 'recovered'">
                 <div class="col-md-6">
                     <stats-card :sub-title="overViewValues.recovered"
                                 icon="ni ni-satisfied"
@@ -184,18 +184,6 @@
                     <bar-chart :isLoading="isLoading" :customStep="customStep" :activeIndex="3"></bar-chart>
                 </div>
             </div>
-            <!--<div class="col-xl-3 col-md-6">
-               <stats-card title="Performance"
-                           type="gradient-info"
-                           sub-title="49,65%"
-                           icon="ni ni-chart-bar-32">
-
-                  <template slot="footer">
-                     <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 54.8%</span>
-                     <span class="text-nowrap">Since last month</span>
-                  </template>
-               </stats-card>
-            </div>-->
         </div>
     </base-header>
 </template>
