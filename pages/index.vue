@@ -38,7 +38,7 @@
                         <i class="ni ni-active-40"></i>
                       </div>
                       <h5 class="h3">{{aCard.info[0].title}}</h5>
-                      <p>{{aCard.info[0].description}}}</p>
+                      <p>{{aCard.info[0].description}}</p>
                     </div>
                   </div>
                   <div class="card">
@@ -47,7 +47,7 @@
                         <i class="ni ni-active-40"></i>
                       </div>
                       <h5 class="h3">{{aCard.info[1].title}}</h5>
-                      <p>{{aCard.info[1].description}}}</p>
+                      <p>{{aCard.info[1].description}}</p>
                     </div>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                         <i class="ni ni-active-40"></i>
                       </div>
                       <h5 class="h3">{{aCard.info[2].title}}</h5>
-                      <p>{{aCard.info[2].description}}}</p>
+                      <p>{{aCard.info[2].description}}</p>
                     </div>
                   </div>
                   <div class="card mb-4">
@@ -66,8 +66,8 @@
                       <div class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow mb-4">
                         <i class="ni ni-active-40"></i>
                       </div>
-                      <h5 class="h3">{{aCard.info[0].title}}</h5>
-                      <p>{{aCard.info[0].description}}</p>
+                      <h5 class="h3">{{aCard.info[3].title}}</h5>
+                      <p>{{aCard.info[3].description}}</p>
                     </div>
                   </div>
                 </div>

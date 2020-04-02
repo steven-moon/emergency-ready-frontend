@@ -44,6 +44,12 @@ export default {
               description: 'The app includes checklist for pre made emergency kits.',
               icon: 'now-ui-icons design-2_ruler-pencil',
               type: 'primary'
+            },
+            {
+              title: 'Emergency Guides',
+              description: 'Guides to help you know what to do in a wide range of emergency situations.',
+              icon: 'now-ui-icons design-2_ruler-pencil',
+              type: 'primary'
             }
           ]
         },
@@ -57,6 +63,12 @@ export default {
             {
               title: 'Custom Brand',
               description: 'You can hire us to create a custom branded version of the Emergency Ready App for your company or government agency using your icons, splash screens, and logos.',
+              icon: 'now-ui-icons users_single-02',
+              type: 'primary'
+            },
+            {
+              title: 'Notifications',
+              description: 'Ability to send notifications your users phone and tablets.',
               icon: 'now-ui-icons users_single-02',
               type: 'primary'
             },
