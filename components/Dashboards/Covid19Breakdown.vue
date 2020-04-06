@@ -10,7 +10,7 @@
         </div>
         <!-- Card stats -->
         <div v-if="isLoading">
-            <tile :loading="true"></tile>
+            <tile :loading="isLoading"></tile>
         </div>
         <div v-else class="">
             <ul class="nav nav-tabs row align-items-center text-center pb-2">
@@ -27,7 +27,7 @@
                     <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
                 </li>
             </ul>
-            <div class="row pt-2" v-if="!isLoading && showSelectCountryDropdown"    >
+            <div class="row pt-2" v-if="!isLoading">
                 <div class="col-6">
                     <base-input label="Select Country">
                         <select @change="updateCountry($event)" class="form-control" v-model="country_region">
@@ -42,6 +42,46 @@
                         <select @change="updateCountry($event)" class="form-control" v-model="country_region">
                             <option :key="country.country_region" :value="country.country_region"
                                     v-for="country in countries">{{country.country_region}} ({{ country.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
+            </div>
+            <div class="row pt-2" v-if="!isLoading && province_states.length > 0">
+                <div class="col-6">
+                    <base-input label="Select Province/State">
+                        <select @change="updateState($event)" class="form-control" v-model="province_state">
+                            <option :key="country.province_state" :value="country.province_state"
+                                    v-for="country in sortedStates">{{country.province_state}} ({{ country.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
+                <div class="col-6">
+                    <base-input label="By Confirmed">
+                        <select @change="updateState($event)" class="form-control" v-model="province_state">
+                            <option :key="state.province_state" :value="state.province_state"
+                                    v-for="state in province_states">{{state.province_state}} ({{ state.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
+            </div>
+            <div class="row pt-2" v-if="!isLoading && admin_areas.length > 0">
+                <div class="col-6">
+                    <base-input label="Select Admin Area">
+                        <select @change="updateAdminArea($event)" class="form-control" v-model="admin_area">
+                            <option :key="adminArea.admin2" :value="adminArea.admin2"
+                                    v-for="adminArea in sortedAdminAreas">{{adminArea.admin2}} ({{ adminArea.confirmed}})
+                            </option>
+                        </select>
+                    </base-input>
+                </div>
+                <div class="col-6">
+                    <base-input label="By Confirmed">
+                        <select @change="updateAdminArea($event)" class="form-control" v-model="admin_area">
+                            <option :key="adminArea.admin2" :value="adminArea.admin2"
+                                    v-for="adminArea in admin_areas">{{adminArea.admin2}} ({{ adminArea.confirmed}})
                             </option>
                         </select>
                     </base-input>
@@ -111,10 +151,10 @@
 
                             <div class="pt-2" v-if="showSteps">
                                 <div :key="aStep.report_date" class="row" v-for="aStep in totalsByStep(customStep)">
-                                    <div class="text-primary  col-5 col-sm-6 col-md-3 text-left"> {{aStep.report_date |
+                                    <div v-if="parseInt(aStep.cases) > 0" class="text-primary  col-5 col-sm-6 col-md-3 text-left"> {{aStep.report_date |
                                         formatDate}}
                                     </div>
-                                    <div class="text-nowrap  col-7 col-sm-6 col-md-9 text-left">{{aStep.cases}} new
+                                    <div v-if="parseInt(aStep.cases) > 0" class="text-nowrap  col-7 col-sm-6 col-md-9 text-left">{{aStep.cases}} new
                                         cases
                                     </div>
                                 </div>
@@ -169,10 +209,10 @@
                             <div class="pt-2" v-if="showSteps">
                                 <div :key="aStep.report_date" class="row" v-for="aStep in totalsByStep(customStep)">
                                     <div class="text-primary col-5 col-sm-6 col-md-3 text-left"
-                                         v-if="parseInt(aStep.new_deaths) > 3"> {{aStep.report_date | formatDate}}
+                                         v-if="parseInt(aStep.new_deaths) > 0"> {{aStep.report_date | formatDate}}
                                     </div>
                                     <div class="text-nowrap col-7 col-sm-6 col-md-9 text-left"
-                                         v-if="parseInt(aStep.new_deaths) > 3">{{aStep.new_deaths}} new deaths
+                                         v-if="parseInt(aStep.new_deaths) > 0">{{aStep.new_deaths}} new deaths
                                     </div>
                                 </div>
                             </div>
@@ -192,43 +232,25 @@
     import {mapGetters} from 'vuex';
     import BarChart from '@/components/Dashboards//Charts/BarChart';
     import clonedeep from 'lodash.clonedeep'
+    import ReportsAPI from '~/api/ReportsAPI';
 
     export default {
-        props: {
-            country_region: {
-                type: String,
-                default: null
-            },
-            title: {
-                type: String,
-                default: 'Overview'
-            },
-            isLoading: {
-                type: Boolean,
-                default: true
-            },
-            showSteps: {
-                type: Boolean,
-                default: false
-            },
-            period: {
-                type: Number,
-                default: 7
-            },
-            customStep: {
-                type: Number,
-                default: 4
-            },
-            showSelectCountryDropdown: {
-                type: Boolean,
-                default: false
-            },
-        },
         components: {
             BarChart
         },
         data() {
-            return {};
+            return {
+                country_region: "US",
+                province_state: "",
+                province_states: [],
+                admin_area: "",
+                admin_areas: [],
+                isLoading: true,
+                showSteps: true,
+                period: 7,
+                customStep: 4,
+
+            };
         },
         computed: {
             ...mapGetters('reportStore', {
@@ -247,6 +269,14 @@
                 var sortedContries = clonedeep(this.countries);
                 return sortedContries.sort(compare);
             },
+            sortedStates(){
+                var sortedStates = clonedeep(this.province_states);
+                return sortedStates.sort(compareState);
+            },
+            sortedAdminAreas(){
+                var admin_areas = clonedeep(this.admin_areas);
+                return admin_areas.sort(compareAdminArea);
+            },
             overViewValues() {
                 var confirmed = "";
                 var confirmed_percentage = "";
@@ -254,8 +284,8 @@
                 var deaths_percentage = "";
                 var new_deaths = "";
                 var new_deaths_percentage = "";
-                var recovered = "";
-                var recovered_percentage = "";
+                //var recovered = "";
+                //var recovered_percentage = "";
                 var cases = "";
                 var cases_percentage = "";
 
@@ -264,7 +294,7 @@
                     var current = this.totals[0];
                     confirmed = parseInt(current.confirmed);
                     deaths = parseInt(current.deaths);
-                    recovered = parseInt(current.recovered);
+                    //recovered = parseInt(current.recovered);
                     cases = parseInt(current.cases);
                     new_deaths = parseInt(current.new_deaths);
 
@@ -294,16 +324,16 @@
                         }
 
                         //Recovered Percentage Increase
-                        var last_week_recovered = parseInt(last_week.recovered);
-                        var recovered_diff = recovered - last_week_recovered;
-                        if (recovered_diff > 0 && last_week_recovered > 0) {
-                            recovered_percentage = ((recovered_diff / last_week_recovered) * 100).toFixed(2);
-                        }
+                        // var last_week_recovered = parseInt(last_week.recovered);
+                        // var recovered_diff = recovered - last_week_recovered;
+                        // if (recovered_diff > 0 && last_week_recovered > 0) {
+                        //     recovered_percentage = ((recovered_diff / last_week_recovered) * 100).toFixed(2);
+                        // }
 
                         //Cases Percentage Increase
                         var last_week_cases = parseInt(last_week.cases);
                         var cases_diff = cases - last_week_cases;
-                        if (cases_diff > 0 && last_week_recovered > 0) {
+                        if (cases_diff > 0 && last_week_cases > 0) {
                             cases_percentage = ((cases_diff / last_week_cases) * 100).toFixed(2);
                         }
 
@@ -317,8 +347,8 @@
                     'deaths_percentage': deaths_percentage.toString(),
                     'new_deaths': new_deaths.toString(),
                     'new_deaths_percentage': new_deaths_percentage.toString(),
-                    'recovered': recovered.toString(),
-                    'recovered_percentage': recovered_percentage.toString(),
+                    // 'recovered': recovered.toString(),
+                    // 'recovered_percentage': recovered_percentage.toString(),
                     'cases': cases.toString(),
                     'cases_percentage': cases_percentage.toString(),
                 }
@@ -332,13 +362,52 @@
             }
         },
         methods: {
+            getTotals(){
 
+                let params = {
+                    'report':'totals',
+                    'scope': 'local',
+                    'province_state': this.province_state,
+                    'country_region': this.country_region,
+                    'admin2': this.admin_area
+                };
+
+                this.isLoading = true;
+                ReportsAPI.getTotals(this.$store,params)
+                    .then(response => {
+
+                        console.log("Response = ");
+                        console.log(response);
+                        this.isLoading = false;
+
+                        if(response && response.province_states){
+                            this.province_states = clonedeep(response.province_states);
+                            console.log("Province States");
+                            console.log(this.province_states);
+                        }
+
+                        if(response && response.admin_areas){
+                            this.admin_areas = clonedeep(response.admin_areas);
+                            console.log("Admin Areas");
+                            console.log(this.admin_areas);
+                        }
+
+
+                        //this.initBigChart(0);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        this.isLoading = false;
+                    });
+            },
             buttonClass(value){
                 if(value === 'confirmed' && this.$asidebar.activeChart === 'confirmed'){
                     return [{ "btn-info": true }];
                 }else if(value === 'cases' && this.$asidebar.activeChart === 'cases'){
                     return [{ "btn-info": true }];
                 }else if(value === 'deaths' && this.$asidebar.activeChart === 'deaths'){
+                    return [{ "btn-info": true }];
+                }else if(value === 'new-deaths' && this.$asidebar.activeChart === 'new-deaths'){
                     return [{ "btn-info": true }];
                 }else if(value === 'recovered' && this.$asidebar.activeChart === 'recovered'){
                     return [{ "btn-info": true }];
@@ -354,8 +423,34 @@
                 this.$asidebar.setActiveChart(value);
             },
             updateCountry(event) {
-                console.log("update Country: " + event.target.value);
-                this.$emit('updateCountry', event.target.value);
+                this.country_region = event.target.value;
+                this.province_state = "";
+                this.admin_area = "";
+                this.showSteps = false;
+                this.customStep = 4;
+                this.period = 7;
+                console.log("update Country: " + this.country_region);
+
+                this.getTotals();
+            },
+            updateState(event) {
+                this.province_state = event.target.value;
+                this.admin_area = "";
+                this.showSteps = true;
+                this.customStep = 1;
+                this.period = 3;
+                console.log("update Country: " + this.province_state);
+
+                this.getTotals();
+            },
+            updateAdminArea(event) {
+                this.admin_area = event.target.value;
+                this.showSteps = true;
+                this.customStep = 1;
+                this.period = 3;
+                console.log("update Admin Area: " + this.admin_area);
+
+                this.getTotals();
             },
             totalsByStep(step) {
                 var i = 0;
@@ -369,8 +464,9 @@
 
                         var deaths = row.deaths;
                         var confirmed = row.confirmed;
-                        var recovered = row.recovered;
+                        //var recovered = row.recovered;
                         var cases = row.cases;
+                        var new_deaths = row.new_deaths;
 
 
                         var oldDeaths = 0;
@@ -380,7 +476,7 @@
 
                         var deathPercentIncrease = 0;
                         var confirmedPercentIncrease = 0;
-                        var recoveredPercentIncrease = 0;
+                        //var recoveredPercentIncrease = 0;
                         var casesPercentIncrease = 0;
 
 
@@ -389,7 +485,7 @@
                             var nextRow = this.totals[j];
                             oldDeaths = nextRow.deaths;
                             oldConfirmed = nextRow.confirmed;
-                            oldRecovered = nextRow.recovered;
+                            //oldRecovered = nextRow.recovered;
                             oldCases = nextRow.cases;
 
                             if (oldDeaths > 0 && deaths > 0) {
@@ -400,9 +496,9 @@
                                 confirmedPercentIncrease = (((confirmed - oldConfirmed) / oldConfirmed) * 100).toFixed(2);
                             }
 
-                            if (oldRecovered > 0 && recovered > 0) {
-                                recoveredPercentIncrease = (((recovered - oldRecovered) / oldRecovered) * 100).toFixed(2);
-                            }
+                            // if (oldRecovered > 0 && recovered > 0) {
+                            //     recoveredPercentIncrease = (((recovered - oldRecovered) / oldRecovered) * 100).toFixed(2);
+                            // }
 
                             if (oldCases > 0 && cases > 0) {
                                 casesPercentIncrease = (((cases - oldCases) / oldCases) * 100).toFixed(2);
@@ -415,8 +511,9 @@
                             {
                                 'deaths': deaths.toString(),
                                 'confirmed': confirmed.toString(),
-                                'recovered': recovered.toString(),
+                                // 'recovered': recovered.toString(),
                                 'cases': cases.toString(),
+                                'new_deaths': new_deaths.toString(),
                                 'report_date': report_date,
                                 'oldDeaths': oldDeaths.toString(),
                                 'oldConfirmed': oldConfirmed.toString(),
@@ -424,7 +521,7 @@
                                 'oldCases': oldCases.toString(),
                                 'deathPercentIncrease': deathPercentIncrease.toString(),
                                 'confirmedPercentIncrease': confirmedPercentIncrease.toString(),
-                                'recoveredPercentIncrease': recoveredPercentIncrease.toString(),
+                                // 'recoveredPercentIncrease': recoveredPercentIncrease.toString(),
                                 'casesPercentIncrease': casesPercentIncrease.toString(),
                             }
                         );
@@ -447,6 +544,7 @@
             },
         },
         mounted() {
+            this.getTotals();
         }
     };
 
@@ -454,6 +552,34 @@
         // Use toUpperCase() to ignore character casing
         const bandA = a.country_region.toUpperCase();
         const bandB = b.country_region.toUpperCase();
+
+        let comparison = 0;
+        if (bandA > bandB) {
+            comparison = 1;
+        } else if (bandA < bandB) {
+            comparison = -1;
+        }
+        return comparison;
+    }
+
+    function compareState(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const bandA = a.province_state.toUpperCase();
+        const bandB = b.province_state.toUpperCase();
+
+        let comparison = 0;
+        if (bandA > bandB) {
+            comparison = 1;
+        } else if (bandA < bandB) {
+            comparison = -1;
+        }
+        return comparison;
+    }
+
+    function compareAdminArea(a, b) {
+        // Use toUpperCase() to ignore character casing
+        const bandA = a.admin2.toUpperCase();
+        const bandB = b.admin2.toUpperCase();
 
         let comparison = 0;
         if (bandA > bandB) {

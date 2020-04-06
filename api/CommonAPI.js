@@ -27,7 +27,7 @@ const instance = {
 
         return axios.post(baseUrl, data, config)
             .then(response => {
-                return response.data.data;
+                return response.data;
             })
             .catch((error) => {
                 console.log(error);

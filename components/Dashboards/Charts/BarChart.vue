@@ -17,6 +17,10 @@
                 <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
                 <h5 class="h3 mb-0">Recovered</h5>
             </div>
+            <div class="col" v-if="activeIndex === 4">
+                <h6 class="text-uppercase text-muted ls-1 mb-1">Overview</h6>
+                <h5 class="h3 mb-0">New Deaths</h5>
+            </div>
         </div>
 
         <bar-chart
@@ -79,6 +83,8 @@
                     label = "Deaths";
                 }else if(this.activeIndex === 3){
                     label = "Recovered";
+                }else if(this.activeIndex === 4){
+                    label = "New Deaths";
                 }
 
                 var labels = [];
@@ -101,6 +107,9 @@
                         } else if (this.activeIndex === 3 && parseInt(row.recovered) > 12 ) {
                             labels.unshift(row.report_date.replace("2020-", ""));
                             data.unshift(row.recovered);
+                        } else if (this.activeIndex === 4 && parseInt(row.new_deaths) > 0 ) {
+                            labels.unshift(row.report_date.replace("2020-", ""));
+                            data.unshift(row.new_deaths);
                         }
                     }
 

@@ -10,11 +10,11 @@ const instance = {
     getTotals(store, params) {
 
         return CommonAPI.getAllPost(store.getters.getAuthToken, 'covid-reports', params)
-            .then(items => {
-                const clonedItems = clonedeep(items);
+            .then(response => {
+                const clonedData = clonedeep(response.data);
 
-                store.commit('reportStore/setTotals', clonedItems);
-                return items;
+                store.commit('reportStore/setTotals', clonedData);
+                return response;
             })
             .catch((error) => {
                 console.log("error in " + apiName + ": " + error);

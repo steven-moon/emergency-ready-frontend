@@ -39,6 +39,12 @@
              </nuxt-link>
            </li>
            <li class="nav-item">
+             <nuxt-link to="/dashboards/covid19-local-breakdown" class="nav-link">
+               <i class="ni ni-notification-70"></i>
+               <span class="nav-link-inner--text">Dashboard - Local Breakdown</span>
+             </nuxt-link>
+           </li>
+           <li class="nav-item">
              <nuxt-link to="/twitter-feed" class="nav-link">
                <span class="nav-link-inner--text">Twitter Feed</span>
              </nuxt-link>
