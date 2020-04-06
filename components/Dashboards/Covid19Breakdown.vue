@@ -13,20 +13,6 @@
             <tile :loading="isLoading"></tile>
         </div>
         <div v-else class="">
-            <ul class="nav nav-tabs row align-items-center text-center pb-2">
-                <li class="active col-6 col-md-3 col-xl-3 pb-2">
-                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview'}]" @click.prevent="switchDashboards('overview')" >Overview</base-button>
-                </li>
-                <li class="active col-6 col-md-3 col-xl-3 pb-2">
-                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'overview-by-country'}]" @click.prevent="switchDashboards('overview-by-country')">Overview By Country</base-button>
-                </li>
-                <li class="active col-6 col-md-3  col-xl-3 pb-2">
-                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends'}]" @click.prevent="switchDashboards('trends')">Trends</base-button>
-                </li>
-                <li class="active col-6 col-md-3 col-xl-3 pb-2">
-                    <base-button type="default" class="btn btn-icon btn-max" :class="[{'active':$asidebar.activeDashboard === 'trends-by-country'}]" @click.prevent="switchDashboards('trends-by-country')">Trends By Country</base-button>
-                </li>
-            </ul>
             <div class="row pt-2" v-if="!isLoading">
                 <div class="col-6">
                     <base-input label="Select Country">
