@@ -9,9 +9,9 @@
               <div class="pr-5">
                 <h1 v-if="aboutUs && aboutUs.title" class="display-2 text-white font-weight-bold mb-0 pb-2">{{aboutUs.title}}</h1>
               </div>
-              <div class="pt-5 align-items-center">
-                <button type="button" class="btn btn-lg btn-primary btn-icon" @click.prevent="goToDashboard">Covid19 Dashboards</button>
-              </div>
+<!--              <div class="pt-5 align-items-center">-->
+<!--                <button type="button" class="btn btn-lg btn-primary btn-icon" @click.prevent="goToDashboard">Covid19 Dashboards</button>-->
+<!--              </div>-->
             </div>
             <div class="col-lg-6" >
               <div class="row pt-5">

@@ -1,13 +1,16 @@
 <template>
    <div>
-      <covid19-breakdown></covid19-breakdown>
+<!--      <covid19-breakdown></covid19-breakdown>-->
+
+      <covid19-overview></covid19-overview>
    </div>
 </template>
 <script>
 
    // Components
-   import Covid19Breakdown from '@/components/Dashboards/Covid19Breakdown';
+   // import Covid19Breakdown from '@/components/Dashboards/Covid19Breakdown';
 
+   import Covid19Overview from '@/components/Dashboards/Covid19Overview';
    export default {
       layout: 'argon-dashboard-layout',
       head () {
@@ -20,7 +23,7 @@
          }
       },
       components: {
-         Covid19Breakdown,
+         Covid19Overview,
       },
       data() {
          return {

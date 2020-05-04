@@ -1,12 +1,14 @@
 <template>
    <div>
-      <covid19-trends></covid19-trends>
+<!--      <covid19-trends></covid19-trends>-->
+      <covid19-overview></covid19-overview>
    </div>
 </template>
 <script>
 
    // Components
-   import Covid19Trends from '@/components/Dashboards/Covid19Trends';
+   // import Covid19Trends from '@/components/Dashboards/Covid19Trends';
+   import Covid19Overview from '@/components/Dashboards/Covid19Overview';
 
    export default {
       layout: 'app-dashboard-layout',
@@ -20,7 +22,7 @@
          }
       },
       components: {
-         Covid19Trends,
+         Covid19Overview,
       },
       data() {
          return {

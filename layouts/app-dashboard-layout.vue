@@ -10,7 +10,7 @@
               expand=""
       >
         <div slot="brand" class="navbar-wrapper">
-          <nuxt-link class="navbar-brand" to="/app/dashboards">
+          <nuxt-link class="navbar-brand" to="/app/">
             <img src="img/brand/white.png" alt="Logo white">
           </nuxt-link>
         </div>
@@ -19,7 +19,7 @@
           <div class="navbar-collapse-header">
             <div class="row">
               <div class="col-6 collapse-brand">
-                <nuxt-link to="/app/dashboards" class="mr-auto">
+                <nuxt-link to="/app/" class="mr-auto">
                   <img src="img/brand/blue.png" alt="Logo Blue">
                 </nuxt-link>
               </div>
@@ -33,18 +33,18 @@
           </div>
 
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <nuxt-link to="/app/dashboards/" class="nav-link">
-                <i class="ni ni-notification-70"></i>
-                <span class="nav-link-inner--text">Covid19 Dashboard</span>
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/app/dashboards/covid19-local-breakdown" class="nav-link">
-                <i class="ni ni-notification-70"></i>
-                <span class="nav-link-inner--text">Covid19 Dashboard - Local Breakdown</span>
-              </nuxt-link>
-            </li>
+<!--            <li class="nav-item">-->
+<!--              <nuxt-link to="/app/dashboards/" class="nav-link">-->
+<!--                <i class="ni ni-notification-70"></i>-->
+<!--                <span class="nav-link-inner&#45;&#45;text">Covid19 Dashboard</span>-->
+<!--              </nuxt-link>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <nuxt-link to="/app/dashboards/covid19-local-breakdown" class="nav-link">-->
+<!--                <i class="ni ni-notification-70"></i>-->
+<!--                <span class="nav-link-inner&#45;&#45;text">Covid19 Dashboard - Local Breakdown</span>-->
+<!--              </nuxt-link>-->
+<!--            </li>-->
 <!--            <li class="nav-item">-->
 <!--              <nuxt-link to="/app/dashboards/country" class="nav-link">-->
 <!--                <i class="ni ni-world-2"></i>-->

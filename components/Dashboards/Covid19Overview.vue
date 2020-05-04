@@ -1,20 +1,36 @@
 <template>
-    <div>
-        <covid19-header v-if="$asidebar.activeDashboard === 'overview'" :isLoading="isLoading" :period="trendStep" title="Overview"></covid19-header>
+    <div class="container-fluid mt--6 pt-6">
+        <div class="row pt-6">
+            <div class="col-12 pt-6">
+                <card header-classes="bg-transparent">
+                    <div slot="header" class="row align-items-center">
+                        <p>
+                            These dashboards are no longer maintained please visit <a href="https://coronavirus.jhu.edu/map.html">John Hopkins - Coronavirus Resource Center</a>
+                        </p>
+                    </div>
+                </card>
+            </div>
+        </div>
 
-        <covid19-header  v-if="$asidebar.activeDashboard === 'overview-by-country'" :isLoading="isLoading" :period="trendStep" title="Overview by Country"
-                        :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>
+    </div>
 
-        <covid19-header v-if="$asidebar.activeDashboard === 'trends'" :isLoading="isLoading" :period="7" title="Trends" :showSteps="true" :customStep="3"></covid19-header>
+<!--    <div>-->
+
+<!--        <covid19-header v-if="$asidebar.activeDashboard === 'overview'" :isLoading="isLoading" :period="trendStep" title="Overview"></covid19-header>-->
+
+<!--        <covid19-header  v-if="$asidebar.activeDashboard === 'overview-by-country'" :isLoading="isLoading" :period="trendStep" title="Overview by Country"-->
+<!--                        :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>-->
+
+<!--        <covid19-header v-if="$asidebar.activeDashboard === 'trends'" :isLoading="isLoading" :period="7" title="Trends" :showSteps="true" :customStep="3"></covid19-header>-->
 
 
-        <covid19-header  v-if="$asidebar.activeDashboard === 'trends-by-country'"  :isLoading="isLoading" :period="3" title="Trends by Country" :showSteps="true" :customStep="1"
-                        :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>
+<!--        <covid19-header  v-if="$asidebar.activeDashboard === 'trends-by-country'"  :isLoading="isLoading" :period="3" title="Trends by Country" :showSteps="true" :customStep="1"-->
+<!--                        :showSelectCountryDropdown="true" @updateCountry="updateCountry" :country_region="country_region"></covid19-header>-->
 
         <!--        <covid-bar-charts :isLoading="isLoading"  :customStep="7"></covid-bar-charts>-->
 
 <!--        <covid19-data-source></covid19-data-source>-->
-    </div>
+<!--    </div>-->
 </template>
 <script>
     import moment from 'moment';
