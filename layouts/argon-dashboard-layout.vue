@@ -267,7 +267,7 @@
     },
     mounted() {
       this.initScrollbar();
-      ReportsAPI.getCountryList(this.$store);
+      //ReportsAPI.getCountryList(this.$store);
     }
   };
 </script>
