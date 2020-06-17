@@ -5,6 +5,11 @@
         width: 100%;
     }
 
+    .greyed-out {
+        background-color: $kit-success-color-opacity;
+        color: $kit-success-color-opacity;
+    }
+
     .section-image {
         background-size: cover;
         background-position: center center;

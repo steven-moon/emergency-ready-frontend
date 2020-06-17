@@ -1,45 +1,386 @@
 <template>
-  <div class="wrapper contact-page">
-    <contact-us :withMap="true"></contact-us>
-    <subscribe :showImage="true"></subscribe>
+  <div class="cd-section" id="contactus">
+    <div class="contactus-2">
+      <gmap-map
+              :center="center"
+              :options="options"
+              :zoom="9.5"
+              class="map"
+              id="map"
+              map-type-id="roadmap">
+        <gmap-marker :position="center">
+        </gmap-marker>
+      </gmap-map>
+      <div class="col-md-9 col-lg-8 col-sm-11 pt-5">
+        <card header-classes="text-center pt-3" raised style="min-height: 660px;" type="contact" v-if="isLoading">
+          <h4 class="card-title pt-2" slot="header">Contact Us</h4>
+          <div class="row">
+            <div class="col-md-10 ml-auto mr-auto">
+              <tile :loading="isLoading"></tile>
+            </div>
+          </div>
+        </card>
+        <card header-classes="text-center pt-3" raised style="min-height: 660px;" type="contact"
+              v-else-if="contactResponseMessage">
+          <h4 class="card-title pt-2" slot="header">Contact Us</h4>
+
+          <div class="row">
+            <div class="col-md-10 ml-auto mr-auto">{{contactResponseMessage}}</div>
+          </div>
+        </card>
+        <card header-classes="text-center pt-3" raised style="min-height: 660px;" type="contact" v-else>
+          <h4 class="card-title pt-2" slot="header">Contact Us</h4>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <info-section icon="now-ui-icons tech_mobile"
+                            type="success">
+                <h5 class="info-title">Contact Info</h5>
+                <p><a href="mailto:contact@clevercoding.com">contact@clevercoding.com</a>
+                  <br> <a href="tel:(801) 901-0231">(801) 901-0231</a>
+                  <br> Mon - Fri, 9:00 am - 5:00 pm
+                </p>
+              </info-section>
+            </div>
+            <div class="col-md-6">
+              <info-section icon="now-ui-icons location_pin"
+                            type="success">
+                <h5 class="info-title">Office Address</h5>
+                <p> Lehi, UT
+                  <br> 84043
+                </p>
+              </info-section>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pl-2 pr-2">
+              <label>Name</label>
+              <fg-input
+                      addon-left-icon="now-ui-icons users_circle-08"
+                      placeholder="Name..."
+                      v-model="name"
+              >
+              </fg-input>
+            </div>
+            <div class="col-md-6 pl-2 pr-2">
+              <label>Email address</label>
+              <fg-input
+                      addon-left-icon="now-ui-icons ui-1_email-85"
+                      placeholder="Email ..."
+                      v-model="email">
+              </fg-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pl-2 pr-2">
+              <label>Company</label>
+              <fg-input
+                      addon-left-icon="now-ui-icons business_briefcase-24"
+                      placeholder="Organization Name..."
+                      v-model="company">
+              </fg-input>
+            </div>
+            <div class="col-md-6 pl-2 pr-2">
+              <label>Phone</label>
+              <fg-input
+                      addon-left-icon="now-ui-icons cc-icons cc-icon-mobile-phone"
+                      placeholder="Phone Here..."
+                      v-model="phone">
+              </fg-input>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 pl-2 pr-2">
+              <br/>
+              <label>How did you hear about us?</label>
+            </div>
+            <div class="col-md-12 pr-2">
+              <el-select class="select-success"
+                         placeholder="Select Option"
+                         v-model="sourceSelect.value">
+                <el-option :key="option.label"
+                           :label="option.label"
+                           :value="option.value"
+                           class="select-primary"
+                           v-for="option in sourceSelect.options">
+                </el-option>
+              </el-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 pl-2 pr-2">
+              <br/>
+              <label>Message</label>
+              <textarea class="form-control" cols="80" name="name" placeholder="Add a message here..."
+                        rows="4"
+                        v-model="summary"></textarea>
+            </div>
+          </div>
+          <div class="row"><br></div>
+          <div class="row">
+            <div class="col-12 right">
+              <vue-recaptcha
+                      :loadRecaptchaScript="true"
+                      :sitekey="sitekey"
+                      @verify="onVerify"
+                      ref="invisibleRecaptcha"
+                      size="invisible">
+                <n-button class="pull-right" round type="success">Send Message</n-button>
+              </vue-recaptcha>
+            </div>
+          </div>
+
+        </card>
+      </div>
+    </div>
   </div>
-
 </template>
+
 <script>
-  /**
-   * @ The external dependecies.
-   */
 
 
-  /**
-   * @ The internal dependecies.
-   */
-  import ContactUs from '@/components/Sections/ContactUs'
-  import Subscribe from '@/components/Sections/Subscribe'
+  import { API_KEY } from '@/constants'
+  import Vue from 'vue'
+  import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
+  import VueRecaptcha from 'vue-recaptcha'
+  import CommonAPI from '~/api/CommonAPI'
 
-
+  Vue.use(VueGoogleMaps, {
+    load: {
+      key: API_KEY
+    }
+  })
   export default {
-    name: 'contactus',
+    name: 'contact-us',
+    layout: 'default',
     components: {
-      ContactUs,
-      Subscribe
-    },
-    head () {
-      return {
-        title: this.title,
-        meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: 'Base App' }
-        ]
-      }
+      VueRecaptcha
     },
     data() {
       return {
-        title: "Contact Base App"
+        sitekey: '6Lec8sIUAAAAAIz0bL89CotUzFVemN1EN2NPl44-',
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        typeProject: '',
+        summary: '',
+        sourceSelect: {
+          value: 'Select ...',
+          options: [
+            {
+              value: 'Referral',
+              label: 'Referral'
+            },
+            {
+              value: 'Search Engine',
+              label: 'Search Engine'
+            },
+            {
+              value: 'Google Ad',
+              label: 'Google Ad'
+            },
+            {
+              value: 'Billboard',
+              label: 'Billboard'
+            },
+            {
+              value: 'Facebook',
+              label: 'Facebook'
+            },
+            {
+              value: 'LinkedIn',
+              label: 'LinkedIn'
+            },
+            {
+              value: 'Twitter',
+              label: 'Twitter'
+            },
+            {
+              value: 'Instagram',
+              label: 'Instagram'
+            },
+            {
+              value: 'Other',
+              label: 'Other'
+            }
+
+          ]
+        },
+        center: {
+          lat: 40.414950,
+          lng: -112.323795
+        },
+        options: {
+          styles: [{
+            'featureType': 'water',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#e9e9e9'
+            }, {
+              'lightness': 17
+            }]
+          }, {
+            'featureType': 'landscape',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#f5f5f5'
+            }, {
+              'lightness': 20
+            }]
+          }, {
+            'featureType': 'road.highway',
+            'elementType': 'geometry.fill',
+            'stylers': [{
+              'color': '#ffffff'
+            }, {
+              'lightness': 17
+            }]
+          }, {
+            'featureType': 'road.highway',
+            'elementType': 'geometry.stroke',
+            'stylers': [{
+              'color': '#ffffff'
+            }, {
+              'lightness': 29
+            }, {
+              'weight': 0.2
+            }]
+          }, {
+            'featureType': 'road.arterial',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#ffffff'
+            }, {
+              'lightness': 18
+            }]
+          }, {
+            'featureType': 'road.local',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#ffffff'
+            }, {
+              'lightness': 16
+            }]
+          }, {
+            'featureType': 'poi',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#f5f5f5'
+            }, {
+              'lightness': 21
+            }]
+          }, {
+            'featureType': 'poi.park',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#dedede'
+            }, {
+              'lightness': 21
+            }]
+          }, {
+            'elementType': 'labels.text.stroke',
+            'stylers': [{
+              'visibility': 'on'
+            }, {
+              'color': '#ffffff'
+            }, {
+              'lightness': 16
+            }]
+          }, {
+            'elementType': 'labels.text.fill',
+            'stylers': [{
+              'saturation': 36
+            }, {
+              'color': '#333333'
+            }, {
+              'lightness': 40
+            }]
+          }, {
+            'elementType': 'labels.icon',
+            'stylers': [{
+              'visibility': 'off'
+            }]
+          }, {
+            'featureType': 'transit',
+            'elementType': 'geometry',
+            'stylers': [{
+              'color': '#f2f2f2'
+            }, {
+              'lightness': 19
+            }]
+          }, {
+            'featureType': 'administrative',
+            'elementType': 'geometry.fill',
+            'stylers': [{
+              'color': '#fefefe'
+            }, {
+              'lightness': 20
+            }]
+          }, {
+            'featureType': 'administrative',
+            'elementType': 'geometry.stroke',
+            'stylers': [{
+              'color': '#fefefe'
+            }, {
+              'lightness': 17
+            }, {
+              'weight': 1.2
+            }]
+          }]
+
+        },
+        isLoading: false,
+        contactResponseMessage: null
       }
     },
+    methods: {
+      submitForm() {
+        this.$gtag('event', 'contact_form_submitted');
+        console.log('Submit Form')
+
+        var formData = {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          company: this.company,
+          summary: this.summary,
+          source: this.sourceSelect.value,
+          lead_type: 'Emergency Ready App',
+          first_contact_type: 'Contact Form',
+          lead_status: 'New',
+          campaign: '',
+          file_url: '',
+          file_name: ''
+        }
+
+        this.isLoading = true
+        CommonAPI.sendContactUsForm(formData)
+                .then(response => {
+                  if (response.status >= 200 && response.status < 300) {
+                    this.contactResponseMessage = 'Thank you for contacting us.  Someone will reach out to you in the next couple of business days..'
+                  } else {
+                    this.contactResponseMessage = 'There was an error.  Please try again later.'
+                  }
+                  this.isLoading = false
+                })
+                .catch((error) => {
+                  this.contactResponseMessage = 'There was an error.  Please try again later.'
+                  this.isLoading = false
+                })
+      },
+      onVerify(response) {
+        console.log(response)
+        this.submitForm()
+      }
+    },
+    computed: {},
     mounted() {
+
+    },
+    created() {
+
     }
   }
 </script>
-<style></style>

@@ -159,7 +159,7 @@
 
   export default {
     name: 'blog',
-    layout: 'argon-dashboard-layout',
+    layout: 'default',
     components: {
     },
     data() {

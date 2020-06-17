@@ -35,7 +35,7 @@
           <div class="row">
             <div class="col-md-6">
               <info-section icon="now-ui-icons tech_mobile"
-                            type="primary">
+                            type="success">
                 <h5 class="info-title">Contact Info</h5>
                 <p><a href="mailto:contact@clevercoding.com">contact@clevercoding.com</a>
                   <br> <a href="tel:(801) 901-0231">(801) 901-0231</a>
@@ -45,11 +45,9 @@
             </div>
             <div class="col-md-6">
               <info-section icon="now-ui-icons location_pin"
-                            type="primary">
+                            type="success">
                 <h5 class="info-title">Office Address</h5>
-                <p> 2975 South Executive Parkway
-                  <br> Suite 330
-                  <br> Lehi, UT
+                <p> Lehi, UT
                   <br> 84043
                 </p>
               </info-section>
@@ -98,7 +96,7 @@
               <label>How did you hear about us?</label>
             </div>
             <div class="col-md-12 pr-2">
-              <el-select class="select-primary"
+              <el-select class="select-success"
                          placeholder="Select Option"
                          v-model="sourceSelect.value">
                 <el-option :key="option.label"
@@ -128,7 +126,7 @@
                 @verify="onVerify"
                 ref="invisibleRecaptcha"
                 size="invisible">
-                <n-button class="pull-right" round type="primary">Send Message</n-button>
+                <n-button class="pull-right" round type="success">Send Message</n-button>
               </vue-recaptcha>
             </div>
           </div>

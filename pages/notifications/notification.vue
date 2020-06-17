@@ -212,7 +212,7 @@
    import Badge from '@/components/Argon/argon-core/Badge';
 
    export default {
-      layout: 'argon-dashboard-layout',
+      layout: 'default',
       components: {
          Badge,
          BaseHeader,

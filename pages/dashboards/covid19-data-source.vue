@@ -9,7 +9,7 @@
    import Covid19DataSource from '@/components/Dashboards/Covid19DataSource';
 
    export default {
-      layout: 'argon-dashboard-layout',
+      layout: 'default',
       head () {
          return {
             title: "Emergency Ready App - Dashboard Overview",

@@ -147,7 +147,7 @@
   const d = today.getDate();
   export default {
     name: 'big-calendar',
-    layout: 'argon-dashboard-layout',
+    layout: 'default',
     components: {
       Modal,
       FullCalendar

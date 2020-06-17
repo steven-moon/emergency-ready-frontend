@@ -128,7 +128,7 @@
 
     export default {
         mixins: [clientPaginationMixin],
-        layout: 'argon-dashboard-layout',
+        layout: 'default',
         components: {
             BasePagination,
             RouteBreadCrumb,

@@ -51,7 +51,7 @@
 <script>
     export default {
         name: 'form-elements',
-        layout: 'argon-dashboard-layout',
+        layout: 'default',
         components: {
         },
         data() {

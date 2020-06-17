@@ -1,68 +1,78 @@
 <template>
-  <navbar
-    position="fixed"
-    :transparent="false"
-    :color-on-scroll="colorOnScroll"
-    menu-classes="ml-auto"
-    type="gray"
-  >
-    <template slot-scope="{ toggle, isToggled }">
+  <navbar position="fixed"
+          :transparent="transparent"
+          :color-on-scroll="colorOnScroll"
+          menu-classes="ml-auto">
+    <template slot-scope="{toggle, isToggled}">
       <nuxt-link v-popover:popover1 class="navbar-brand" to="/">
         Emergency Ready App
       </nuxt-link>
       <el-popover
-        ref="popover1"
-        popper-class="popover"
-        placement="bottom"
-        width="300"
-        trigger="hover"
-      >
-        <div class="popover-body">
-          Designed and Coded by Clever Coding LLC
-        </div>
+              ref="popover1"
+              popper-class="popover"
+              placement="bottom"
+              width="300"
+              trigger="hover">
+        <div class="popover-body">Created by Clever Coding LLC</div>
       </el-popover>
     </template>
     <template slot="navbar-menu">
-      <drop-down
-              tag="li"
-              title="Pages"
-              icon="now-ui-icons design_app"
-              class="nav-item"
-      >
-        <a href="/" class="dropdown-item"><i class="now-ui-icons travel_info"/> Home</a>
-        <a href="/featured-apps" class="dropdown-item"><i class="now-ui-icons  cc-icons cc-icon-cockade"/>Featured</a>
-        <a href="/blog" class="dropdown-item"><i class="now-ui-icons emoticons_satisfied"/> Blog</a>
-        <a href="/contactus" class="dropdown-item"><i class="now-ui-icons design_bullet-list-67"/>Contact Us</a>
-        <a href="/samples" class="dropdown-item"><i class="now-ui-icons gestures_tap-01"/>Samples</a>
-        <a href="/black" class="dropdown-item"><i class="now-ui-icons ui-1_calendar-60"/>Black Dashboard</a>
-        <a href="/argon" class="dropdown-item"><i class="now-ui-icons travel_istanbul"/>Argon Dashboard</a>
-        <a href="/ui-kit" class="dropdown-item"><i class="now-ui-icons design_image"/>UI Kit</a>
+      <drop-down tag="li" title="Learn More" icon="now-ui-icons files_paper" class="nav-item">
+        <nav-link to="/">
+          <i class="now-ui-icons shopping_box"></i> Home
+        </nav-link>
+        <nav-link to="/contact-us">
+          <i class="now-ui-icons shopping_box"></i> Contact Us
+        </nav-link>
+        <nav-link to="/blog">
+          <i class="now-ui-icons text_align-left"></i> Blog
+        </nav-link>
+      </drop-down>
+    </template>
+    <template slot="navbar-menu">
+      <drop-down tag="li" title="Features" icon="now-ui-icons files_paper" class="nav-item">
+        <nav-link to="/custom-branded-emergency-ready-app">
+          <i class="now-ui-icons ui-2_settings-90"></i> Custom Branded App
+        </nav-link>
+        <nav-link to="/send-emergency-notifications">
+          <i class="now-ui-icons sport_user-run"></i> Send Emergency Notifications
+        </nav-link>
+        <nav-link to="/emergency-response-plans">
+          <i class="now-ui-icons education_paper"></i> Emergency Response Plans
+        </nav-link>
+        <nav-link to="/contacts-info-in-emergency-ready-app">
+          <i class="now-ui-icons business_money-coins"></i> Add Your Contacts Info
+        </nav-link>
+        <nav-link to="/interactive-emergency-preparedness-kits">
+          <i class="now-ui-icons ui-2_chat-round"></i> Interactive Preparedness Kits
+        </nav-link>
+        <nav-link to="/hazard-guides">
+          <i class="now-ui-icons ui-2_chat-round"></i> Hazard Guides
+        </nav-link>
       </drop-down>
     </template>
   </navbar>
 </template>
 
 <script>
-import { Popover } from 'element-ui'
-import DropDown from '@/components/Common/Dropdown'
-import NavbarToggleButton from '@/components/Common/Navbar/NavbarToggleButton'
-import Navbar from '@/components/Common/Navbar/Navbar'
-import NavLink from '@/components/Common/Navbar/NavLink'
-
-export default {
-  name: 'MainNavbar',
-  components: {
-    DropDown,
-    Navbar,
-    NavbarToggleButton,
-    NavLink,
-    [Popover.name]: Popover
-  },
-  props: {
-    transparent: Boolean,
-    colorOnScroll: Number
+  import { DropDown, NavbarToggleButton, Navbar, NavLink } from '@/components/UIKit';
+  import { Popover } from 'element-ui'
+  export default {
+    name: 'main-navbar',
+    props: {
+      transparent: Boolean,
+      colorOnScroll: Number,
+    },
+    components: {
+      DropDown,
+      Navbar,
+      NavbarToggleButton,
+      NavLink,
+      [Popover.name]: Popover
+    }
   }
-}
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -11,7 +11,7 @@
    import Covid19Overview from '@/components/Dashboards/Covid19Overview';
 
    export default {
-      layout: 'argon-dashboard-layout',
+      layout: 'default',
       head () {
          return {
             title: "Emergency Ready App - Trends Dashboard",

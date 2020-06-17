@@ -84,7 +84,7 @@
         }
 
         &.bg-white:not(.navbar-transparent) .navbar-toggler-bar{
-            background: $kit-default-color;
+            background: #296AA4;
         }
 
     }
@@ -181,7 +181,7 @@
         right: 0;
         z-index: 1032;
         visibility: visible;
-        background-color: #999;
+        background-color: #296AA4;
         overflow-y: visible;
         border-top: none;
         text-align: left;
@@ -192,8 +192,8 @@
         @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
 
         &:before{
-            background: #006E62; /* For browsers that do not support gradients */
-            background: linear-gradient(#007b6f 0%, rgba(0, 29, 21, 0.92) 80%); /* Standard syntax (must be last) */
+            background: #296AA4; /* For browsers that do not support gradients */
+            background: linear-gradient(#388DDB 0%, rgba(0, 29, 21, 0.92) 80%); /* Standard syntax (must be last) */
             @include opacity(.76);
 
             display: block;
