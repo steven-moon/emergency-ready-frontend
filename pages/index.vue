@@ -1,6 +1,5 @@
 <template>
-    <div>
-    <div class="header-3">
+    <div class="container index-page">
         <div class="page-header header-filter blue-background">
             <div class="page-header-image"
                  style="background-image: url('/app-screenshots/home_page.png')">
@@ -8,25 +7,31 @@
             <div class="content-center">
                 <div class="container text-left">
                     <div class="content-center">
-                        <div class="row">
+                        <div class="row pb-6">
                             <div class="col-md-5">
                                 <div class="iframe-container">
                                     <iframe height="250"
-                                            src="https://www.youtube.com/embed/rmfmdKOLzVI?rel=0&amp;controls=0&amp;showinfo=0"
+                                            src="https://www.youtube.com/embed/usnuefHRv80?rel=0&amp;controls=0&amp;showinfo=0"
                                             frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="col-md-6 ml-auto mr-auto text-right">
-                                <h1 class="title">Be Prepared</h1>
-                                <h4 class="description ">Let us customize your Emergency Preparedness Mobile App so your citizens can be ready for any emergency</h4>
+                                <h1 class="title">Emergency Management for the Digital Age</h1>
+                                <h4 class="description ">Let us customize your Emergency Management Mobile App so your citizens are prepared for any emergency</h4>
+                            </div>
+                        </div>
+                        <div class="row pt-6">
+                            <div class="col-md-5">
+                            </div>
+                            <div class="col-md-6 ml-auto mr-auto text-right">
+                                <p class="title">Scroll down to learn more.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="cd-section" id="projects">
+        <div class="cd-section" id="projects">
         <div class="projects-2">
             <div class="container">
                 <div class="row">
@@ -136,7 +141,7 @@
                                 <h4 class="card-title">Flexibility</h4>
                             </a>
                             <p class="card-description">
-                                You can chose what type of contact info to share: like email, phone, facebook group and or website. You can also have us add your own custom content or edit the ones include.
+                                You can choose what type of contact info to share: like email, phone, facebook group and or website. You can also have us add your own custom content or edit the ones include.
                             </p>
 
                         </card>
