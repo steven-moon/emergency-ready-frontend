@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <info-section icon="now-ui-icons tech_mobile"
-                                          type="primary">
+                                          type="success">
                                 <h5 class="info-title">Contact Info</h5>
                                 <p><a href="mailto:contact@clevercoding.com">contact@clevercoding.com</a>
                                     <br> <a href="tel:(801) 901-0231">(801) 901-0231</a>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-md-6">
                             <info-section icon="now-ui-icons location_pin"
-                                          type="primary">
+                                          type="success">
                                 <h4 class="info-title">Based in</h4>
                                 <p class="description"> Lehi, UT
                                     <br> 84043
@@ -91,7 +91,7 @@
                         <div class="col-md-6 pl-2 pr-2">
                             <label>Phone</label>
                             <fg-input
-                                    addon-left-icon="now-ui-icons cc-icons cc-icon-mobile-phone"
+                                    addon-left-icon="now-ui-icons tech_mobile"
                                     placeholder="Phone Here..."
                                     v-model="phone">
                             </fg-input>
@@ -103,13 +103,13 @@
                             <label>How did you hear about us?</label>
                         </div>
                         <div class="col-md-12 pr-2">
-                            <el-select class="select-primary"
+                            <el-select class="select-success"
                                        placeholder="Select Option"
                                        v-model="sourceSelect.value">
                                 <el-option :key="option.label"
                                            :label="option.label"
                                            :value="option.value"
-                                           class="select-primary"
+                                           class="select-success"
                                            v-for="option in sourceSelect.options">
                                 </el-option>
                             </el-select>
@@ -133,7 +133,7 @@
                                     @verify="onVerify"
                                     ref="invisibleRecaptcha"
                                     size="invisible">
-                                <n-button class="pull-right" round type="primary">Send Message</n-button>
+                                <n-button class="pull-right" round type="success">Send Message</n-button>
                             </vue-recaptcha>
                         </div>
                     </div>

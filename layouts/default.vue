@@ -2,7 +2,7 @@
   <div class="ui-kit-container">
     <main-navbar :color-on-scroll="0"></main-navbar>
     <nuxt />
-    <contact-us :withMap="true"></contact-us>
+    <contact-us></contact-us>
     <subscribe :showImage="true"></subscribe>
     <main-footer></main-footer>
   </div>
@@ -10,7 +10,8 @@
 <script>
   import MainNavbar from "@/components/Common/MainNavbar.vue";
   import MainFooter from "@/components/Common/MainFooter.vue";
-  import ContactUs from '@/components/Sections/ContactUs'
+  //import ContactUs from '@/components/Sections/ContactUs'
+  import ContactUs from '@/components/Common/pages/sections/Contact';
   import Subscribe from '@/components/Sections/Subscribe'
   export default {
     components: {
