@@ -3,7 +3,7 @@
     .index-page,
     .presentation-page {
         .page-header {
-            height: 125vh;
+           // height: 125vh;
 
             .container {
                 > .content-center {
@@ -23,6 +23,12 @@
             width: 100%;
             text-align: center;
             color: rgba(255, 255, 255, .5);
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .index-page .text-right {
+            text-align: left !important;
         }
     }
 

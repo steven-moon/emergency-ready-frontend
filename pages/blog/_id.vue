@@ -207,8 +207,6 @@
         </div>
       </div>
     </div>
-    <contact-us :withMap="true"></contact-us>
-    <subscribe :showImage="true"></subscribe>
   </div>
 </template>
 
@@ -230,6 +228,15 @@
   export default {
     name: 'blog-post',
     layout: 'default',
+    head () {
+      return {
+        title: "Emergency Ready App - Blog Post",
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'description', name: 'description', content: 'Blog Post for the Emergency Ready App' }
+        ]
+      }
+    },
     components: {
       ContactUs,
       Subscribe
@@ -280,7 +287,7 @@
       }
     },
     computed: {
-      ...mapGetters('pageDataStore', {
+      ...mapGetters({
         images: 'images',
       }),
       postIntroBackground() {

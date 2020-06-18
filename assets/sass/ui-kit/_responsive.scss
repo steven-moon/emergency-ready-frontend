@@ -1,5 +1,11 @@
 .ui-kit-container {
-    @media screen and (max-width: 991px) {
+    .max-width-none{
+        max-width: none !important;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    @media screen and (max-width: 1200px) {
         @include kit-navbar-collapse();
 
         .profile-photo .profile-photo-small {
@@ -83,7 +89,7 @@
         }
     }
 
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 1201px) {
         .navbar-nav {
             .nav-link {
                 &.profile-photo {

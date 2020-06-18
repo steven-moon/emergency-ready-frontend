@@ -1,50 +1,20 @@
 <template>
-  <div class="cd-section" id="projects">
-    <div class="projects-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Hazard Guides</h2>
-            <div class="section-space"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <card plain>
-              <a slot="image" href="/contact-us">
-                <img class="img-raised rounded"
-                     src="/app-screenshots/emergency-response-plans-1.png"/>
-              </a>
-
-
-              <a href="/contact-us">
-                <h4 class="card-title">Be Informed</h4>
-              </a>
-              <p class="card-description">
-                App in includes built in Guides for a wide variety of situations.
+  <div class="wrapper sections-page">
+    <div class="section-space"></div>
+    <div class="cd-section" id="features" >
+      <div class="features-2 section-image" style="background-image: url('/app-screenshots/emergency-response-plans-1.png')">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+              <h2 class="title">Hazard Guides</h2>
+              <h4 class="description text-white description-bold">
+                The Emergency Ready App includes built in Guides for a wide variety of situations.
                 We can also add your organizations guides to your custom built version.
-              </p>
-
-            </card>
+                Some of the bundled guides included cover: earthquakes, hazardous weather, fires,
+                utility failures, public health emergencies, hazardous materials and terrorism.
+              </h4>
+            </div>
           </div>
-          <div class="col-md-6">
-            <card plain>
-              <a slot="image" href="/contact-us">
-                <img class="img-raised rounded"
-                     src="/app-screenshots/emergency-response-plans-1.png"/>
-              </a>
-
-
-              <a href="/contact-us">
-                <h4 class="card-title">Bundled Hazard Guides</h4>
-              </a>
-              <p class="card-description">
-                Some of the bundled guides included cover: earthquakes, hazardous weather, fires, utility failures, public health emergencies, hazardous materials and terrorism.
-              </p>
-
-            </card>
-          </div>
-
         </div>
       </div>
     </div>
@@ -60,10 +30,27 @@
   import TestimonialSection from '@/components/UIKit/pages/sections/Testimonials'
   import ContactSection from '@/components/UIKit/pages/sections/Contact'
   export default {
-    name: 'custom-branded-app',
+    name: 'hazard-guides',
     layout: 'default',
-    components: {
-    }
+    data () {
+      return {
+        title: 'Hazard Guides - Emergency Ready App',
+        description: "Provide your residents with Hazard guides with the many standard guides providing in the Emergency Ready App.",
+      }
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'og:title', name: 'og:title', content: this.title },
+          { hid: 'description', name: 'description', content: this.description },
+          { hid: 'og:description', name: 'og:description', content: this.description },
+          { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
+          { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
+        ]
+      }
+    },
   }
 </script>
 <style>

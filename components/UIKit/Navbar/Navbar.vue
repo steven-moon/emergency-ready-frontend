@@ -1,6 +1,6 @@
 <template>
     <nav :class="classes" class="navbar navbar-expand-lg blue-background">
-        <div class="container">
+        <div class="container max-width-none">
             <div class="navbar-translate">
                 <slot v-bind="slotData"></slot>
                 <navbar-toggle-button :toggled="showMenu" @click.native.stop="toggle"></navbar-toggle-button>

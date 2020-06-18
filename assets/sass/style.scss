@@ -1,13 +1,14 @@
 
 //Combined
-@import 'summa/style';
-@import 'black/dashboard';
-@import 'argon/argon';
+//@import 'summa/style';
+//@import 'black/dashboard';
+//@import 'argon/argon';
 @import 'ui-kit/now-ui-kit';
 
 @import "base/bootstrap/scss/bootstrap";
 @import 'base/variables';
 @import 'base/mixins';
+
 
 // Plugins CSS
 @import 'base/plugins/plugin-bootstrap-switch';
@@ -16,7 +17,6 @@
 @import 'base/plugins/plugin-tagsinput';
 @import 'base/plugins/plugin-fileupload';
 @import 'base/plugins/plugin-datetimepicker';
-
 
 // Core CSS
 @import 'base/nucleo-outline';

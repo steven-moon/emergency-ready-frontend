@@ -27,14 +27,12 @@ export default {
     ** Headers of the page
     */
     head: {
-        title: 'Emergency Ready App',
         meta: [
             {charset: 'utf-8'},
             {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=yes'
             },
-            {hid: 'description', name: 'description', content: 'The Emergency Ready App'},
             {name: 'msapplication-TileColor', content: '#ffffff'},
             {name: 'msapplication-TileImage', content: '/icons/ms-icon-144x144.png'}
         ],

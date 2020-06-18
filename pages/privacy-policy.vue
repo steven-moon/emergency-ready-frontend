@@ -19,18 +19,23 @@ Emergency Ready
             ContactUs,
             Subscribe,
         },
+        data () {
+            return {
+                title: 'Emergency Ready App - Privacy Policy',
+                description: "We respect your privacy",
+            }
+        },
         head () {
             return {
                 title: this.title,
                 meta: [
                     // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-                    { hid: 'description', name: 'description', content: 'Contact us about have a custom Emergency Ready App created for your business or government agency.' }
+                    { hid: 'og:title', name: 'og:title', content: this.title },
+                    { hid: 'description', name: 'description', content: this.description },
+                    { hid: 'og:description', name: 'og:description', content: this.description },
+                    { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
+                    { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
                 ]
-            }
-        },
-        data() {
-            return {
-                title: "Emergency Ready App - Custom Branded Versions Available"
             }
         },
         mounted() {

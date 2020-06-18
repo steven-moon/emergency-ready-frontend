@@ -12,7 +12,7 @@
     </div>
     <template slot="navbar-menu">
 
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/">
           <p>Home</p>
         </a>

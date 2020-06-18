@@ -107,6 +107,12 @@
         font-weight: $kit-font-weight-light;
     }
 
+    .description-bold {
+        font-weight: $kit-font-weight-semi;
+        line-height: 1.8em;
+        font-size: 1.5em;
+    }
+
     .category {
         text-transform: capitalize;
         font-weight: $kit-font-weight-bold;

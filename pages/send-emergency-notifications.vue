@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-8 mr-auto ml-auto">
               <h2 class="title">Send Notifications</h2>
-              <h4 class="description text-white">With this feature you will have the ability to send vital notification
+              <h4 class="description text-white description-bold">With this feature you will have the ability to send vital notification
                 directly to users mobile phone or tablet using the built in Apple and Google Push Notification System. In the event of an emergency it is never more vital to have
                 the ability to communicate to affected individual. You can send plain text messages or use HTML markup to include images, graphics and styling to your notifications. This feature can allow you to let people know where
                 emergency muster areas are or alert them of imminent danger approaching.  Or share other useful messages your organization would like to share with your users.</h4>
@@ -28,18 +28,27 @@
   import TestimonialSection from '@/components/UIKit/pages/sections/Testimonials'
   import ContactSection from '@/components/UIKit/pages/sections/Contact'
   export default {
-    name: 'sections',
+    name: 'send-emergency-notifications',
     layout: 'default',
-    components: {
-      HeadersSection,
-      FeaturesSection,
-      BlogSection,
-      TeamsSection,
-      ProjectsSection,
-      PricingSection,
-      TestimonialSection,
-      ContactSection
-    }
+    data () {
+      return {
+        title: 'Send Emergency Notifications - Emergency Ready App',
+        description: "Have the ability to send your residents emergency notifications straight to their mobile device.",
+      }
+    },
+    head () {
+      return {
+        title: this.title,
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'og:title', name: 'og:title', content: this.title },
+          { hid: 'description', name: 'description', content: this.description },
+          { hid: 'og:description', name: 'og:description', content: this.description },
+          { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
+          { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
+        ]
+      }
+    },
   }
 </script>
 <style>

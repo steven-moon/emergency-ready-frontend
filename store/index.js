@@ -1,18 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import clonedeep from "lodash.clonedeep";
 
 Vue.use(Vuex);
-
-import reportStore from './modules/reportStore';
-import userStore from './modules/userStore';
-import cityStore from './modules/cityStore';
-import testimonialStore from './modules/testimonialStore';
-import teamStore from './modules/teamStore';
-import projectPageDataStore from './modules/projectPageDataStore';
-import pageDataStore from './modules/pageDataStore';
-import sectionDataStore from './modules/sectionDataStore';
-import featuredAppDataStore from './modules/featuredAppDataStore';
-
 
 const namespaced = true;
 
@@ -20,17 +10,9 @@ const createStore = () => {
    return new Vuex.Store({
       namespaced,
       modules: {
-         reportStore: reportStore,
-         userStore: userStore,
-        cityStore: cityStore,
-        teamStore: teamStore,
-        testimonialStore: testimonialStore,
-        projectPageDataStore: projectPageDataStore,
-        pageDataStore: pageDataStore,
-        sectionDataStore: sectionDataStore,
-        featuredAppDataStore: featuredAppDataStore
       },
       state: {
+          images: [],
          userId: null,
          authToken: null,
          user: null,
@@ -44,6 +26,98 @@ const createStore = () => {
          appUsers: [{id:"0",name:""}]
       },
       getters: {
+          images(state){
+              console.log("GET IMAGES")
+              if(state.images.length > 0){
+                  console.log(state.images)
+                  return state.images;
+              }
+              var imageArray = [];
+              imageArray.push("/img/project/project1.jpg");
+              imageArray.push("/img/project/project2.jpg");
+              imageArray.push("/img/project/project3.jpg");
+              imageArray.push("/img/project/project4.jpg");
+              imageArray.push("/img/project/project5.jpg");
+              imageArray.push("/img/project/project6.jpg");
+              imageArray.push("/img/project/project7.jpg");
+              imageArray.push("/img/project/project8.jpg");
+              imageArray.push("/img/project/project9.jpg");
+              imageArray.push("/img/project/project10.jpg");
+              imageArray.push("/img/project/project11.jpg");
+              imageArray.push("/img/project/project12.jpg");
+              imageArray.push("/img/project/project13.jpg");
+              imageArray.push("/img/project/project14.jpg");
+              imageArray.push("/img/project/project15.jpg");
+              imageArray.push("/img/project/project16.jpg");
+              imageArray.push("/img/project/project17.jpg");
+              imageArray.push("/img/project/project18.jpg");
+              imageArray.push("/img/project/project19.jpg");
+              imageArray.push("/img/project/project20.jpg");
+              imageArray.push("/img/project/project21.jpg");
+              imageArray.push("/img/project/project22.jpg");
+              imageArray.push("/img/project/project23.jpg");
+              imageArray.push("/img/project/project24.jpg");
+              imageArray.push("/img/project/project25.jpg");
+
+
+              imageArray.push("img/backgrounds/bg1.jpg");
+              imageArray.push("img/backgrounds/bg2.jpg");
+              imageArray.push("img/backgrounds/bg3.jpg");
+              imageArray.push("img/backgrounds/bg4.jpg");
+              imageArray.push("img/backgrounds/bg5.jpg");
+              imageArray.push("img/backgrounds/bg6.jpg");
+              imageArray.push("img/backgrounds/bg7.jpg");
+              imageArray.push("img/backgrounds/bg8.jpg");
+              imageArray.push("img/backgrounds/bg9.jpg");
+              imageArray.push("img/backgrounds/bg10.jpg");
+              imageArray.push("img/backgrounds/bg11.jpg");
+              imageArray.push("img/backgrounds/bg12.jpg");
+              imageArray.push("img/backgrounds/bg13.jpg");
+              imageArray.push("img/backgrounds/bg14.jpg");
+              imageArray.push("img/backgrounds/bg15.jpg");
+              imageArray.push("img/backgrounds/bg16.jpg");
+              imageArray.push("img/backgrounds/bg17.jpg");
+              imageArray.push("img/backgrounds/bg18.jpg");
+              imageArray.push("img/backgrounds/bg19.jpg");
+              imageArray.push("img/backgrounds/bg20.jpg");
+              imageArray.push("img/backgrounds/bg21.jpg");
+              imageArray.push("img/backgrounds/bg22.jpg");
+              imageArray.push("img/backgrounds/bg23.jpg");
+              imageArray.push("img/backgrounds/bg24.jpg");
+              imageArray.push("img/backgrounds/bg25.jpg");
+              imageArray.push("img/backgrounds/bg26.jpg");
+              imageArray.push("img/backgrounds/bg27.jpg");
+              imageArray.push("img/backgrounds/bg28.jpg");
+              imageArray.push("img/backgrounds/bg29.jpg");
+              imageArray.push("img/backgrounds/bg30.jpg");
+              imageArray.push("img/backgrounds/bg31.jpg");
+              imageArray.push("img/backgrounds/bg32.jpg");
+              imageArray.push("img/backgrounds/bg33.jpg");
+              imageArray.push("img/backgrounds/bg34.jpg");
+              imageArray.push("img/backgrounds/bg35.jpg");
+              imageArray.push("img/backgrounds/bg36.jpg");
+              imageArray.push("img/backgrounds/bg37.jpg");
+              imageArray.push("img/backgrounds/bg38.jpg");
+              imageArray.push("img/backgrounds/bg39.jpg");
+              imageArray.push("img/backgrounds/bg40.jpg");
+              imageArray.push("img/backgrounds/bg41.jpg");
+              imageArray.push("img/backgrounds/bg42.jpg");
+              imageArray.push("img/backgrounds/bg43.jpg");
+              imageArray.push("img/backgrounds/bg44.jpg");
+              imageArray.push("img/backgrounds/bg45.jpg");
+              imageArray.push("img/backgrounds/bg46.jpg");
+              imageArray.push("img/backgrounds/bg47.jpg");
+              imageArray.push("img/backgrounds/bg48.jpg");
+              imageArray.push("img/backgrounds/bg49.jpg");
+              imageArray.push("img/backgrounds/bg50.jpg");
+
+
+              console.log("set images")
+              state.images = clonedeep(imageArray);
+
+              console.log(state.images)
+              return state.images;
+          },
          userId(state) {
             return state.userId;
          },

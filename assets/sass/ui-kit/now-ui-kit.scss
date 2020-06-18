@@ -15,10 +15,12 @@
 
  */
 
-@import "bootstrap/scss/bootstrap";
-
 @import 'variables';
 @import 'mixins';
+
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/mixins";
+
 
 // Plugins CSS
 @import 'plugins/plugin-bootstrap-switch';

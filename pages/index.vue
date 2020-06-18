@@ -1,16 +1,16 @@
 <template>
     <div class="index-page">
         <div class="page-header header-filter blue-background">
-            <div class="page-header-image"
-                 style="background-image: url('/app-screenshots/home-page.png')">
-            </div>
+<!--            <div class="page-header-image"-->
+<!--                 style="background-image: url('/app-screenshots/home-page.png')">-->
+<!--            </div>-->
             <div class="content-center">
-                <div class="container text-left">
+                <div class="container text-left max-width-none">
                     <div class="content-center">
                         <div class="row pb-6">
                             <div class="col-md-5">
-                                <div class="iframe-container">
-                                    <iframe height="250"
+                                <div class="aspect-ratio">
+                                    <iframe height="250" width="510"
                                             src="https://www.youtube.com/embed/usnuefHRv80?rel=0&amp;controls=0&amp;showinfo=0"
                                             frameborder="0" allowfullscreen></iframe>
                                 </div>
@@ -156,9 +156,44 @@
     export default {
         name: 'home',
         layout: 'default',
-        components: {
-        }
+        data () {
+            return {
+                title: 'Emergency Ready App',
+                description: "Emergency Management for the Digital Age",
+            }
+        },
+        head () {
+            return {
+                title: this.title,
+                meta: [
+                    // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+                    { hid: 'og:title', name: 'og:title', content: this.title },
+                    { hid: 'description', name: 'description', content: this.description },
+                    { hid: 'og:description', name: 'og:description', content: this.description },
+                    { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
+                    { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
+                ]
+            }
+        },
     }
 </script>
 <style>
+    iframe {
+        width: 100%;
+    }
+
+    .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 51%;
+    }
+
+    .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0; top: 0;
+    }
+
 </style>

@@ -6,7 +6,7 @@
       <div class="content-center">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">A Place for Toughts, Articles and News Items</h2>
+            <h2 class="title">Emergency Ready App Blog</h2>
             <a class="btn btn-icon btn-lg btn-twitter btn-round" href="https://twitter.com/clevercoding">
               <i class="fab fa-twitter"></i>
             </a>
@@ -162,6 +162,15 @@
     layout: 'default',
     components: {
     },
+    head () {
+      return {
+        title: "Emergency Ready App - Blog",
+        meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'description', name: 'description', content: 'Blog for the Emergency Ready App' }
+        ]
+      }
+    },
     data() {
       return {
         year: new Date().getFullYear(),
@@ -191,7 +200,7 @@
       window.removeEventListener('scroll', this.getMorePosts);
     },
     computed: {
-      ...mapGetters('pageDataStore', {
+      ...mapGetters({
         images: 'images',
       }),
       /**
