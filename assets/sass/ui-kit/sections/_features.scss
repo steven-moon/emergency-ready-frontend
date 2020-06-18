@@ -54,6 +54,7 @@
         }
     }
 
+
     .features-7,
     .features-2,
     .features-8 {
@@ -77,6 +78,22 @@
         .description {
             position: relative;
             z-index: 2;
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .features-2 {
+            &:after {
+                background-color: rgba(56, 141, 219, .95);
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .features-2 {
+            &:after {
+                background-color: rgba(56, 141, 219, 1);
+            }
         }
     }
 
