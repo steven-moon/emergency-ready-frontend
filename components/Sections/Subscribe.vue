@@ -138,6 +138,7 @@
 
   import CommonAPI from "~/api/CommonAPI"
   import VueRecaptcha from 'vue-recaptcha';
+  import {SITE_KEY } from '@/constants'
 
   export default {
     name: 'subscribe',
@@ -151,7 +152,7 @@
     },
     data() {
       return {
-        sitekey: '6Lec8sIUAAAAAIz0bL89CotUzFVemN1EN2NPl44-',
+        sitekey: SITE_KEY,
         name: "",
         email: "",
         subscribeResponseMessage: null,

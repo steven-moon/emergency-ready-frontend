@@ -3,7 +3,7 @@
     <main-navbar :color-on-scroll="0"></main-navbar>
     <nuxt />
     <contact-us></contact-us>
-    <subscribe :showImage="true"></subscribe>
+<!--    <subscribe :showImage="true"></subscribe>-->
     <main-footer></main-footer>
   </div>
 </template>

@@ -268,7 +268,7 @@
 <script>
 
 
-    import { API_KEY } from '@/constants'
+    import { API_KEY, SITE_KEY } from '@/constants'
     import Vue from 'vue'
     import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
     import VueRecaptcha from 'vue-recaptcha'
@@ -292,7 +292,7 @@
         },
         data() {
             return {
-                sitekey: '6Lec8sIUAAAAAIz0bL89CotUzFVemN1EN2NPl44-',
+                sitekey: SITE_KEY,
                 name: '',
                 email: '',
                 company: '',
