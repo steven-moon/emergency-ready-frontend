@@ -1,8 +1,8 @@
 <template>
-    <div class="container index-page">
+    <div class="index-page">
         <div class="page-header header-filter blue-background">
             <div class="page-header-image"
-                 style="background-image: url('/app-screenshots/home_page.png')">
+                 style="background-image: url('/app-screenshots/home-page.png')">
             </div>
             <div class="content-center">
                 <div class="container text-left">
@@ -63,7 +63,7 @@
                         <card plain>
                             <a slot="image" href="/emergency-response-plans">
                                 <img class="img-raised rounded"
-                                     src="/app-screenshots/emergency-response-plans.png"/>
+                                     src="/app-screenshots/emergency-response-plans-1.png"/>
                             </a>
 
 

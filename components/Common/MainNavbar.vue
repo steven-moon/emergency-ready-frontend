@@ -1,57 +1,88 @@
 <template>
-  <navbar position="fixed"
-          :transparent="transparent"
-          :color-on-scroll="colorOnScroll"
-          menu-classes="ml-auto">
-    <template slot-scope="{toggle, isToggled}">
-      <nuxt-link v-popover:popover1 class="navbar-brand" to="/">
-        Emergency Ready App
-      </nuxt-link>
-      <el-popover
-              ref="popover1"
-              popper-class="popover"
-              placement="bottom"
-              width="300"
-              trigger="hover">
-        <div class="popover-body">Created by Clever Coding LLC</div>
-      </el-popover>
-    </template>
+  <navbar type="success" menu-classes="ml-auto">
+    <div class="navbar-translate">
+      <a class="navbar-brand" href="/">Emergency Ready App</a>
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse"-->
+<!--              data-target="#example-navbar-info" aria-controls="navbarSupportedContent"-->
+<!--              aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-bar bar1"></span>-->
+<!--        <span class="navbar-toggler-bar bar2"></span>-->
+<!--        <span class="navbar-toggler-bar bar3"></span>-->
+<!--      </button>-->
+    </div>
     <template slot="navbar-menu">
-      <drop-down tag="li" title="Learn More" icon="now-ui-icons files_paper" class="nav-item">
-        <nav-link to="/">
-          <i class="now-ui-icons shopping_box"></i> Home
-        </nav-link>
-        <nav-link to="/contact-us">
-          <i class="now-ui-icons shopping_box"></i> Contact Us
-        </nav-link>
-        <nav-link to="/blog">
-          <i class="now-ui-icons text_align-left"></i> Blog
-        </nav-link>
-      </drop-down>
-    </template>
-    <template slot="navbar-menu">
-      <drop-down tag="li" title="Features" icon="now-ui-icons files_paper" class="nav-item">
-        <nav-link to="/custom-branded-emergency-ready-app">
-          <i class="now-ui-icons ui-2_settings-90"></i> Custom Branded App
-        </nav-link>
-        <nav-link to="/send-emergency-notifications">
-          <i class="now-ui-icons sport_user-run"></i> Send Emergency Notifications
-        </nav-link>
-        <nav-link to="/emergency-response-plans">
-          <i class="now-ui-icons education_paper"></i> Emergency Response Plans
-        </nav-link>
-        <nav-link to="/contacts-info-in-emergency-ready-app">
-          <i class="now-ui-icons business_money-coins"></i> Add Your Contacts Info
-        </nav-link>
-        <nav-link to="/interactive-emergency-preparedness-kits">
-          <i class="now-ui-icons ui-2_chat-round"></i> Interactive Preparedness Kits
-        </nav-link>
-        <nav-link to="/hazard-guides">
-          <i class="now-ui-icons ui-2_chat-round"></i> Hazard Guides
-        </nav-link>
-      </drop-down>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          <p>Home</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact-us">
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/blog">
+          <p>Blog</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/custom-branded-emergency-ready-app">
+          <p>Custom Branded App</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/send-emergency-notifications">
+          <p>Send Notifications</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/emergency-response-plans">
+          <p>Emergency Response Plans</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contacts-info-in-emergency-ready-app">
+          <p>Contacts Info in Custom App</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/interactive-emergency-preparedness-kits">
+          <p>Interactive Emergency Kits</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/hazard-guides">
+          <p>Hazard Guides</p>
+        </a>
+      </li>
     </template>
   </navbar>
+
+<!--    <template slot="navbar-menu">-->
+<!--      <drop-down tag="li" title="Features" icon="now-ui-icons files_paper" class="nav-item">-->
+<!--        <nav-link to="/custom-branded-emergency-ready-app">-->
+<!--          <i class="now-ui-icons ui-2_settings-90"></i> Custom Branded App-->
+<!--        </nav-link>-->
+<!--        <nav-link to="/send-emergency-notifications">-->
+<!--          <i class="now-ui-icons sport_user-run"></i> Send Emergency Notifications-->
+<!--        </nav-link>-->
+<!--        <nav-link to="/emergency-response-plans">-->
+<!--          <i class="now-ui-icons education_paper"></i> Emergency Response Plans-->
+<!--        </nav-link>-->
+<!--        <nav-link to="/contacts-info-in-emergency-ready-app">-->
+<!--          <i class="now-ui-icons business_money-coins"></i> Add Your Contacts Info-->
+<!--        </nav-link>-->
+<!--        <nav-link to="/interactive-emergency-preparedness-kits">-->
+<!--          <i class="now-ui-icons ui-2_chat-round"></i> Interactive Preparedness Kits-->
+<!--        </nav-link>-->
+<!--        <nav-link to="/hazard-guides">-->
+<!--          <i class="now-ui-icons ui-2_chat-round"></i> Hazard Guides-->
+<!--        </nav-link>-->
+<!--      </drop-down>-->
+<!--    </template>-->
+<!--  </navbar>-->
 </template>
 
 <script>

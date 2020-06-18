@@ -12,8 +12,8 @@
   }
 
   .blue-background {
-    background: #296AA4;
-    color: #296AA4;
+    background: $kit-success-color;
+    color: $kit-success-color;
   }
 
   .section-navbars {
@@ -47,9 +47,9 @@
       max-height: 440px;
     }
 
-    &:before {
-      background-color: rgba(0, 0, 0, .3);
-    }
+    //&:before {
+    //  background-color: rgba(0, 0, 0, .3);
+    //}
 
     > .container {
       z-index: 2;

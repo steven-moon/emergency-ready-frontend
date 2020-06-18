@@ -1,5 +1,5 @@
 <template>
-    <nav :class="classes" class="navbar navbar-expand-lg">
+    <nav :class="classes" class="navbar navbar-expand-lg blue-background">
         <div class="container">
             <div class="navbar-translate">
                 <slot v-bind="slotData"></slot>

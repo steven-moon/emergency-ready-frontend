@@ -1,13 +1,13 @@
 <template>
-  <div class="cd-section" id="contactus" v-if="withMap">
+  <div class="cd-section" id="contactus">
     <div class="contactus-2">
       <gmap-map
-        :center="center"
-        :options="options"
-        :zoom="9.5"
-        class="map"
-        id="map"
-        map-type-id="roadmap">
+              :center="center"
+              :options="options"
+              :zoom="9.5"
+              class="map"
+              id="map"
+              map-type-id="roadmap">
         <gmap-marker :position="center">
         </gmap-marker>
       </gmap-map>
@@ -57,18 +57,18 @@
             <div class="col-md-6 pl-2 pr-2">
               <label>Name</label>
               <fg-input
-                addon-left-icon="now-ui-icons users_circle-08"
-                placeholder="Name..."
-                v-model="name"
+                      addon-left-icon="now-ui-icons users_circle-08"
+                      placeholder="Name..."
+                      v-model="name"
               >
               </fg-input>
             </div>
             <div class="col-md-6 pl-2 pr-2">
               <label>Email address</label>
               <fg-input
-                addon-left-icon="now-ui-icons ui-1_email-85"
-                placeholder="Email ..."
-                v-model="email">
+                      addon-left-icon="now-ui-icons ui-1_email-85"
+                      placeholder="Email ..."
+                      v-model="email">
               </fg-input>
             </div>
           </div>
@@ -76,17 +76,17 @@
             <div class="col-md-6 pl-2 pr-2">
               <label>Company</label>
               <fg-input
-                addon-left-icon="now-ui-icons business_briefcase-24"
-                placeholder="Company Name..."
-                v-model="company">
+                      addon-left-icon="now-ui-icons business_briefcase-24"
+                      placeholder="Organization Name..."
+                      v-model="company">
               </fg-input>
             </div>
             <div class="col-md-6 pl-2 pr-2">
               <label>Phone</label>
               <fg-input
-                addon-left-icon="now-ui-icons cc-icons cc-icon-mobile-phone"
-                placeholder="Phone Here..."
-                v-model="phone">
+                      addon-left-icon="now-ui-icons cc-icons cc-icon-mobile-phone"
+                      placeholder="Phone Here..."
+                      v-model="phone">
               </fg-input>
             </div>
           </div>
@@ -111,8 +111,8 @@
           <div class="row">
             <div class="col-md-12 pl-2 pr-2">
               <br/>
-              <label>Project Summary</label>
-              <textarea class="form-control" cols="80" name="name" placeholder="Write your project summary here..."
+              <label>Message</label>
+              <textarea class="form-control" cols="80" name="name" placeholder="Add a message here..."
                         rows="4"
                         v-model="summary"></textarea>
             </div>
@@ -121,140 +121,17 @@
           <div class="row">
             <div class="col-12 right">
               <vue-recaptcha
-                :loadRecaptchaScript="true"
-                :sitekey="sitekey"
-                @verify="onVerify"
-                ref="invisibleRecaptcha"
-                size="invisible">
+                      :loadRecaptchaScript="true"
+                      :sitekey="sitekey"
+                      @verify="onVerify"
+                      ref="invisibleRecaptcha"
+                      size="invisible">
                 <n-button class="pull-right" round type="success">Send Message</n-button>
               </vue-recaptcha>
             </div>
           </div>
 
         </card>
-      </div>
-    </div>
-  </div>
-  <div class="cd-section" id="contactus" v-else>
-    <div class="contactus-1 section-image" style="background-image: url('img/contact1.jpg'); min-height: 660px;">
-      <div class="container">
-        <div class="row" v-if="isLoading">
-          <div class="col-md-10 ml-auto mr-auto">
-            <card header-classes="text-center" raised type="contact">
-              <h4 class="card-title" slot="header">Contact Us</h4>
-              <div class="row">
-                <div class="col-md-10 ml-auto mr-auto">
-                  <tile :loading="isLoading"></tile>
-                </div>
-              </div>
-            </card>
-          </div>
-        </div>
-        <div class="row" v-else-if="contactResponseMessage">
-          <div class="col-md-10 ml-auto mr-auto">
-            <card header-classes="text-center" raised style="min-height: 300px;" type="contact">
-              <h4 class="card-title" slot="header">Contact Us</h4>
-              <div class="row">
-                <div class="col-md-10 ml-auto mr-auto">
-                  {{contactResponseMessage}}
-                </div>
-              </div>
-            </card>
-          </div>
-        </div>
-        <div class="row" style="min-height: 660px;" v-else>
-          <div class="col-md-5">
-            <h2 class="title"></h2>
-            <info-section icon="now-ui-icons location_pin"
-                          type="success">
-              <h4 class="info-title">Contact Info</h4>
-              <p class="description">
-                <br> <a href="mailto:contact@clevercoding.com">contact@clevercoding.com</a>
-                <br> <a href="tel:(801) 901-0231">(801) 901-0231</a>
-                <br> Mon - Fri, 9:00 am - 5:00 pm
-              </p>
-            </info-section>
-
-            <info-section icon="now-ui-icons tech_mobile"
-                          type="success">
-              <h4 class="info-title">Office Address</h4>
-              <p class="description"> 2975 South Executive Parkway
-                <br> Suite 330
-                <br> Lehi, UT
-                <br> 84043
-              </p>
-            </info-section>
-          </div>
-          <div class="col-md-5 ml-auto mr-auto">
-            <card header-classes="text-center" raised type="contact">
-              <h4 class="card-title" slot="header">Contact Us</h4>
-
-
-              <div class="form-group">
-                <label>Name</label>
-                <fg-input addon-left-icon="now-ui-icons users_circle-08"
-                          placeholder="Name..."
-                          v-model="name">
-                </fg-input>
-              </div>
-              <div class="form-group">
-                <label>Email address</label>
-                <fg-input addon-left-icon="now-ui-icons ui-1_email-85"
-                          placeholder="Email ..."
-                          v-model="email">
-                </fg-input>
-              </div>
-              <div class="form-group">
-                <label>Company</label>
-                <fg-input
-                  addon-left-icon="now-ui-icons business_briefcase-24"
-                  placeholder="Company Name..."
-                  v-model="company">
-                </fg-input>
-              </div>
-              <div class="form-group">
-                <label>Phone</label>
-                <fg-input
-                  addon-left-icon="now-ui-icons cc-icons cc-icon-mobile-phone"
-                  placeholder="Phone Here..."
-                  v-model="phone">
-                </fg-input>
-              </div>
-              <div class="form-group">
-                <label>How did you hear about us?</label>
-                <el-select class="select-primary"
-                           placeholder="Select Option"
-                           v-model="sourceSelect.value">
-                  <el-option :key="option.label"
-                             :label="option.label"
-                             :value="option.value"
-                             class="select-primary"
-                             v-for="option in sourceSelect.options">
-                  </el-option>
-                </el-select>
-              </div>
-              <div class="form-group">
-                <label>Project Summary</label>
-                <textarea class="form-control" cols="80" name="name" placeholder="Write your project summary here..."
-                          rows="4"
-                          v-model="summary"></textarea>
-
-              </div>
-              <div class="row">
-                <div class="col-12 right">
-                  <vue-recaptcha
-                    :loadRecaptchaScript="true"
-                    :sitekey="sitekey"
-                    @verify="onVerify"
-                    ref="invisibleRecaptcha"
-                    size="invisible">
-                    <n-button class="pull-right" round type="primary">Send Message</n-button>
-                  </vue-recaptcha>
-                </div>
-              </div>
-            </card>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -474,14 +351,15 @@
           company: this.company,
           summary: this.summary,
           source: this.sourceSelect.value,
-          lead_type: 'Main Contact Form',
+          lead_type: 'Emergency Ready',
           first_contact_type: 'Contact Form',
           lead_status: 'New',
           campaign: '',
           file_url: '',
           file_name: ''
-        }
+        };
 
+        console.log(formData);
         this.isLoading = true
         CommonAPI.sendContactUsForm(formData)
           .then(response => {
