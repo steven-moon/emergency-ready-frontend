@@ -5,6 +5,16 @@
         margin-right: 2px;
     }
 
+    .min-height-700{
+        min-height: 100vh;
+    }
+
+    @media screen and (max-width: 350px) {
+        .min-height-700{
+            min-height: 700px;
+        }
+    }
+
     @media screen and (max-width: 1200px) {
         @include kit-navbar-collapse();
 

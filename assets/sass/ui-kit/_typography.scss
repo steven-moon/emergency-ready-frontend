@@ -36,6 +36,14 @@
         }
     }
 
+    @media screen and (max-width: 500px) {
+        h1, .h1 {
+            font-size: $kit-font-size-h2;
+            line-height: 1.15;
+            margin-bottom: $kit-margin-base-vertical * 2;
+        }
+    }
+
     h2, .h2 {
         font-size: $kit-font-size-h2;
         margin-bottom: $kit-margin-base-vertical * 2;

@@ -1,6 +1,6 @@
 <template>
     <div class="index-page">
-        <div class="page-header header-filter blue-background">
+        <div class="page-header header-filter blue-background min-height-700">
 <!--            <div class="page-header-image"-->
 <!--                 style="background-image: url('/app-screenshots/home-page.png')">-->
 <!--            </div>-->
