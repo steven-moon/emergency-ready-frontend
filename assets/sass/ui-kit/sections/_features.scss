@@ -84,15 +84,7 @@
     @media screen and (max-width: 991px) {
         .features-2 {
             &:after {
-                background-color: rgba(56, 141, 219, .95);
-            }
-        }
-    }
-
-    @media screen and (max-width: 991px) {
-        .features-2 {
-            &:after {
-                background-color: rgba(56, 141, 219, 1);
+                background-color: rgba(56, 141, 219, .9);
             }
         }
     }

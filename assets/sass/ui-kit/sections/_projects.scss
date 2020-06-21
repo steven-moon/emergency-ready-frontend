@@ -1,4 +1,28 @@
 .ui-kit-container {
+
+    @media screen and (min-width: 601px) {
+        .show-small {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .show-small{
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 601px) {
+        .hide-small {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .hide-small{
+            display: none;
+        }
+    }
     .projects-1 {
         .card-title {
             margin-top: 10px
@@ -6,6 +30,8 @@
     }
 
     .projects-2 {
+        padding: 0;
+
         h2.title {
             margin-top: 5px;
             margin-bottom: 15px;

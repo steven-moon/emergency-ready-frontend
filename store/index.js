@@ -23,7 +23,15 @@ const createStore = () => {
          },
          isSidebarCollapsed: true,
          basePage: '',
-         appUsers: [{id:"0",name:""}]
+         appUsers: [{id:"0",name:""}],
+          emergencyReadyApp: {
+              title: 'Emergency Ready App',
+              description: 'Base App for all Custom Builds',
+              deviceImage: '/img/featured/emergency-ready-1.png',
+              deviceImages: ['/img/featured/emergency-ready-1.png'],
+              appStoreLink: 'https://apps.apple.com/us/app/emergency-ready/id1480621536?ls=1',
+              playStoreLink: 'https://play.google.com/store/apps/details?id=com.clevercoding.theemergencyapp'
+          }
       },
       getters: {
           images(state){
@@ -142,8 +150,10 @@ const createStore = () => {
                return null;
             }
 
-         }
-         ,
+         },
+          emergencyReadyApp(state){
+              return state.emergencyReadyApp;
+          },
          isUserLoggedIn(state) {
             return state.authToken != null;
          },

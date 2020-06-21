@@ -2,7 +2,7 @@
   <div class="wrapper sections-page">
     <div class="section-space"></div>
     <div class="cd-section" id="features" >
-      <div class="features-2 section-image" style="background-image: url('/app-screenshots/make-a-plan-1.png')">
+      <div class="hide-small features-2 section-image" style="background-image: url('/app-screenshots/make-a-plan-1.png')">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-8 mr-auto ml-auto">
@@ -16,6 +16,36 @@
                 Documents kit, Vehicle kit, Pet kit, Shelter-In-Place kit, Elderly and special needs kit,
                 Child/baby kit, First Aid kit and more.
               </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="show-small projects-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 ml-auto mr-auto text-center">
+              <h2 class="title">Interactive Emergency Preparedness Kits</h2>
+              <div class="section-space"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <card plain>
+                <a slot="image" href="/contact-us">
+                  <img class="img-raised rounded"
+                       src="/app-screenshots/make-a-plan-1.png"/>
+                </a>
+                <p class="card-description">
+                  Your custom Emergency Preparedness Mobile App will have the ability to walk users through
+                  the process of preparing emergency kits for their personal use. It lists essential items
+                  for various emergency situations and allows the user to track their inventory for these
+                  emergencies. Of course, every individual has different needs so the app provides something
+                  for everyone. Kits on the mobile app include…..Evacuation kit, Sanitation kit, Important
+                  Documents kit, Vehicle kit, Pet kit, Shelter-In-Place kit, Elderly and special needs kit,
+                  Child/baby kit, First Aid kit and more.
+                </p>
+
+              </card>
             </div>
           </div>
         </div>

@@ -153,6 +153,8 @@
     </div>
 </template>
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
         name: 'home',
         layout: 'default',
@@ -175,6 +177,11 @@
                 ]
             }
         },
+        computed: {
+            ...mapGetters({
+                emergencyReadyApp: 'emergencyReadyApp',
+            }),
+        }
     }
 </script>
 <style>

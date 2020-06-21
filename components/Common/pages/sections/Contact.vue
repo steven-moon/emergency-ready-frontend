@@ -11,7 +11,7 @@
                 <gmap-marker :position="center">
                 </gmap-marker>
             </gmap-map>
-            <div class="col-md-9 col-lg-8 col-sm-11 pt-5">
+            <div class="col-md-9 col-lg-8 col-sm-11 pt-5 mr-auto ml-auto">
                 <card header-classes="text-center pt-3" raised style="min-height: 660px;" type="contact" v-if="isLoading">
                     <h4 class="card-title pt-2" slot="header">Contact Us</h4>
                     <div class="row">
