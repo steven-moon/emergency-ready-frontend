@@ -17,7 +17,6 @@
                 "the ability to communicate to affected individual. You can send plain text messages or use HTML markup to include images, graphics and styling to your notifications. This feature can allow you to let people know where " +
                 "emergency muster areas are or alert them of imminent danger approaching.  Or share other useful messages your organization would like to share with your users.",
         imageURL: "/er-images/shutterstock_emergency_notification_no_words.jpg",
-
       }
     },
     head () {
