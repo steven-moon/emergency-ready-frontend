@@ -1,197 +1,163 @@
 <template>
-  <section class="section-login">
-    <div class="section__inner">
-      <div class="form-login">
-        <div v-if="showSpinner">
-          <tile :loading="showSpinner"></tile>
-        </div>
-        <div v-else>
-          <form @submit.prevent="handleFormSubmit">
-            <div class="form__head">
-              <h3>Reset Password</h3>
-            </div>
+  <div class="section section-basic mt-5" id="basic-elements">
+    <div class="col-md-6 ml-auto mr-auto">
+      <card type="blog" card-body-classes="text-center">
+        <nuxt-link style="border: none;" class="back-btn" to="/auth/login"
+          >Back to login</nuxt-link
+        >
+        <img slot="image" class="img rounded" :src="image" />
+        <h6 class="category text-danger">
+          <i class="now-ui-icons media-2_sound-wave"></i> Emergency App
+        </h6>
+        <h3 class="category text-gray mt-4 mb-2">
+          Reset Password
+        </h3>
+        <p class="card-description card-description__width ml-auto mr-auto">
+          Please enter in a new password and confirm the phrase to complete the update.
+        </p>
+        <br />
 
-            <div class="form__body">
-              <div class="form__row" v-if="message">
-                <div class="form__col">
-                  <base-alert :type="alertType">{{ message }}</base-alert>
+        <div id="inputs">
+          <div class="col">
+            <div class="col-sm-10 ml-auto mr-auto">
+              <fg-input
+                v-model="form.password"
+                placeholder="Password"
+                :class="
+                  error.password === true
+                    ? 'has-danger'
+                    : error.password === null
+                    ? ''
+                    : 'has-success'
+                "
+                type="password"
+              ></fg-input>
+              <fg-input
+                v-model="form.confirmPassword"
+                placeholder="Confirm password"
+                :class="
+                  error.confirmPassword === true
+                    ? 'has-danger'
+                    : error.confirmPassword === null
+                    ? ''
+                    : 'has-success'
+                "
+                type="password"
+              ></fg-input>
+            </div>
+            <div class="col-sm-10 ml-auto mr-auto">
+              <div class="submit-form__container ml-auto mr-auto">
+                <div class="error-list">
+                  <ul>
+                    <li v-for="message in errorMessages" :key="message">
+                      {{ message }}
+                    </li>
+                  </ul>
+                </div>
+                <div @click="submit">
+                  <n-button type="success">Reset Password</n-button>
                 </div>
               </div>
-              <div class="form__row">
-                <div class="form__col">
-                  <div class="form__controls">
-                    <field
-                      :is-invalid="fieldError(['password'])"
-                      :is-required="requiredField(['password'])"
-                      error-message="Error: Password must be at least 6 characters"
-                      id="field-password"
-                      label="Password"
-                      placeholder="Your Password"
-                      size="large"
-                      type="password"
-                      v-model.trim="$v.form.password.$model"
-                      withAsterisk
-                    />
-                  </div>
-                  <!-- /.form__controls -->
-                </div>
-              </div>
-
-              <div class="form__row">
-                <div class="form__col">
-                  <div class="form__controls">
-                    <field
-                      :is-invalid="fieldError(['repeatPassword'])"
-                      :is-required="requiredField(['repeatPassword'])"
-                      error-message="Error: Passwords must match"
-                      id="field-confirm-password"
-                      label="Confirm Password"
-                      placeholder="Confirm Your Password"
-                      size="large"
-                      type="password"
-                      v-model.trim="$v.form.repeatPassword.$model"
-                      withAsterisk
-                    />
-                  </div>
-                  <!-- /.form__controls -->
-                </div>
-              </div>
             </div>
-
-            <div class="form__actions">
-              <div
-                class="d-flex justify-content-between align-items-center flex-wrap"
-              >
-                <button class="form__btn btn" type="submit">
-                  Reset Password
-                </button>
-              </div>
-            </div>
-          </form>
+          </div>
         </div>
-        <div>
-          <form @submit.prevent="returnToLogin">
-            <div class="form__actions">
-              <div
-                class="d-flex justify-content-between align-items-center flex-wrap"
-              >
-                <button class="form__btn btn" type="submit">
-                  Return to Login
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      </card>
     </div>
-  </section>
+  </div>
 </template>
-
 <script>
-/**
- * @ The external dependecies.
- */
-import { validationMixin } from "vuelidate";
-import { mapActions, mapGetters, mapMutations } from "vuex";
-import { sameAs, minLength, required } from "vuelidate/lib/validators";
-/**
- * @ The internal dependecies.
- */
-import Field from "~/components/Summa/Common/Field";
-import CommonAPI from "~/api/CommonAPI";
-import { BaseAlert } from "~/components/Black";
-import formValidationMixin from "~/plugins/form-validation";
+import { Button, FormGroupInput } from "@/components/UIKit";
 
 export default {
-  name: "login",
-  mixins: [validationMixin, formValidationMixin],
-  layout: "login",
   components: {
-    Field,
-    BaseAlert,
+    [Button.name]: Button,
+    [FormGroupInput.name]: FormGroupInput,
   },
-  validations: {
-    form: {
-      password: { required, minLength: minLength(6) },
-      repeatPassword: {
-        required,
-        sameAsPassword: sameAs("password"),
+  data() {
+    return {
+      form: {
+        password: "",
+        confirmPassword: "",
       },
-    },
-  },
-  data: () => ({
-    showSpinner: false,
-    token: null,
-    message: null,
-    passwordHasReset: false,
-    alertType: "info",
-    form: {
-      password: "",
-      repeatPassword: "",
-    },
-  }),
-  computed: {
-    ...mapActions(["logout"]),
-    ...mapGetters({
-      isUserLoggedIn: "isUserLoggedIn",
-    }),
+      error: {
+        password: null,
+        confirmPassword: null,
+      },
+      errorMessages: [],
+    };
   },
   methods: {
-    returnToLogin() {
-      window.location.href = "/login";
-    },
-    handleFormSubmit() {
-      if (!this.token) {
-        this.alertType = "danger";
-        this.message =
-          "There is no valid reset token.  Make sure you come to this page from the reset password email";
-      } else if (
-        this.form.password.length === 0 ||
-        this.$v.form.$pending ||
-        this.$v.form.$error
-      ) {
-        console.log("Error or Pending");
-        console.log(this.$v.form);
-        this.alertType = "danger";
-        this.message = "Error in form.  Make sure your passwords match.";
-      } else {
-        this.showSpinner = true;
-        this.message = null;
-        CommonAPI.resetPassword(this.$store, this.token, this.form.password)
-          .then((response) => {
-            console.log("In then response on login. response=");
-            console.log(response);
-            if (response.status && response.status === "success") {
-              this.alertType = "info";
-              this.message = "Your password has been successfully changed";
-              this.passwordHasReset = true;
-            } else {
-              this.alertType = "danger";
-              if (response.message && response.message.length > 0) {
-                this.message = response.message;
-              } else {
-                this.message =
-                  "A server error has occurred.  Please try again later.";
-              }
-            }
-            this.showSpinner = false;
-          })
-          .catch((error) => {
-            console.log(error);
-            this.showSpinner = false;
-            this.message = error;
-            this.alertType = "danger";
-          });
+    verifyInputs() {
+      this.error = {
+        password: null,
+        confirmPassword: null,
+      };
+
+      let isFormCompleted = true;
+
+      //Check all form fields have been filled out
+      for (let input in this.form) {
+        if (this.form[input] === "") {
+          this.error[input] = true;
+          isFormCompleted = false;
+        }
       }
+
+      //Check passwords match
+      if (
+        this.form.password !== "" &&
+        this.form.password !== this.form.confirmPassword
+      ) {
+        isFormCompleted = false;
+        this.errorMessages.push("*Passwords must match");
+        this.error.password = true;
+        this.error.confirmPassword = true;
+      }
+
+      return isFormCompleted;
     },
-  },
-  mounted() {},
-  created() {
-    if (this.$route.query.token) {
-      this.token = this.$route.query.token;
-    } else {
-      this.token = null;
-    }
+    submit() {
+      console.log("submit");
+      if (this.verifyInputs()) {
+        console.log(this.form);
+        // Make an axios call to database
+      }
+      console.log(this.formErrors);
+    },
   },
 };
 </script>
+<style scoped lang="scss">
+.back-btn {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-size: 10px;
+}
+
+.card-description__width {
+  width: 450px;
+}
+
+.submit-form__container {
+  margin: 0 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.error-list {
+  font-size: 10px;
+  margin: 10px 1px;
+
+  ul {
+    padding-left: 0;
+    li {
+      display: flex;
+      justify-content: start;
+      color: #f96332;
+      text-decoration: none;
+    }
+  }
+}
+</style>
