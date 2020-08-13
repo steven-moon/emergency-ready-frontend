@@ -2,7 +2,7 @@
   <div class="section section-basic mt-5" id="basic-elements">
     <div class="col-md-6 ml-auto mr-auto">
       <card type="profile">
-        <img slot="avatar" class="img img-raised" src="img/mike.jpg" />
+        <!-- <img slot="avatar" class="img img-raised" src="img/mike.jpg" /> -->
         <div class="card-footer">
           <a href="#pablo" class="btn btn-icon btn-twitter btn-round"
             ><i class="fab fa-twitter"></i
@@ -37,7 +37,12 @@
                   "
                   type="email"
                 ></fg-input>
-                <nuxt-link style="border: none;" to="/auth/forgot-password" class="forgot-password">forgot password?</nuxt-link>
+                <nuxt-link
+                  style="border: none;"
+                  to="/auth/forgot-password"
+                  class="forgot-password"
+                  >forgot password?</nuxt-link
+                >
                 <fg-input
                   v-model="form.password"
                   placeholder="Password"
@@ -54,9 +59,14 @@
               <div class="col-sm-10 ml-auto mr-auto">
                 <div class="submit-form__container ml-auto mr-auto">
                   <div class="create-account mt-1">
-                    <nuxt-link style="border: none;" class="navigate-auth" to="/auth/signup">create an account</nuxt-link>
+                    <nuxt-link
+                      style="border: none;"
+                      class="navigate-auth"
+                      to="/auth/signup"
+                      >create an account</nuxt-link
+                    >
                   </div>
-                  <div submit-form__container ml-auto mr-auto >
+                  <div submit-form__container ml-auto mr-auto>
                     <n-button type="success">Login</n-button>
                   </div>
                 </div>
