@@ -1,127 +1,155 @@
 <template>
-    <div class="section section-notifications" id="notifications">
-        <div class="space"></div>
-        <div class="container">
-            <h4>Notifications</h4>
-        </div>
-        <div class="alert alert-success" role="alert">
-            <div class="container">
-                <div class="alert-icon">
-                    <i class="now-ui-icons ui-2_like"></i>
-                </div>
-                <strong>Well done!</strong> You successfully read this important alert message.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                </span>
-                    </button>
+  <div class="section">
+    <div class="container">
+      <div class="col-md-10 ml-auto mr-auto">
+        <card type="blog">
+          <h6 class="category text-primary">Notifications Portal</h6>
+          <h5 class="card-title">
+            This Is Your One-Way Communication With Your Community.
+          </h5>
+          <div class="card-footer">
+            <div class="author">
+              <img
+                v-lazy="'img/julie.jpg'"
+                alt="..."
+                class="avatar img-raised"
+              />
+              <span>Steve M.</span>
             </div>
-        </div>
-        <div class="alert alert-info" role="alert">
-            <div class="container">
-                <div class="alert-icon">
-                    <i class="now-ui-icons travel_info"></i>
-                </div>
-                <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                </span>
-                    </button>
+            <div class="stats stats-right">
+              <i class="now-ui-icons tech_watch-time"></i> Last notification
+              sent 5 minutes ago
             </div>
-        </div>
-        <div class="alert alert-warning" role="alert">
-            <div class="container">
-                <div class="alert-icon">
-                    <i class="now-ui-icons ui-1_bell-53"></i>
-                </div>
-                <strong>Warning!</strong> Better check yourself, you're not looking too good.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                </span>
-                    </button>
-            </div>
-        </div>
-        <div class="alert alert-danger" role="alert">
-            <div class="container">
-                <div class="alert-icon">
-                    <i class="now-ui-icons objects_support-17"></i>
-                </div>
-                <strong>Oh snap!</strong> Change a few things up and try submitting again.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                </span>
-                    </button>
-            </div>
-        </div>
+          </div>
+        </card>
+      </div>
+      <div class="col-md-10 ml-auto mr-auto">
+        <n-button type="success" round>
+          <i class="now-ui-icons "></i> Create Notification
+        </n-button>
+      </div>
+      <div class="row">
+        <div class="col-md-10 ml-auto mr-auto">
+          <card class="card-plain">
+            <div class="row">
+              <div class="col-sm-12">
+                <el-table :data="tableData">
+                  <el-table-column
+                    min-width="50"
+                    type="index"
+                  ></el-table-column>
+                  <el-table-column
+                    min-width="100"
+                    align="left"
+                    prop="title"
+                    label="Title"
+                  >
+                  </el-table-column>
+                  <el-table-column
+                    min-width="80"
+                    align="left"
+                    prop="date"
+                    label="Date"
+                  >
+                  </el-table-column>
+                  <el-table-column
+                    min-width="350"
+                    prop="desc"
+                    align="left"
+                    label="Description"
+                  >
+                  </el-table-column>
+                  <el-table-column
+                    min-width="150"
+                    header-align="right"
+                    label="Actions"
+                  >
+                    <div class="text-right table-actions">
+                      <el-tooltip
+                        content="Edit"
+                        :open-delay="300"
+                        placement="top"
+                      >
+                        <n-button type="success" round simple size="sm" icon>
+                          <i class="now-ui-icons ui-2_settings-90"></i>
+                        </n-button>
+                      </el-tooltip>
 
-    
-
-
+                      <el-tooltip
+                        content="Delete"
+                        :open-delay="300"
+                        placement="top"
+                      >
+                        <n-button type="danger" round simple size="sm" icon>
+                          <i class="now-ui-icons ui-1_simple-remove"></i>
+                        </n-button>
+                      </el-tooltip>
+                    </div>
+                  </el-table-column>
+                </el-table>
+              </div>
+            </div>
+          </card>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
-
 <script>
-import { Card, Button, Modal, FormGroupInput, Collapse, CollapseItem } from '@/components/UIKit';
-import { Popover, Tooltip, DatePicker, TimeSelect } from 'element-ui';
-
-
+import { Card, Button } from "@/components";
+import { Table, TableColumn, Tooltip } from "element-ui";
 
 export default {
-    components: {
-        Card,
-        Modal,
-        CollapseItem,
-        Collapse,
-        [Button.name]: Button,
-        [Popover.name]: Popover,
-        [Tooltip.name]: Tooltip,
-        [DatePicker.name]: DatePicker,
-        [FormGroupInput.name]: FormGroupInput,
-        [TimeSelect.name]: TimeSelect
-    },
-    data() {
-        return {
-            modals: {
-                classic: false,
-                notice: false,
-                mini: false,
-                login: false
-            },
-
-            pickers: {
-                dateTimePicker: '',
-                datePicker: '',
-                timePicker: ''
-            },
-
-
-            methods: {
-                select: function() {
-                    divID = this.id // ??
-                    alert(divID)
-                },
-                del(id) {
-                    fetch(`/api/item/${id}`, { method: "DELETE" })
-                },
-            }
-        }
-
-
-    }
-}
+  components: {
+    Card,
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn,
+    [Tooltip.name]: Tooltip,
+    [Button.name]: Button,
+  },
+  data() {
+    return {
+      tableData: [
+        {
+          title: "Volcano",
+          desc: "Find cover! There will be ash and smoke in the air.",
+          date: "01/12/2020:2:15a.m.",
+          active: false,
+        },
+        {
+          title: "Flood",
+          desc: "If you are in the metro district find high ground.",
+          date: "01/12/2020:2:15a.m.",
+          active: false,
+        },
+        {
+          title: "Fire",
+          desc: "The winds are blowing north. EVACUATE NOW.",
+          date: "01/12/2020:2:15a.m.",
+          active: false,
+        },
+        {
+          title: "Earthquake",
+          desc: "Desaster re;ief crews are scouting downed power lines.",
+          date: "01/12/2020:2:15a.m.",
+          active: true,
+        },
+        {
+          title: "Riots",
+          desc: "We will be keeping protestors out of neighborhoods.",
+          date: "01/12/2020:2:15a.m.",
+          active: true,
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style lang="scss">
-#javascriptComponents {
-    .modal-buttons,
-    .popover-buttons,
-    .tooltip-buttons {
-        .btn+.btn {
-            margin-left: 3px;
-        }
-    }
+<style>
+.checkbox-cell {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
