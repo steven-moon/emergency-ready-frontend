@@ -1,8 +1,8 @@
 <template>
-  <footer class="footer"
+  <footer class="footer bg-success"
           :class="{[`footer-${type}`]: type}"
           :data-background-color="backgroundColor">
-    <div class="container">
+    <div class="container white-text">
       <nav>
         <ul>
           <li>
@@ -15,21 +15,11 @@
               Contact Us
             </a>
           </li>
-          <li>
-            <a href="/blog/">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="/privacy-policy">
-              Privacy Policy
-            </a>
-          </li>
         </ul>
       </nav>
       <div class="copyright">
         &copy; {{year}} Clever Coding. This website and the Emergency Ready App was Designed &amp Coded by
-        <a href="https://clevercoding.com" target="_blank" class="text-success" rel="noopener">Clever Coding</a>
+        <a href="https://clevercoding.com" target="_blank" class="white-text" rel="noopener">Clever Coding</a>
       </div>
     </div>
   </footer>
@@ -38,7 +28,10 @@
   export default {
     props: {
       backgroundColor: String,
-      type: String
+      type: {
+        type: String,
+        default: 'success'
+      },
     },
     data(){
       return {

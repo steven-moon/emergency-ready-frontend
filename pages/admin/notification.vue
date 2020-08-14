@@ -53,6 +53,7 @@ import { Popover, Tooltip, DatePicker, TimeSelect } from 'element-ui';
 
 
 export default {
+  layout: "admin",
     components: {
 
         Modal,

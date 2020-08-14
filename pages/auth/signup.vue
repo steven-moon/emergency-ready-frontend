@@ -138,6 +138,7 @@ import { Button, FormGroupInput } from "@/components/UIKit";
 import areaPrepared from "../../static/images/area-prepared.png";
 
 export default {
+  layout: "default-auth",
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
