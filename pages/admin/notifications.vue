@@ -100,6 +100,7 @@ import { Card, Button } from "@/components";
 import { Table, TableColumn, Tooltip } from "element-ui";
 
 export default {
+  layout: "admin",
   components: {
     Card,
     [Table.name]: Table,

@@ -69,6 +69,7 @@
 import { Button, FormGroupInput } from "@/components/UIKit";
 
 export default {
+  layout: "default-auth",
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
