@@ -301,6 +301,7 @@ import {
 } from "element-ui";
 
 export default {
+  layout: "admin",
   components: {
     Card,
     Modal,

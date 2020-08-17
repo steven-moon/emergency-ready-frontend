@@ -121,5 +121,14 @@
             clear: both;
             content: " ";
         }
+
+        .white-text {
+            color: white;
+
+            a {
+                color: white;
+                text-decoration: underline;
+            }
+        }
     }
 }
