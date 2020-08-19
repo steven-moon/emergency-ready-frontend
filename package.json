@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^21.0.0",
     "@fullcalendar/core": "^4.2.1",
     "@fullcalendar/daygrid": "^4.1.0",
     "@fullcalendar/interaction": "^4.1.0",
@@ -29,11 +30,11 @@
     "cookie-universal-nuxt": "^2.1.2",
     "cropperjs": "^1.0.0",
     "cross-env": "^5.2.0",
+    "d3": "^5.9.2",
     "datamaps": "^0.5.9",
     "date-fns": "^1.30.1",
     "dotenv": "^8.2.0",
     "dropzone": "^5.5.1",
-    "d3": "^5.9.2",
     "element-ui": "^2.10.1",
     "es6-promise": "^4.2.6",
     "flatpickr": "^4.5.7",
