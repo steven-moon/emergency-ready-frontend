@@ -136,6 +136,7 @@
 <script>
 import { Button, FormGroupInput } from "@/components/UIKit";
 import areaPrepared from "../../static/images/area-prepared.png";
+import CommonAPI from '~/api/CommonAPI';
 
 export default {
   layout: "default-auth",
@@ -224,6 +225,45 @@ export default {
       if (this.verifyInputs()) {
         console.log(this.form);
         // Make an axios call to database
+        CommonAPI.signup(this.$store, this.form)
+            .then(response => {
+                console.log("In then response on signup. response=");
+                console.log(response);
+                if (response.status && response.status === "success") {
+                    console.log(response.status);
+
+                    this.$cookies.set("authToken", response.api_token, {
+                        path: '/',
+                        maxAge: 60 * 60 * 24 * 7
+                    });
+                    this.$cookies.set("userId", this.form.email, {path: '/', maxAge: 60 * 60 * 24 * 7});
+                    this.$cookies.set("user", JSON.stringify(response.data.user), {
+                        path: '/',
+                        maxAge: 60 * 60 * 24 * 7
+                    });
+
+                    this.$store.commit('setUser', response.data.user);
+                    this.$store.commit('setUserID', this.form.email);
+                    this.$store.commit('setAuthToken', response.api_token);
+
+                    window.location.href = "/admin/";
+                } else {
+                    this.alertType = 'danger';
+                    if (response.message && response.message.length > 0) {
+                        this.message = response.message;
+                    } else {
+                        this.message = 'A server error has occurred.  Please try again later.';
+                    }
+                }
+                this.showSpinner = false;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.showSpinner = false;
+                this.message = error;
+                this.alertType = 'danger'
+
+            });
       }
       console.log(this.formErrors);
     },

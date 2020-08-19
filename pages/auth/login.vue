@@ -66,7 +66,7 @@
                       >create an account</nuxt-link
                     >
                   </div>
-                  <div submit-form__container ml-auto mr-auto>
+                  <div @click="submit">
                     <n-button type="success">Login</n-button>
                   </div>
                 </div>
@@ -80,6 +80,7 @@
 </template>
 <script>
 import { Button, FormGroupInput } from "@/components/UIKit";
+import CommonAPI from '~/api/CommonAPI';
 
 export default {
   layout: "default-auth",
@@ -116,16 +117,55 @@ export default {
       }
 
       //Check password
-      if (this.form.password !== "") {
+      if (this.form.password === "") {
         isFormCompleted = false;
         this.error.password = true;
       }
+      console.log(isFormCompleted);
       return isFormCompleted;
     },
     submit() {
       if (this.verifyInputs()) {
         console.log(this.form);
         // Make an axios call to database
+        CommonAPI.login(this.$store, this.form.email, this.form.password)
+            .then(response => {
+            console.log("In then response on login. response=");
+            console.log(response);
+            if (response.status && response.status === "success") {
+                this.$cookies.set("authToken", response.api_token, {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                });
+                this.$cookies.set("userId", this.form.email, {path: '/', maxAge: 60 * 60 * 24 * 7});
+                this.$cookies.set("user", JSON.stringify(response.user), {
+                    path: '/',
+                    maxAge: 60 * 60 * 24 * 7
+                });
+
+
+                this.$store.commit('setAuthToken', response.api_token);
+                this.$store.commit('setUserID', this.form.email);
+                this.$store.commit('setUser', response.user);
+
+                window.location.href = "/admin/";
+            } else {
+                this.alertType = 'danger';
+                if(response.message && response.message.length > 0) {
+                    this.message = response.message;
+                }else{
+                    this.message = 'A server error has occurred.  Please try again later.';
+                }
+                this.showSpinner = false;
+            }
+
+        })
+        .catch((error) => {
+            console.log(error);
+            this.showSpinner = false;
+            this.message = error;
+            this.alertType = 'danger'
+        });
       }
       console.log(this.formErrors);
     },
