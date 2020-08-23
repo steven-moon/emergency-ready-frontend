@@ -135,7 +135,7 @@ const instance = {
         if (process.env.baseUrl) {
             baseUrl = process.env.baseUrl;
         } else {
-            baseUrl = 'https://api.emergencyreadyapp.com/';
+            baseUrl = 'http://localhost:8080/';
         }
 
         baseUrl = baseUrl + 'api/' + path;
@@ -154,7 +154,7 @@ const instance = {
             baseUrl = baseUrl + '?offset=' + offset + '&limit=' + limit;
         }
 
-        //console.log("base url: " + baseUrl);
+        console.log("base url: " + baseUrl);
         return baseUrl;
     },
     getBaseAPIConfig(authToken) {
@@ -306,7 +306,7 @@ const instance = {
     sendContactUsForm(formData) {
         console.log('BEGIN: sendContactUsForm');
         return axios.post(
-            process.env.baseApiUrl + "/contact-us", formData
+            process.env.baseUrl + "api/contact-us", formData
         )
             .then(response => {
                 console.log(response);
@@ -325,7 +325,7 @@ const instance = {
     sendSubscribeForm(formData) {
         console.log('BEGIN: sendSubscribeForm');
         return axios.post(
-            process.env.baseApiUrl + "/subscribe", formData
+            process.env.baseUrl + "api/subscribe", formData
         )
             .then(response => {
                 if (response.status >= 200 && response.status < 300) {

@@ -2,6 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import clonedeep from "lodash.clonedeep";
 
+/**
+ * Internal dependencies.
+ */
+import notifications from './modules/notifications';
+
 Vue.use(Vuex);
 
 const namespaced = true;
@@ -10,6 +15,7 @@ const createStore = () => {
    return new Vuex.Store({
       namespaced,
       modules: {
+          notifications,
       },
       state: {
           images: [],

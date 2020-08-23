@@ -37,6 +37,7 @@ import { Button } from "@/components/UIKit";
 
 export default {
   layout: "admin",
+  middleware: ["check-auth", "auth"],
   components: {
     [Button.name]: Button
   },

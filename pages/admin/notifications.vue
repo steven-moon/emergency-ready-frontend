@@ -302,6 +302,7 @@ import {
 
 export default {
   layout: "admin",
+  middleware: ["check-auth", "auth"],
   components: {
     Card,
     Modal,

@@ -50,6 +50,7 @@ import { Popover, Tooltip, DatePicker, TimeSelect } from "element-ui";
 
 export default {
   layout: "admin",
+  middleware: ["check-auth", "auth"],
   components: {
     Modal,
     [Button.name]: Button,
