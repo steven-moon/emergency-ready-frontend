@@ -14,33 +14,38 @@ function addHelperVars(item, index, arr) {
 const instance = {
     getNotifications(store){
         let params = "";
-        return CommonAPI.getAll(store.getters.getAuthToken, notifications ,params)
+        return CommonAPI.getAll(store.getters.getAuthToken, 'notifications' ,params)
             .then(items => {
                 items.forEach(addHelperVars);
                 console.log("get items. committing notifications");
                 console.log(items);
 
-                const clonedItems = clonedeep(items);
+                if(items) {
+                    const clonedItems = clonedeep(items);
 
-                store.dispatch('setNotifications', {
-                    notifications: clonedItems,
-                });
+                    store.dispatch('notifications/setNotifications', {
+                        notifications: clonedItems,
+                    });
 
-                return items;
+                    return items;
+                }else{
+                    return [];
+                }
             })
             .catch((error) => {
                 console.log("error in NotificationAPI.js: " + error);
+                return error;
             });
     },
     getNotification(store, itemId){
-        return CommonAPI.getOne(store.getters.getAuthToken, 'notifictions', itemId)
+        return CommonAPI.getOne(store.getters.getAuthToken, 'notifications', itemId)
             .then(item => {
                 console.log("get item. committing notification");
                 console.log(item);
 
                 const clonedItem = clonedeep(item);
 
-                store.dispatch('setNotification', {
+                store.dispatch('notifications/setNotification', {
                     notification: clonedItem,
                 });
 
@@ -50,15 +55,15 @@ const instance = {
                 console.log("error in NotificationAPI.js: " + error);
             });
     },
-    addNotifiction(store, data){
-        return CommonAPI.addItem(store.getters.getAuthToken, 'notifictions', data)
+    addNotification(store, data){
+        return CommonAPI.addItem(store.getters.getAuthToken, 'notifications', data)
             .then(item => {
                 console.log("add notifiction: ");
                 console.log(item);
 
 
                 const clonedItem = clonedeep(item);
-                store.dispatch('setNotification', {
+                store.dispatch('notifications/setNotification', {
                     notification: clonedItem,
                 });
 
@@ -69,7 +74,7 @@ const instance = {
             });
     },
     updateNotification(store, data, uuid){
-        return CommonAPI.updateItem(store.getters.getAuthToken, 'notifictions', data, uuid)
+        return CommonAPI.updateItem(store.getters.getAuthToken, 'notifications', data, uuid)
             .then(response => {
                 //console.log("update response: " + response);
                 //const cloneItem = clonedeep(data);
@@ -82,7 +87,7 @@ const instance = {
             });
     },
     deleteNotification(store, itemId){
-        return CommonAPI.deleteItem(store.getters.getAuthToken, 'notifictions', itemId)
+        return CommonAPI.deleteItem(store.getters.getAuthToken, 'notifications', itemId)
             .then(response => {
                 console.log("delete response: " + response);
                 //const cloneItem = clonedeep(data);
@@ -91,6 +96,31 @@ const instance = {
             })
             .catch((error) => {
                 console.log("error in NotificationAPI.js: " + error);
+            });
+    },
+    getNotificationTypes(store){
+        let params = "";
+        return CommonAPI.getAll(store.getters.getAuthToken, 'notification-types' ,params)
+            .then(items => {
+                items.forEach(addHelperVars);
+                console.log("get items. committing notification types");
+                console.log(items);
+
+                if(items) {
+                    const clonedItems = clonedeep(items);
+
+                    store.dispatch('notifications/setNotificationTypes', {
+                        notificationTypes: clonedItems,
+                    });
+
+                    return items;
+                }else{
+                    return [];
+                }
+            })
+            .catch((error) => {
+                console.log("error in NotificationAPI.js: " + error);
+                return error;
             });
     },
 };

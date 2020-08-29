@@ -35,4 +35,10 @@ export default {
 
 		state.notification = notification;
 	},
+
+	SET_NOTIFICATION_TYPES(state, payload) {
+		const {notificationTypes} = payload;
+
+		state.notificationTypes = notificationTypes;
+	},
 };

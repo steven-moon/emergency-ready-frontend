@@ -102,7 +102,7 @@ const instance = {
 
         return axios.post(baseUrl, data, config)
             .then(response => {
-                return response.data;
+                return response.data.data;
             })
             .catch((error) => {
                 console.log(error);
@@ -135,7 +135,7 @@ const instance = {
         if (process.env.baseUrl) {
             baseUrl = process.env.baseUrl;
         } else {
-            baseUrl = 'http://localhost:8080/';
+            baseUrl = 'http://localhost:8080/api/';
         }
 
         baseUrl = baseUrl + 'api/' + path;

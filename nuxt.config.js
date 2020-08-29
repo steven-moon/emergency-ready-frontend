@@ -99,6 +99,7 @@ export default {
         {src: '~/plugins/vue-h5-swiper.js', ssr: false, mode: 'client'},
         {src: '~/plugins/argon/full-calendar', ssr: false },
         {src: '~/plugins/argon/world-map', ssr: false },
+        {src: '~/plugins/sentry.js', mode: 'client'},
         // { src: '~/plugins/black/full-calendar.js', ssr: false },
         // { src: '~/plugins/black/world-map.js', ssr: false }
     ],

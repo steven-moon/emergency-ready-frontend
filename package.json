@@ -1,4 +1,4 @@
- {
+{
   "name": "emergency-ready-app",
   "version": "1.0.0",
   "description": "Emergency Ready App",
@@ -11,7 +11,6 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^21.0.0",
     "@fullcalendar/core": "^4.2.1",
     "@fullcalendar/daygrid": "^4.1.0",
     "@fullcalendar/interaction": "^4.1.0",
@@ -23,6 +22,9 @@
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.0.1",
+    "@sentry/browser": "^5.22.3",
+    "@sentry/integrations": "^5.22.3",
+    "@sentry/tracing": "^5.22.3",
     "axios": "^0.19.2",
     "babel-plugin-component": "^1.1.1",
     "better-scroll": "^1.15.2",

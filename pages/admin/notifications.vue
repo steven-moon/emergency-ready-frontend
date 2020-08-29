@@ -1,5 +1,8 @@
 <template>
-  <div class="section">
+  <div v-if="isLoading" class="section">
+    <tile :loading="isLoading"/>
+  </div>
+  <div v-else class="section">
     <div class="container">
       <div class="col-md-10 ml-auto mr-auto">
         <card type="blog">
@@ -30,7 +33,7 @@
               type="success"
               round
               simple
-              @click.native="modalNotice = true"
+              @click.native="createNotification"
             >
               <i class="now-ui-icons"></i> Create Notification
             </n-button>
@@ -44,25 +47,19 @@
                     type="index"
                   ></el-table-column>
                   <el-table-column
-                    min-width="100"
+                    min-width="200"
                     align="left"
                     prop="title"
                     label="Title"
                   >
                   </el-table-column>
                   <el-table-column
-                    min-width="80"
+                    min-width="120"
                     align="left"
                     prop="date"
                     label="Date"
                   >
                   </el-table-column>
-                  <el-table-column
-                    min-width="350"
-                    prop="desc"
-                    align="left"
-                    label="Description"
-                  >
                   </el-table-column>
                   <el-table-column
                     min-width="150"
@@ -76,9 +73,11 @@
                           :open-delay="300"
                           placement="top"
                         >
-                          <n-button type="success" round simple size="sm" icon>
-                            <i class="now-ui-icons ui-2_settings-90"></i>
-                          </n-button>
+                          <span @click="() => handleEdit(scope.$index, scope.row)">
+                            <n-button type="success" round simple size="sm" icon>
+                              <i class="now-ui-icons ui-2_settings-90"></i>
+                            </n-button>
+                          </span>
                         </el-tooltip>
 
                         <el-tooltip
@@ -104,7 +103,7 @@
         </tab-pane>
         <tab-pane label="Previous">
           <div class="create-notification">
-            <n-button type="success" round simple @click.native="notice = true">
+            <n-button type="success" round simple @click.native="createNotification">
               <i class="now-ui-icons"></i> Create Notification
             </n-button>
           </div>
@@ -117,24 +116,17 @@
                     type="index"
                   ></el-table-column>
                   <el-table-column
-                    min-width="100"
+                    min-width="250"
                     align="left"
                     prop="title"
                     label="Title"
                   >
                   </el-table-column>
                   <el-table-column
-                    min-width="80"
+                    min-width="60"
                     align="left"
                     prop="date"
                     label="Date"
-                  >
-                  </el-table-column>
-                  <el-table-column
-                    min-width="350"
-                    prop="desc"
-                    align="left"
-                    label="Description"
                   >
                   </el-table-column>
                   <el-table-column
@@ -149,9 +141,11 @@
                         placement="top"
                         style="font-family: san-serif;"
                       >
-                        <n-button type="success" round simple size="sm" icon>
-                          <i class="now-ui-icons ui-2_settings-90"></i>
-                        </n-button>
+                        <span @click="() => handleEdit(scope.$index, scope.row)">
+                          <n-button type="success" round simple size="sm" icon>
+                            <i class="now-ui-icons ui-2_settings-90"></i>
+                          </n-button>
+                        </span>
                       </el-tooltip>
 
                       <el-tooltip
@@ -176,96 +170,6 @@
         </tab-pane>
       </tabs>
     </div>
-    <!-- Edit/Create Modal -->
-    <modal
-      :show.sync="modalNotice"
-      footerClasses="justify-content-center"
-      type="notice"
-    >
-      <h5 slot="header" class="modal-title">
-        Create a new notification
-      </h5>
-      <template>
-        <div class="instruction">
-          <div class="row">
-            <div class="col-sm-6 col-md-11 col-lg-12">
-              <fg-input placeholder="Notification Title" v-model="form.title">
-              </fg-input>
-              <div class="html-picker">
-                <label>Plain text or HTML</label>
-                <n-switch
-                  v-model="form.htmlSwitch"
-                  type="success"
-                  on-text="Plain"
-                  off-text="HTML"
-                ></n-switch>
-              </div>
-              <textarea
-                v-model="form.message"
-                class="create-notification__textarea"
-                name="name"
-                rows="6"
-                cols="120"
-                placeholder="Write your message here..."
-              ></textarea>
-              <hr />
-              <n-checkbox v-model="form.checkbox" @click="clearDates"
-                >Schedule Notification Delivery</n-checkbox
-              >
-              <div class="send-later__container">
-                <fg-input>
-                  <el-date-picker
-                    :disabled="!form.checkbox"
-                    type="date"
-                    placeholder="Date Picker"
-                    v-model="form.datePicker"
-                  >
-                  </el-date-picker>
-                </fg-input>
-                <div class="div__spacer"></div>
-                <fg-input>
-                  <el-time-select
-                    :disabled="!form.checkbox"
-                    placeholder="Time Picker"
-                    v-model="form.timePicker"
-                  >
-                  </el-time-select>
-                </fg-input>
-                <drop-down>
-                  <n-button
-                    slot="title"
-                    class="dropdown-toggle"
-                    type="default"
-                    data-toggle="dropdown"
-                    round
-                    simple
-                    :disabled="!form.checkbox"
-                  >
-                    EST
-                  </n-button>
-                  <a
-                    v-for="zone in timeZones"
-                    :key="zone"
-                    :class="zone === form.timeZone ? 'highlighted' : ''"
-                    class="dropdown-item"
-                    >{{ zone }}</a
-                  >
-                </drop-down>
-              </div>
-            </div>
-          </div>
-        </div>
-      </template>
-      <div class="footer-container">
-        <n-button
-          type="success"
-          round
-          style="margin: 0;"
-          @click.native="notice = false"
-          >Submit</n-button
-        >
-      </div>
-    </modal>
     <!-- Delete Modal -->
     <modal :show.sync="modalDelete" headerClasses="justify-content-center">
       <h4 slot="header" class="title title-up">Delete Notification</h4>
@@ -283,6 +187,8 @@
   </div>
 </template>
 <script>
+import moment from 'moment';
+
 import {
   Card,
   Button,
@@ -299,6 +205,9 @@ import {
   TimeSelect,
   DatePicker,
 } from "element-ui";
+
+import NotificationsAPI from "~/api/NotificationsAPI";
+
 
 export default {
   layout: "admin",
@@ -319,6 +228,7 @@ export default {
   },
   data() {
     return {
+      isLoading: true,
       modalNotice: false,
       modalDelete: false,
       selectedRow: {},
@@ -343,39 +253,24 @@ export default {
         "SST",
         "CHST",
       ],
-      tableData: [
-        {
-          title: "Volcano",
-          desc: "Find cover! There will be ash and smoke in the air.",
-          date: "01/12/2020:2:15a.m.",
-          active: false,
-        },
-        {
-          title: "Flood",
-          desc: "If you are in the metro district find high ground.",
-          date: "01/12/2020:2:15a.m.",
-          active: false,
-        },
-        {
-          title: "Fire",
-          desc: "The winds are blowing north. EVACUATE NOW.",
-          date: "01/12/2020:2:15a.m.",
-          active: false,
-        },
-        {
-          title: "Earthquake",
-          desc: "Desaster re;ief crews are scouting downed power lines.",
-          date: "01/12/2020:2:15a.m.",
-          active: true,
-        },
-        {
-          title: "Riots",
-          desc: "We will be keeping protestors out of neighborhoods.",
-          date: "01/12/2020:2:15a.m.",
-          active: true,
-        },
-      ],
+      notifications: []
     };
+  },
+  computed: {
+    tableData(){
+      let data = [];
+
+      this.notifications.forEach(note => {
+         let row = {};
+         row.uuid = note.uuid;
+         row.title = note.title;
+         row.date = this.formatDate(note.created_at);
+         data.push(row);
+      })
+
+      return data;
+
+    }
   },
   methods: {
     handleDelete(index, row) {
@@ -384,8 +279,14 @@ export default {
     },
 
     handleEdit(index, row) {
+      console.log("Handle Edit");
+      console.log(row);
       this.selectRow = row;
-      this.modalsNotice = true;
+      window.location.href = "/admin/notification?id=" + row.uuid;
+    },
+
+    createNotification(){
+      window.location.href = "/admin/notification";
     },
 
     clearDates() {
@@ -393,7 +294,30 @@ export default {
       this.form.timePicker = "";
       this.form.timeZone = "";
     },
+
+    formatDate(value) {
+      if(value) {
+        return moment(value).format('MM/DD/YYYY hh:mm:ss');
+      }else{
+        return moment().format('MM/DD/YYYY hh:mm:ss');
+      }
+    }
   },
+  mounted() {
+    this.isLoading = true;
+    NotificationsAPI.getNotifications(this.$store)
+        .then(notifications => {
+          this.notifications = notifications;
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          console.log("Error getting notifications in notifications.vue");
+          console.log(error);
+          this.isLoading = false;
+        });
+
+    NotificationsAPI.getNotificationTypes(this.$store);
+  }
 };
 </script>
 <style lang="scss" scoped>

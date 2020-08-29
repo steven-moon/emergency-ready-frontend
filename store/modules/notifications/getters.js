@@ -18,4 +18,14 @@ export default {
 	getNotification(state) {
 		return state.notification;
 	},
+
+	/**
+	 * Returns the notification types.
+	 *
+	 * @param  {Object} state
+	 * @return {Object}
+	 */
+	getNotificationTypes(state) {
+		return state.notificationTypes;
+	},
 };

@@ -39,4 +39,11 @@ export default {
 
 		commit('REMOVE_NOTIFICATION', { notification });
 	},
+
+	setNotificationTypes({commit, dispatch}, payload) {
+		const { notificationTypes } = payload;
+
+		commit('SET_NOTIFICATION_TYPES', { notificationTypes });
+
+	},
 };

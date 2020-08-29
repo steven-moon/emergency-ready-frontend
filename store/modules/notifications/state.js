@@ -12,4 +12,11 @@ export default {
 	 * @type {Array}
 	 */
 	notification: null,
+
+	/**
+	 * Notification Types for Company App
+	 *
+	 * @type {Array}
+	 */
+	notificationTypes: [],
 };
