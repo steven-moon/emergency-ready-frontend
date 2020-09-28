@@ -168,7 +168,7 @@ export default {
   margin: 0 1px;
   display: flex;
   justify-content: flex-end;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .forgot-password {

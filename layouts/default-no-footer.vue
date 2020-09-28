@@ -166,7 +166,7 @@
       </footer>
     </div>
 
-    <div v-html="chatlio"></div>
+<!--    <div v-html="chatlio"></div>-->
   </div>
 </template>
 <script>

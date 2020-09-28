@@ -119,7 +119,7 @@ export default {
   margin: 0 1px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .error-list {
@@ -130,7 +130,7 @@ export default {
     padding-left: 0;
     li {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       color: #f96332;
       text-decoration: none;
     }

@@ -6,7 +6,7 @@
     <contact-us></contact-us>
 <!--    <subscribe :showImage="true"></subscribe>-->
     <main-footer></main-footer>
-    <div v-html="chatlio"></div>
+<!--    <div v-html="chatlio"></div>-->
   </div>
 </template>
 <script>

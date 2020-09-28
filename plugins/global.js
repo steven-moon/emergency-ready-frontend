@@ -25,7 +25,7 @@ import ArgonSideBar from '~/components/Argon/argon-core/SidebarPlugin';
 // RTL (right to left plugin to support rtl layout). If you don't need support for rtl, remove this plugin
 
 // Validation plugin used to validate forms
-import VeeValidate from 'vee-validate';
+//import VeeValidate from 'vee-validate';
 // RTL (right to left plugin to support rtl layout). If you don't need support for rtl, remove this plugin
 import RTLPlugin from './RTLPlugin';
 
@@ -57,7 +57,7 @@ import RTLPlugin from './RTLPlugin';
     }
   });
   Vue.use(RTLPlugin);
-  Vue.use(VeeValidate, { fieldsBagName: 'veeFields' });
+  //Vue.use(VeeValidate, { fieldsBagName: 'veeFields' });
   Vue.use(BlackSideBar);
   Vue.use(BlackNotifications);
   Vue.use(ArgonSideBar);

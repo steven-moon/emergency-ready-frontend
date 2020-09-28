@@ -275,14 +275,14 @@ export default {
   margin: 0 1px;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .navigate-auth{
   margin: 0 1px;
   display: flex;
   justify-content: flex-end;
-  align-items: start;
+  align-items: flex-start;
   font-size: 10px;
   text-decoration: none;
 }
@@ -302,7 +302,7 @@ export default {
     padding-left: 0;
     li {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       color: #f96332;
       text-decoration: none;
     }
