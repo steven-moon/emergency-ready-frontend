@@ -2,73 +2,64 @@
   <div class="section section-basic mt-5" id="basic-elements">
     <div class="col-md-6 ml-auto mr-auto">
       <card type="profile">
-        <!-- <img slot="avatar" class="img img-raised" src="img/mike.jpg" /> -->
-        <div class="card-footer">
-          <a href="#pablo" class="btn btn-icon btn-twitter btn-round"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a href="#pablo" class="btn btn-icon btn-facebook btn-round"
-            ><i class="fab fa-facebook-square"></i
-          ></a>
-          <a href="#pablo" class="btn btn-icon btn-google btn-round"
-            ><i class="fab fa-google"></i
-          ></a>
-        </div>
         <div class="card-body">
-          <h4 class="card-title">Log In</h4>
+          <h2 class="card-title">Log In</h2>
 
-          <p class="card-description">
-            Log in to unlock the full features behind your new app and see how
-            much we've built in for you.
-          </p>
-          <br />
+          <!--          <p class="card-description">-->
+          <!--            Log in to access the admin portal.-->
+          <!--          </p>-->
+          <br/>
           <div id="inputs">
-            <div class="col">
+            <div class="row">
               <div class="col-sm-10 ml-auto mr-auto">
                 <fg-input
-                  v-model="form.email"
-                  placeholder="Email"
-                  :class="
+                    v-model="form.email"
+                    placeholder="Email"
+                    :class="
                     error.email === true
                       ? 'has-danger'
                       : error.email === null
                       ? ''
                       : 'has-success'
                   "
-                  type="email"
+                    type="email"
                 ></fg-input>
-                <nuxt-link
-                  style="border: none;"
-                  to="/auth/forgot-password"
-                  class="forgot-password"
-                  >forgot password?</nuxt-link
-                >
                 <fg-input
-                  v-model="form.password"
-                  placeholder="Password"
-                  :class="
+                    v-model="form.password"
+                    placeholder="Password"
+                    :class="
                     error.password === true
                       ? 'has-danger'
                       : error.password === null
                       ? ''
                       : 'has-success'
                   "
-                  type="password"
+                    type="password"
                 ></fg-input>
               </div>
+            </div>
+            <div class="row pb-4 ml-auto mr-auto">
+              <div class="col-6">
+                <nuxt-link
+                    style="border: none;"
+                    class="navigate-auth"
+                    to="/auth/signup">
+                  create an account
+                </nuxt-link>
+              </div>
+              <div class="col-6">
+                <nuxt-link
+                    style="border: none;"
+                    to="/auth/forgot-password"
+                    class="navigate-auth">
+                  forgot password?
+                </nuxt-link>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-sm-10 ml-auto mr-auto">
-                <div class="submit-form__container ml-auto mr-auto">
-                  <div class="create-account mt-1">
-                    <nuxt-link
-                      style="border: none;"
-                      class="navigate-auth"
-                      to="/auth/signup"
-                      >create an account</nuxt-link
-                    >
-                  </div>
-                  <div @click="submit">
-                    <n-button type="success">Login</n-button>
-                  </div>
+                <div @click="submit">
+                  <n-button type="success" :wide="true">Login</n-button>
                 </div>
               </div>
             </div>
@@ -79,7 +70,7 @@
   </div>
 </template>
 <script>
-import { Button, FormGroupInput } from "@/components/UIKit";
+import {Button, FormGroupInput} from "@/components/UIKit";
 import CommonAPI from '~/api/CommonAPI';
 
 export default {
@@ -130,17 +121,17 @@ export default {
         // Make an axios call to database
         CommonAPI.login(this.$store, this.form.email, this.form.password)
             .then(response => {
-            console.log("In then response on login. response=");
-            console.log(response);
-            if (response.status && response.status === "success") {
+              console.log("In then response on login. response=");
+              console.log(response);
+              if (response.status && response.status === "success") {
                 this.$cookies.set("authToken", response.api_token, {
-                    path: '/',
-                    maxAge: 60 * 60 * 24 * 7
+                  path: '/',
+                  maxAge: 60 * 60 * 24 * 7
                 });
                 this.$cookies.set("userId", this.form.email, {path: '/', maxAge: 60 * 60 * 24 * 7});
                 this.$cookies.set("user", JSON.stringify(response.user), {
-                    path: '/',
-                    maxAge: 60 * 60 * 24 * 7
+                  path: '/',
+                  maxAge: 60 * 60 * 24 * 7
                 });
 
 
@@ -149,23 +140,23 @@ export default {
                 this.$store.commit('setUser', response.user);
 
                 window.location.href = "/admin/";
-            } else {
+              } else {
                 this.alertType = 'danger';
-                if(response.message && response.message.length > 0) {
-                    this.message = response.message;
-                }else{
-                    this.message = 'A server error has occurred.  Please try again later.';
+                if (response.message && response.message.length > 0) {
+                  this.message = response.message;
+                } else {
+                  this.message = 'A server error has occurred.  Please try again later.';
                 }
                 this.showSpinner = false;
-            }
+              }
 
-        })
-        .catch((error) => {
-            console.log(error);
-            this.showSpinner = false;
-            this.message = error;
-            this.alertType = 'danger'
-        });
+            })
+            .catch((error) => {
+              console.log(error);
+              this.showSpinner = false;
+              this.message = error;
+              this.alertType = 'danger'
+            });
       }
       console.log(this.formErrors);
     },
@@ -186,14 +177,13 @@ export default {
   margin: 0;
   font-size: 10px;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
 }
 
 .navigate-auth {
-  position: absolute;
-  left: 15px;
-  font-size: 10px;
+  font-size: 13px;
 }
 </style>
