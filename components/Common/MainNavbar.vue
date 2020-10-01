@@ -56,6 +56,11 @@
           <p>Hazard Guides</p>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/login">
+          <p>Login</p>
+        </a>
+      </li>
     </template>
   </navbar>
 
