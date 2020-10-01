@@ -353,12 +353,6 @@ const createStore = () => {
                localStorage.removeItem("authToken");
                localStorage.removeItem("user");
             }
-
-            vuexContext.commit('taskstore/reset');
-            vuexContext.commit('boardstore/reset');
-            vuexContext.commit('projectstore/reset');
-            vuexContext.commit('leadstore/reset');
-            vuexContext.commit('timestore/reset');
          },
          // logout({commit}) {
          //    commit('logout');

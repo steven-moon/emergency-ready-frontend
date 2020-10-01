@@ -5,10 +5,6 @@
         <!-- <img slot="avatar" class="img img-raised" src="img/mike.jpg" /> -->
         <div class="card-body">
           <h4 class="card-title">Admin Home Page</h4>
-
-          <p class="card-description">
-            Welcome to the admin home page.
-          </p>
           <br />
           <div id="inputs">
             <div class="row">
@@ -24,6 +20,11 @@
             <div class="row">
               <div class="col-sm-10 ml-auto mr-auto" @click="goToURL('/admin/notification')">
                   <n-button size="lg" :block="true" :round="true" type="success">New Notification</n-button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-10 ml-auto mr-auto" @click="goToURL('/admin/notification-types')">
+                <n-button size="lg" :block="true" :round="true" type="success">Notification Types</n-button>
               </div>
             </div>
           </div>

@@ -73,6 +73,17 @@ const instance = {
                 console.log("error in NotificationAPI.js: " + error);
             });
     },
+    addNotificationType(store, data){
+        return CommonAPI.addItem(store.getters.getAuthToken, 'notification-types', data)
+            .then(item => {
+                console.log("add notifiction type: ");
+                console.log(item);
+                return item;
+            })
+            .catch((error) => {
+                console.log("error in NotificationAPI.js: " + error);
+            });
+    },
     updateNotification(store, data, uuid){
         return CommonAPI.updateItem(store.getters.getAuthToken, 'notifications', data, uuid)
             .then(response => {
@@ -86,8 +97,33 @@ const instance = {
                 return error;
             });
     },
+    updateNotificationType(store, data, uuid){
+        return CommonAPI.updateItem(store.getters.getAuthToken, 'notification-types', data, uuid)
+            .then(response => {
+                //console.log("update response: " + response);
+                //const cloneItem = clonedeep(data);
+                //store.commit(itemStore + '/' + setModel, cloneItem);
+                return response;
+            })
+            .catch((error) => {
+                console.log("error in NotificationAPI.js: " + error);
+                return error;
+            });
+    },
     deleteNotification(store, itemId){
         return CommonAPI.deleteItem(store.getters.getAuthToken, 'notifications', itemId)
+            .then(response => {
+                console.log("delete response: " + response);
+                //const cloneItem = clonedeep(data);
+                //store.commit(itemStore + '/' + setModel, cloneItem);
+                return response;
+            })
+            .catch((error) => {
+                console.log("error in NotificationAPI.js: " + error);
+            });
+    },
+    deleteNotificationType(store, itemId){
+        return CommonAPI.deleteItem(store.getters.getAuthToken, 'notification-types', itemId)
             .then(response => {
                 console.log("delete response: " + response);
                 //const cloneItem = clonedeep(data);

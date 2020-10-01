@@ -1,5 +1,8 @@
 <template>
-  <div class="section section-basic mt-5" id="basic-elements">
+  <div v-if="isLoading" class="section">
+    <tile :loading="isLoading"/>
+  </div>
+  <div v-else class="section section-basic mt-5" id="basic-elements">
     <div class="col-md-6 ml-auto mr-auto">
       <card type="profile">
         <div class="card-body">
@@ -40,12 +43,12 @@
             </div>
             <div class="row pb-4 ml-auto mr-auto">
               <div class="col-6">
-                <nuxt-link
-                    style="border: none;"
-                    class="navigate-auth"
-                    to="/auth/signup">
-                  create an account
-                </nuxt-link>
+<!--                <nuxt-link-->
+<!--                    style="border: none;"-->
+<!--                    class="navigate-auth"-->
+<!--                    to="/auth/signup">-->
+<!--                  create an account-->
+<!--                </nuxt-link>-->
               </div>
               <div class="col-6">
                 <nuxt-link
@@ -54,6 +57,11 @@
                     class="navigate-auth">
                   forgot password?
                 </nuxt-link>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" v-if="message">
+                <base-alert :type="alertType">{{message}}</base-alert>
               </div>
             </div>
             <div class="row">
@@ -89,6 +97,9 @@ export default {
         email: null,
         password: null,
       },
+      message: "",
+      alertType: "info",
+      isLoading: false
     };
   },
   methods: {
@@ -116,9 +127,15 @@ export default {
       return isFormCompleted;
     },
     submit() {
-      if (this.verifyInputs()) {
+      if(this.form.email.length == 0 || this.form.password.length == 0){
+        this.alertType = 'danger';
+        this.message = "Email and Password are required fields.";
+
+      }else if (this.verifyInputs()) {
         console.log(this.form);
         // Make an axios call to database
+
+        this.isLoading = true;
         CommonAPI.login(this.$store, this.form.email, this.form.password)
             .then(response => {
               console.log("In then response on login. response=");
@@ -147,20 +164,26 @@ export default {
                 } else {
                   this.message = 'A server error has occurred.  Please try again later.';
                 }
-                this.showSpinner = false;
+                this.isLoading = false;
               }
 
             })
             .catch((error) => {
               console.log(error);
-              this.showSpinner = false;
+              this.isLoading = false;
               this.message = error;
               this.alertType = 'danger'
             });
+      }else{
+        this.alertType = 'danger';
+        this.message = "Error in form.  Please verify you are using a valid email.";
       }
       console.log(this.formErrors);
     },
   },
+  created() {
+    this.$store.dispatch('logout');
+  }
 };
 </script>
 <style scoped lang="scss">

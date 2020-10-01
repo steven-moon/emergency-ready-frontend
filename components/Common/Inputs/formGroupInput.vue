@@ -22,6 +22,7 @@
         :value="value"
         v-on="listeners"
         v-bind="$attrs"
+        :type="type"
         class="form-control"
         :class="[{valid: value && !error}, inputClasses]"
         aria-describedby="addon-right addon-left">
@@ -53,6 +54,10 @@
       value: {
         type: [String, Number],
         default: ''
+      },
+      type: {
+        type: [String],
+        default: 'text'
       },
       addonRightIcon: String,
       addonLeftIcon: String

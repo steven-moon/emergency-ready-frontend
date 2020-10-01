@@ -31,6 +31,16 @@
           <p>Send New Notification</p>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/notification-types">
+          <p>Notification Types</p>
+        </a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="/auth/login?action=logout">
+        <p>Logout</p>
+      </a>
+    </li>
     </template>
   </navbar>
 

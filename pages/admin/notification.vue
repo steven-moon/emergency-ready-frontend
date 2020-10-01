@@ -41,7 +41,23 @@
       </div>
     </div>
     <div class="footer-container">
+      <div class="form__row" v-if="message">
+        <div class="form__col">
+          <base-alert :type="alertType">{{message}}</base-alert>
+        </div>
+      </div>
       <div class="row">
+        <div class="col-6 cell datepicker-container">
+          <!--          <fg-input>-->
+          <!--          <el-date-picker-->
+          <!--            type="datetime"-->
+          <!--            popper-class="date-picker date-picker-primary"-->
+          <!--            placeholder="Schedule Notification"-->
+          <!--            v-model="pickers.dateTimePicker"-->
+          <!--          >-->
+          <!--          </el-date-picker>-->
+          <!--        </fg-input>-->
+        </div>
         <div class="col-6 cell submit-button">
           <span @click="saveNotification">
             <n-button type="success">
@@ -49,17 +65,6 @@
               Notification
             </n-button>
           </span>
-        </div>
-        <div class="col-6 cell datepicker-container">
-          <fg-input>
-          <el-date-picker
-            type="datetime"
-            popper-class="date-picker date-picker-primary"
-            placeholder="Schedule Notification"
-            v-model="pickers.dateTimePicker"
-          >
-          </el-date-picker>
-        </fg-input>
         </div>
       </div>
       <div class="row">
@@ -112,6 +117,8 @@ export default {
       notificationType: null,
       uuid: null,
       add: true,
+      message: "",
+      alertType: "info",
       editorOptions: {
         theme: 'snow',
         modules: {
@@ -162,59 +169,85 @@ export default {
     returnToNotifications(){
       window.location.href = "/admin/notifications";
     },
-    saveNotification(){
+    saveNotification() {
       console.log("BEGIN: saveNotifications");
       let notification = {};
       notification.title = this.notificationTitle;
       notification.body = this.notificationBody;
       notification.isHTML = 1;
-      if(this.notificationType){
+      let passed = true;
+      this.message = "";
+      if (this.notificationType) {
         notification.notification_type_id = this.notificationType.uuid;
-      }else if(this.notificationTypes.count > 0){
-        this.notificationType = this.notificationTypes[0];
-        notification.notification_type_id = this.notificationType.uuid;
+      } else{
+        this.alertType = 'danger';
+        this.message = "Error in form.  You must select a notification type.  ";
+        passed = false;
       }
 
-      if(this.add){
-        if(this.user && this.user.company_app_ids && this.user.company_app_ids.count > 0){
-          notification.company_app_id = this.user.company_app_ids[0];
+      if(!this.notificationTitle || this.notificationTitle.length === 0){
+        this.alertType = 'danger';
+        if(this.message.length > 0){
+          this.message = this.message + "Notification must have a title.  ";
+        }else{
+          this.message = "Error in form.  Notification must have a title.  ";
         }
-        console.log("add notification");
-        console.log(notification);
+        passed = false;
+      }
 
-        this.isLoading = true;
-        NotificationsAPI.addNotification(this.$store,notification)
-            .then(notification => {
-              console.log("add notification successfully")
-              //this.isLoading = false;
-              if (notification && notification.uuid) {
-                window.location.href = "/admin/notification?id=" + notification.uuid;
-              }else{
+      if(!this.notificationBody || this.notificationBody.length === 0){
+        this.alertType = 'danger';
+        if(this.message.length > 0){
+          this.message = this.message + "Notification must have a body.";
+        }else{
+          this.message = "Error in form.  Notification must have a body.";
+        }
+        passed = false;
+      }
+
+      if (passed) {
+        if (this.add) {
+          if (this.user && this.user.company_app_ids && this.user.company_app_ids.count > 0) {
+            notification.company_app_id = this.user.company_app_ids[0];
+          }
+          console.log("add notification");
+          console.log(notification);
+
+          this.isLoading = true;
+          NotificationsAPI.addNotification(this.$store, notification)
+              .then(notification => {
+                console.log("add notification successfully")
+                //this.isLoading = false;
+                if (notification && notification.uuid) {
+                  //window.location.href = "/admin/notification?id=" + notification.uuid;
+                  window.location.href = "/admin/notifications";
+                } else {
+                  this.isLoading = false;
+                }
+
+              })
+              .catch((error) => {
+                console.log("Error adding notification in notification.vue");
+                console.log(error);
                 this.isLoading = false;
-              }
+              });
+        } else {
+          notification.uuid = this.uuid;
+          console.log("update notification");
+          console.log(notification);
 
-            })
-            .catch((error) => {
-              console.log("Error adding notification in notification.vue");
-              console.log(error);
-              this.isLoading = false;
-            });
-      }else{
-        notification.uuid = this.uuid;
-        console.log("update notification");
-        console.log(notification);
-
-        this.isLoading = true;
-        NotificationsAPI.updateNotification(this.$store,notification,this.uuid)
-            .then(notification => {
-              console.log("update notification successfully")
-              this.isLoading = false;
-            })
-            .catch((error) => {
-              console.log("Error updating notification in notification.vue");
-              console.log(error);
-              this.isLoading = false;
-            });
+          this.isLoading = true;
+          NotificationsAPI.updateNotification(this.$store, notification, this.uuid)
+              .then(notification => {
+                console.log("update notification successfully")
+                this.isLoading = false;
+              })
+              .catch((error) => {
+                console.log("Error updating notification in notification.vue");
+                console.log(error);
+                this.isLoading = false;
+              });
+        }
       }
     }
   },

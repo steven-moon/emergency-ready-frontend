@@ -71,6 +71,19 @@ const instance = {
                 return error;
             });
     },
+    updatePassword(store, data){
+        return CommonAPI.updateItem(store.getters.getAuthToken, path + "/update-password", data, "")
+            .then(response => {
+                //console.log("update response: " + response);
+                //const cloneItem = clonedeep(data);
+                //store.commit(itemStore + '/' + setModel, cloneItem);
+                return response;
+            })
+            .catch((error) => {
+                console.log("error in " + apiName + ": " + error);
+                return error;
+            });
+    },
     delete(store, itemId){
         return CommonAPI.deleteItem(store.getters.getAuthToken, path, itemId)
             .then(response => {
