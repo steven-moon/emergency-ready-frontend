@@ -89,6 +89,8 @@ export default {
   },
   data() {
     return {
+      title: 'Login - Emergency Ready App',
+      description: "Login to access the admin panel",
       form: {
         email: "",
         password: "",
@@ -101,6 +103,19 @@ export default {
       alertType: "info",
       isLoading: false
     };
+  },
+  head () {
+    return {
+      title: this.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'og:title', name: 'og:title', content: this.title },
+        { hid: 'description', name: 'description', content: this.description },
+        { hid: 'og:description', name: 'og:description', content: this.description },
+        { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
+      ]
+    }
   },
   methods: {
     verifyInputs() {
