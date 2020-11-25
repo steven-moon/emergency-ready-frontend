@@ -60,6 +60,7 @@
     "rellax": "^1.12.1",
     "sweetalert2": "^10.3.5",
     "tween.js": "^16.6.0",
+    "v-calendar": "^2.1.1",
     "v-tooltip": "^2.0.3",
     "vee-validate": "^3.4.0",
     "vue": "^2.6.12",

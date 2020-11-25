@@ -46,23 +46,56 @@
           <base-alert :type="alertType">{{message}}</base-alert>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6 cell datepicker-container">
-          <!--          <fg-input>-->
-          <!--          <el-date-picker-->
-          <!--            type="datetime"-->
-          <!--            popper-class="date-picker date-picker-primary"-->
-          <!--            placeholder="Schedule Notification"-->
-          <!--            v-model="pickers.dateTimePicker"-->
-          <!--          >-->
-          <!--          </el-date-picker>-->
-          <!--        </fg-input>-->
+      <div class="row pt-1 pb-3">
+        Set the available from date and available to date.  By default the notification will be available starting now.
+        If you set a date for 'Available To' the notification with no longer display after that date. Leave the available
+        to date blank if you do not wish for the notification to have an end date.
+      </div>
+      <div class="row pb-4">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-3">
+                 Available From
+            </div>
+            <div class="col-9">
+              <v-date-picker v-model="availableFrom">
+                <template v-slot="{ inputValue, inputEvents }">
+                  <input
+                      id="availableFrom"
+                      class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"
+                      :value="inputValue"
+                      v-on="inputEvents"
+                  />
+                </template>
+              </v-date-picker>
+            </div>
+          </div>
         </div>
-        <div class="col-6 cell submit-button">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-3">
+              Available To
+            </div>
+            <div class="col-9">
+                <v-date-picker v-model="availableTo">
+                  <template v-slot="{ inputValue, inputEvents }">
+                    <input
+                        id="availableTo"
+                        class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"
+                        :value="inputValue"
+                        v-on="inputEvents"
+                    />
+                  </template>
+                </v-date-picker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 cell return-button">
           <span @click="saveNotification">
-            <n-button type="success">
-              <i class="now-ui-icons files_single-copy-04"></i> Submit
-              Notification
+            <n-button type="success" :wide="true">
+              <i class="now-ui-icons files_single-copy-04"></i> Submit Notification
             </n-button>
           </span>
         </div>
@@ -87,11 +120,12 @@
 import moment from "moment";
 import {mapGetters} from "vuex";
 
+
 /**
 * @ The internal dependecies.
 */
 import { Button, Modal, FormGroupInput,DropDown } from "@/components/UIKit";
-import { Popover, Tooltip, DatePicker, TimeSelect } from "element-ui";
+import { Popover, Tooltip, TimeSelect } from "element-ui";
 
 import NotificationsAPI from "@/api/NotificationsAPI";
 
@@ -103,7 +137,6 @@ export default {
   components: {
     Modal,
     [Button.name]: Button,
-    [DatePicker.name]: DatePicker,
     [FormGroupInput.name]: FormGroupInput,
     [TimeSelect.name]: TimeSelect,
     [DropDown.name]: DropDown,
@@ -117,6 +150,8 @@ export default {
       notificationTitle: null,
       notificationBody: null,
       notificationType: null,
+      availableFrom: new Date(),
+      availableTo: null,
       uuid: null,
       add: true,
       message: "",
@@ -173,9 +208,9 @@ export default {
 
     formatDate(value) {
       if(value) {
-        return moment(value).format('MM/DD/YYYY hh:mm:ss');
+        return moment(value).format('MM/DD/YYYY');
       }else{
-        return moment().format('MM/DD/YYYY hh:mm:ss');
+        return moment().format('MM/DD/YYYY');
       }
     },
     setType(type){
@@ -190,6 +225,14 @@ export default {
       notification.title = this.notificationTitle;
       notification.body = this.notificationBody;
       notification.isHTML = 1;
+      if(this.availableFrom) {
+        notification.available_from = this.formatDate(this.availableFrom);
+      }
+      if(this.availableTo) {
+        notification.available_to = this.formatDate(this.availableTo);
+      }
+
+
       let passed = true;
       this.message = "";
       if (this.notificationType) {
@@ -284,6 +327,8 @@ export default {
             this.notificationBody = notification.body;
             this.isLoading = false;
             this.notificationTitle = notification.title;
+            this.availableTo = notification.available_to;
+            this.availableFrom = notification.available_from;
             if(notification.type){
               this.notificationType = notification.type;
             }
@@ -336,6 +381,11 @@ export default {
     line-height: 1.38;
     margin-bottom: 13px;
   }
+}
+
+.date-container {
+  display: flex;
+  justify-content: left;
 }
 
 .footer-container{
