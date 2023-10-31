@@ -7,7 +7,6 @@
         </div>
     </div>
 </template>
-Emergency Ready
 <script>
 
     import ContactUs from '@/components/Sections/ContactUs'
@@ -16,7 +15,6 @@ Emergency Ready
     export default {
         name: 'AboutUs',
         components: {
-            EmergencyReadyAppPrivacyPolicy,
             ContactUs,
             Subscribe,
         },
