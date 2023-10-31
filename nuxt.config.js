@@ -117,7 +117,7 @@ export default {
         '@nuxtjs/sitemap',
         ['@nuxtjs/google-analytics', {id: 'G-HWPLF2DR7W'}],
         'cookie-universal-nuxt',
-        'nuxt-i18n',
+        // 'nuxt-i18n',
         ['@nuxtjs/google-gtag', {id: 'G-HWPLF2DR7W'}]
     ],
     i18n: {
