@@ -58,16 +58,16 @@
                  Available From
             </div>
             <div class="col-9">
-              <v-date-picker v-model="availableFrom">
-                <template v-slot="{ inputValue, inputEvents }">
-                  <input
-                      id="availableFrom"
-                      class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"
-                      :value="inputValue"
-                      v-on="inputEvents"
-                  />
-                </template>
-              </v-date-picker>
+<!--              <v-date-picker v-model="availableFrom">-->
+<!--                <template v-slot="{ inputValue, inputEvents }">-->
+<!--                  <input-->
+<!--                      id="availableFrom"-->
+<!--                      class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"-->
+<!--                      :value="inputValue"-->
+<!--                      v-on="inputEvents"-->
+<!--                  />-->
+<!--                </template>-->
+<!--              </v-date-picker>-->
             </div>
           </div>
         </div>
@@ -77,16 +77,16 @@
               Available To
             </div>
             <div class="col-9">
-                <v-date-picker v-model="availableTo">
-                  <template v-slot="{ inputValue, inputEvents }">
-                    <input
-                        id="availableTo"
-                        class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"
-                        :value="inputValue"
-                        v-on="inputEvents"
-                    />
-                  </template>
-                </v-date-picker>
+<!--                <v-date-picker v-model="availableTo">-->
+<!--                  <template v-slot="{ inputValue, inputEvents }">-->
+<!--                    <input-->
+<!--                        id="availableTo"-->
+<!--                        class="bg-white text-gray-700 w-full py-2 px-3 appearance-none border rounded-l focus:outline-none"-->
+<!--                        :value="inputValue"-->
+<!--                        v-on="inputEvents"-->
+<!--                    />-->
+<!--                  </template>-->
+<!--                </v-date-picker>-->
             </div>
           </div>
         </div>
