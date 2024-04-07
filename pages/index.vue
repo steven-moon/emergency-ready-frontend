@@ -124,7 +124,7 @@
                                 <h4 class="card-title">Pricing</h4>
                             </a>
                             <p class="card-description">
-                                We can have your Custom Emergency Preparedness Mobile App on the Apple and Android App Stores and available for free download for as low as $5,000. The only additional cost is a yearly $1,000 renewal fee.
+                                We can have your Custom Emergency Preparedness Mobile App on the Apple and Android App Stores and available for free download. Contact Us today for full pricing.
                             </p>
 
                         </card>
