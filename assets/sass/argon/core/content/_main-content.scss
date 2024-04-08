@@ -11,8 +11,8 @@
         // Container
         .container-fluid {
             @include argon-media-breakpoint-up(md) {
-                padding-left: ($argon-main-content-padding-x + $argon-grid-gutter-width / 2) !important;
-                padding-right: ($argon-main-content-padding-x + $argon-grid-gutter-width / 2) !important;
+                padding-left: calc($argon-main-content-padding-x + $argon-grid-gutter-width / 2) !important;
+                padding-right: calc($argon-main-content-padding-x + $argon-grid-gutter-width / 2) !important;
             }
         }
     }

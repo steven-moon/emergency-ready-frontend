@@ -2,7 +2,7 @@
 
 .black-container {
   .jumbotron {
-    padding: $black-jumbotron-padding ($black-jumbotron-padding / 2);
+    padding: $black-jumbotron-padding calc($black-jumbotron-padding / 2);
     margin-bottom: $black-jumbotron-padding;
     color: $black-jumbotron-color;
     background-color: $black-jumbotron-bg;

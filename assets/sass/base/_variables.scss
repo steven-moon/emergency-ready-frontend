@@ -238,8 +238,8 @@ $base-nc-font-path:        '../fonts' !default;
 $base-nc-font-size-base:   14px !default;
 $base-nc-css-prefix:       now-ui !default;
 $base-nc-background-color:     #eee !default;
-$base-nc-li-width:         (30em / 14) !default;
-$base-nc-padding-width:    (1em/3) !default;
+$base-nc-li-width:         calc(30em / 14) !default;
+$base-nc-padding-width:    calc(1em/3) !default;
 
 // Social icons color
 $base-social-twitter:                   #55acee !default;

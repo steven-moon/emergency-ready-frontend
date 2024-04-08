@@ -79,7 +79,7 @@ export default {
         'quill/dist/quill.bubble.css',
         'quill/dist/quill.core.css',
         '~/assets/sass/style.scss',
-        '~/assets/sass/demo.scss',
+        '~/assets/sass/demo.scss'
     ],
     /*
      ** Plugins to load before mounting the App
@@ -89,6 +89,7 @@ export default {
         '~/plugins/global.js',
         {src: '~/plugins/now-ui-kit' },
         {src: '~/plugins/element-ui.js'},
+        {src: '~/plugins/ethers.js', ssr: false, mode: 'client' },
         {src: '~/plugins/globalDirectives.js', ssr: false, mode: 'client' },
         {src: '~/plugins/persist.js', ssr: false, mode: 'client'},
         {src: '~/plugins/vuejs-datepicker.js', mode: 'client'},
@@ -178,6 +179,8 @@ export default {
     env: {
         WORDPRESS: process.env.WORDPRESS || 'https://wordpress.emergencyreadyapp.com/',
         HOST: process.env.HOST || '0.0.0.0',
+        INFURA_API_KEY: process.env.INFURA_API_KEY || '',
+        USE_CHAIN: process.env.USE_CHAIN || false,
         baseUrl: process.env.baseUrl || 'https://api.emergencyreadyapp.com/',
         WP_API_GET_POST_ENDPOINT: process.env.WP_API_GET_POST_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-coding/v1/get-post',
         WP_API_GET_POSTS_ENDPOINT: process.env.WP_API_GET_POSTS_ENDPOINT || 'https://wordpress.emergencyreadyapp.com/wp-json/clever-codingy/v1/get-posts',

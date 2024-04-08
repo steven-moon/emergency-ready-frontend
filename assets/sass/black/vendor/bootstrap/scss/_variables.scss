@@ -303,7 +303,7 @@ $black-h4-font-size:                $black-font-size-base * 1.5 !default;
 $black-h5-font-size:                $black-font-size-base * 1.25 !default;
 $black-h6-font-size:                $black-font-size-base !default;
 
-$black-headings-margin-bottom:      $black-spacer / 2 !default;
+$black-headings-margin-bottom:      calc($black-spacer / 2) !default;
 $black-headings-font-family:        null !default;
 $black-headings-font-weight:        500 !default;
 $black-headings-line-height:        1.2 !default;
@@ -568,7 +568,7 @@ $black-custom-radio-indicator-border-radius:          50% !default;
 $black-custom-radio-indicator-icon-checked:           url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='-4 -4 8 8'><circle r='3' fill='#{$black-custom-control-indicator-checked-color}'/></svg>") !default;
 
 $black-custom-switch-width:                           $black-custom-control-indicator-size * 1.75 !default;
-$black-custom-switch-indicator-border-radius:         $black-custom-control-indicator-size / 2 !default;
+$black-custom-switch-indicator-border-radius:         calc($black-custom-control-indicator-size / 2) !default;
 $black-custom-switch-indicator-size:                  subtract($black-custom-control-indicator-size, $black-custom-control-indicator-border-width * 4) !default;
 
 $black-custom-select-padding-y:           $black-input-padding-y !default;
@@ -714,12 +714,12 @@ $black-nav-pills-link-active-color:       $black-component-active-color !default
 $black-nav-pills-link-active-bg:          $black-component-active-bg !default;
 
 $black-nav-divider-color:                 $black-gray-200 !default;
-$black-nav-divider-margin-y:              $black-spacer / 2 !default;
+$black-nav-divider-margin-y:              calc($black-spacer / 2) !default;
 
 
 // Navbar
 
-$black-navbar-padding-y:                  $black-spacer / 2 !default;
+$black-navbar-padding-y:                  calc($black-spacer / 2) !default;
 $black-navbar-padding-x:                  $black-spacer !default;
 
 $black-navbar-nav-link-padding-x:         .5rem !default;
@@ -728,7 +728,7 @@ $black-navbar-brand-font-size:            $black-font-size-lg !default;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $black-nav-link-height:                   $black-font-size-base * $black-line-height-base + $black-nav-link-padding-y * 2 !default;
 $black-navbar-brand-height:               $black-navbar-brand-font-size * $black-line-height-base !default;
-$black-navbar-brand-padding-y:            ($black-nav-link-height - $black-navbar-brand-height) / 2 !default;
+$black-navbar-brand-padding-y:            calc(($black-nav-link-height - $black-navbar-brand-height) / 2) !default;
 
 $black-navbar-toggler-padding-y:          .25rem !default;
 $black-navbar-toggler-padding-x:          .75rem !default;
@@ -842,7 +842,7 @@ $black-card-bg:                           $black-white !default;
 
 $black-card-img-overlay-padding:          1.25rem !default;
 
-$black-card-group-margin:                 $black-grid-gutter-width / 2 !default;
+$black-card-group-margin:                 calc($black-grid-gutter-width / 2) !default;
 $black-card-deck-margin:                  $black-card-group-margin !default;
 
 $black-card-columns-count:                3 !default;

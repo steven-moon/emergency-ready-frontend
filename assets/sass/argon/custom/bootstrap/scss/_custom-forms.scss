@@ -75,8 +75,8 @@
     // Background-color and (when enabled) gradient
     &::before {
       position: absolute;
-      top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
-      left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size);
+      top: calc(($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2);
+      left: calc(-1* ($argon-custom-control-gutter + $argon-custom-control-indicator-size));
       display: block;
       width: $argon-custom-control-indicator-size;
       height: $argon-custom-control-indicator-size;
@@ -90,8 +90,8 @@
     // Foreground (icon)
     &::after {
       position: absolute;
-      top: ($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2;
-      left: -($argon-custom-control-gutter + $argon-custom-control-indicator-size);
+      top: calc(($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2);
+      left: calc(-1 * ($argon-custom-control-gutter + $argon-custom-control-indicator-size));
       display: block;
       width: $argon-custom-control-indicator-size;
       height: $argon-custom-control-indicator-size;
@@ -172,7 +172,7 @@
 
     .custom-control-label {
       &::before {
-        left: -($argon-custom-switch-width + $argon-custom-control-gutter);
+        left: calc(-1 * ($argon-custom-switch-width + $argon-custom-control-gutter));
         width: $argon-custom-switch-width;
         pointer-events: all;
         // stylelint-disable-next-line property-blacklist
@@ -180,8 +180,8 @@
       }
 
       &::after {
-        top: calc(#{(($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2)} + #{$argon-custom-control-indicator-border-width * 2});
-        left: calc(#{-($argon-custom-switch-width + $argon-custom-control-gutter)} + #{$argon-custom-control-indicator-border-width * 2});
+        top: calc(#{calc(($argon-font-size-base * $argon-line-height-base - $argon-custom-control-indicator-size) / 2)} + #{$argon-custom-control-indicator-border-width * 2});
+        left: calc(#{calc(-1 * ($argon-custom-switch-width + $argon-custom-control-gutter))} + #{$argon-custom-control-indicator-border-width * 2});
         width: $argon-custom-switch-indicator-size;
         height: $argon-custom-switch-indicator-size;
         background-color: $argon-custom-control-indicator-border-color;

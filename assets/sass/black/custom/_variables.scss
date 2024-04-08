@@ -406,7 +406,7 @@ $black-font-paragraph:               1rem          !default;
 $black-font-weight-base:            $black-font-weight-normal !default;
 $black-shape-height-base:            1.428571 !default;
 
-$black-headings-margin-bottom:      ($black-spacer / 2);
+$black-headings-margin-bottom:      calc($black-spacer / 2);
 $black-headings-font-family:        inherit !default;
 $black-headings-font-weight:        $black-font-weight-normal !default;
 $black-headings-line-height:        1.2 !default;

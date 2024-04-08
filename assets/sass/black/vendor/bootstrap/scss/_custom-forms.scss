@@ -27,7 +27,7 @@
     left: 0;
     z-index: -1; // Put the input behind the label so it doesn't overlay text
     width: $black-custom-control-indicator-size;
-    height: ($black-font-size-base * $black-line-height-base + $black-custom-control-indicator-size) / 2;
+    height: calc(($black-font-size-base * $black-line-height-base + $black-custom-control-indicator-size) / 2);
     opacity: 0;
 
     &:checked ~ .custom-control-label::before {
@@ -84,8 +84,8 @@
     // Background-color and (when enabled) gradient
     &::before {
       position: absolute;
-      top: ($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2;
-      left: -($black-custom-control-gutter + $black-custom-control-indicator-size);
+      top: calc(($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2);
+      left: calc(-1 * ($black-custom-control-gutter + $black-custom-control-indicator-size));
       display: block;
       width: $black-custom-control-indicator-size;
       height: $black-custom-control-indicator-size;
@@ -99,8 +99,8 @@
     // Foreground (icon)
     &::after {
       position: absolute;
-      top: ($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2;
-      left: -($black-custom-control-gutter + $black-custom-control-indicator-size);
+      top: calc(($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2);
+      left: calc(-1 * ($black-custom-control-gutter + $black-custom-control-indicator-size));
       display: block;
       width: $black-custom-control-indicator-size;
       height: $black-custom-control-indicator-size;
@@ -181,7 +181,7 @@
 
     .custom-control-label {
       &::before {
-        left: -($black-custom-switch-width + $black-custom-control-gutter);
+        left: calc(-1 * ($black-custom-switch-width + $black-custom-control-gutter));
         width: $black-custom-switch-width;
         pointer-events: all;
         // stylelint-disable-next-line property-blacklist
@@ -189,8 +189,8 @@
       }
 
       &::after {
-        top: add(($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2, $black-custom-control-indicator-border-width * 2);
-        left: add(-($black-custom-switch-width + $black-custom-control-gutter), $black-custom-control-indicator-border-width * 2);
+        top: add(calc(($black-font-size-base * $black-line-height-base - $black-custom-control-indicator-size) / 2), $black-custom-control-indicator-border-width * 2);
+        left: add(calc(-1 * ($black-custom-switch-width + $black-custom-control-gutter)), $black-custom-control-indicator-border-width * 2);
         width: $black-custom-switch-indicator-size;
         height: $black-custom-switch-indicator-size;
         background-color: $black-custom-control-indicator-border-color;

@@ -122,7 +122,7 @@
                 </div>
               </div>
               <div class="navigate-auth mt-1">
-                <nuxt-link style="border: none;" id="nav-link" to="/auth/login"
+                <nuxt-link style="border: none;" id="nav-link" to="/auth/connect-wallet"
                   >I already have an account</nuxt-link
                 >
               </div>

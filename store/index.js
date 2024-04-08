@@ -21,6 +21,7 @@ const createStore = () => {
           images: [],
          userId: null,
          authToken: null,
+          isWalletConnected: false,
          user: null,
          modal: {
             visible: false,
@@ -157,6 +158,9 @@ const createStore = () => {
             }
 
          },
+          isWalletConnected(state){
+              return state.isWalletConnected;
+          },
           emergencyReadyApp(state){
               return state.emergencyReadyApp;
           },
@@ -190,6 +194,10 @@ const createStore = () => {
             console.log(userId);
             state.userId = userId;
          },
+          setIsWalletConnected(state, isWalletConnected) {
+              console.log("isWalletConnected: " + isWalletConnected);
+              state.isWalletConnected = isWalletConnected;
+          },
          setBasePage(state, basePage){
             state.basePage = basePage;
          },
@@ -365,6 +373,9 @@ const createStore = () => {
             commit('openModal', payload);
          },
 
+          setIsWalletConnected({commit}){
+              commit('setIsWalletConnected');
+          },
          closeModal({commit}) {
             commit('closeModal');
          },

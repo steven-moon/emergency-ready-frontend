@@ -236,8 +236,8 @@ $kit-nc-font-path:        '../fonts' !default;
 $kit-nc-font-size-base:   14px !default;
 $kit-nc-css-prefix:       now-ui !default;
 $kit-nc-background-color:     #eee !default;
-$kit-nc-li-width:         (30em / 14) !default;
-$kit-nc-padding-width:    (1em/3) !default;
+$kit-nc-li-width:         calc(30em / 14) !default;
+$kit-nc-padding-width:    calc(1em/3) !default;
 
 // Social icons color
 $kit-social-twitter:                   #55acee !default;

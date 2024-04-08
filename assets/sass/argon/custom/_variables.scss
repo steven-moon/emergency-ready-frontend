@@ -258,15 +258,15 @@ $argon-grid-breakpoints: (
 $argon-spacer: 1rem !default;
 $argon-spacers: () !default;
 $argon-spacers: map-merge((
-  -9: -($argon-spacer * 10),
-  -8: -($argon-spacer * 8),
-  -7: -($argon-spacer * 6),
-  -6: -($argon-spacer * 4.5),
-  -5: -($argon-spacer * 3),
-  -4: -($argon-spacer * 1.5),
+  -9: ($argon-spacer * -10),
+  -8: ($argon-spacer * -8),
+  -7: ($argon-spacer * -6),
+  -6: ($argon-spacer * -4.5),
+  -5: ($argon-spacer * -3),
+  -4: ($argon-spacer * -1.5),
   -3: -$argon-spacer,
-  -2: -($argon-spacer * .5),
-  -1: -($argon-spacer * .25),
+  -2: ($argon-spacer * -.5),
+  -1: ($argon-spacer * -.25),
   0: 0,
   1: ($argon-spacer * .25),
   2: ($argon-spacer * .5),
@@ -380,7 +380,7 @@ $argon-h4-font-size:                $argon-font-size-base * .9375 !default;
 $argon-h5-font-size:                $argon-font-size-base * .8125 !default;
 $argon-h6-font-size:                $argon-font-size-base * .625 !default;
 
-$argon-headings-margin-bottom:      ($argon-spacer / 2);
+$argon-headings-margin-bottom:      calc($argon-spacer / 2);
 $argon-headings-font-family:        inherit !default;
 $argon-headings-font-weight:        $argon-font-weight-bold !default;
 $argon-headings-line-height:        1.5 !default;

@@ -67,7 +67,7 @@
   $g: green($color);
   $b: blue($color);
 
-  $black-yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  $black-yiq: calc(calc(calc($r * 299) + calc($g * 587) + calc($b * 114)) / 1000);
 
   @if ($black-yiq >= $black-yiq-contrasted-threshold) {
     @return $black-dark;

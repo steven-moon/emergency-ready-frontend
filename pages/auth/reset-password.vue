@@ -2,7 +2,7 @@
   <div class="section section-basic mt-5" id="basic-elements">
     <div class="col-md-6 ml-auto mr-auto">
       <card type="blog" card-body-classes="text-center">
-        <nuxt-link style="border: none;" class="back-btn" to="/auth/login"
+        <nuxt-link style="border: none;" class="back-btn" to="/auth/connect-wallet"
           >Back to login</nuxt-link
         >
         <img slot="image" class="img rounded" :src="image" />

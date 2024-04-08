@@ -40,7 +40,7 @@
 
       &::before {
         top: 0;
-        border-width: $black-tooltip-arrow-height ($black-tooltip-arrow-width / 2) 0;
+        border-width: $black-tooltip-arrow-height calc($black-tooltip-arrow-width / 2) 0;
         border-top-color: $black-tooltip-arrow-color;
       }
     }
@@ -56,7 +56,7 @@
 
       &::before {
         right: 0;
-        border-width: ($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height ($black-tooltip-arrow-width / 2) 0;
+        border-width: calc($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height calc($black-tooltip-arrow-width / 2) 0;
         border-right-color: $black-tooltip-arrow-color;
       }
     }
@@ -70,7 +70,7 @@
 
       &::before {
         bottom: 0;
-        border-width: 0 ($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height;
+        border-width: 0 calc($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height;
         border-bottom-color: $black-tooltip-arrow-color;
       }
     }
@@ -86,7 +86,7 @@
 
       &::before {
         left: 0;
-        border-width: ($black-tooltip-arrow-width / 2) 0 ($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height;
+        border-width: calc($black-tooltip-arrow-width / 2) 0 calc($black-tooltip-arrow-width / 2) $black-tooltip-arrow-height;
         border-left-color: $black-tooltip-arrow-color;
       }
     }

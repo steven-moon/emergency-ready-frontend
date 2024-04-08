@@ -120,11 +120,11 @@ $spacer: 1rem !default;
 $spacers: () !default;
 $spacers: map-merge((
   0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
+  1: calc($spacer * .25),
+  2: calc($spacer * .5),
   3: $spacer,
-  4: ($spacer * 1.5),
-  5: ($spacer * 3)
+  4: calc($spacer * 1.5),
+  5: calc($spacer * 3)
 ), $spacers);
 
 // This variable affects the `.h-*` and `.w-*` classes.
@@ -255,7 +255,7 @@ $h4-font-size:                $base-font-size-base * 1.5 !default;
 $h5-font-size:                $base-font-size-base * 1.25 !default;
 $h6-font-size:                $base-font-size-base !default;
 
-$headings-margin-bottom:      ($spacer / 2) !default;
+$headings-margin-bottom:      calc($spacer / 2) !default;
 $headings-font-family:        inherit !default;
 $headings-font-weight:        500 !default;
 $headings-line-height:        1.2 !default;
@@ -615,20 +615,20 @@ $nav-pills-link-active-color:       $component-active-color !default;
 $nav-pills-link-active-bg:          $component-active-bg !default;
 
 $nav-divider-color:                 $base-gray-200 !default;
-$nav-divider-margin-y:              ($spacer / 2) !default;
+$nav-divider-margin-y:              calc($spacer / 2) !default;
 
 // Navbar
 
-$base-navbar-padding-y:                  ($spacer / 2) !default;
+$base-navbar-padding-y:                  calc($spacer / 2) !default;
 $base-navbar-padding-x:                  $spacer !default;
 
 $base-navbar-nav-link-padding-x:         .5rem !default;
 
 $base-navbar-brand-font-size:            $base-font-size-lg !default;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
-$nav-link-height:                   ($base-font-size-base * $base-line-height-base + $nav-link-padding-y * 2) !default;
+$nav-link-height:                   calc($base-font-size-base * $base-line-height-base + $nav-link-padding-y * 2) !default;
 $base-navbar-brand-height:               $base-navbar-brand-font-size * $base-line-height-base !default;
-$base-navbar-brand-padding-y:            ($nav-link-height - $base-navbar-brand-height) / 2 !default;
+$base-navbar-brand-padding-y:            calc(calc($nav-link-height - $base-navbar-brand-height) / 2) !default;
 
 $base-navbar-toggler-padding-y:          .25rem !default;
 $base-navbar-toggler-padding-x:          .75rem !default;
@@ -699,7 +699,7 @@ $card-bg:                           $white !default;
 
 $card-img-overlay-padding:          1.25rem !default;
 
-$card-group-margin:                 ($grid-gutter-width / 2) !default;
+$card-group-margin:                 calc($grid-gutter-width / 2) !default;
 $card-deck-margin:                  $card-group-margin !default;
 
 $card-columns-count:                3 !default;

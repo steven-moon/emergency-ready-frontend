@@ -1,13 +1,13 @@
 .argon-container {
   .jumbotron {
-    padding: $jumbotron-padding ($jumbotron-padding / 2);
+    padding: $jumbotron-padding calc($jumbotron-padding / 2);
     margin-bottom: $jumbotron-padding;
     color: $jumbotron-color;
     background-color: $jumbotron-bg;
     @include argon-border-radius($argon-border-radius-lg);
 
     @include argon-media-breakpoint-up(sm) {
-      padding: ($jumbotron-padding * 2) $jumbotron-padding;
+      padding: calc($jumbotron-padding * 2) $jumbotron-padding;
     }
   }
 

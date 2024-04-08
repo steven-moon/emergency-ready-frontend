@@ -37,7 +37,7 @@
         </a>
       </li>
       <li class="nav-item">
-      <a class="nav-link" href="/auth/login?action=logout">
+      <a class="nav-link" href="/auth/connect-wallet">
         <p>Logout</p>
       </a>
     </li>
