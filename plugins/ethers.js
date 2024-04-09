@@ -11,6 +11,7 @@ EthersPlugin.install = function (Vue, options) {
     var currentChainId = null;
     var defaultChain = 'sepolia';
     var blockchain = {};
+    var localVueInstance = null;
 
     blockchain.ethers = ethers;
 
@@ -81,8 +82,14 @@ EthersPlugin.install = function (Vue, options) {
         }
     }
 
-    async function initialize() {
+
+    async function initialize(vueInstance) {
+        localVueInstance = vueInstance;
         if (window.ethereum) {
+            isWalletConnected = true;
+            isConnectedToTargetChain = false;
+            currentChainId = null;
+
             provider = new ethers.providers.Web3Provider(window.ethereum, "any");
             provider.on("network", (newNetwork, oldNetwork) => {
                 // When a Provider makes its initial connection, it emits a "network"
@@ -92,24 +99,30 @@ EthersPlugin.install = function (Vue, options) {
                     //window.location.reload();
                 }
             });
-            try {
-                await provider.send("eth_requestAccounts", []);
-                isWalletConnected = true;
 
-                const network = await provider.getNetwork();
-                currentChainId = network.chainId;
-                isConnectedToTargetChain = (currentChainId === parseInt(targetChain.chainId, 16));
-                if (!isConnectedToTargetChain) {
-                    await switchToTargetChain();
-                }
-            } catch (error) {
-                console.error("Initialization error:", error);
-                isWalletConnected = false;
-                isConnectedToTargetChain = false;
-                currentChainId = null;
+            if(localVueInstance)
+                localVueInstance.$store.commit('setIsWalletConnected', isWalletConnected);
+            else
+                console.log("localVueInstance is Null")
+        }
+    }
+
+    blockchain.connectWallet = async function() {
+        try {
+            await provider.send("eth_requestAccounts", []);
+            isWalletConnected = true;
+
+            const network = await provider.getNetwork();
+            currentChainId = network.chainId;
+            isConnectedToTargetChain = (currentChainId === parseInt(targetChain.chainId, 16));
+            if (!isConnectedToTargetChain) {
+                await switchToTargetChain();
             }
-
-            this.$store.commit('setIsWalletConnected', isWalletConnected);
+        } catch (error) {
+            console.error("Initialization error:", error);
+            isWalletConnected = false;
+            isConnectedToTargetChain = false;
+            currentChainId = null;
         }
     }
 
@@ -134,6 +147,11 @@ EthersPlugin.install = function (Vue, options) {
         return provider;
     };
 
+    // Make isMetaMaskInstalled publicly accessible
+    blockchain.isMetaMaskInstalled = function() {
+        return typeof window.ethereum !== 'undefined';
+    };
+
     blockchain.setProvider = async function(provi) {
         provider = new ethers.providers.Web3Provider(provi);
         try {
@@ -150,7 +168,10 @@ EthersPlugin.install = function (Vue, options) {
             currentChainId = null;
         }
 
-        this.$store.commit('setIsWalletConnected', isWalletConnected);
+        if(localVueInstance)
+            localVueInstance.$store.commit('setIsWalletConnected', isWalletConnected);
+        else
+            console.log("localVueInstance is Null")
         return ethers;
     };
 
@@ -166,7 +187,7 @@ EthersPlugin.install = function (Vue, options) {
     };
 
     blockchain.isConnected = function() {
-        return isWalletConnected;
+        return typeof window.ethereum !== 'undefined';
     };
 
     blockchain.getCurrentChainId = function() {

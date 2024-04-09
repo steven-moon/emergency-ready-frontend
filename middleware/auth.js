@@ -1,10 +1,15 @@
+import Vue from 'vue'
+
 export default function(context) {
    // console.log("[Middleware]  Auth");
     if(process.env.USE_CHAIN){
-        if (!context.store.getters.isWalletConnected) {
-            console.log("wallet is not connected");
-        }else{
-            console.log("Wallet is connected")
+        if(process.client) {
+            if (!context.app.$Web3.isConnected()) {
+                console.log("wallet is not connected");
+                context.redirect("/auth/connect-wallet");
+            } else {
+                console.log("Wallet is connected")
+            }
         }
     }else {
         if (!context.store.getters.isUserLoggedIn) {

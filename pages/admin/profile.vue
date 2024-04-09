@@ -6,44 +6,73 @@
     <div class="col-md-6 ml-auto mr-auto">
       <card type="profile">
         <!-- <img slot="avatar" class="img img-raised" src="img/mike.jpg" /> -->
-        <div class="card-body">
-          <h4 class="card-title">Profile</h4>
+        <div class="card-body" v-if="useChain">
+          <h4 class="card-title">User Wallet:</h4>
 
-<!--          <p class="card-description">-->
-<!--            Welcome to your profile-->
-<!--          </p>-->
+
+          <p class="card-description wallet-address" v-if="userAddress">
+             {{userAddress}}
+          </p>
 
           <div class="col pt-4">
-            <h6>Current Password</h6>
+            <h6>Notifications S.C. Address:</h6>
             <fg-input
-                v-model="currentPassword"
-                placeholder="Current Password"
-                type="password"
+                v-model="notificationsContractAddress"
+                placeholder="Notification Contract Addressd"
             ></fg-input>
           </div>
           <div class="col">
-            <h6>New Password</h6>
+            <h6>Notifications Categories S.C. Address:</h6>
             <fg-input
-                v-model="newPassword"
-                placeholder="New Password"
-                type="password"
-            ></fg-input>
-          </div>
-          <div class="col">
-            <h6>Confirm New Password</h6>
-            <fg-input
-                v-model="confirmPassword"
-                placeholder="Confirm New Password"
-                type="password"
+                v-model="notificationCategoryContractAddress"
+                placeholder="Notification Category Contract Address"
             ></fg-input>
           </div>
           <div class="col" v-if="message">
               <base-alert :type="alertType">{{message}}</base-alert>
           </div>
-          <div class="col pt-4 ml-auto mr-auto" @click="save">
+          <div class="col pt-4 ml-auto mr-auto" @click="saveBlockchain">
             <n-button size="lg" :block="true" :round="true" type="success">Save</n-button>
           </div>
         </div>
+       <div class="card-body" v-else>
+        <h4 class="card-title">Profile</h4>
+
+        <!--          <p class="card-description">-->
+        <!--            Welcome to your profile-->
+        <!--          </p>-->
+
+        <div class="col pt-4">
+         <h6>Current Password</h6>
+         <fg-input
+          v-model="currentPassword"
+          placeholder="Current Password"
+          type="password"
+         ></fg-input>
+        </div>
+        <div class="col">
+         <h6>New Password</h6>
+         <fg-input
+          v-model="newPassword"
+          placeholder="New Password"
+          type="password"
+         ></fg-input>
+        </div>
+        <div class="col">
+         <h6>Confirm New Password</h6>
+         <fg-input
+          v-model="confirmPassword"
+          placeholder="Confirm New Password"
+          type="password"
+         ></fg-input>
+        </div>
+        <div class="col" v-if="message">
+         <base-alert :type="alertType">{{message}}</base-alert>
+        </div>
+        <div class="col pt-4 ml-auto mr-auto" @click="save">
+         <n-button size="lg" :block="true" :round="true" type="success">Save</n-button>
+        </div>
+       </div>
       </card>
     </div>
   </div>
@@ -52,10 +81,12 @@
 
 import UserAPI from "~/api/UserAPI";
 import NotificationsAPI from "@/api/NotificationsAPI";
+import BlockChainMixin from "~/mixins/blockchain";
 
 export default {
   layout: "admin",
   middleware: ["check-auth", "auth"],
+ mixins: [BlockChainMixin],
   components: {
   },
   data() {
@@ -67,7 +98,7 @@ export default {
       confirmPassword: '',
       message: "",
       alertType: "info",
-      isLoading: false
+     isLoading: false
     };
   },
   head () {
@@ -122,9 +153,26 @@ export default {
           }
         }
       }
+    },
+   async saveBlockchain(){
+
+     if(this.notificationCategoryContractAddress.length === 0 || this.notificationsContractAddress.length === 0){
+      this.message = "Please fill out contract addresses"
+      return;
+     }
+
+    try {
+     await this.userTrackerContract.addUser(this.userAddress, this.notificationCategoryContractAddress, this.notificationsContractAddress);
+     console.log("User added successfully");
+    } catch (error) {
+     console.error("Error adding user:", error);
     }
+   },
   },
 };
 </script>
 <style scoped lang="scss">
+ .wallet-address{
+  color: #0b0b0b;
+ }
 </style>

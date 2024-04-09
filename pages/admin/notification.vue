@@ -129,11 +129,14 @@ import { Popover, Tooltip, TimeSelect } from "element-ui";
 
 import NotificationsAPI from "@/api/NotificationsAPI";
 
+import BlockChainMixin from "~/mixins/blockchain";
+import {ethers} from "ethers";
 
 
 export default {
   layout: "admin",
   middleware: ["check-auth", "auth"],
+ mixins: [BlockChainMixin],
   components: {
     Modal,
     [Button.name]: Button,
@@ -150,6 +153,7 @@ export default {
       notificationTitle: null,
       notificationBody: null,
       notificationType: null,
+      notificationTypes: [],
       availableFrom: new Date(),
       availableTo: null,
       uuid: null,
@@ -192,9 +196,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('notifications', {
-      notificationTypes: 'getNotificationTypes',
-    }),
+    // ...mapGetters('notifications', {
+    //   notificationTypes: 'getNotificationTypes',
+    // }),
     ...mapGetters({
       user: 'user',
     }),
@@ -219,8 +223,8 @@ export default {
     returnToNotifications(){
       window.location.href = "/admin/notifications";
     },
-    saveNotification() {
-      console.log("BEGIN: saveNotifications");
+    async saveNotification() {
+      console.log("BEGIN: saveNotification");
       let notification = {};
       notification.title = this.notificationTitle;
       notification.body = this.notificationBody;
@@ -264,15 +268,34 @@ export default {
       }
 
       if (passed) {
-        if (this.add) {
-          if (this.user && this.user.company_app_ids && this.user.company_app_ids.count > 0) {
-            notification.company_app_id = this.user.company_app_ids[0];
+        if(this.useChain){
+          if(this.notificationsContract) {
+            console.log("save notification to chain");
+            console.log(notification);
+            try {
+              this.isLoading = true;
+              if (this.add){
+                await this.notificationsContract.createNotification(notification.title, notification.body, ethers.BigNumber.from(notification.notification_type_id), "")
+              }else {
+                await this.notificationsContract.updateNotification(ethers.BigNumber.from(this.uuid), notification.title, notification.body, ethers.BigNumber.from(notification.notification_type_id), "")
+              }
+              console.log("Notification added successfully");
+              window.location.href = "/admin/notifications";
+            } catch (error) {
+              console.error("Error adding Notification:", error);
+            }
+            this.isLoading = false;
           }
-          console.log("add notification");
-          console.log(notification);
+        }else {
+          if (this.add) {
+            if (this.user && this.user.company_app_ids && this.user.company_app_ids.count > 0) {
+              notification.company_app_id = this.user.company_app_ids[0];
+            }
+            console.log("add notification");
+            console.log(notification);
 
-          this.isLoading = true;
-          NotificationsAPI.addNotification(this.$store, notification)
+            this.isLoading = true;
+            NotificationsAPI.addNotification(this.$store, notification)
               .then(notification => {
                 console.log("add notification successfully")
                 //this.isLoading = false;
@@ -289,13 +312,13 @@ export default {
                 console.log(error);
                 this.isLoading = false;
               });
-        } else {
-          notification.uuid = this.uuid;
-          console.log("update notification");
-          console.log(notification);
+          } else {
+            notification.uuid = this.uuid;
+            console.log("update notification");
+            console.log(notification);
 
-          this.isLoading = true;
-          NotificationsAPI.updateNotification(this.$store, notification, this.uuid)
+            this.isLoading = true;
+            NotificationsAPI.updateNotification(this.$store, notification, this.uuid)
               .then(notification => {
                 console.log("update notification successfully")
                 this.isLoading = false;
@@ -305,6 +328,7 @@ export default {
                 console.log(error);
                 this.isLoading = false;
               });
+          }
         }
       }
     }
@@ -318,10 +342,50 @@ export default {
       this.add = true;
     }
   },
-  mounted() {
-    if(this.uuid) {
+  async mounted() {
+    console.log("*** Notification mounted() ***");
+    if (this.useChain) {
       this.isLoading = true;
-      NotificationsAPI.getNotification(this.$store,this.uuid)
+      this.notificationTypes = await this.loadNotificationCategoriesFromChain();
+      console.log("types: ");
+      console.log(this.notificationTypes)
+      if (this.uuid) {
+        const note = await this.loadNotificationFromChain(this.uuid);
+        this.notificationTypes = await this.loadNotificationCategoriesFromChain();
+        console.log("note: ");
+        console.log(note);
+        if(note){
+          let row = {};
+          row.uuid = note.id;
+          row.title = note.title;
+          row.body = note.body;
+          row.notification_type_id = note.notification_type_id;
+          row.date = this.formatDate(note.created_at);
+          row.created_at = note.created_at;
+
+          this.notification = row;
+          this.isLoading = false;
+          this.notificationTitle = this.notification.title;
+          this.notificationBody = this.notification.body;
+          // this.availableTo = notification.available_to;
+          // this.availableFrom = notification.available_from;
+          // if (notification.type) {
+          //   this.notificationType = notification.type;
+          // }
+          this.notificationTypes.forEach((type) => {
+             if(type.uuid === row.notification_type_id){
+               this.notificationType = type;
+             }
+          });
+        }
+      }
+
+      console.log("Need to load the notification from chain")
+      this.isLoading = false;
+    } else {
+      if (this.uuid) {
+        this.isLoading = true;
+        NotificationsAPI.getNotification(this.$store, this.uuid)
           .then(notification => {
             this.notification = notification;
             this.notificationBody = notification.body;
@@ -329,7 +393,7 @@ export default {
             this.notificationTitle = notification.title;
             this.availableTo = notification.available_to;
             this.availableFrom = notification.available_from;
-            if(notification.type){
+            if (notification.type) {
               this.notificationType = notification.type;
             }
           })
@@ -338,11 +402,12 @@ export default {
             console.log(error);
             this.isLoading = false;
           });
-    }else{
-      this.isLoading = false;
-    }
+      } else {
+        this.isLoading = false;
+      }
 
-    NotificationsAPI.getNotificationTypes(this.$store);
+      NotificationsAPI.getNotificationTypes(this.$store);
+    }
   }
 };
 </script>

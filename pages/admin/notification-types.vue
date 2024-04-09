@@ -19,7 +19,7 @@
             </n-button>
           </div>
           <card class="card-plain">
-            <div class="row" v-for="type in tableData" :key="type.uuid">
+            <div class="row" v-for="(type, index) in tableData" :key="index">
               <div class="col-9">
                 <fg-input
                     v-model="type.name"
@@ -63,11 +63,14 @@ import {
 } from "element-ui";
 
 import NotificationsAPI from "~/api/NotificationsAPI";
+import BlockChainMixin from "~/mixins/blockchain";
+import { ethers } from 'ethers';
 
 
 export default {
   layout: "admin",
   middleware: ["check-auth", "auth"],
+ mixins: [BlockChainMixin],
   components: {
     Card,
     Modal,
@@ -101,15 +104,23 @@ export default {
       ]
     }
   },
+  watch: {
+    useChain(newValue){
+      console.log("useChain changed: " + newValue);
+      this.loadNotificationCategoriesFromChain()
+    }
+  },
   computed: {
     tableData(){
       let data = [];
 
       this.notificationTypes.forEach(type => {
         let row = {};
-        row.uuid = type.uuid;
-        row.name = type.name;
-        row.originalName = type.originalName;
+
+          row.uuid = type.uuid;
+          row.name = type.name;
+          row.originalName = type.originalName;
+
         data.push(row);
       })
 
@@ -128,10 +139,23 @@ export default {
       }
 
     },
-    deleteConfirmed(){
+    async deleteConfirmed(){
       console.log("Delete Confirmed");
       this.isLoading = true;
-      NotificationsAPI.deleteNotificationType(this.$store, this.selectedRow.uuid)
+      if(this.useChain) {
+        if(this.notificationCategoriesContract) {
+          try {
+            this.isLoading = true;
+            await this.notificationCategoriesContract.deleteCategory(ethers.BigNumber.from(this.selectedRow.uuid));
+            this.removeSelectedRow();
+            console.log("Notification Category deleted successfully");
+          } catch (error) {
+            console.error("Error deleting Notification Category:", error);
+          }
+        }
+        this.isLoading = false;
+      }else{
+        NotificationsAPI.deleteNotificationType(this.$store, this.selectedRow.uuid)
           .then(response => {
             this.removeSelectedRow();
             this.isLoading = false;
@@ -142,6 +166,7 @@ export default {
             alert(error);
             this.isLoading = false;
           });
+      }
     },
 
     removeSelectedRow(){
@@ -168,14 +193,64 @@ export default {
     },
 
     showSaveButton(type){
+      console.log("showSaveButton");
+      console.log(type);
       return type.originalName.localeCompare(type.name);
+
+      // if(type && type.name && type.originalName) {
+      //   return type.originalName.localeCompare(type.name);
+      // }else{
+      //   return false;
+      // }
     },
 
-    updateNotificationType(type){
-      console.log("Update Notification Type");
-      this.isLoading = true;
-      if(type.uuid !== 'new'){
-        NotificationsAPI.updateNotificationType(this.$store, type,type.uuid)
+    async updateNotificationType(type){
+      if(this.useChain){
+        if(this.notificationCategoriesContract) {
+          try {
+            this.isLoading = true;
+            if (type.uuid !== 'new'){
+              await this.notificationCategoriesContract.updateCategory(ethers.BigNumber.from(type.uuid), type.name, "", "");
+            }else {
+              await this.notificationCategoriesContract.createCategory(type.name, "", "");
+
+            }
+            let cleanCategories = []
+            this.notificationTypes.forEach(category => {
+              let row = {};
+
+              if(category.uuid === 'new'){
+                row.uuid = parseInt(this.nextId);
+                row.name = type.name;
+                row.originalName = type.name;
+                this.nextId++;
+              }else if(parseInt(category.uuid) === parseInt(type.uuid)){
+                row.uuid = parseInt(category.uuid);
+                row.name = type.name;
+                row.originalName = type.name;
+              }else{
+                row.uuid = parseInt(category.uuid);
+                row.originalName = category.originalName;
+                row.name = category.name;
+              }
+
+              cleanCategories.push(row);
+
+            });
+
+            this.notificationTypes = cleanCategories;
+
+            console.log("Notification Category added successfully");
+          } catch (error) {
+            console.error("Error adding Notification Category:", error);
+          }
+          this.isLoading = false;
+        }
+      }else {
+        console.log("Update Notification Type");
+        this.isLoading = true;
+        if (type.uuid !== 'new') {
+          NotificationsAPI.updateNotificationType(this.$store, type, type.uuid)
             .then(response => {
               console.log("update notification successfully");
               console.log(response);
@@ -187,9 +262,9 @@ export default {
               console.log(error);
               this.isLoading = false;
             });
-      }else{
-        let notification = {"name":type.name};
-        NotificationsAPI.addNotificationType(this.$store, notification)
+        } else {
+          let notification = {"name": type.name};
+          NotificationsAPI.addNotificationType(this.$store, notification)
             .then(notification => {
               console.log("add notification successfully")
               window.location.href = "/admin/notification-types";
@@ -199,6 +274,7 @@ export default {
               console.log(error);
               this.isLoading = false;
             });
+        }
       }
     },
 
@@ -217,23 +293,29 @@ export default {
       }else{
         return moment().format('M/D/YYYY');
       }
-    }
+    },
   },
-  mounted() {
+  async mounted() {
     this.isLoading = true;
+   if(this.useChain){
+     console.log("Need to load notification types from chain")
+     this.notificationTypes = await this.loadNotificationCategoriesFromChain();
+    this.isLoading = false;
+   }else {
     NotificationsAPI.getNotificationTypes(this.$store)
-        .then(notificationTypes => {
-          this.notificationTypes = notificationTypes;
-          this.notificationTypes.forEach(type => {
-              type.originalName = type.name;
-          });
-          this.isLoading = false;
-        })
-        .catch((error) => {
-          console.log("Error getting notification types in notification-types.vue");
-          console.log(error);
-          this.isLoading = false;
-        });
+     .then(notificationTypes => {
+      this.notificationTypes = notificationTypes;
+      this.notificationTypes.forEach(type => {
+       type.originalName = type.name;
+      });
+      this.isLoading = false;
+     })
+     .catch((error) => {
+      console.log("Error getting notification types in notification-types.vue");
+      console.log(error);
+      this.isLoading = false;
+     });
+   }
 
   }
 };

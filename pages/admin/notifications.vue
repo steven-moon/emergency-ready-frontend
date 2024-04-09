@@ -7,211 +7,200 @@
       <div class="col-md-10 ml-auto mr-auto">
 
         <h2 class="category text-success">Notifications</h2>
-<!--        <card type="blog">-->
-<!--          <h5 class="card-title">-->
-<!--            This Is Your One-Way Communication With Your Community.-->
-<!--          </h5>-->
-<!--          <div class="card-footer">-->
-<!--            <div class="author">-->
-<!--              <img-->
-<!--                v-lazy="'img/mike.jpg'"-->
-<!--                alt="..."-->
-<!--                class="avatar img-raised"-->
-<!--              />-->
-<!--              <span>Steve M.</span>-->
-<!--            </div>-->
-<!--            <div class="stats stats-right">-->
-<!--              <i class="now-ui-icons tech_watch-time"></i> Last notification-->
-<!--              sent 5 minutes ago-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </card>-->
+        <!--        <card type="blog">-->
+        <!--          <h5 class="card-title">-->
+        <!--            This Is Your One-Way Communication With Your Community.-->
+        <!--          </h5>-->
+        <!--          <div class="card-footer">-->
+        <!--            <div class="author">-->
+        <!--              <img-->
+        <!--                v-lazy="'img/mike.jpg'"-->
+        <!--                alt="..."-->
+        <!--                class="avatar img-raised"-->
+        <!--              />-->
+        <!--              <span>Steve M.</span>-->
+        <!--            </div>-->
+        <!--            <div class="stats stats-right">-->
+        <!--              <i class="now-ui-icons tech_watch-time"></i> Last notification-->
+        <!--              sent 5 minutes ago-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </card>-->
       </div>
-<!--      <tabs type="success" class="col-md-10 ml-auto mr-auto">-->
-<!--        <tab-pane label="">-->
-          <div class="create-notification">
-            <n-button
-              type="success"
-              round
-              simple
-              @click.native="createNotification"
-            >
-              <i class="now-ui-icons"></i> Create Notification
-            </n-button>
-          </div>
-          <card class="card-plain">
-            <div class="row">
-              <div class="col-sm-12">
-                <el-table ref="scheduledTable" :data="tableData">
-                  <el-table-column
-                    min-width="50"
-                    type="index"
-                  ></el-table-column>
-                  <el-table-column
-                    min-width="200"
-                    align="left"
-                    prop="title"
-                    label="Title"
-                  >
-                  </el-table-column>
-                  <el-table-column
-                    min-width="120"
-                    align="left"
-                    prop="date"
-                    label="Date"
-                  >
-                  </el-table-column>
-                  </el-table-column>
-                  <el-table-column
-                    min-width="150"
-                    header-align="right"
-                    label="Actions"
-                  >
-                    <template slot-scope="scope">
-                      <div class="text-right table-actions">
-                        <el-tooltip
-                          content="Edit"
-                          :open-delay="300"
-                          placement="top"
-                        >
+      <!--      <tabs type="success" class="col-md-10 ml-auto mr-auto">-->
+      <!--        <tab-pane label="">-->
+      <div class="create-notification">
+        <n-button
+          round
+          simple
+          type="success"
+          @click.native="createNotification"
+        >
+          <i class="now-ui-icons"></i> Create Notification
+        </n-button>
+      </div>
+      <card class="card-plain">
+        <div class="row">
+          <div class="col-sm-12">
+            <el-table ref="scheduledTable" :data="tableData">
+              <el-table-column
+                min-width="50"
+                type="index"
+              ></el-table-column>
+              <el-table-column
+                align="left"
+                label="Title"
+                min-width="200"
+                prop="title"
+              >
+              </el-table-column>
+              <el-table-column
+                align="left"
+                label="Date"
+                min-width="120"
+                prop="date"
+              >
+              </el-table-column>
+              </el-table-column>
+              <el-table-column
+                header-align="right"
+                label="Actions"
+                min-width="150"
+              >
+                <template slot-scope="scope">
+                  <div class="text-right table-actions">
+                    <el-tooltip
+                      :open-delay="300"
+                      content="Edit"
+                      placement="top"
+                    >
                           <span @click="() => handleEdit(scope.$index, scope.row)">
-                            <n-button type="success" round simple size="sm" icon>
+                            <n-button icon round simple size="sm" type="success">
                               <i class="now-ui-icons ui-2_settings-90"></i>
                             </n-button>
                           </span>
-                        </el-tooltip>
+                    </el-tooltip>
 
-                        <el-tooltip
-                          content="Delete"
-                          :open-delay="300"
-                          placement="top"
-                        >
+                    <el-tooltip
+                      :open-delay="300"
+                      content="Delete"
+                      placement="top"
+                    >
                           <span
                             @click="() => handleDelete(scope.$index, scope.row)"
                           >
-                            <n-button type="danger" round simple size="sm" icon>
+                            <n-button icon round simple size="sm" type="danger">
                               <i class="now-ui-icons ui-1_simple-remove"></i>
                             </n-button>
                           </span>
-                        </el-tooltip>
-                      </div>
-                    </template>
-                  </el-table-column>
-                </el-table>
-              </div>
-            </div>
-          </card>
-<!--        </tab-pane>-->
-<!--        <tab-pane label="Previous">-->
-<!--          <div class="create-notification">-->
-<!--            <n-button type="success" round simple @click.native="createNotification">-->
-<!--              <i class="now-ui-icons"></i> Create Notification-->
-<!--            </n-button>-->
-<!--          </div>-->
-<!--          <card class="card-plain">-->
-<!--            <div class="row">-->
-<!--              <div class="col-sm-12">-->
-<!--                <el-table ref="previousTable" :data="tableData">-->
-<!--                  <el-table-column-->
-<!--                    min-width="50"-->
-<!--                    type="index"-->
-<!--                  ></el-table-column>-->
-<!--                  <el-table-column-->
-<!--                    min-width="250"-->
-<!--                    align="left"-->
-<!--                    prop="title"-->
-<!--                    label="Title"-->
-<!--                  >-->
-<!--                  </el-table-column>-->
-<!--                  <el-table-column-->
-<!--                    min-width="60"-->
-<!--                    align="left"-->
-<!--                    prop="date"-->
-<!--                    label="Date"-->
-<!--                  >-->
-<!--                  </el-table-column>-->
-<!--                  <el-table-column-->
-<!--                    min-width="150"-->
-<!--                    header-align="right"-->
-<!--                    label="Actions"-->
-<!--                  >-->
-<!--                    <div class="text-right table-actions">-->
-<!--                      <el-tooltip-->
-<!--                        content="Edit"-->
-<!--                        :open-delay="300"-->
-<!--                        placement="top"-->
-<!--                        style="font-family: san-serif;"-->
-<!--                      >-->
-<!--                        <span @click="() => handleEdit(scope.$index, scope.row)">-->
-<!--                          <n-button type="success" round simple size="sm" icon>-->
-<!--                            <i class="now-ui-icons ui-2_settings-90"></i>-->
-<!--                          </n-button>-->
-<!--                        </span>-->
-<!--                      </el-tooltip>-->
+                    </el-tooltip>
+                  </div>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+        </div>
+      </card>
+      <!--        </tab-pane>-->
+      <!--        <tab-pane label="Previous">-->
+      <!--          <div class="create-notification">-->
+      <!--            <n-button type="success" round simple @click.native="createNotification">-->
+      <!--              <i class="now-ui-icons"></i> Create Notification-->
+      <!--            </n-button>-->
+      <!--          </div>-->
+      <!--          <card class="card-plain">-->
+      <!--            <div class="row">-->
+      <!--              <div class="col-sm-12">-->
+      <!--                <el-table ref="previousTable" :data="tableData">-->
+      <!--                  <el-table-column-->
+      <!--                    min-width="50"-->
+      <!--                    type="index"-->
+      <!--                  ></el-table-column>-->
+      <!--                  <el-table-column-->
+      <!--                    min-width="250"-->
+      <!--                    align="left"-->
+      <!--                    prop="title"-->
+      <!--                    label="Title"-->
+      <!--                  >-->
+      <!--                  </el-table-column>-->
+      <!--                  <el-table-column-->
+      <!--                    min-width="60"-->
+      <!--                    align="left"-->
+      <!--                    prop="date"-->
+      <!--                    label="Date"-->
+      <!--                  >-->
+      <!--                  </el-table-column>-->
+      <!--                  <el-table-column-->
+      <!--                    min-width="150"-->
+      <!--                    header-align="right"-->
+      <!--                    label="Actions"-->
+      <!--                  >-->
+      <!--                    <div class="text-right table-actions">-->
+      <!--                      <el-tooltip-->
+      <!--                        content="Edit"-->
+      <!--                        :open-delay="300"-->
+      <!--                        placement="top"-->
+      <!--                        style="font-family: san-serif;"-->
+      <!--                      >-->
+      <!--                        <span @click="() => handleEdit(scope.$index, scope.row)">-->
+      <!--                          <n-button type="success" round simple size="sm" icon>-->
+      <!--                            <i class="now-ui-icons ui-2_settings-90"></i>-->
+      <!--                          </n-button>-->
+      <!--                        </span>-->
+      <!--                      </el-tooltip>-->
 
-<!--                      <el-tooltip-->
-<!--                        content="Delete"-->
-<!--                        :open-delay="300"-->
-<!--                        placement="top"-->
-<!--                      >-->
-<!--                        <span-->
-<!--                          @click="() => handleDelete(scope.$index, scope.row)"-->
-<!--                        >-->
-<!--                          <n-button type="danger" round simple size="sm" icon>-->
-<!--                            <i class="now-ui-icons ui-1_simple-remove"></i>-->
-<!--                          </n-button>-->
-<!--                        </span>-->
-<!--                      </el-tooltip>-->
-<!--                    </div>-->
-<!--                  </el-table-column>-->
-<!--                </el-table>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </card>-->
-<!--        </tab-pane>-->
-<!--      </tabs>-->
+      <!--                      <el-tooltip-->
+      <!--                        content="Delete"-->
+      <!--                        :open-delay="300"-->
+      <!--                        placement="top"-->
+      <!--                      >-->
+      <!--                        <span-->
+      <!--                          @click="() => handleDelete(scope.$index, scope.row)"-->
+      <!--                        >-->
+      <!--                          <n-button type="danger" round simple size="sm" icon>-->
+      <!--                            <i class="now-ui-icons ui-1_simple-remove"></i>-->
+      <!--                          </n-button>-->
+      <!--                        </span>-->
+      <!--                      </el-tooltip>-->
+      <!--                    </div>-->
+      <!--                  </el-table-column>-->
+      <!--                </el-table>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </card>-->
+      <!--        </tab-pane>-->
+      <!--      </tabs>-->
     </div>
     <!-- Delete Modal -->
-<!--    <modal headerClasses="justify-content-center">-->
-<!--      <h4 slot="header" class="title title-up">Delete Notification</h4>-->
-<!--      <p>-->
-<!--        Deleting a notification can not be undone.  It will remove the notification in the admin and all of your app users.-->
-<!--      </p>-->
-<!--      <template slot="footer">-->
-<!--        <n-button type="default">Cancel</n-button>-->
-<!--        <n-button type="danger" @click.native="deleteConfirmed"-->
-<!--          >Delete</n-button-->
-<!--        >-->
-<!--      </template>-->
-<!--    </modal>-->
+    <!--    <modal headerClasses="justify-content-center">-->
+    <!--      <h4 slot="header" class="title title-up">Delete Notification</h4>-->
+    <!--      <p>-->
+    <!--        Deleting a notification can not be undone.  It will remove the notification in the admin and all of your app users.-->
+    <!--      </p>-->
+    <!--      <template slot="footer">-->
+    <!--        <n-button type="default">Cancel</n-button>-->
+    <!--        <n-button type="danger" @click.native="deleteConfirmed"-->
+    <!--          >Delete</n-button-->
+    <!--        >-->
+    <!--      </template>-->
+    <!--    </modal>-->
   </div>
 </template>
 <script>
 import moment from 'moment';
 
-import {
-  Card,
-  Button,
-  Modal,
-  Switch,
-  DropDown,
-  Tabs,
-  TabPane,
-} from "@/components";
-import {
-  Table,
-  TableColumn,
-  Tooltip,
-  TimeSelect,
-  DatePicker,
-} from "element-ui";
+import {Button, Card, DropDown, Modal, Switch, TabPane, Tabs,} from "@/components";
+import {DatePicker, Table, TableColumn, TimeSelect, Tooltip,} from "element-ui";
 
 import NotificationsAPI from "~/api/NotificationsAPI";
+import BlockChainMixin from "~/mixins/blockchain";
+import {ethers} from "ethers";
 
 
 export default {
   layout: "admin",
   middleware: ["check-auth", "auth"],
+  mixins: [BlockChainMixin],
   components: {
     Card,
     Modal,
@@ -234,33 +223,34 @@ export default {
       modalNotice: false,
       modalDelete: false,
       selectedRow: null,
-      notifications: []
+      notifications: [],
+      notificationTypes: []
     };
   },
-  head () {
+  head() {
     return {
       title: this.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'og:title', name: 'og:title', content: this.title },
-        { hid: 'description', name: 'description', content: this.description },
-        { hid: 'og:description', name: 'og:description', content: this.description },
-        { hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App" },
-        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title },
+        {hid: 'og:title', name: 'og:title', content: this.title},
+        {hid: 'description', name: 'description', content: this.description},
+        {hid: 'og:description', name: 'og:description', content: this.description},
+        {hid: 'og:site_name', name: 'og:site_name', content: "Emergency Ready App"},
+        {hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: this.title},
       ]
     }
   },
   computed: {
-    tableData(){
+    tableData() {
       let data = [];
 
       this.notifications.forEach(note => {
-         let row = {};
-         row.uuid = note.uuid;
-         row.title = note.title;
-         row.date = this.formatDate(note.created_at);
-         row.created_at = note.created_at;
-         data.push(row);
+        let row = {};
+        row.uuid = note.uuid;
+        row.title = note.title;
+        row.date = this.formatDate(note.created_at);
+        row.created_at = note.created_at;
+        data.push(row);
       })
 
       data = data.sort((a, b) => moment(b.created_at).unix() - moment(a.created_at).unix())
@@ -282,10 +272,24 @@ export default {
       }
 
     },
-    deleteConfirmed(){
+    async deleteConfirmed() {
       console.log("Delete Confirmed");
       this.isLoading = true;
-      NotificationsAPI.deleteNotification(this.$store, this.selectedRow.uuid)
+      if (this.useChain) {
+        this.isLoading = false;
+        if(this.notificationsContract) {
+          try {
+            this.isLoading = true;
+            await this.notificationsContract.deleteNotification(ethers.BigNumber.from(this.selectedRow.uuid));
+            this.removeSelectedRow();
+            console.log("Notification deleted successfully");
+          } catch (error) {
+            console.error("Error deleting Notification:", error);
+          }
+        }
+        this.isLoading = false;
+      }else {
+        NotificationsAPI.deleteNotification(this.$store, this.selectedRow.uuid)
           .then(response => {
             this.removeSelectedRow();
             this.isLoading = false;
@@ -296,12 +300,13 @@ export default {
             alert(error);
             this.isLoading = false;
           });
+      }
     },
 
-    removeSelectedRow(){
+    removeSelectedRow() {
       console.log(this.selectedRow);
-      for(let i = 0; i < this.notifications.length; i++) {
-        if(this.notifications[i].uuid === this.selectedRow.uuid) {
+      for (let i = 0; i < this.notifications.length; i++) {
+        if (this.notifications[i].uuid === this.selectedRow.uuid) {
           this.notifications.splice(i, 1);
           break;
         }
@@ -316,21 +321,27 @@ export default {
       window.location.href = "/admin/notification?id=" + row.uuid;
     },
 
-    createNotification(){
+    createNotification() {
       window.location.href = "/admin/notification";
     },
 
     formatDate(value) {
-      if(value) {
+      if (value) {
         return moment(value).format('M/D/YYYY');
-      }else{
+      } else {
         return moment().format('M/D/YYYY');
       }
     }
   },
-  mounted() {
+  async mounted() {
     this.isLoading = true;
-    NotificationsAPI.getNotifications(this.$store)
+    if (this.useChain) {
+        console.log("Need to load notification types from chain")
+        this.notificationTypes = await this.loadNotificationCategoriesFromChain();
+        this.notifications = await this.loadNotificationsFromChain();
+        this.isLoading = false;
+    } else {
+      NotificationsAPI.getNotifications(this.$store)
         .then(notifications => {
           this.notifications = notifications;
           this.isLoading = false;
@@ -341,7 +352,8 @@ export default {
           this.isLoading = false;
         });
 
-    NotificationsAPI.getNotificationTypes(this.$store);
+      NotificationsAPI.getNotificationTypes(this.$store);
+    }
   }
 };
 </script>
@@ -361,6 +373,7 @@ hr {
   margin-left: 8px;
   display: flex;
   align-items: center;
+
   label {
     margin-right: 16px;
   }
@@ -382,7 +395,7 @@ hr {
   line-height: normal;
   font-size: 0.8571em;
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
+  background-color 0.3s ease-in-out;
 }
 
 .send-later__container {
@@ -390,10 +403,12 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   button {
     margin: 0;
     margin-bottom: 10px;
   }
+
   .highlighted {
     background-color: gray;
   }
