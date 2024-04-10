@@ -138,10 +138,10 @@ export default {
       console.log(`Switching to chain: ${chain}`);
       // Placeholder for the actual chain switching logic
     },
-    isWalletConnected() {
+    async isWalletConnected() {
       if (process.client) {
         if (typeof window.ethereum !== 'undefined' && this.$Web3) {
-          console.log("this.$Web3.isConnected = " + this.$Web3.isConnected())
+          console.log("this.$Web3.isConnected = " + await this.$Web3.isConnected())
           return this.$Web3.isConnected();
           // console.log('Connected to provider');
         } else {

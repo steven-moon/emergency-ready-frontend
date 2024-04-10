@@ -216,9 +216,9 @@ export default {
 
     },
     async mounted() {
+        console.log("BEGIN: mounted() in blockchain mixin")
         this.useChain = process.env.USE_CHAIN || false;
-        if(this.useChain){
-
+        if(this.useChain && this.$Web3.isConnected()){
             await this.loadUserTrackerFromChain();
         }
     }

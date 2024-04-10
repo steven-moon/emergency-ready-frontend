@@ -63,6 +63,56 @@ EthersPlugin.install = function (Vue, options) {
 
     var targetChain = chains[defaultChain];
 
+    async function loadProvider() {
+        isWalletConnected = true;
+        isConnectedToTargetChain = false;
+        currentChainId = null;
+
+        provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+        provider.on("network", (newNetwork, oldNetwork) => {
+            // When a Provider makes its initial connection, it emits a "network"
+            // event with a null oldNetwork along with the newNetwork. So, if the
+            // oldNetwork exists, it represents a changing network
+            if (oldNetwork) {
+                //window.location.reload();
+            }
+        });
+
+        if(localVueInstance)
+            localVueInstance.$store.commit('setIsWalletConnected', isWalletConnected);
+        else
+            console.log("localVueInstance is Null")
+    }
+
+    async function checkWalletConnection() {
+        // Check if window.ethereum is available
+        if (window.ethereum) {
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                // Create an ethers provider
+                // const provider = new ethers.providers.Web3Provider(window.ethereum);
+                //
+                // // Request the user's accounts
+                // const accounts = await provider.listAccounts();
+
+                // Check if any accounts are connected
+                if (accounts.length > 0) {
+                    console.log('Connected to MetaMask:', accounts[0]);
+                    return true;
+                } else {
+                    console.log('Not connected to MetaMask.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        } else {
+            console.log('MetaMask is not installed.');
+        }
+        return false;
+    }
+
+
     async function switchToTargetChain() {
         try {
             await provider.send('wallet_switchEthereumChain', [{ chainId: targetChain.chainId }]);
@@ -86,29 +136,16 @@ EthersPlugin.install = function (Vue, options) {
     async function initialize(vueInstance) {
         localVueInstance = vueInstance;
         if (window.ethereum) {
-            isWalletConnected = true;
-            isConnectedToTargetChain = false;
-            currentChainId = null;
-
-            provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-            provider.on("network", (newNetwork, oldNetwork) => {
-                // When a Provider makes its initial connection, it emits a "network"
-                // event with a null oldNetwork along with the newNetwork. So, if the
-                // oldNetwork exists, it represents a changing network
-                if (oldNetwork) {
-                    //window.location.reload();
-                }
-            });
-
-            if(localVueInstance)
-                localVueInstance.$store.commit('setIsWalletConnected', isWalletConnected);
-            else
-                console.log("localVueInstance is Null")
+            await loadProvider();
         }
     }
 
     blockchain.connectWallet = async function() {
         try {
+            if(!provider){
+                await loadProvider();
+            }
+
             await provider.send("eth_requestAccounts", []);
             isWalletConnected = true;
 
@@ -186,8 +223,8 @@ EthersPlugin.install = function (Vue, options) {
         } else return ethers.utils.id(texto)
     };
 
-    blockchain.isConnected = function() {
-        return typeof window.ethereum !== 'undefined';
+    blockchain.isConnected = async function() {
+        return typeof window.ethereum !== 'undefined' && await checkWalletConnection();
     };
 
     blockchain.getCurrentChainId = function() {
