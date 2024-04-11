@@ -127,8 +127,8 @@ export default {
                         if(notificationObject[1] && notificationObject[1].id && notificationObject[1].id > 0){
                             category = notificationObject[1];
                         }
-                        //console.log("Notification: ");
-                        ///console.log(notification);
+                        console.log("Notification: ");
+                        console.log(notification);
                         //console.log("id: ");
                         allNotifications.push(notification);
                         if(notification && notification.id && notification.id > 0 && parseInt(notification.deletedAt) === 0) {
