@@ -84,8 +84,10 @@ export default {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        '~/plugins/form-validation.js',
-        '~/plugins/global.js',
+        {src: '~/plugins/form-validation.js', ssr: false, mode: 'client' },
+
+        {src: '~/plugins/global.js', ssr: false, mode: 'client' },
+
         {src: '~/plugins/now-ui-kit' },
         {src: '~/plugins/element-ui.js'},
         // {src: '~/plugins/ethers.js', ssr: false, mode: 'client' },
