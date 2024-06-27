@@ -88,7 +88,7 @@ export default {
         '~/plugins/global.js',
         {src: '~/plugins/now-ui-kit' },
         {src: '~/plugins/element-ui.js'},
-        {src: '~/plugins/ethers.js', ssr: false, mode: 'client' },
+        // {src: '~/plugins/ethers.js', ssr: false, mode: 'client' },
         {src: '~/plugins/globalDirectives.js', ssr: false, mode: 'client' },
         {src: '~/plugins/persist.js', ssr: false, mode: 'client'},
         {src: '~/plugins/vuejs-datepicker.js', mode: 'client'},
