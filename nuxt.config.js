@@ -5,7 +5,6 @@ const nodeExternals = require('webpack-node-externals');
 
 require('dotenv').config();
 
-
 export default {
     mode: 'universal',
     /* Increase build speed */
@@ -100,20 +99,21 @@ export default {
         {src: '~/plugins/vue-h5-swiper.js', ssr: false, mode: 'client'},
         //{src: '~/plugins/argon/full-calendar', ssr: false },
         //{src: '~/plugins/argon/world-map', ssr: false },
-        {src: '~/plugins/sentry.js', mode: 'client'},
+        // {src: '~/plugins/sentry.js', mode: 'client'},
         // { src: '~/plugins/black/full-calendar.js', ssr: false },
         // { src: '~/plugins/black/world-map.js', ssr: false }
     ],
     /*
     ** Nuxt.js dev-modules
     */
-    devModules: [],
+    buildModules: [
+        '@nuxtjs/dotenv',
+    ],
     /*
      ** Nuxt.js modules
      */
     modules: [
         '@nuxtjs/pwa',
-        '@nuxtjs/dotenv',
         '@nuxtjs/redirect-module',
         '@nuxtjs/sitemap',
         ['@nuxtjs/google-analytics', {id: 'G-HWPLF2DR7W'}],
@@ -160,6 +160,9 @@ export default {
         ],
         extractCSS: process.env.NODE_ENV === 'production',
         babel: {
+            presets: [
+                '@nuxt/babel-preset-app'
+            ],
             plugins: [
                 [
                     'component',
