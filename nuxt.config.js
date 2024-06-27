@@ -146,6 +146,13 @@ export default {
      ** Build configuration
      */
     build: {
+        loaders: {
+            scss: {
+                sassOptions: {
+                    quietDeps: true // Suppress deprecation warnings from dependencies
+                }
+            }
+        },
         /**
          * add external plugins
          */

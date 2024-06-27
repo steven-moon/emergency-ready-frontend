@@ -1,16 +1,16 @@
 <template>
     <div class="cd-section" id="contactus" v-if="withMap">
         <div class="contactus-2">
-            <gmap-map
-                    :center="center"
-                    :options="options"
-                    :zoom="9.5"
-                    class="map"
-                    id="map"
-                    map-type-id="roadmap">
-                <gmap-marker :position="center">
-                </gmap-marker>
-            </gmap-map>
+<!--            <gmap-map-->
+<!--                    :center="center"-->
+<!--                    :options="options"-->
+<!--                    :zoom="9.5"-->
+<!--                    class="map"-->
+<!--                    id="map"-->
+<!--                    map-type-id="roadmap">-->
+<!--                <gmap-marker :position="center">-->
+<!--                </gmap-marker>-->
+<!--            </gmap-map>-->
             <div class="col-md-9 col-lg-8 col-sm-11 pt-5 mr-auto ml-auto">
                 <card header-classes="text-center pt-3" raised style="min-height: 660px;" type="contact" v-if="isLoading">
                     <h4 class="card-title pt-2" slot="header">Contact Us</h4>
@@ -127,14 +127,14 @@
                     <div class="row"><br></div>
                     <div class="row">
                         <div class="col-12 right">
-                            <vue-recaptcha
-                                    :loadRecaptchaScript="true"
-                                    :sitekey="sitekey"
-                                    @verify="onVerify"
-                                    ref="invisibleRecaptcha"
-                                    size="invisible">
-                                <n-button class="pull-right" round type="success">Send Message</n-button>
-                            </vue-recaptcha>
+<!--                            <vue-recaptcha-->
+<!--                                    :loadRecaptchaScript="true"-->
+<!--                                    :sitekey="sitekey"-->
+<!--                                    @verify="onVerify"-->
+<!--                                    ref="invisibleRecaptcha"-->
+<!--                                    size="invisible">-->
+                                <n-button class="pull-right" round type="success" @click.native="submitForm">Send Message</n-button>
+<!--                            </vue-recaptcha>-->
                         </div>
                     </div>
 
@@ -246,15 +246,15 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-12 right">
-                                    <vue-recaptcha
-                                            :loadRecaptchaScript="true"
-                                            :sitekey="sitekey"
-                                            @verify="onVerify"
-                                            ref="invisibleRecaptcha"
-                                            size="invisible">
-                                        <n-button class="pull-right" round type="primary">Send Message</n-button>
-                                    </vue-recaptcha>
+                                <div class="col-12 right" >
+<!--                                    <vue-recaptcha-->
+<!--                                            :loadRecaptchaScript="true"-->
+<!--                                            :sitekey="sitekey"-->
+<!--                                            @verify="onVerify"-->
+<!--                                            ref="invisibleRecaptcha"-->
+<!--                                            size="invisible">-->
+                                        <n-button class="pull-right" round type="primary" @click.native="submitForm">Send Message</n-button>
+<!--                                    </vue-recaptcha>-->
                                 </div>
                             </div>
                         </card>
@@ -269,16 +269,16 @@
 
 
     import { API_KEY, SITE_KEY } from '@/constants'
-    import Vue from 'vue'
-    import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
+    // import Vue from 'vue'
+    // import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
     import VueRecaptcha from 'vue-recaptcha'
     import CommonAPI from '~/api/CommonAPI'
 
-    Vue.use(VueGoogleMaps, {
-        load: {
-            key: API_KEY
-        }
-    })
+    // Vue.use(VueGoogleMaps, {
+    //     load: {
+    //         key: API_KEY
+    //     }
+    // })
     export default {
         name: 'contact-us',
         props: {
@@ -470,6 +470,7 @@
         },
         methods: {
             submitForm() {
+              console.log("submit form");
                 this.$gtag('event', 'contact_form_submitted');
                 this.$gtag('event', 'conversion', {'send_to': 'AW-1039818342/-euOCPnN3sIBEOa86e8D'});
 
