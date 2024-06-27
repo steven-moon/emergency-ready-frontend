@@ -2,14 +2,14 @@ import Vue from 'vue';
 import globalComponents from './globalComponents';
 import lang from 'element-ui/lib/locale/lang/en';
 import locale from 'element-ui/lib/locale';
-import VueLazyload from 'vue-lazyload'
-import VueSpinners from 'vue-spinners'
+import VueLazyload from 'vue-lazyload';
+import VueSpinners from 'vue-spinners';
 import Draggable from 'vuedraggable';
 import Multiselect from 'vue-multiselect';
-import VueTabs from 'vue-nav-tabs/dist/vue-tabs.js'
+import VueTabs from 'vue-nav-tabs/dist/vue-tabs.js';
 import VuePaginate from 'vue-paginate';
 import VTooltip from 'v-tooltip';
-import VueMq from 'vue-mq'
+import VueMq from 'vue-mq';
 
 import '@/polyfills';
 
@@ -22,14 +22,12 @@ import ArgonNotifications from '~/components/Argon/argon-core/NotificationPlugin
 // Sidebar on the right. Used as a local plugin in DashboardLayout.vue
 import ArgonSideBar from '~/components/Argon/argon-core/SidebarPlugin';
 
-// RTL (right to left plugin to support rtl layout). If you don't need support for rtl, remove this plugin
-
 // Validation plugin used to validate forms
 import VeeValidate from 'vee-validate';
 // RTL (right to left plugin to support rtl layout). If you don't need support for rtl, remove this plugin
 import RTLPlugin from './RTLPlugin';
 
-// export default () => {
+export default () => {
   Vue.use(globalComponents);
   Vue.use(VueMq, {
     breakpoints: {
@@ -37,7 +35,7 @@ import RTLPlugin from './RTLPlugin';
       tablet: 1023,
       laptop: 1200,
       desktop: Infinity,
-    }
+    },
   });
 
   Vue.use(VTooltip);
@@ -53,8 +51,8 @@ import RTLPlugin from './RTLPlugin';
     // optional
     observerOptions: {
       rootMargin: '0px',
-      threshold: 0.1
-    }
+      threshold: 0.1,
+    },
   });
   Vue.use(RTLPlugin);
   Vue.use(VeeValidate, { fieldsBagName: 'veeFields' });
@@ -62,7 +60,8 @@ import RTLPlugin from './RTLPlugin';
   Vue.use(BlackNotifications);
   Vue.use(ArgonSideBar);
   Vue.use(ArgonNotifications);
-// }
+};
 
-// import './black/dashboard-plugin';
+// Import the dashboard plugins
+//import './black/dashboard-plugin';
 import './argon/dashboard-plugin';
