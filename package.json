@@ -93,6 +93,9 @@
     "cross-env": "^7.0.2",
     "nodemon": "^2.0.4",
     "sass": "^1.77.6",
-    "sass-loader": "^10.5.2"
+    "sass-loader": "^10.5.2",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0"
   }
 }
