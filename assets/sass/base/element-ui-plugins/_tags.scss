@@ -37,10 +37,10 @@
   }
 }
 
-  @include tag('info', $base-info-color)
-  @include tag('primary', $base-primary-color)
-  @include tag('success', $base-success-color)
-  @include tag('warning', $base-warning-color)
-  @include tag('danger', $base-danger-color)
-  @include tag('default', $default-color)
+  @include tag('info', $base-info-color);
+  @include tag('primary', $base-primary-color);
+  @include tag('success', $base-success-color);
+  @include tag('warning', $base-warning-color);
+  @include tag('danger', $base-danger-color);
+  @include tag('default', $default-color);
 

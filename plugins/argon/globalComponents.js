@@ -1,6 +1,6 @@
 import Badge from '~/components/Argon/argon-core/Badge.vue';
 import BaseAlert from "~/components/Argon/argon-core/BaseAlert";
-// import BaseButton from '~/components/Argon/argon-core/BaseButton.vue';
+import BaseButton from '~/components/Argon/argon-core/BaseButton.vue';
 import BaseCheckbox from '~/components/Argon/argon-core/Inputs/BaseCheckbox.vue';
 import BaseDropdown from '~/components/Argon/argon-core/BaseDropdown.vue';
 import BaseHeader from '~/components/Argon/argon-core/BaseHeader';
