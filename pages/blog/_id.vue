@@ -216,6 +216,7 @@
    */
   import * as moment from 'moment';
   import {mapGetters} from 'vuex';
+  import UtilsMixin from "~/mixins/utils";
 
   /**
    * Internal Dependencies
@@ -228,6 +229,7 @@
   export default {
     name: 'blog-post',
     layout: 'default',
+    mixins: [UtilsMixin],
     head () {
       return {
         title: "Emergency Ready App - Blog Post",

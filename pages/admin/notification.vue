@@ -89,6 +89,7 @@ import { Button, Modal, FormGroupInput,DropDown } from "@/components/UIKit";
 import { Popover, Tooltip, DatePicker, TimeSelect } from "element-ui";
 
 import NotificationsAPI from "@/api/NotificationsAPI";
+import UtilsMixin from "~/mixins/utils";
 
 
 
@@ -103,6 +104,7 @@ export default {
     [TimeSelect.name]: TimeSelect,
     [DropDown.name]: DropDown,
   },
+  mixins: [UtilsMixin],
   data() {
     return {
       isLoading: true,

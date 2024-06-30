@@ -15,12 +15,14 @@
   </div>
 </template>
 <script>
+import UtilsMixin from "~/mixins/utils";
 
 export default {
   layout: "admin",
   middleware: ["check-auth", "auth"],
   components: {
   },
+  mixins: [UtilsMixin],
   data() {
     return {
     };

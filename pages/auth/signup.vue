@@ -138,12 +138,15 @@ import { Button, FormGroupInput } from "@/components/UIKit";
 import areaPrepared from "../../static/images/area-prepared.png";
 import CommonAPI from '~/api/CommonAPI';
 
+import UtilsMixin from "~/mixins/utils";
+
 export default {
   layout: "default-auth",
   components: {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
   },
+  mixins: [UtilsMixin],
   data() {
     return {
       image: areaPrepared,

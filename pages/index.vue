@@ -154,10 +154,12 @@
 </template>
 <script>
     import {mapGetters} from "vuex";
+    import UtilsMixin from "~/mixins/utils";
 
     export default {
         name: 'home',
         layout: 'default',
+        mixins: [UtilsMixin],
         data () {
             return {
                 title: 'Emergency Ready App',

@@ -3,10 +3,13 @@
 </template>
 <script>
   import SubPage from '@/components/EmergencyReady/SubPage'
+  import UtilsMixin from "~/mixins/utils";
+
   export default {
     name: 'custom-branded',
     layout: 'default',
     components: {SubPage},
+    mixins: [UtilsMixin],
     data () {
       return {
         title: 'Custom Emergency Preparedness App',

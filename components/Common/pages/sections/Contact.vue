@@ -273,6 +273,7 @@
     // import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
     import VueRecaptcha from 'vue-recaptcha'
     import CommonAPI from '~/api/CommonAPI'
+    import {mapGetters} from "vuex";
 
     // Vue.use(VueGoogleMaps, {
     //     load: {
@@ -489,7 +490,7 @@
                     lead_status: 'New',
                     source_site: 'emergencyreadyapp.com',
                     page_url: this.pageUrl,
-                     pages_viewed: [],
+                     pages_viewed: this.pagesViewed,
                     campaign: '',
                     file_url: '',
                     file_name: ''
@@ -515,7 +516,11 @@
                 this.submitForm()
             }
         },
-        computed: {},
+        computed: {
+        ...mapGetters('pageData', {
+            pagesViewed: 'pagesViewed',
+          })
+        },
         mounted() {
 
         },

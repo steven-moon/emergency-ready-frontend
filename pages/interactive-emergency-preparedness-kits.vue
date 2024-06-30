@@ -3,9 +3,11 @@
 </template>
 <script>
   import SubPage from '@/components/EmergencyReady/SubPage'
+  import UtilsMixin from "~/mixins/utils";
   export default {
     name: 'interactive-emergency-kits',
     components: {SubPage},
+    mixins: [UtilsMixin],
     layout: 'default',
     data () {
       return {

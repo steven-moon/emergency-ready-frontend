@@ -56,6 +56,7 @@
 </template>
 <script>
 import { Button, FormGroupInput } from "@/components/UIKit";
+import UtilsMixin from "~/mixins/utils";
 
 export default {
   layout: "default-auth",
@@ -63,6 +64,7 @@ export default {
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
   },
+  mixins: [UtilsMixin],
   data() {
     return {
       form: {

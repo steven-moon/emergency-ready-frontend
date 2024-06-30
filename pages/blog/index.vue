@@ -155,6 +155,7 @@
    */
   //import { WP_API_GET_POSTS_ENDPOINT } from '@/constants';
   import mapColorClass from '@/utils/mapColorClass';
+  import UtilsMixin from "~/mixins/utils";
 
 
   export default {
@@ -162,6 +163,7 @@
     layout: 'default',
     components: {
     },
+    mixins: [UtilsMixin],
     head () {
       return {
         title: "Emergency Ready App - Blog",

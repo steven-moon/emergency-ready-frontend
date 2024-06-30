@@ -7,19 +7,19 @@
         </div>
     </div>
 </template>
-Emergency Ready
 <script>
 
     import ContactUs from '@/components/Sections/ContactUs'
     import Subscribe from '@/components/Sections/Subscribe'
+    import UtilsMixin from "~/mixins/utils";
 
     export default {
         name: 'AboutUs',
         components: {
-            EmergencyReadyAppPrivacyPolicy,
             ContactUs,
             Subscribe,
         },
+        mixins: [UtilsMixin],
         data () {
             return {
                 title: 'Emergency Ready App - Privacy Policy',

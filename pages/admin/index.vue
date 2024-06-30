@@ -34,6 +34,7 @@
 </template>
 <script>
 import { Button } from "@/components/UIKit";
+import UtilsMixin from "~/mixins/utils";
 
 export default {
   layout: "admin",
@@ -41,6 +42,7 @@ export default {
   components: {
     [Button.name]: Button
   },
+  mixins: [UtilsMixin],
   data() {
     return {
     };

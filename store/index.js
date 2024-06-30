@@ -6,6 +6,7 @@ import clonedeep from "lodash.clonedeep";
  * Internal dependencies.
  */
 import notifications from './modules/notifications';
+import pageData from './modules/page-data-store';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ const createStore = () => {
       namespaced,
       modules: {
           notifications,
+          pageData
       },
       state: {
           images: [],

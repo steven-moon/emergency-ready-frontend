@@ -207,6 +207,7 @@ import {
 } from "element-ui";
 
 import NotificationsAPI from "~/api/NotificationsAPI";
+import UtilsMixin from "~/mixins/utils";
 
 
 export default {
@@ -226,6 +227,7 @@ export default {
     Tabs,
     TabPane,
   },
+  mixins: [UtilsMixin],
   data() {
     return {
       isLoading: true,

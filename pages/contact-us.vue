@@ -3,11 +3,13 @@
 </template>
 
 <script>
+import UtilsMixin from "~/mixins/utils";
 
 
   export default {
     name: 'contact-us',
     layout: 'default',
+    mixins: [UtilsMixin],
     data () {
       return {
         title: 'Contact Us - Emergency Ready App',
