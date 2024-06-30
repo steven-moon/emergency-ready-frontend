@@ -304,9 +304,10 @@ const instance = {
             });
     },
     sendContactUsForm(formData) {
+
         console.log('BEGIN: sendContactUsForm');
         return axios.post(
-            process.env.baseUrl + "api/contact-us", formData
+            "https://api.summacoding.com/api/contact-us", formData
         )
             .then(response => {
                 console.log(response);

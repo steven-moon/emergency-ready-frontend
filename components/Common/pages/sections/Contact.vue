@@ -488,6 +488,8 @@
                     first_contact_type: 'ER Contact Form',
                     lead_status: 'New',
                     source_site: 'emergencyreadyapp.com',
+                    page_url: this.pageUrl,
+                     pages_viewed: [],
                     campaign: '',
                     file_url: '',
                     file_name: ''
@@ -519,6 +521,7 @@
         },
         created() {
 
+          this.pageUrl = this.$route.path;
         }
     }
 </script>
